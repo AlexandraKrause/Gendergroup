@@ -10,10 +10,6 @@ library(dplyr)
 
 ####first step:get data####
 
-#input_table_gender <-read.delim("./input_table_gender.txt", header=T)
-#names(input_table_gender)
-example <- read.csv("./example_input_table.csv")
-
 input_table_gender <-read.csv2("./input_table_gender.csv", dec = ",")
 names(input_table_gender)
 str(input_table_gender)
