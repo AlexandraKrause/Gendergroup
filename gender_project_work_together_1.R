@@ -12,6 +12,8 @@ library(dplyr)
 #ETF_costs =200
 #das ist nicht notwendig, würde den code aber hübscher machen
 #die ersten calcs weglöschen? muss noch ausprobieren
+#no_plan klappt nicht
+#
 
 ####first step:get data####
 
@@ -47,41 +49,41 @@ decision_function <- function(x, varnames){
   
   
 Own_business_branch <- vv(var_mean = Own_branch, 
-                          var_CV_40 = var_CV_40, 
-                          n = 396)
+                          var_CV_40 = 5, 
+                          n = 2)
   
   
 Off-Farm_job <- vv(var_mean = Off-Farm_job, 
-                   var_CV_40 = var_CV_40, 
-                    n = 396)
+                   var_CV_40 = 5, 
+                    n = 2)
   
 Family_money <- vv(var_mean = Family_money, 
-                    var_CV_40 = var_CV_40, 
-                    n = 396)
+                    var_CV_40 = 5, 
+                    n = 2)
   
   
 Farm_job_payed <- vv(var_mean = Farm_job_payed, 
-                      var_CV_40 = var_CV_40, 
+                      var_CV_40 = 5, 
                       n = 396)
   
 ETF <- vv(var_mean = ETF, 
-          var_CV_82 = var_CV_82, 
+          var_CV_82 = 5, 
           n = 984)    
   
 Private_insurance <- vv(var_mean = Private_insurance, 
-                        var_CV_40 = var_CV_40, 
+                        var_CV_40 = 5, 
                         n = 396)
 
 Private_insurance_inv <- vv(var_mean = Private_insurance_inv, 
-                            var_CV_17 = var_CV_17, 
+                            var_CV_17 = 5, 
                             n = 204)
   
 State_insurance <- vv(var_mean = State_insurance, 
-                      var_CV_17 = var_CV_17, 
+                      var_CV_17 = 5, 
                       n = 204)
   
 State_insurance_inv <- vv(var_mean = State_insurance_inv, 
-                          var_CV_17 = var_CV_17, 
+                          var_CV_17 = 5, 
                           n = 204)
   
 #### calculate ex-ante risks ####
@@ -242,7 +244,14 @@ return(list(NPV_no_Mix =  NPV_no_Mix,
 
 ####Model branches####
 # Estimate the pension without plan
-pension_without_plan <- Default_option2 * Default_option3
+No_Plan <- Default_option2 + Default_option3
+  
+  if (Default_option2 + Default_option3) {
+    Family_money <- FALSE
+    Farm_job_payed <- FALSE
+    Own_branch <- FALSE
+    Off_Farm_job <- FALSE}
+
 #no cost
 #doppeln sich die child and elderly care sachen mit den risks?
 
@@ -317,13 +326,11 @@ if (Off_Farm_job)
             Farm_job_payed <- TRUE
             Own_branch <- TRUE
             Off_Farm_job <- TRUE
-        } 
-        else
-        {
-          State_insurance <- FALSE
-        } 
-}
-
+          } else
+          {
+            State_insurance <- FALSE
+          } 
+        }
 ####Pension options: Fifth branch of the tree: ETF
 
 
@@ -370,7 +377,7 @@ for (Mix in c(FALSE,TRUE))
 
 ####Pension options: State insurance####
 
-for (Mix in c(FALSE,TRUE))
+for (State_insurance_inv in c(FALSE,TRUE))
 {
   
   if (Farm_job_payed)
@@ -427,13 +434,12 @@ for (ETF_costs in c(FALSE,TRUE))
   {
     State_insurance_inv<- TRUE 
     State_insurance_inv= 200
-    }
   
 } else
 {
   ETF <- FALSE
 } 
-
+}
 
 
 
@@ -462,13 +468,127 @@ for (Mix in c(FALSE,TRUE))
    {
      State_insurance_inv<- TRUE 
      State_insurance_inv= 200
-  }
     
   } else
   {
     Mix <- FALSE
   } 
+}
 
+#####Pension options:  Private insurance
+
+
+for (Private_insurance_inv in c(FALSE,TRUE))
+{
+  if (Farm_job_payed)
+  {
+    Private_insurance_inv<-TRUE
+    Private_insurance_inv = 200
+  }
+  if (Family_money)
+  {
+    Private_insurance_inv<-TRUE
+    Private_insurance_inv = 100
+  }
+  if (Own_branch)
+  {
+    MPrivate_insurance_inv<-TRUE
+    Private_insurance_inv = 300
+  }
+  if (Off_Farm_job)
+  {
+    Private_insurance_inv<- TRUE 
+    Private_insurance_inv= 200
+    
+  } else
+  {
+    Private_insurance <- FALSE
+  } 
+}
+
+######Pension options: Agricultral insurance
+
+
+for (Agri_insurance_inv in c(FALSE,TRUE))
+{
+  if (Farm_job_payed)
+  {
+    Agri_insurance_inv<-TRUE
+    Agri_insurance_inv = 200
+  }
+  if (Family_money)
+  {
+    Agri_insurance_inv<-TRUE
+    Agri_insurance_inv = 100
+  }
+  if (Own_branch)
+  {
+    Agri_insurance_inv<-TRUE
+    Agri_insurance_inv = 300
+  }
+  if (Off_Farm_job)
+  {
+    Agri_insurance_inv<- TRUE 
+    Agri_insurance_inv= 200
+    
+  } else
+  {
+    Agri_insurance <- FALSE
+  } 
+}
+
+####Put everything together####
+####Costs####
+Costs<-(State_insurance_inv + Agri_insurance_inv + Private_insurance_inv + State_insurance_inv + ETF_costs + Mix_costs)
+
+
+
+if (Overall_costs) {
+  Overall_costs <-
+    State_insurance_inv + 
+    Agri_insurance_inv + 
+    Private_insurance_inv + 
+    State_insurance_inv + 
+    ETF_costs + 
+    Mix_costs
+} else
+  Overall_costs <- 0
+
+    
+
+if (Overall_costs_no_plan) {
+  Overall_costs_no_plan <-
+  Default_option3_costs
+} else
+  No_Plan <- 0
+
+maintenance_cost <- rep(0, n_years)
+
+
+#### Benefits  ####
+
+  
+Overall_benefits<- Family_money+ Farm_job_payed + Own_branch + Self_employed + Off_Farm_job + Agri_insurance + Private_insurance +State_insurance + ETF + Mix
+
+Overall_benefits_no_plan<-Default_option2 + Default_option3
+
+
+
+#NPV_interv <-
+#  discount(result_interv, discount_rate, calculate_NPV = TRUE)
+
+#NPV_n_interv <-
+#  discount(result_n_interv, discount_rate, calculate_NPV = TRUE)
+
+# Beware, if you do not name your outputs 
+# (left-hand side of the equal sign) in the return section, 
+# the variables will be called output_1, _2, etc.
+
+#return(list(Interv_NPV = NPV_interv,
+#            NO_Interv_NPV = NPV_n_interv,
+#            NPV_decision_do = NPV_interv - NPV_n_interv,
+#            Cashflow_decision_do = result_interv - result_n_interv))
+#}
 
 
 
