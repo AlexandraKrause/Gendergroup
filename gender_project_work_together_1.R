@@ -13,7 +13,17 @@ library(dplyr)
 #das ist nicht notwendig, würde den code aber hübscher machen
 #die ersten calcs weglöschen? muss noch ausprobieren
 #no_plan klappt nicht
-#
+#default options stehen bestimmt überall doppelt drin
+
+
+
+#was noch zu tun wäre:
+#bei den costs put together für jede variante einzeln einfügen
+#sowas:
+#Overall_benefits<- Family_money+ Farm_job_payed + Own_branch + Off_Farm_job + Agri_insurance + Private_insurance +State_insurance + ETF + Mix
+
+#Overall_benefits_no_plan<-Default_option_2 + Default_option_3
+#für overall costs und overall benefits
 
 ####first step:get data####
 
@@ -131,7 +141,7 @@ Costs_for_elderly_care_adjusted_Own_business_branch <- chance_event(chance =
   
   
 # calculate pension without own business branch
-profit_without_Own_business_branch <- Default_option3 + Default_option2
+profit_without_Own_business_branch <- Default_option_3 + Default_option_2
 profit_with_Own_business_branch <- Own_branch
   
   
@@ -152,7 +162,7 @@ return(list(NPV_no_branch =  NPV_no_branch,
 #### then private insurance####
   
 # calculate pension without private insurance
-profit_without_private_insurance <- Default_option3 + Default_option2
+profit_without_private_insurance <- Default_option_3 + Default_option_2
 
 # calculate pension with private insurance
 profit_with_private_insurance <- Private_insurance
@@ -175,7 +185,7 @@ NPV_decision <- NPV_pi-NPV_no_pi
 #### then state insurance####
   
 # calculate pension without state insurance
-profit_without_State_insurance <- Default_option3 + Default_option2
+profit_without_State_insurance <- Default_option_3 + Default_option_2
   
 # calculate pension with state insurance
 profit_with_State_insurance <- State_insurance
@@ -198,7 +208,7 @@ return(list(NPV_no_si =  NPV_no_si,
 #### then ETF ####
 
 # calculate pension without ETF
-profit_without_ETF <- Default_option3 + Default_option2
+profit_without_ETF <- Default_option_3 + Default_option_2
   
 # calculate pension with ETF
 profit_with_ETF <- ETF
@@ -222,7 +232,7 @@ NPV_ETF <- discount(profit_with_ETF,
 #### then Mix ####
 
 # calculate pension without Mix
-profit_without_ETF <- Default_option3 + Default_option2
+profit_without_ETF <- Default_option_3 + Default_option_2
 
 # calculate pension with Mix
 profit_with_Mix <- Mix
@@ -244,9 +254,9 @@ return(list(NPV_no_Mix =  NPV_no_Mix,
 
 ####Model branches####
 # Estimate the pension without plan
-No_Plan <- Default_option2 + Default_option3
+No_Plan <- Default_option_2 + Default_option_3
   
-  if (Default_option2 + Default_option3) {
+  if (Default_option_2 + Default_option_3) {
     Family_money <- FALSE
     Farm_job_payed <- FALSE
     Own_branch <- FALSE
@@ -558,7 +568,7 @@ if (Overall_costs) {
 
 if (Overall_costs_no_plan) {
   Overall_costs_no_plan <-
-  Default_option3_costs
+  Default_option_3_costs
 } else
   No_Plan <- 0
 
@@ -568,9 +578,9 @@ maintenance_cost <- rep(0, n_years)
 #### Benefits  ####
 
   
-Overall_benefits<- Family_money+ Farm_job_payed + Own_branch + Self_employed + Off_Farm_job + Agri_insurance + Private_insurance +State_insurance + ETF + Mix
+Overall_benefits<- Family_money+ Farm_job_payed + Own_branch + Off_Farm_job + Agri_insurance + Private_insurance +State_insurance + ETF + Mix
 
-Overall_benefits_no_plan<-Default_option2 + Default_option3
+Overall_benefits_no_plan<-Default_option_2 + Default_option_3
 
 
 
