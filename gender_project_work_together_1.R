@@ -262,24 +262,24 @@ for (Own_branch in c(FALSE,TRUE))
 
   }
 }
-#bei no 7 noch ein if-statement am schluss. kp warum  
+
   
 #### Second branch of the tree:Job away from the farm
   
-for (Off-Farm_job in c(FALSE,TRUE))
+for (Off_Farm_job in c(FALSE,TRUE))
   {
     
-    if (Off-Farm_job)
+    if (Off_Farm_job)
     {
       Costs_for_child_care <- TRUE
       Costs_for_elderly_care <- TRUE
       
     } else
     {
-      Off-Farm_job <- FALSE
+      Off_Farm_job <- FALSE
     } 
     }
-if (Off-Farm_job)
+if (Off_Farm_job)
 {
   State_insurance <- TRUE
 
@@ -299,7 +299,8 @@ if (Off-Farm_job)
           Farm_job_payed <- TRUE
           Own_branch <- TRUE
  
-      } else
+      } 
+      else
       {
         Agri_insurance <- FALSE
       } 
@@ -315,9 +316,9 @@ if (Off-Farm_job)
             Family_money <- TRUE
             Farm_job_payed <- TRUE
             Own_branch <- TRUE
-            Off-Farm_job <- TRUE
-
-        } else
+            Off_Farm_job <- TRUE
+        } 
+        else
         {
           State_insurance <- FALSE
         } 
@@ -334,7 +335,7 @@ for (ETF in c(FALSE,TRUE))
     Family_money <- TRUE
     Farm_job_payed <- TRUE
     Own_branch <- TRUE
-    Off-Farm_job <- TRUE
+    Off_Farm_job <- TRUE
 
 } else
 {
@@ -348,18 +349,21 @@ for (ETF in c(FALSE,TRUE))
 for (Mix in c(FALSE,TRUE))
 {
   
-  if (Mix)
+  if (ETF)
   {
     Family_money <- TRUE
     Farm_job_payed <- TRUE
     Own_branch <- TRUE
-    Off-Farm_job <- TRUE
-
-} else
-{
-  Mix <- FALSE
-} 
-}
+    Off_Farm_job <- TRUE
+    
+  } else
+  {
+    Mix <- FALSE
+  } 
+}  
+  
+  
+  
 #### Costs ####
 
 
@@ -384,12 +388,18 @@ for (Mix in c(FALSE,TRUE))
     State_insurance_inv<- TRUE 
     State_insurance_inv= 300
   }
+    if (Off_Farm_job)
+    {
+      State_insurance_inv<- TRUE 
+      State_insurance_inv= 200
+    }
 
-  } else
-  {
+  else
+    {
     State_insurance <- FALSE
-  } 
+    } 
 }
+
 
 
 ####Pension options:  ETF
@@ -413,12 +423,17 @@ for (ETF_costs in c(FALSE,TRUE))
     ETF_costs<- TRUE
     ETF_costs = 300
   }
+  if (Off_Farm_job)
+  {
+    State_insurance_inv<- TRUE 
+    State_insurance_inv= 200
+    }
   
 } else
 {
   ETF <- FALSE
 } 
-}
+
 
 
 
@@ -443,12 +458,17 @@ for (Mix in c(FALSE,TRUE))
       Mix_costs<-TRUE
       Mix_costs = 300
     }
+   if (Off_Farm_job)
+   {
+     State_insurance_inv<- TRUE 
+     State_insurance_inv= 200
+  }
     
   } else
   {
     Mix <- FALSE
   } 
-}
+
 
 
 
