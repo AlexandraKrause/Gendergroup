@@ -236,7 +236,7 @@ return(list(NPV_no_Mix =  NPV_no_Mix,
 
 ####Model branches####
 # Estimate the pension without plan
-pension_without_plan <- Husbands_or_family_money1 * Agriculatural_insurance1
+pension_without_plan <- Default_option2 * Default_option3
 #no cost
 #doppeln sich die child and elderly care sachen mit den risks?
 
@@ -292,7 +292,7 @@ if (Off-Farm_job)
           Family_money <- TRUE
           Farm_job_payed <- TRUE
           Own_branch <- TRUE
-        } 
+ 
       } else
       {
         Agri_insurance <- FALSE
@@ -310,15 +310,14 @@ if (Off-Farm_job)
             Farm_job_payed <- TRUE
             Own_branch <- TRUE
             Off-Farm_job <- TRUE
-            
-          } 
+
         } else
         {
           State_insurance <- FALSE
         } 
 }
 
-####Pension options: Forth branch of the tree: ETF
+####Pension options: Fifth branch of the tree: ETF
 
 
 for (ETF in c(FALSE,TRUE))
@@ -330,8 +329,7 @@ for (ETF in c(FALSE,TRUE))
     Farm_job_payed <- TRUE
     Own_branch <- TRUE
     Off-Farm_job <- TRUE
-    
-  } 
+
 } else
 {
   ETF <- FALSE
@@ -350,8 +348,7 @@ for (Mix in c(FALSE,TRUE))
     Farm_job_payed <- TRUE
     Own_branch <- TRUE
     Off-Farm_job <- TRUE
-    
-  } 
+
 } else
 {
   Mix <- FALSE
