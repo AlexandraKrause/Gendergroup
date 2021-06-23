@@ -5,7 +5,13 @@ library(tidyverse)
 library(ggplot2)
 library(plyr)
 library(dplyr)
-#questions: child caree in risks and(!) if statements?
+#questions: child caree in risks and(!) if statements? doubled? easier option?
+#die kosten auch in die tabelle mit werten schreiben, obwohl in R implementiert? einfachere mgl.?
+# kann man die kosten vereinfachen und in die anderen for-schleifen einfügen?:
+#ETF_costs<-TRUE
+#ETF_costs =200
+#das ist nicht notwendig, würde den code aber hübscher machen
+#die ersten calcs weglöschen? muss noch ausprobieren
 
 ####first step:get data####
 
@@ -336,7 +342,7 @@ for (ETF in c(FALSE,TRUE))
 } 
 }
 
-####Pension options: Forth branch of the tree: Mix
+####Pension options: Sixth branch of the tree: Mix
 
 
 for (Mix in c(FALSE,TRUE))
@@ -354,194 +360,98 @@ for (Mix in c(FALSE,TRUE))
   Mix <- FALSE
 } 
 }
-     #### Costs ####
- 
+#### Costs ####
 
 
 
+####Pension options: State insurance####
 
-
-      if (intervention_strips_cost) {
-        cost_intervention_strips <-
-          intervention_adaptation_cost + 
-          intervention_tech_devices_cost + 
-          intervention_nursery_cost +
-          intervention_wells_cost +
-          intervention_training_cost + 
-          intervention_mngmt_oprt_cost + 
-          intervention_mngmt_follow_cost +
-          intervention_mngmt_audit_cost
-      } else
-        cost_intervention_strips <- 0
-      
-      if (intervention_strips_PlanningCost) {
-        plan_cost_intervention_strips <-
-          intervention_communication_cost + intervention_zoning_cost
-      } else
-        plan_cost_intervention_strips <- 0
-      
-      maintenance_cost <- rep(0, n_years)
-      
-      if (intervention_strips)
-        maintenance_cost <-
-        maintenance_cost + vv(maintenance_intervention_strips, 
-                              var_CV, n_years)
-      
-      intervention_cost <- maintenance_cost
-      intervention_cost[1] <-
-        intervention_cost[1] + 
-        cost_intervention_strips + 
-        plan_cost_intervention_strips
-      
-      
-      
+for (Mix in c(FALSE,TRUE))
+{
   
-  #  Intervention ####
-  
-  for (decision_intervention_strips in c(FALSE,TRUE))
+  if (Farm_job_payed)
   {
-    
-    if (decision_intervention_strips)
-    {
-      intervention_strips <- TRUE
-      intervention_strips_PlanningCost <- TRUE
-      intervention_strips_cost <- TRUE
-    } else
-    {
-      intervention_strips <- FALSE
-      intervention_strips_PlanningCost <- FALSE
-      intervention_strips_cost <- FALSE
-    }
-    
-    if (intervention_NonPopInvolvEvent) {
-      intervention_strips <- FALSE
-      intervention_strips_cost <- FALSE
-    }
-    
-    # Costs ####
-    if (intervention_strips_cost) {
-      cost_intervention_strips <-
-        intervention_adaptation_cost + 
-        intervention_tech_devices_cost + 
-        intervention_nursery_cost +
-        intervention_wells_cost +
-        intervention_training_cost + 
-        intervention_mngmt_oprt_cost + 
-        intervention_mngmt_follow_cost +
-        intervention_mngmt_audit_cost
-    } else
-      cost_intervention_strips <- 0
-    
-    if (intervention_strips_PlanningCost) {
-      plan_cost_intervention_strips <-
-        intervention_communication_cost + intervention_zoning_cost
-    } else
-      plan_cost_intervention_strips <- 0
-    
-    maintenance_cost <- rep(0, n_years)
-    
-    if (intervention_strips)
-      maintenance_cost <-
-      maintenance_cost + vv(maintenance_intervention_strips, 
-                            var_CV, n_years)
-    
-    intervention_cost <- maintenance_cost
-    intervention_cost[1] <-
-      intervention_cost[1] + 
-      cost_intervention_strips + 
-      plan_cost_intervention_strips
-    
-    
-  
-  # Costs ####
-  if (intervention_strips_cost) {
-    cost_intervention_strips <-
-      intervention_adaptation_cost + 
-      intervention_tech_devices_cost + 
-      intervention_nursery_cost +
-      intervention_wells_cost +
-      intervention_training_cost + 
-      intervention_mngmt_oprt_cost + 
-      intervention_mngmt_follow_cost +
-      intervention_mngmt_audit_cost
+    State_insurance_inv<- TRUE 
+    State_insurance_inv= 200
+  }
+  if (Family_money)
+  {
+    State_insurance_inv<- TRUE 
+    State_insurance_inv= 100
+  }
+  if (Own_branch)
+  {
+    State_insurance_inv<- TRUE 
+    State_insurance_inv= 300
+  }
+
   } else
-    cost_intervention_strips <- 0
-  
-  if (intervention_strips_PlanningCost) {
-    plan_cost_intervention_strips <-
-      intervention_communication_cost + intervention_zoning_cost
-  } else
-    plan_cost_intervention_strips <- 0
-  
-  maintenance_cost <- rep(0, n_years)
-  
-  if (intervention_strips)
-    maintenance_cost <-
-    maintenance_cost + vv(maintenance_intervention_strips, 
-                          var_CV, n_years)
-  
-  intervention_cost <- maintenance_cost
-  intervention_cost[1] <-
-    intervention_cost[1] + 
-    cost_intervention_strips + 
-    plan_cost_intervention_strips
-  
-  
-  # Benefits from  cultivation in the intervention strips ####
-  
-  intervention_fruit_benefits <-
-    as.numeric(intervention_strips) * precalc_intervention_fruit_benefits
-  intervention_vegetable_benefits <-
-    as.numeric(intervention_strips) * precalc_intervention_vegetable_benefits
-  intervention_rainfed_crop_benefits <-
-    as.numeric(intervention_strips) * precalc_intervention_rainfed_crop_benefits
-  
-  # Total benefits from crop production (agricultural development and riparian zone) ####
-  crop_production <-
-    intervention_fruit_benefits +
-    intervention_vegetable_benefits +
-    intervention_rainfed_crop_benefits
-  
-  # Benefits from livestock ####
-  # The following allows considering that intervention strips may
-  # restrict access to the reservoir for livestock.
-  
-  if (intervention_strips)
-    TLU_intervention <-
-    TLU * (1 + change_TLU_intervention_perc / 100)
-  else
-    TLU_intervention <- TLU
-  
-  if (decision_intervention_strips){
-    livestock_benefits <- TLU_intervention * TLU_profit
-    total_benefits <- crop_production + livestock_benefits
-    net_benefits <- total_benefits - intervention_cost
-    result_interv <- net_benefits}
-  
-  
-  if (!decision_intervention_strips){
-    livestock_benefits <- TLU_no_intervention * TLU_profit
-    total_benefits <- livestock_benefits
-    net_benefits <- total_benefits - intervention_cost
-    result_n_interv <- net_benefits}
-  
-} #close intervention loop bracket
-
-NPV_interv <-
-  discount(result_interv, discount_rate, calculate_NPV = TRUE)
-
-NPV_n_interv <-
-  discount(result_n_interv, discount_rate, calculate_NPV = TRUE)
-
-# Beware, if you do not name your outputs 
-# (left-hand side of the equal sign) in the return section, 
-# the variables will be called output_1, _2, etc.
-
-return(list(Interv_NPV = NPV_interv,
-            NO_Interv_NPV = NPV_n_interv,
-            NPV_decision_do = NPV_interv - NPV_n_interv,
-            Cashflow_decision_do = result_interv - result_n_interv))
+  {
+    State_insurance <- FALSE
+  } 
 }
+
+
+####Pension options:  ETF
+
+
+for (ETF_costs in c(FALSE,TRUE))
+{
+  if (Farm_job_payed)
+  {
+    ETF_costs<- TRUE 
+    ETF_costs= 200
+
+  }
+  if (Family_money)
+  {
+    ETF_costs<- TRUE
+    ETF_costs = 100
+  }
+  if (Own_branch)
+  {
+    ETF_costs<- TRUE
+    ETF_costs = 300
+  }
+  
+} else
+{
+  ETF <- FALSE
+} 
+}
+
+
+
+####Pension options:  Mix
+
+
+for (Mix in c(FALSE,TRUE))
+{
+
+    if (Farm_job_payed)
+    {
+      Mix_costs<-TRUE
+      Mix_costs = 200
+    }
+    if (Family_money)
+    {
+      Mix_costs<-TRUE
+      Mix_costs = 100
+    }
+    if (Own_branch)
+    {
+      Mix_costs<-TRUE
+      Mix_costs = 300
+    }
+    
+  } else
+  {
+    Mix <- FALSE
+  } 
+}
+
+
+
 
 
 ####perform a monte carlo simulation####
