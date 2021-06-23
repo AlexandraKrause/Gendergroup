@@ -5,8 +5,7 @@ library(tidyverse)
 library(ggplot2)
 library(plyr)
 library(dplyr)
-
-
+#questions: child caree in risks and(!) if statements?
 
 ####first step:get data####
 
@@ -15,6 +14,7 @@ names(input_table_gender)
 str(input_table_gender)
 
 test <- na.omit(input_table_gender)
+
 ####function####
 
 #First we generate a model as a function.
@@ -78,7 +78,7 @@ State_insurance_inv <- vv(var_mean = State_insurance_inv,
                           var_CV_17 = var_CV_17, 
                           n = 204)
   
-  #### calculate ex-ante risks ####
+#### calculate ex-ante risks ####
 Husband_risk <-
     chance_event(Husband_risk, 1, 0, n = 1)
   
@@ -98,7 +98,7 @@ Child_Elderly_risk_obstacle <-
     chance_event(Man_Death_risk, 1, 0, n = 1)
   
   
-  ####add variability####
+####add variability####
   
   
 ####start with own business branch####
@@ -115,10 +115,10 @@ Costs_for_child_care_adjusted_Own_business_branch <- chance_event(chance =
 # use chance_event() 
 # assuming  0 Own_business_branch  at all in the event of no elderly care option
 Costs_for_elderly_care_adjusted_Own_business_branch <- chance_event(chance = 
-                                                                        Costs_for_elderly_care, 
-                                                                      value_if = 0,
-                                                                      value_if_not = Own_branch,
-                                                                      n = var_CV_40)
+                                                      Costs_for_elderly_care, 
+                                                      value_if = 0,
+                                                      value_if_not = Own_branch,
+                                                      n = var_CV_40)
   
   
   
@@ -208,45 +208,343 @@ NPV_ETF <- discount(profit_with_ETF,
   return(list(NPV_no_ETF =  NPV_no_ETF,
               NPV_ETF =  NPV_ETF, 
               NPV_decision = NPV_decision))
+
+##then Mix private insurance and ETF##
+
+#### then Mix ####
+
+# calculate pension without Mix
+profit_without_ETF <- Default_option3 + Default_option2
+
+# calculate pension with Mix
+profit_with_Mix <- Mix
+
+# use 'discount' to calculate net present value 
+# 'discount_rate' is expressed in percent
+NPV_no_Mix <- discount(profit_without_Mix,
+                       discount_rate = 5, calculate_NPV = TRUE)
+NPV_Mix <- discount(profit_with_Mix,
+                    discount_rate = 5, calculate_NPV = TRUE)
+
+# calculate the overall NPV of the decision (do - don't do)
+NPV_decision <- NPV_ETF-NPV_no_Mix
+
+return(list(NPV_no_Mix =  NPV_no_Mix,
+            NPV_Mix =  NPV_Mix, 
+            NPV_decision = NPV_decision))
 }
 
 ####Model branches####
 # Estimate the pension without plan
-#pension <- Husbands_or_family_money1 * Agriculatural_insurance1
+pension_without_plan <- Husbands_or_family_money1 * Agriculatural_insurance1
 #no cost
+#doppeln sich die child and elderly care sachen mit den risks?
+
+####first branch of the tree: own business branch
+
+for (Own_branch in c(FALSE,TRUE))
+{
+  
+  if (Own_branch)
+  {
+    Costs_for_child_care <- TRUE
+    Costs_for_elderly_care <- TRUE
+
+  } else
+  {
+    Own_branch <- FALSE
+
+  }
+}
+#bei no 7 noch ein if-statement am schluss. kp warum  
+  
+#### Second branch of the tree:Job away from the farm
+  
+for (Off-Farm_job in c(FALSE,TRUE))
+  {
+    
+    if (Off-Farm_job)
+    {
+      Costs_for_child_care <- TRUE
+      Costs_for_elderly_care <- TRUE
+      
+    } else
+    {
+      Off-Farm_job <- FALSE
+    } 
+    }
+if (Off-Farm_job)
+{
+  State_insurance <- TRUE
+
+}
+
+      
+####Pension options: Third branch of the tree:agricultural 
+#insurance without default option
+      
+      
+      for (Agri_insurance in c(FALSE,TRUE))
+      {
+        
+        if (Agri_insurance)
+        {
+          Family_money <- TRUE
+          Farm_job_payed <- TRUE
+          Own_branch <- TRUE
+        } 
+      } else
+      {
+        Agri_insurance <- FALSE
+      } 
+}
+####Pension options: Forth branch of the tree: State inurance
+        
+        
+        for (State_insurance in c(FALSE,TRUE))
+        {
+          
+          if (State_insurance)
+          {
+            Family_money <- TRUE
+            Farm_job_payed <- TRUE
+            Own_branch <- TRUE
+            Off-Farm_job <- TRUE
+            
+          } 
+        } else
+        {
+          State_insurance <- FALSE
+        } 
+}
+
+####Pension options: Forth branch of the tree: ETF
 
 
-# Benefits from plan ####
-# The following allows considering that intervention strips may
-# restrict access to the reservoir for livestock.
+for (ETF in c(FALSE,TRUE))
+{
+  
+  if (ETF)
+  {
+    Family_money <- TRUE
+    Farm_job_payed <- TRUE
+    Own_branch <- TRUE
+    Off-Farm_job <- TRUE
+    
+  } 
+} else
+{
+  ETF <- FALSE
+} 
+}
 
-#    if (intervention_strips)
-#      TLU_intervention <-
-#      TLU * (1 + change_TLU_intervention_perc / 100)
-#    else
-#      TLU_intervention <- TLU
+####Pension options: Forth branch of the tree: Mix
 
-#    if (decision_intervention_strips){
-#      livestock_benefits <- TLU_intervention * TLU_profit
-#      total_benefits <- crop_production + livestock_benefits
-#      net_benefits <- total_benefits - intervention_cost
-#      result_interv <- net_benefits}
 
-#    
-#    if (!decision_intervention_strips){
-#      livestock_benefits <- TLU_no_intervention * TLU_profit
-#      total_benefits <- livestock_benefits
-#      net_benefits <- total_benefits - intervention_cost
-#      result_n_interv <- net_benefits}
+for (Mix in c(FALSE,TRUE))
+{
+  
+  if (Mix)
+  {
+    Family_money <- TRUE
+    Farm_job_payed <- TRUE
+    Own_branch <- TRUE
+    Off-Farm_job <- TRUE
+    
+  } 
+} else
+{
+  Mix <- FALSE
+} 
+}
+     #### Costs ####
+ 
 
-#} #close intervention loop bracket
 
-#NPV_interv <-
-#discount(result_interv, discount_rate, calculate_NPV = TRUE)
 
-#NPV_n_interv <-
-#  discount(result_n_interv, discount_rate, calculate_NPV = TRUE)
 
+
+      if (intervention_strips_cost) {
+        cost_intervention_strips <-
+          intervention_adaptation_cost + 
+          intervention_tech_devices_cost + 
+          intervention_nursery_cost +
+          intervention_wells_cost +
+          intervention_training_cost + 
+          intervention_mngmt_oprt_cost + 
+          intervention_mngmt_follow_cost +
+          intervention_mngmt_audit_cost
+      } else
+        cost_intervention_strips <- 0
+      
+      if (intervention_strips_PlanningCost) {
+        plan_cost_intervention_strips <-
+          intervention_communication_cost + intervention_zoning_cost
+      } else
+        plan_cost_intervention_strips <- 0
+      
+      maintenance_cost <- rep(0, n_years)
+      
+      if (intervention_strips)
+        maintenance_cost <-
+        maintenance_cost + vv(maintenance_intervention_strips, 
+                              var_CV, n_years)
+      
+      intervention_cost <- maintenance_cost
+      intervention_cost[1] <-
+        intervention_cost[1] + 
+        cost_intervention_strips + 
+        plan_cost_intervention_strips
+      
+      
+      
+  
+  #  Intervention ####
+  
+  for (decision_intervention_strips in c(FALSE,TRUE))
+  {
+    
+    if (decision_intervention_strips)
+    {
+      intervention_strips <- TRUE
+      intervention_strips_PlanningCost <- TRUE
+      intervention_strips_cost <- TRUE
+    } else
+    {
+      intervention_strips <- FALSE
+      intervention_strips_PlanningCost <- FALSE
+      intervention_strips_cost <- FALSE
+    }
+    
+    if (intervention_NonPopInvolvEvent) {
+      intervention_strips <- FALSE
+      intervention_strips_cost <- FALSE
+    }
+    
+    # Costs ####
+    if (intervention_strips_cost) {
+      cost_intervention_strips <-
+        intervention_adaptation_cost + 
+        intervention_tech_devices_cost + 
+        intervention_nursery_cost +
+        intervention_wells_cost +
+        intervention_training_cost + 
+        intervention_mngmt_oprt_cost + 
+        intervention_mngmt_follow_cost +
+        intervention_mngmt_audit_cost
+    } else
+      cost_intervention_strips <- 0
+    
+    if (intervention_strips_PlanningCost) {
+      plan_cost_intervention_strips <-
+        intervention_communication_cost + intervention_zoning_cost
+    } else
+      plan_cost_intervention_strips <- 0
+    
+    maintenance_cost <- rep(0, n_years)
+    
+    if (intervention_strips)
+      maintenance_cost <-
+      maintenance_cost + vv(maintenance_intervention_strips, 
+                            var_CV, n_years)
+    
+    intervention_cost <- maintenance_cost
+    intervention_cost[1] <-
+      intervention_cost[1] + 
+      cost_intervention_strips + 
+      plan_cost_intervention_strips
+    
+    
+  
+  # Costs ####
+  if (intervention_strips_cost) {
+    cost_intervention_strips <-
+      intervention_adaptation_cost + 
+      intervention_tech_devices_cost + 
+      intervention_nursery_cost +
+      intervention_wells_cost +
+      intervention_training_cost + 
+      intervention_mngmt_oprt_cost + 
+      intervention_mngmt_follow_cost +
+      intervention_mngmt_audit_cost
+  } else
+    cost_intervention_strips <- 0
+  
+  if (intervention_strips_PlanningCost) {
+    plan_cost_intervention_strips <-
+      intervention_communication_cost + intervention_zoning_cost
+  } else
+    plan_cost_intervention_strips <- 0
+  
+  maintenance_cost <- rep(0, n_years)
+  
+  if (intervention_strips)
+    maintenance_cost <-
+    maintenance_cost + vv(maintenance_intervention_strips, 
+                          var_CV, n_years)
+  
+  intervention_cost <- maintenance_cost
+  intervention_cost[1] <-
+    intervention_cost[1] + 
+    cost_intervention_strips + 
+    plan_cost_intervention_strips
+  
+  
+  # Benefits from  cultivation in the intervention strips ####
+  
+  intervention_fruit_benefits <-
+    as.numeric(intervention_strips) * precalc_intervention_fruit_benefits
+  intervention_vegetable_benefits <-
+    as.numeric(intervention_strips) * precalc_intervention_vegetable_benefits
+  intervention_rainfed_crop_benefits <-
+    as.numeric(intervention_strips) * precalc_intervention_rainfed_crop_benefits
+  
+  # Total benefits from crop production (agricultural development and riparian zone) ####
+  crop_production <-
+    intervention_fruit_benefits +
+    intervention_vegetable_benefits +
+    intervention_rainfed_crop_benefits
+  
+  # Benefits from livestock ####
+  # The following allows considering that intervention strips may
+  # restrict access to the reservoir for livestock.
+  
+  if (intervention_strips)
+    TLU_intervention <-
+    TLU * (1 + change_TLU_intervention_perc / 100)
+  else
+    TLU_intervention <- TLU
+  
+  if (decision_intervention_strips){
+    livestock_benefits <- TLU_intervention * TLU_profit
+    total_benefits <- crop_production + livestock_benefits
+    net_benefits <- total_benefits - intervention_cost
+    result_interv <- net_benefits}
+  
+  
+  if (!decision_intervention_strips){
+    livestock_benefits <- TLU_no_intervention * TLU_profit
+    total_benefits <- livestock_benefits
+    net_benefits <- total_benefits - intervention_cost
+    result_n_interv <- net_benefits}
+  
+} #close intervention loop bracket
+
+NPV_interv <-
+  discount(result_interv, discount_rate, calculate_NPV = TRUE)
+
+NPV_n_interv <-
+  discount(result_n_interv, discount_rate, calculate_NPV = TRUE)
+
+# Beware, if you do not name your outputs 
+# (left-hand side of the equal sign) in the return section, 
+# the variables will be called output_1, _2, etc.
+
+return(list(Interv_NPV = NPV_interv,
+            NO_Interv_NPV = NPV_n_interv,
+            NPV_decision_do = NPV_interv - NPV_n_interv,
+            Cashflow_decision_do = result_interv - result_n_interv))
+}
 
 
 ####perform a monte carlo simulation####
