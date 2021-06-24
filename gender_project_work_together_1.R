@@ -59,42 +59,42 @@ decision_function <- function(x, varnames){
   
   
 Own_business_branch <- vv(var_mean = Own_branch, 
-                          var_CV_40 = 5, 
+                          var_cv_40 = 5, 
                           n = 2)
   
   
 Off-Farm_job <- vv(var_mean = Off-Farm_job, 
-                   var_CV_40 = 5, 
+                   var_cv_40 = 5, 
                     n = 2)
   
 Family_money <- vv(var_mean = Family_money, 
-                    var_CV_40 = 5, 
-                    n = 2)
+                    var_cv_40 = var_cv_40, 
+                    n = 50)
   
   
 Farm_job_payed <- vv(var_mean = Farm_job_payed, 
-                      var_CV_40 = 5, 
-                      n = 396)
+                      var_cv_40 = 5, 
+                      n = 2)
   
 ETF <- vv(var_mean = ETF, 
-          var_CV_82 = 5, 
-          n = 984)    
+          var_cv_82 = 5, 
+          n = 2)    
   
 Private_insurance <- vv(var_mean = Private_insurance, 
-                        var_CV_40 = 5, 
-                        n = 396)
+                        var_cv_40 = 5, 
+                        n = 2)
 
 Private_insurance_inv <- vv(var_mean = Private_insurance_inv, 
-                            var_CV_17 = 5, 
-                            n = 204)
+                            var_cv_17 = 5, 
+                            n = 2)
   
 State_insurance <- vv(var_mean = State_insurance, 
-                      var_CV_17 = 5, 
-                      n = 204)
+                      var_cv_17 = 5, 
+                      n = 2)
   
 State_insurance_inv <- vv(var_mean = State_insurance_inv, 
-                          var_CV_17 = 5, 
-                          n = 204)
+                          var_cv_17 = 5, 
+                          n = 2)
   
 #### calculate ex-ante risks ####
 Husband_risk <-
@@ -456,7 +456,7 @@ for (ETF_costs in c(FALSE,TRUE))
 ####Pension options:  Mix
 
 
-for (Mix in c(FALSE,TRUE))
+for (Mix_costs in c(FALSE,TRUE))
 {
 
     if (Farm_job_payed)
@@ -554,7 +554,7 @@ Costs<-(State_insurance_inv + Agri_insurance_inv + Private_insurance_inv + State
 
 
 if (Overall_costs) {
-  Overall_costs <-
+    Overall_costs <-
     State_insurance_inv + 
     Agri_insurance_inv + 
     Private_insurance_inv + 
@@ -577,10 +577,21 @@ maintenance_cost <- rep(0, n_years)
 
 #### Benefits  ####
 
+if (Overall_benefits) {
+  Overall_benefits <-
+    State_insurance + 
+    Agri_insurance + 
+    Private_insurance + 
+    State_insurance + 
+    ETF + 
+    Mix
+} else
+  Overall_costs <- 0
   
-Overall_benefits<- Family_money+ Farm_job_payed + Own_branch + Off_Farm_job + Agri_insurance + Private_insurance +State_insurance + ETF + Mix
+Overall_benefits <- Family_money + Farm_job_payed + Own_branch + Off_Farm_job +
+  Agri_insurance + Private_insurance + State_insurance + ETF + Mix
 
-Overall_benefits_no_plan<-Default_option_2 + Default_option_3
+Overall_benefits_no_plan <-Default_option_2 + Default_option_3
 
 
 
