@@ -25,10 +25,10 @@ Mix;options;Mix;posnorm;100,7;NA;1300,9
 Husbands_or_family_money1;option;Default_option_2;posnorm;50,0;NA;250,0
 Agriculatural_insurance1;options;Default_option_3;posnorm;50,1;NA;591,94
 Agriculatural_insurance1_costs;options;Default_option_3_costs;posnorm;50,2;NA;591,95
-Overall_costs_no_plan;options;Overall_costs_no_plan;posnorm;0,0;NA;0,0
-Overall_costs;options;Overall_costs;posnorm;0,0;NA;0,0
-Overall_benefits_no_plan;options;Overall_benefits_no_plan;posnorm;0,0;NA;0,0
-Overall_benefits;options;Overall_benefits;posnorm;0,0;NA;0,0
+Overall_costs_no_plan;options;Overall_costs_no_plan;posnorm;0,0;NA;1000,0
+Overall_costs;options;Overall_costs;posnorm;0,0;NA;1000,1
+Overall_benefits_no_plan;options;Overall_benefits_no_plan;posnorm;0,0;NA;1000,2
+Overall_benefits;options;Overall_benefits;posnorm;0,0;NA;1000,3
 Coefficient of variation, ratio of the standard deviation for 40 years paying pension  (death at 82);coeff. Variation;var_cv_40;const;396,0;NA;396,0
 Coefficient of variation, ratio of the standard deviation for 17 years getting pension (death at 82);coeff. Variation;var_cv_17;const;204,0;NA;204,0
 Coefficient of variation, ratio of the standard deviation for 17 years getting pension (death at 82);coeff. Variation;var_cv_82;const;984,0;NA;984,0
