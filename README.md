@@ -4,7 +4,7 @@ In our model we compare multiple branches. First there are differnt options to f
 
 
 In the immediate future:
--the error! Values from the input table are not recognized
+- the error! Values from the input table are not recognized
 - we used dummy data up till now. Next there will be actual data
 - the "put together" function is a note right now. It will be implemented as if statements. Overall benefits and costs for each possibility. as  a test it is now just put together in the worst way
 
