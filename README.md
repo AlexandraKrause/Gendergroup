@@ -14,7 +14,7 @@ In the far future:
 - model analysis tools 
 - visuals ( mcmc_areas() function from the bayesplot library)
 - plot cashflow to see tyüical pofile of pension insurance : negative flow for several decades, later on positive flow
-- project report markdown
+- project report markdown, implement model in mermaid
 
 
 
