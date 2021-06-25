@@ -11,7 +11,9 @@ In the immediate future:
 In the far future:
 
 - we will put a discount rate for the job (when she has enough money to pay more for ETF and private insurance and Mix of both) with two branches (one before 10 years and one after 10 years)
-- model analysis tools and visuals
+- model analysis tools 
+- visuals ( mcmc_areas() function from the bayesplot library)
+- project report markdown
 
 
 
