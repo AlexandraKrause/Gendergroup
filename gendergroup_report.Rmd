@@ -1,8 +1,9 @@
 ---
-title: "Decision analysis of pension option in-married woman on German farms reveals gender disparities in pension entitlements"
+title: "Decision analysis of pension options for in-married woman on German farms reveals gender disparities in pension entitlements"
 author: "Alexandra Krause, Rex Parro, Julia Schild, Alina Gombert"
 date: "25 6 2021"
 output: html_document
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -13,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 Structural change and dependency of property are challenes in agricultural pension insurance. 
-This applies to farmers, but een more on their wifes. 
+This applies to farmers, but een more on their wifes. @do_decision_2020
 In Germany, only 10 of farm managers are female and only one third 
 of the land is owned by female. Statistically the most important group woman farmaers are the wifes of farmers. These woman hold often responsibilities for several important tasks on the farm. 
 The traditional organizational structre of family farms has the potentioal to exploit womans labour without pension entitlements. As womans retirement is mostly based on their husband, divorce or death of husband consitute major risks for their pension. 
@@ -95,9 +96,13 @@ mermaid("graph LR
 ```
 
 ## Results
+These are our results.
 
 ## Discussion
+This is our discussion
 
 ## Conclusion
+This is our conclusion
 
 ## References
+
