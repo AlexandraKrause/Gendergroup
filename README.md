@@ -22,4 +22,20 @@ In the far future:
 
 ![Uploading grafik.png…]()
 
+Decision maker profile
+
+- 25 year old female
+- married into a farm
+- in-laws are still the owners of the farm --> no official employment of daughter in-law --> she counts only as a contributing family member in agricultural insurance
+- husband will become owner in approximately 5 years --> she then becomes full member in agricultural insurance
+- profession: gardener
+- owns no noteworthy wealth or properties
+
+Farm characteristics:
+
+- dairy farm
+
+Possiblity of own branch of farm:
+
+- farm shop
 
