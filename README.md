@@ -15,6 +15,7 @@ In the far future:
 - visuals ( mcmc_areas() function from the bayesplot library)
 - plot cashflow to see tyüical pofile of pension insurance : negative flow for several decades, later on positive flow
 - project report markdown, implement model in mermaid
+- implement agroforestry as pension option: buy land and plant trees and take care for them for a wood / fruit /nut pension
 
 
 
