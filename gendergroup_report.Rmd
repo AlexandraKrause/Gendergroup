@@ -51,7 +51,8 @@ pursue a retirement plan to ensure retireent. ere, different sub-option wereoutl
 There are differnt options to finance the retirement and also differnt retirement schemes to choose from. Someretirement optiona are only possible with specific financing decisions: e.g. state reirement is only possible when woman has a formal working contract with her husband or another employer. 
 
 It is important to note, thet our model acknowlegesd the contemporary legal constraints in germany. we explicitly follow the available information on german pensio schemes as stated by pension consultants and extensionists. 
-2.3 Conceptualization of the decision model
+
+### Conceptualization of the decision model
 We worked together with experts to derive a conceptual
 model that explicitly identified all the important factors
 and relationships in rension schemes for in-married woman in Agriculture
@@ -93,6 +94,15 @@ mermaid("graph LR
        
         ")
 
+```
+
+### Input table
+This is our input table
+
+```{r tables, echo=FALSE}
+input_table_gender <-read.csv2("./input_table_gender.csv", dec = ",")
+knitr::kable(input_table_gender, caption = 'Input table')
+# [1:5, ]
 ```
 
 ## Results
