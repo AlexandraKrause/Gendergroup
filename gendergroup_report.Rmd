@@ -13,10 +13,17 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Introduction
 First technical Darft only!!!!!
 
-Structural change and dependency of property are challenes in agricultural pension insurance. 
+Farmers pension is challenged by structural change of traditional family farms. this applies especially to inmarried woman, who are. of property are challenes in agricultural pension insurance. 
 This applies to farmers, but een more on their wifes. @do_decision_2020
 In Germany, only 10 of farm managers are female and only one third 
-of the land is owned by female. Statistically the most important group woman farmaers are the wifes of farmers. These woman hold often responsibilities for several important tasks on the farm. 
+of the land is owned by female. 
+@padel2020arbeiten
+@muller2010kostenlosen
+Formen der Altersvorsorge
+@hadler2020
+@oedl2020feminist_innen
+
+Statistically the most important group woman farmaers are the wifes of farmers. These woman hold often responsibilities for several important tasks on the farm. 
 The traditional organizational structre of family farms has the potentioal to exploit womans labour without pension entitlements. As womans retirement is mostly based on their husband, divorce or death of husband consitute major risks for their pension. 
 In our study, we want to display different options that ensure woman farmers a safe pension entitlement. We compare the default option of no specific pension plan to adifferent pension plan options. Herby we conside the most important pension schemes relevan for woman in agricultre, which is agricultural insrance, state insurance, private insurance and etfs. With our research we would like to encourage woman farmers to demand monetary appreciation of thei work and consider risks to their family pension.  
 
@@ -33,37 +40,31 @@ decision-making under uncertainty. Our innovative research approach proved effec
 outcomes and can be useful for informing similar development interventions in other contexts.
 
 ## Methods
-Model specification
+
+### Model conceptualization with stakeholders
 
 For ourStudy we conducted extensive literature research onwoman farmers in germany.
 afterwards we identified experts and a community of "agrarfrauen" as our expert group. After drafting a first model based on literature resarch and personal experinces, we contacted potentiaal decision makers and experts. most of our experts wereconsultants that often deal with decisin makers. after conducting our participatory workshop and several refinements, we came up with an improved model. 
 
-the estimates for our input table were based on a mixed approach of literature research and expert opinion. the uncertainties were assigned by us as "calibarated" experts. 
-the model was then implemented in r.
-
-
 Decision option 1 
+
 aka Default option: Woman has an apprentinship as gardener. She marries a farmer 
 and starts working ful time on farm. She is fcially registered as a farm wife 
 and therefore pays in the agricultural insurance. 
+
 Decision option 2
+
 pursue a retirement plan to ensure retireent. ere, different sub-option wereoutlined. 
 There are differnt options to finance the retirement and also differnt retirement schemes to choose from. Someretirement optiona are only possible with specific financing decisions: e.g. state reirement is only possible when woman has a formal working contract with her husband or another employer. 
 
-It is important to note, thet our model acknowlegesd the contemporary legal constraints in germany. we explicitly follow the available information on german pensio schemes as stated by pension consultants and extensionists. 
 
-### Conceptualization of the decision model
-We worked together with experts to derive a conceptual
-model that explicitly identified all the important factors
-and relationships in rension schemes for in-married woman in Agriculture
-. Since the pension yield and input demand depend
-on the age of the decision-maker, all benefits and costs were
-modeled in relation to the age of the decision maker. Since the monthly
-input costs varied throughout the employment biography,the 
-maintenance costs were estimated corresponding to time
-intervals specified by experts. Risks were quantified in the
-model by simulating the likelihood and consequences of
-events perceived as consequential for pension entitlement of woman.
+
+
+
+
+ 
+
+
 
 
 ```{r model, echo=FALSE}
@@ -97,13 +98,29 @@ mermaid("graph LR
 ```
 
 ### Input table
-This is our input table
+This is our input table. the estimates for our input table were based on a mixed approach of literature research and expert opinion. the uncertainties were assigned by us as "calibarated" experts. 
+the model was then implemented in r.It is important to note, thet our model acknowlegesd the contemporary legal constraints in germany. we explicitly follow the available information on german pensio schemes as stated by pension consultants and extensionists.
 
 ```{r tables, echo=FALSE}
 input_table_gender <-read.csv2("./input_table_gender.csv", dec = ",")
 knitr::kable(input_table_gender, caption = 'Input table')
 # [1:5, ]
 ```
+
+### Model specification 
+
+We worked together with experts to derive a conceptual
+model that explicitly identified all the important factors
+and relationships in rension schemes for in-married woman in Agriculture
+. Since the pension yield and input demand depend
+on the age of the decision-maker, all benefits and costs were
+modeled in relation to the age of the decision maker. Since the monthly
+input costs varied throughout the employment biography,the 
+maintenance costs were estimated corresponding to time
+intervals specified by experts. Risks were quantified in the
+model by simulating the likelihood and consequences of
+events perceived as consequential for pension entitlement of woman.
+
 
 ## Results
 These are our results.
