@@ -14,6 +14,8 @@ library(dplyr)
 #die ersten calcs weglöschen? muss noch ausprobieren
 #no_plan klappt nicht
 #default options stehen bestimmt überall doppelt drin
+#test commit
+#test cpmmit 2
 
 
 
