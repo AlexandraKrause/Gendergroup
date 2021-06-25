@@ -4,14 +4,16 @@ In our model we compare multiple branches. First there are differnt options to f
 
 
 In the immediate future:
--the error! Values from the input table are not recognized
+- the error! Values from the input table are not recognized
 - we used dummy data up till now. Next there will be actual data
 - the "put together" function is a note right now. It will be implemented as if statements. Overall benefits and costs for each possibility. as  a test it is now just put together in the worst way
 
 In the far future:
 
 - we will put a discount rate for the job (when she has enough money to pay more for ETF and private insurance and Mix of both) with two branches (one before 10 years and one after 10 years)
-- model analysis tools and visuals
+- model analysis tools 
+- visuals ( mcmc_areas() function from the bayesplot library)
+- project report markdown
 
 
 
