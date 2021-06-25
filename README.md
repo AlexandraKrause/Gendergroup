@@ -17,5 +17,6 @@ In the far future:
 
 
 
-![grafik](https://user-images.githubusercontent.com/82711784/123390240-fa8a9c80-d59a-11eb-91b7-5bd3de395dbd.png)
+![Uploading grafik.png…]()
+
 
