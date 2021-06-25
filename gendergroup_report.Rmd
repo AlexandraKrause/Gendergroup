@@ -1,5 +1,5 @@
 ---
-title: "Gendergroup_report"
+title: "Decision analysis of pension option in-married woman on German farms reveals gender disparities in pension entitlements"
 author: "Alexandra Krause, Rex Parro, Julia Schild, Alina Gombert"
 date: "25 6 2021"
 output: html_document
@@ -9,22 +9,95 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Introduction
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+Structural change and dependency of property are challenes in agricultural pension insurance. 
+This applies to farmers, but een more on their wifes. 
+In Germany, only 10 of farm managers are female and only one third 
+of the land is owned by female. Statistically the most important group woman farmaers are the wifes of farmers. These woman hold often responsibilities for several important tasks on the farm. 
+The traditional organizational structre of family farms has the potentioal to exploit womans labour without pension entitlements. As womans retirement is mostly based on their husband, divorce or death of husband consitute major risks for their pension. 
+In our study, we want to display different options that ensure woman farmers a safe pension entitlement. We compare the default option of no specific pension plan to adifferent pension plan options. Herby we conside the most important pension schemes relevan for woman in agricultre, which is agricultural insrance, state insurance, private insurance and etfs. With our research we would like to encourage woman farmers to demand monetary appreciation of thei work and consider risks to their family pension.  
 
-```{r cars}
-summary(cars)
+Interventions that improve the pension of farm wifes have the potential to benefit the livelihoods of farmers and communities worldwide. However, given the high system complexity, the long-term benefits of 
+pension schemes are difficult to anticipate. This study aimed to integrate
+uncertainty into long-term performance projections for pension scheme interventions 
+in Germany. We applied decision analysis and probabilistic modeling approaches 
+to produce economic ex-ante assessments for for pension schemes
+options (state pension, agricultural pension, etfs, private insurance) promoted in Germany. Our results
+indicate that farmers likely prefer reinvesting the available money in farming technology and  due to the relatively early incomes and short time-lag on returns.
+However, the results also show that annual profits from farming can be expected to decrease over time and mostly benefit the farm owner, which is often not the woman. Also structural changes in agriculture and the high give-up rates impose high insecurity on the future of the farm. However, long-term payments directed to their womans retirement. return substantial benefits to the wife and family in the long term, but they also incur high establishment and maintenance costs and will generate net losses in the first few years. Better access to information and self confidence to ak for a fair share of farming income  may help in promoting pension plans for inmaried woman in german farms. Uncertainties related to the communication culture in farming families, farmers’ values, farm profitability, and pension returns appeared to have the greatest influence on whether a retirement plan emerged as the preferable option. Narrowing these key knowledge gaps may offer additional clarity on farmers’ wifes optimal course of action and provide guidance for agencies promoting insurance interventions in Germany. Our model produced
+a set of plausible ranges for net present values and highlighted critical variables, more clarity on which would support
+decision-making under uncertainty. Our innovative research approach proved effective in providing forecasts of uncertain
+outcomes and can be useful for informing similar development interventions in other contexts.
+
+## Methods
+Model specification
+
+For ourStudy we conducted extensive literature research onwoman farmers in germany.
+afterwards we identified experts and a community of "agrarfrauen" as our expert group. After drafting a first model based on literature resarch and personal experinces, we contacted potentiaal decision makers and experts. most of our experts wereconsultants that often deal with decisin makers. after conducting our participatory workshop and several refinements, we came up with an improved model. 
+
+the estimates for our input table were based on a mixed approach of literature research and expert opinion. the uncertainties were assigned by us as "calibarated" experts. 
+the model was then implemented in r.
+
+
+Decision option 1 
+aka Default option: Woman has an apprentinship as gardener. She marries a farmer 
+and starts working ful time on farm. She is fcially registered as a farm wife 
+and therefore pays in the agricultural insurance. 
+Decision option 2
+pursue a retirement plan to ensure retireent. ere, different sub-option wereoutlined. 
+There are differnt options to finance the retirement and also differnt retirement schemes to choose from. Someretirement optiona are only possible with specific financing decisions: e.g. state reirement is only possible when woman has a formal working contract with her husband or another employer. 
+
+It is important to note, thet our model acknowlegesd the contemporary legal constraints in germany. we explicitly follow the available information on german pensio schemes as stated by pension consultants and extensionists. 
+2.3 Conceptualization of the decision model
+We worked together with experts to derive a conceptual
+model that explicitly identified all the important factors
+and relationships in rension schemes for in-married woman in Agriculture
+. Since the pension yield and input demand depend
+on the age of the decision-maker, all benefits and costs were
+modeled in relation to the age of the decision maker. Since the monthly
+input costs varied throughout the employment biography,the 
+maintenance costs were estimated corresponding to time
+intervals specified by experts. Risks were quantified in the
+model by simulating the likelihood and consequences of
+events perceived as consequential for pension entitlement of woman.
+
+
+```{r model, echo=FALSE}
+
+
+library(DiagrammeR)
+
+##1
+mermaid("graph LR
+        PR(Property /leasing income)-->F(Total Pension entitlement of inmarried Woman in Agriculture); 
+        PEN(Pension entitlement from state pension insurance)-->F; 
+        PEI(Pension entitlement from private Insurance)-->F; 
+        PEA(Pension entitlement from Agricultural insurance)-->F; 
+        
+        FWP(Unpaid- On Farm Work)-->PP(Imprisonment by patriachy);
+        
+        J(Off-Farm Job)-->PEN; 
+        FWF(Paid- On Farm Job)-->PEN; 
+        
+        COB(Co-ownership of farm business)-->PEI; 
+        COB(Co-ownership of farm business)-->PEA; 
+        
+        OB(Ownership of farm business branch)-->PEI; 
+        OB(Ownership of farm business branch)-->PEA; 
+        
+        NO(No ownership of farm property)-->PP; 
+        COP(Co-ownership of farm property)-->PR; 
+       
+        ")
+
 ```
 
-## Including Plots
+## Results
 
-You can also embed plots, for example:
+## Discussion
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+## Conclusion
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## References
