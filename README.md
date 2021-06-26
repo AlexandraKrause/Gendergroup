@@ -21,7 +21,8 @@ In the far future:
 
 
 
-![Uploading grafik.png…]()
+![grafik](https://user-images.githubusercontent.com/82711784/123506272-a0094300-d663-11eb-83c1-b947aa47e8b4.png)
+
 
 Decision maker profile
 
