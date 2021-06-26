@@ -21,7 +21,8 @@ In the far future:
 
 
 
-![grafik](https://user-images.githubusercontent.com/82711784/123506272-a0094300-d663-11eb-83c1-b947aa47e8b4.png)
+
+![grafik](https://user-images.githubusercontent.com/82711784/123506463-a21fd180-d664-11eb-93ca-42c400e4a434.png)
 
 
 Decision maker profile
