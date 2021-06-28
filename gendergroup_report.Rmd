@@ -2,7 +2,13 @@
 title: "Decision analysis of pension options for in-married woman on German farms reveals gender disparities in pension entitlements"
 author: "Alexandra Krause, Rex Parro, Julia Schild, Alina Gombert"
 date: "25 6 2021"
-output: html_document
+output: 
+        html_document:
+                toc: true
+        #toc_depth: 2
+                toc_float: true
+                number_sections: true
+    
 bibliography: 
   - bib/references.bib 
   - bib/packages.bib
@@ -32,7 +38,7 @@ knitr::write_bib(c(.packages(),
 
 
 
-## Introduction
+# Introduction
 First technical Darft only!!!!!
 
 Farmers pension is challenged by structural change of traditional family farms. this applies especially to inmarried woman, who are. of property are challenes in agricultural pension insurance. 
@@ -46,9 +52,7 @@ Formen der Altersvorsorge
 @oedl2020feminist_innen
 
 
-This report was compiled using tools from the @R-knitr team. The model was created with the @R-decisionSupport. @tidyverse2019
-@R-tidyverse
-@R-DiagrammeR
+
 
 Statistically the most important group woman farmaers are the wifes of farmers. These woman hold often responsibilities for several important tasks on the farm. 
 The traditional organizational structre of family farms has the potentioal to exploit womans labour without pension entitlements. As womans retirement is mostly based on their husband, divorce or death of husband consitute major risks for their pension. 
@@ -66,12 +70,20 @@ a set of plausible ranges for net present values and highlighted critical variab
 decision-making under uncertainty. Our innovative research approach proved effective in providing forecasts of uncertain
 outcomes and can be useful for informing similar development interventions in other contexts.
 
-## Methods
+# Methods
 
-### Model conceptualization with stakeholders
+### Model conceptualization
+In our project, we intended to work on gender equality in German Farming. After extensive literature research on woman farmers in germany, we decided to narrow our question down to the pension of in-married woman in Germany.
 
-For ourStudy we conducted extensive literature research onwoman farmers in germany.
-afterwards we identified experts and a community of "agrarfrauen" as our expert group. After drafting a first model based on literature resarch and personal experinces, we contacted potentiaal decision makers and experts. most of our experts wereconsultants that often deal with decisin makers. after conducting our participatory workshop and several refinements, we came up with an improved model. 
+### Workshop with stakeholders
+Corresponding to our Research question, we identified experts and a community of "agrarfrauen" as our expert group. After drafting a first model based on literature resarch and personal experinces, we contacted potentiaal decision makers and experts. most of our experts wereconsultants that often deal with decisin makers. after conducting our participatory workshop and several refinements, we came up with an improved model. 
+
+```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Invitation to the Workshop', fig.show='hold'}
+knitr::include_graphics('images/1.png')
+knitr::include_graphics('images/2.png')
+```
+
+
 
 Decision option 1 
 
@@ -115,6 +127,8 @@ mermaid("graph LR
 
 ```
 
+This plot was created with @R-DiagrammeR.
+
 ### Input table
 This is our input table. the estimates for our input table were based on a mixed approach of literature research and expert opinion. the uncertainties were assigned by us as "calibarated" experts. 
 the model was then implemented in r.It is important to note, thet our model acknowlegesd the contemporary legal constraints in germany. we explicitly follow the available information on german pensio schemes as stated by pension consultants and extensionists.
@@ -126,6 +140,10 @@ knitr::kable(input_table_gender, caption = 'Input table')
 ```
 
 ### Model specification 
+
+The model was created with the @R-decisionSupport. We made use of the tools of the @R-tidyverse. 
+
+
 
 We worked together with experts to derive a conceptual
 model that explicitly identified all the important factors
@@ -140,14 +158,16 @@ model by simulating the likelihood and consequences of
 events perceived as consequential for pension entitlement of woman.
 
 
-## Results
+This report was compiled using tools from the @R-knitr team.
+
+# Results
 These are our results.
 
-## Discussion
+# Discussion
 This is our discussion
 
-## Conclusion
+# Conclusion
 This is our conclusion
 
-## References
+# References
 
