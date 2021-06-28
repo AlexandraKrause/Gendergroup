@@ -3,13 +3,34 @@ title: "Decision analysis of pension options for in-married woman on German farm
 author: "Alexandra Krause, Rex Parro, Julia Schild, Alina Gombert"
 date: "25 6 2021"
 output: html_document
-bibliography: references.bib 
+bibliography: 
+  - bib/references.bib 
+  - bib/packages.bib
+#references.bib 
  
 ---
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(decisionSupport)
+library(readr)
+library(decisionSupport)
+library(DiagrammeR)
+library(tidyverse)
+library(ggplot2)
+library(plyr)
+library(dplyr)
 ```
+
+```{r add_R_bib, include=FALSE}
+knitr::write_bib(c(.packages(),
+                   'knitr', 'decisionSupport', 'readr', 'DiagrammeR', 'tidyverse', 'ggplot2', 'plyr', 'dplyr'), 'bib/packages.bib')
+```
+
+
+
 
 ## Introduction
 First technical Darft only!!!!!
@@ -23,6 +44,11 @@ of the land is owned by female.
 Formen der Altersvorsorge
 @hadler2020
 @oedl2020feminist_innen
+
+
+This report was compiled using tools from the @R-knitr team. The model was created with the @R-decisionSupport. @tidyverse2019
+@R-tidyverse
+@R-DiagrammeR
 
 Statistically the most important group woman farmaers are the wifes of farmers. These woman hold often responsibilities for several important tasks on the farm. 
 The traditional organizational structre of family farms has the potentioal to exploit womans labour without pension entitlements. As womans retirement is mostly based on their husband, divorce or death of husband consitute major risks for their pension. 
@@ -57,15 +83,6 @@ Decision option 2
 
 pursue a retirement plan to ensure retireent. ere, different sub-option wereoutlined. 
 There are differnt options to finance the retirement and also differnt retirement schemes to choose from. Someretirement optiona are only possible with specific financing decisions: e.g. state reirement is only possible when woman has a formal working contract with her husband or another employer. 
-
-
-
-
-
-
- 
-
-
 
 
 ```{r model, echo=FALSE}
