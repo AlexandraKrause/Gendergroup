@@ -1,13 +1,17 @@
 ---
 title: "Decision analysis of pension options for in-married woman on German farms reveals gender disparities in pension entitlements"
-author: "Alexandra Krause, Rex Parro, Julia Schild, Alina Gombert"
-date: "25 6 2021"
+
+
+author: Alexandra Krause^[https://github.com/AlexandraKrause], Rex Parro^[https://github.com/parrorex23], 
+  Juia Schild^[https://github.com/J-Schild], Alina Gombert^[https://github.com/Kompostieren] 
+
 output: 
         html_document:
                 toc: true
         #toc_depth: 2
                 toc_float: true
                 number_sections: true
+        
     
 bibliography: 
   - bib/references.bib 
@@ -28,6 +32,7 @@ library(tidyverse)
 library(ggplot2)
 library(plyr)
 library(dplyr)
+
 ```
 
 ```{r add_R_bib, include=FALSE}
@@ -72,10 +77,8 @@ outcomes and can be useful for informing similar development interventions in ot
 
 # Methods
 
-### Model conceptualization
+## Identificaion of research priorities and stakeholder workshop
 In our project, we intended to work on gender equality in German Farming. After extensive literature research on woman farmers in germany, we decided to narrow our question down to the pension of in-married woman in Germany.
-
-### Workshop with stakeholders
 Corresponding to our Research question, we identified experts and a community of "agrarfrauen" as our expert group. After drafting a first model based on literature resarch and personal experinces, we contacted potentiaal decision makers and experts. most of our experts wereconsultants that often deal with decisin makers. after conducting our participatory workshop and several refinements, we came up with an improved model. 
 
 ```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Invitation to the Workshop', fig.show='hold'}
@@ -84,7 +87,7 @@ knitr::include_graphics('images/2.png')
 ```
 
 
-
+## Model Sketch
 Decision option 1 
 
 aka Default option: Woman has an apprentinship as gardener. She marries a farmer 
@@ -129,8 +132,9 @@ mermaid("graph LR
 
 This plot was created with @R-DiagrammeR.
 
-### Input table
-This is our input table. the estimates for our input table were based on a mixed approach of literature research and expert opinion. the uncertainties were assigned by us as "calibarated" experts. 
+## Model Inputs 
+
+After receiving a calibration training in the DA-Course, we bacame calibrated. This is our input table. the estimates for our input table were based on a mixed approach of literature research and expert opinion. the uncertainties were assigned by us as "calibarated" experts. 
 the model was then implemented in r.It is important to note, thet our model acknowlegesd the contemporary legal constraints in germany. we explicitly follow the available information on german pensio schemes as stated by pension consultants and extensionists.
 
 ```{r tables, echo=FALSE}
@@ -139,11 +143,9 @@ knitr::kable(input_table_gender, caption = 'Input table')
 # [1:5, ]
 ```
 
-### Model specification 
+## Model design 
 
 The model was created with the @R-decisionSupport. We made use of the tools of the @R-tidyverse. 
-
-
 
 We worked together with experts to derive a conceptual
 model that explicitly identified all the important factors
