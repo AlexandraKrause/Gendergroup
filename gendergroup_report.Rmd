@@ -3,9 +3,8 @@ title: "Decision analysis of pension options for in-married woman on German farm
 author: "Alexandra Krause, Rex Parro, Julia Schild, Alina Gombert"
 date: "25 6 2021"
 output: html_document
-bibliography: 
-  - bib/references.bib 
-  - bib/packages.bib
+bibliography: references.bib 
+ 
 ---
 
 ```{r setup, include=FALSE}
@@ -104,7 +103,7 @@ This is our input table. the estimates for our input table were based on a mixed
 the model was then implemented in r.It is important to note, thet our model acknowlegesd the contemporary legal constraints in germany. we explicitly follow the available information on german pensio schemes as stated by pension consultants and extensionists.
 
 ```{r tables, echo=FALSE}
-input_table_gender <-read.csv2("./input_table_gender.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_4th.csv", dec = ",")
 knitr::kable(input_table_gender, caption = 'Input table')
 # [1:5, ]
 ```
