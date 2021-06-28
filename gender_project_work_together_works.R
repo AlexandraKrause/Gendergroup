@@ -6,6 +6,7 @@ library(ggplot2)
 library(plyr)
 library(dplyr)
 
+
 ####first step:get data####
 
 #input_table_gender <-read.csv2("./input_table_gender.csv", dec = ",")
