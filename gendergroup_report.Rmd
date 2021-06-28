@@ -3,7 +3,9 @@ title: "Decision analysis of pension options for in-married woman on German farm
 author: "Alexandra Krause, Rex Parro, Julia Schild, Alina Gombert"
 date: "25 6 2021"
 output: html_document
-bibliography: references.bib
+bibliography: 
+  - bib/references.bib 
+  - bib/packages.bib
 ---
 
 ```{r setup, include=FALSE}
