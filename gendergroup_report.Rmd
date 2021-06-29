@@ -39,11 +39,19 @@ knitr::write_bib(c(.packages(),
 
 
 # Introduction
+<<<<<<< HEAD
 First technical Draft only!!!!!
 
 ## Gender equality in german farming
 
 The ancient role model of the male and patriarch peasants is under deconstruction (Laoire, 2002). When looking at agricultural study courses and practical training classes, and social media, some scholars perceive a "feminization" of agriculture in Germany [@inhetveen2017feminization] - this upward trend of woman in agriculture is reflected in agricultural statistics, which show that woman make up more than 36 % of the agricultural workers, 23% of agricultural apprentices and 48% of agricultural students are female. More and more innovative and successful woman farmers overcome traditional role models and claim their territory in this formerly male-dominated field. 
+=======
+First technical darft only!!!!!
+
+## Gender equality in german farming
+
+The ancient role model of the male and patriarch peasants is under deconstruction (Laoire, 2002). When looking at agricultural study couses and practical training classes, and social media, some scholars perceive a "feminization" of agriculture in Germany [@inhetveen2017feminization] - this upward trend of woman in agriculture is reflected in agricutural statistcs, which show that woman make up more than 36 % of the agricultural workers, 23% of agricultural apprentices and 48% of agricultural students are female. More and more snnovative and sucessfull woman farmers overcome traditional role models and claim their territory in this formerly male-dominated field. 
+>>>>>>> e08550cdbc6035dea305c18c2383caf74f5b9651
 
 Unfortunately, this "feminization" is not reflected in the share of leadership positions and land ownership of woman.  Today, only 11 % of farm managers are female [@destatis2020] and only 1/3 of land is owned by females @tietz2021untersuchung. Many woman active in farming, assume the role of the wife or contributing family member. Here, woman's labor is exploited without adequate financial remuneration. In this position, woman have . The imbalance of a high workload without financial compensation do not yield adequate pension entitlements.In many family farms, the financial security of hard-working woman is at risk. This different ownership rights are also reflected in the farm decision making process - 40 % of farmers’ wives claim that their husband decides alone on farm [@Umfrage]. 
  
@@ -87,7 +95,7 @@ outcomes and can be useful for informing similar development interventions in ot
 
 # Methods
 
-## Identificaion of research priorities and stakeholder workshop
+## Identification of research priorities and stakeholder workshop
 In our project, we intended to work on gender equality in German farming. After extensive literature research on woman farmers in germany, we identified the statistically important group of in-married woman in  question down to the pension of in-married woman in Germany.
 Corresponding to our Research question, we identified experts and a community of "agrarfrauen" as our expert group. After drafting a first model based on literature resarch and personal experinces, we contacted potentiaal decision makers and experts. most of our experts wereconsultants that often deal with decisin makers. after conducting our participatory workshop and several refinements, we came up with an improved model. 
 
