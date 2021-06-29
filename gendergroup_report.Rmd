@@ -1,25 +1,20 @@
 ---
 title: "Decision analysis of pension options for in-married woman on German farms reveals gender disparities in pension entitlements"
 
-
 author: Alexandra Krause^[https://github.com/AlexandraKrause], Rex Parro^[https://github.com/parrorex23], 
   Juia Schild^[https://github.com/J-Schild], Alina Gombert^[https://github.com/Kompostieren] 
 
 output: 
         html_document:
                 toc: true
-        #toc_depth: 2
                 toc_float: true
                 number_sections: true
         
-    
 bibliography: 
   - bib/references.bib 
   - bib/packages.bib
-#references.bib 
- 
----
 
+---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -46,6 +41,22 @@ knitr::write_bib(c(.packages(),
 # Introduction
 First technical Darft only!!!!!
 
+## Gender equality in german farming
+
+The ancient role model of the male and independent traditional peasants is under deconstruction (Laoire, 2002). When looking at agricultural study couses and apprentince classes, some scholars perceive a "feminization" of agriculture in Germany [@inhetveen2017feminization]. More then 36 % of agricultural workers, yy% of agricultural aprentices and xx% or agricultural students are female and woman farmers overcome traditional role models. 
+
+Unfortunately, this "feminization" is not reflected in leadership positions and land ownership of woman.  Only 11 % of farm managers are female [@destatis2020] and Only 1/3 of land is owned by females @tietz2021untersuchung. Also, 40 % of farmers’ wives claim that their husband decides alone on farm [@Umfrage].Even though a feminization or agriculture can be perceived, the german farming system is far from gender equality. 
+ 
+## Pension of Farm wifes
+The pension of farmers in Germany is usually a combination of agricultural insurance, leasing income from property or monthly allowance from successors. The statistically important group of in-maried woman often works full-time on farm, but depends financially on her husbands property. Women can be registered as contributing family members and thereby contribute to agricultural insurance. However, the agricultural pension entitlement is comparable to a pocket money and not designed to cover the cost of living of retirees. Revenues of leasing land during retirement go exclusively to the husband.In-married women usually do not own the farm, therefore depend on financial support by family and bear a high risk of old-age poverty. 
+Aquiring independent pension entitlements is challenging for woman on farm. 
+- First, their „patchwork employment biography“ limits their pension entitlement from other schemes.
+- Patriacial traditiions demand child- and elderly care from woman, which is 
+
+
+
+
+
 Farmers pension is challenged by structural change of traditional family farms. this applies especially to inmarried woman, who are. of property are challenes in agricultural pension insurance. 
 This applies to farmers, but een more on their wifes. @do_decision_2020
 In Germany, only 10 of farm managers are female and only one third 
@@ -55,8 +66,6 @@ of the land is owned by female.
 Formen der Altersvorsorge
 @hadler2020
 @oedl2020feminist_innen
-
-
 
 
 Statistically the most important group woman farmaers are the wifes of farmers. These woman hold often responsibilities for several important tasks on the farm. 
@@ -78,7 +87,7 @@ outcomes and can be useful for informing similar development interventions in ot
 # Methods
 
 ## Identificaion of research priorities and stakeholder workshop
-In our project, we intended to work on gender equality in German Farming. After extensive literature research on woman farmers in germany, we decided to narrow our question down to the pension of in-married woman in Germany.
+In our project, we intended to work on gender equality in German farming. After extensive literature research on woman farmers in germany, we identified the statistically important group of in-married woman in  question down to the pension of in-married woman in Germany.
 Corresponding to our Research question, we identified experts and a community of "agrarfrauen" as our expert group. After drafting a first model based on literature resarch and personal experinces, we contacted potentiaal decision makers and experts. most of our experts wereconsultants that often deal with decisin makers. after conducting our participatory workshop and several refinements, we came up with an improved model. 
 
 ```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Invitation to the Workshop', fig.show='hold'}
@@ -105,32 +114,36 @@ There are differnt options to finance the retirement and also differnt retiremen
 
 library(DiagrammeR)
 
-##1
 mermaid("graph LR
-        PR(Property /leasing income)-->F(Total Pension entitlement of inmarried Woman in Agriculture); 
-        PEN(Pension entitlement from state pension insurance)-->F; 
-        PEI(Pension entitlement from private Insurance)-->F; 
-        PEA(Pension entitlement from Agricultural insurance)-->F; 
         
-        FWP(Unpaid- On Farm Work)-->PP(Imprisonment by patriachy);
+        D(No specific pension plan AKA Business as usual) --> SQ(Contributing Family member);
+        SQ              --> Fam(Financial support from family);
         
-        J(Off-Farm Job)-->PEN; 
-        FWF(Paid- On Farm Job)-->PEN; 
+        PP(Pension Plan)--> FM(Money from Husband);
+        PP              --> FJ(payed on farm job);
+        PP              --> OB(Own Business branch);
+        PP              --> OJ(Off-Farm job);
         
-        COB(Co-ownership of farm business)-->PEI; 
-        COB(Co-ownership of farm business)-->PEA; 
+        FM(Money from Husband) -->AI(Agricultural insurance);
+        FJ(payed on farm job)  -->SI(State insurance);
+        OB(Own Business branch)-->AI(Agricultural insurance);
+        OJ(Off-Farm job)       -->SI(State insurance);
+        SQ                     -->AI
+        FM(Money from Husband) -->PI(Private insurance);
+        FJ(payed on farm job)  -->PI(Private insurance);
+        OB(Own Business branch)-->PI(Private insurance);
+        OJ(Off-Farm job)       -->PI(Private insurance);
         
-        OB(Ownership of farm business branch)-->PEI; 
-        OB(Ownership of farm business branch)-->PEA; 
-        
-        NO(No ownership of farm property)-->PP; 
-        COP(Co-ownership of farm property)-->PR; 
-       
+        PI      --> P(Pension);
+        SI      --> P;
+        AI      --> p
         ")
+        
 
 ```
 
 This plot was created with @R-DiagrammeR.
+
 
 ## Model Inputs 
 
@@ -143,7 +156,7 @@ knitr::kable(input_table_gender, caption = 'Input table')
 # [1:5, ]
 ```
 
-## Model design 
+## Model inmpementation and specification 
 
 The model was created with the @R-decisionSupport. We made use of the tools of the @R-tidyverse. 
 
