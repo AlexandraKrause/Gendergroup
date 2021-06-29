@@ -5,6 +5,7 @@ In our model we compare multiple branches. First there are differnt options to f
 how to use the code?
 -line 53 shows which way to use. it is neat this way. type in the way you want to see!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+ich bin rex 
 what i changed till my last explanation, that had to be simplified (i cannot explain the whole code here, just what had to go):
 -state insurance only as a necessity for off-farm job to make coding easier for me
 -risk of no child care serveces raus, weil das risk nicht für alles gilt und ich keine ahnung habe wie ich es nur für einige optionen nennen kann. evtl. geht das gar nicht.
