@@ -1,6 +1,6 @@
 # Gendergroup
 https://rdrr.io/cran/decisionSupport/man/vv.html
-In our model we compare multiple branches. First there are differnt options to finance pension schemes and also different pension schemes the women can choose from. Up until now we have not managed to implement all branches (the "put together "part after the calculation of benefits and costs for each option), but we are in the process of completing the missing branches. We have discount rates for differnt years that apply for retirenment and working years: We have multiple risks and  chances for events to happpen.  We have variability in all branches ( inflation, worth of money, costs during her lifetime; paying in different years than receiving money).
+In our model we compare multiple branches. First there are different options to finance pension schemes and also different pension schemes the women can choose from. Up until now we have not managed to implement all branches (the "put together "part after the calculation of benefits and costs for each option), but we are in the process of completing the missing branches. We have discount rates for different years that apply for retirenment and working years: We have multiple risks and  chances for events to happpen.  We have variability in all branches ( inflation, worth of money, costs during her lifetime; paying in different years than receiving money).
 
 how to use the code?
 -line 53 shows which way to use. it is neat this way. type in the way you want to see!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
