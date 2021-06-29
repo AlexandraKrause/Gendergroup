@@ -1,3 +1,5 @@
+
+install.packages("distill")
 library(readr)
 library(decisionSupport)
 library (DiagrammeR)
@@ -5,7 +7,6 @@ library(tidyverse)
 library(ggplot2)
 library(plyr)
 library(dplyr)
-
 
 ####first step:get data####
 
