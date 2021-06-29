@@ -5,10 +5,12 @@ author: Alexandra Krause^[https://github.com/AlexandraKrause], Rex Parro^[https:
   Juia Schild^[https://github.com/J-Schild], Alina Gombert^[https://github.com/Kompostieren] 
 
 output: 
-        html_document:
+        bookdown::html_document2:
                 toc: true
                 toc_float: true
                 number_sections: true
+                number_figures: true
+                tof: true
         
 bibliography: 
   - bib/references.bib 
@@ -39,36 +41,21 @@ knitr::write_bib(c(.packages(),
 
 
 # Introduction
-<<<<<<< HEAD
+
 First technical Draft only!!!!!
 
-## Gender equality in german farming
+## Gender equality in German farming
 
-The ancient role model of the male and patriarch peasants is under deconstruction (Laoire, 2002). When looking at agricultural study courses and practical training classes, and social media, some scholars perceive a "feminization" of agriculture in Germany [@inhetveen2017feminization] - this upward trend of woman in agriculture is reflected in agricultural statistics, which show that woman make up more than 36 % of the agricultural workers, 23% of agricultural apprentices and 48% of agricultural students are female. More and more innovative and successful woman farmers overcome traditional role models and claim their territory in this formerly male-dominated field. 
-=======
-First technical darft only!!!!!
+The ancient role model of the male and patriarch farmer is under deconstruction (Laoire, 2002). When looking at agricultural study courses, practical training classes and social media, several scholars perceive a "feminization" of agriculture in Germany [@inhetveen2017feminization] - This perception is reflected in agricultural statistics, stating that woman make up more than 36 % of the agricultural workers, 23% of agricultural apprentices and 48% of agricultural students. More and more innovative and successful woman farmers overcome traditional role models and claim their territory in this formerly male-dominated field. 
 
-## Gender equality in german farming
+Unfortunately, this "feminization" is not reflected in the share of leadership positions and land ownership of woman.  Today, only 11 % of farm managers are female and only 1/3 of land is owned by females [@destatis2020; @tietz2021untersuchung].Presently, most woman in agriculture assume the role of the wife, contributing family or seasonal worker [@destatis2020]. As the tradition of male farm succession is still adhered to, women have little chance of gaining inherited access to farms and land. Often, women only get access to a farm by taking over a farm outside the family or marrying into it.  When woman are in-married in a farm, their labor is often exploited without adequate financial remuneration. The statistically important group of in married woman in farming is expected to care for children and elderly, do domestic work (cooking, cleaning, washing, grocery shopping), manage office work and milking. 
 
-The ancient role model of the male and patriarch peasants is under deconstruction (Laoire, 2002). When looking at agricultural study couses and practical training classes, and social media, some scholars perceive a "feminization" of agriculture in Germany [@inhetveen2017feminization] - this upward trend of woman in agriculture is reflected in agricutural statistcs, which show that woman make up more than 36 % of the agricultural workers, 23% of agricultural apprentices and 48% of agricultural students are female. More and more snnovative and sucessfull woman farmers overcome traditional role models and claim their territory in this formerly male-dominated field. 
->>>>>>> e08550cdbc6035dea305c18c2383caf74f5b9651
-
-Unfortunately, this "feminization" is not reflected in the share of leadership positions and land ownership of woman.  Today, only 11 % of farm managers are female [@destatis2020] and only 1/3 of land is owned by females @tietz2021untersuchung. Many woman active in farming, assume the role of the wife or contributing family member. Here, woman's labor is exploited without adequate financial remuneration. In this position, woman have . The imbalance of a high workload without financial compensation do not yield adequate pension entitlements.In many family farms, the financial security of hard-working woman is at risk. This different ownership rights are also reflected in the farm decision making process - 40 % of farmers’ wives claim that their husband decides alone on farm [@Umfrage]. 
  
-## Pension of Farm wifes
-The pension of farmers in Germany is usually a combination of agricultural insurance, leasing income from property or monthly allowance from successors. The statistically important group of in-married woman often works full-time on farm, but depends financially on her husbands property. Women can be registered as contributing family members and thereby contribute to agricultural insurance. However, the agricultural pension entitlement is comparable to a pocket money and not designed to cover the cost of living of retirees. Revenues of leasing land during retirement go exclusively to the husband.In-married women usually do not own the farm, therefore depend on financial support by family and bear a high risk of old-age poverty. 
-Acquiring independent pension entitlements is challenging for woman on farm. 
-- First, their „patchwork employment biography“ limits their pension entitlement from other schemes.
-- Patriarchal traditions demand child- and elderly care from woman, which is 
+## Pension of farmers’ wives in Germany
+Farmers pension is challenged by structural change of traditional family farms. The pension of farmers in Germany is usually a combination of agricultural insurance, leasing income from property or monthly allowance from successors. The possible agricultural pension entitlement is rather comparable to a pocket money and is not designed to cover the cost of living of retirees. Farm wives can be insured by the agricultural insurance. Revenues of leasing land during retirement are an important supplement and go exclusively to the husband. In-married women usually do not own the farm(-land) and therefore depend on financial support by their husband and family.  Farm property rights are unequally distributed in favor of men, which is reflected in the farm decision making process - 40 % of farmers’ wives claim that their husband decides alone on farm  [@Umfrage]. In-married woman often work full-time on farm, lack decision making power and depend financially on their husbands property. The imbalance of a high workload on one hand without financial compensation on the other hand does not yield adequate pension entitlements.  Without a proper pension plan, hard-working woman on family farms  bear a high risk of old-age poverty. Acquiring independent pension entitlements is challenging for woman on farm. Their „Patchwork employment biographies“ are disadvantageous in the German pension system and often lead to a low pension entitlement.Patriarchal traditions demand child- and elderly care from woman - this workload often does not allow for noteworthy off-farm employment. 
 
+@do_decision_2020
 
-
-
-
-Farmers pension is challenged by structural change of traditional family farms. this applies especially to in- married woman, who are. of property are challenges in agricultural pension insurance. 
-This applies to farmers, but een more on their wifes. @do_decision_2020
-In Germany, only 10 of farm managers are female and only one third 
-of the land is owned by female. 
 
 padel2020arbeiten
 @muller2010kostenlosen
@@ -120,7 +107,7 @@ pursue a retirement plan to ensure retireent. ere, different sub-option wereoutl
 There are differnt options to finance the retirement and also differnt retirement schemes to choose from. Someretirement optiona are only possible with specific financing decisions: e.g. state reirement is only possible when woman has a formal working contract with her husband or another employer. 
 
 
-```{r model, echo=FALSE}
+```{r model, echo=FALSE, fig.cap='Model'}
 
 
 library(DiagrammeR)
