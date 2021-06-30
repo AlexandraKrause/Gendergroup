@@ -62,6 +62,7 @@ plot_pls(pls_result, input_table_gender = input_table_gender, threshold = 0)
 # graphical options to visualize uncertainty intervals of outcomes of Monte Carlo simulations. 
 # We create a data set of yield distributions of three different farming practices 
 # and use the function  with mcmc_areas() function from the bayesplot library (Gabry and Mahr 2021).
+#here, we need a data frame with our simulation outcomes. I do not know yet how to generate that.
 
 library(bayes)
 test <- data.frame("practice 1" = rnorm(n = 1000, mean = 8, sd = 1.5), 

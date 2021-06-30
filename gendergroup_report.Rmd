@@ -37,9 +37,6 @@ knitr::write_bib(c(.packages(),
                    'knitr', 'decisionSupport', 'readr', 'DiagrammeR', 'tidyverse', 'ggplot2', 'plyr', 'dplyr'), 'bib/packages.bib')
 ```
 
-
-
-
 # Introduction
 
 THIS IS THE FIRST TECHNICAL DRAFT
@@ -54,7 +51,7 @@ Unfortunately, this "feminization" is not reflected in the share of leadership p
 ## Pension of farmers’ wives in Germany
 Farmers pension is challenged by structural change of traditional family farms [@glauben2009probability]. The pension of farmers in Germany is usually a combination of agricultural insurance, leasing income from property or monthly allowance from successors [@hagedorn1991financing]. The possible agricultural pension entitlement is rather comparable to a pocket money and is not designed to cover the cost of living of retirees [@BMEL2021].
 
-Farm wives can be insured by the agricultural insurance. Revenues of leasing land during retirement are an important supplement to the agricultural pension but go exclusively to the husband. In-married women usually do not own the farm(-land) and therefore depend on financial support by their husband and family. Farm property rights are unequally distributed in favor of men, which is reflected in the farm decision making process - 40 % of farmers’ wives claim that their husband decides alone on farm  [@Umfrage]. In-married woman often work full-time on farm, lack decision making power and depend financially on their husbands property. The imbalance of a high workload on one hand without financial compensation on the other hand does not yield adequate pension entitlements.  Without a proper pension plan, hard-working woman on family farms  bear a high risk of old-age poverty. Acquiring independent pension entitlements is challenging for woman on farm. Their „Patchwork employment biographies“ are disadvantageous in the German pension system and often lead to a low pension entitlement.Patriarchal traditions demand child- and elderly care from woman - this workload often does not allow for noteworthy off-farm employment. As woman's retirement is mostly based on their husband, divorce or death of husband constitute major risks for their pension. 
+Farm wives can be insured by the agricultural insurance but have often a lower pension entitlement then men [@BREG2017]  Revenues of leasing land during retirement are an important supplement to the agricultural pension but go exclusively to the husband. In-married women usually do not own the farm(-land) and therefore depend on financial support by their husband and family. Farm property rights are unequally distributed in favor of men, which is reflected in the farm decision making process - 40 % of farmers’ wives claim that their husband decides alone on farm  [@Umfrage]. In-married woman often work full-time on farm, lack decision making power and depend financially on their husbands property. The imbalance of a high workload on one hand without financial compensation on the other hand does not yield adequate pension entitlements.  Without a proper pension plan, hard-working woman on family farms  bear a high risk of old-age poverty. Acquiring independent pension entitlements is challenging for woman on farm. Their „Patchwork employment biographies“ are disadvantageous in the German pension system and often lead to a low pension entitlement.Patriarchal traditions demand child- and elderly care from woman - this workload often does not allow for noteworthy off-farm employment. As woman's retirement is mostly based on their husband, divorce or death of husband constitute major risks for their pension. 
 
 Interventions that improve the pension of farm wives have the potential to benefit the livelihoods of family farms. In our study, we want to display different options that ensure woman farmers a safe pension entitlement. However, given the high system complexity, the long-term benefits of pension schemes are difficult to anticipate. This study aimed to integrate uncertainty into long-term performance projections for pension scheme interventions in Germany. We applied decision analysis and probabilistic modeling approaches to produce economic ex-ante assessments for for pension schemes. We compare the default option of no specific pension plan to a different pension plan options. Hereby we consider the most important pension schemes relevant for woman in agriculture, which is agricultural insurance, state insurance, private insurance and etfs. With our research we would like to encourage woman farmers to demand monetary appreciation of their work and consider risks to their family pension.  
 
@@ -111,6 +108,20 @@ This plot was created with @R-DiagrammeR.
 ## Participatory approach
 
 Corresponding to our Research question, we identified experts in insurance companies, the agricultural chamber, the woman farmers association as our experts. In an online community of woman in agriculture, we approached potential decision makers.  After drafting a first model based on literature research and personal experiences, we contacted the experts and conducted several one-to one Interviews. The insights from with equal pay consultants and the insurance company were valuable for our system understanding. In a next step, we organized an online workshop with potential decision makers and experts. and a lively group discussion. After a lively discussion discussion with experts and decision makers, we updated our model and used the updated version for further analysis.
+
+|  Position 	| Type  	|  Interview 	|  Workshop participation 	|   	|
+|---	|---	|---	|---	|---	|
+|  Farmer's wife 	|  decision-maker 	|   no	|  yes 	|   	|
+|  Farmer 	|  stakeholder and co-decision-maker 	|   no	|  no 	|   	|
+|  Farm Children 	|  stakeholder 	|  no 	|  no 	|   	|
+|  Rural woman association 	|  expert 	|  yes 	|  yes 	|   	|
+|  Agricultural Insurance agency 	|  expert 	|  yes 	|   yes	|   	|
+|  State insurance agency 	|  expert 	|   no	|  no 	|   	|
+|  Private insurance consultant 	|  expert 	|  yes 	|   no	|   	|
+|  Agriculral chamber consultant 	|  expert 	|  yes 	|   yes	|   	|
+|  Lawyer for agricultural family law	|  expert 	|  no 	| yes  	|   	|
+|  Young woman farmers	|  stakeholder 	|   no	|  yes 	|   	|
+|  Students with a partner with farm 	|  stakeholder 	|   no	| no  	|   	|
 
 
 ```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Invitation to the Workshop', fig.show='hold'}
