@@ -1,4 +1,6 @@
 
+
+
 # Alinas Addition to the model script
 
 ## Cashflow: Here we plot the distribution of annual cashflow 
@@ -7,6 +9,7 @@
 # which uses the specified cashflow outputs from the mcSimulation() function to show cashflow over time.
 # In the example, the cashflow_var_name is "Cashflow_decision_do".
 # In our case, it could be "NPV_branch", but I don't know, if this is correct.
+# 
 
 # As the n_years is not implemented in our model, I think that the function won't work immediately.
 # I suggest renaming all the n = 40 to n_years, which should be specified in the beginning of our script.
@@ -62,7 +65,10 @@ plot_pls(pls_result, input_table_gender = input_table_gender, threshold = 0)
 # graphical options to visualize uncertainty intervals of outcomes of Monte Carlo simulations. 
 # We create a data set of yield distributions of three different farming practices 
 # and use the function  with mcmc_areas() function from the bayesplot library (Gabry and Mahr 2021).
-#here, we need a data frame with our simulation outcomes. I do not know yet how to generate that.
+#here, we need a data frame with our simulation outcomes. 
+# I do not know yet how to generate that. Maybe this works: 
+# as.data.frame.mcSimulation: Coerce Monte Carlo simulation results to a data frame.
+# https://rdrr.io/cran/decisionSupport/man/as.data.frame.mcSimulation.html
 
 library(bayes)
 test <- data.frame("practice 1" = rnorm(n = 1000, mean = 8, sd = 1.5), 

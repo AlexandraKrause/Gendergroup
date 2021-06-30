@@ -146,7 +146,7 @@ knitr::kable(input_table_gender, caption = 'Input table')
 
 ## Model inmpementation and specification 
 We worked together with experts to derive a conceptual model that explicitly identified all the important factors
-and relationships in rension schemes for in-married woman in Agriculture. Since the pension yield and input demand depend
+and relationships in pension schemes for in-married woman in Agriculture. Since the pension yield and input demand depend
 on the age of the decision-maker, all benefits and costs were modeled in relation to the age of the decision maker. Since the monthly
 input costs varied throughout the employment biography, reasonable time intervals were specified. Risks were quantified in the
 model by simulating the likelihood and consequences of events perceived as consequential for pension entitlement of woman.
