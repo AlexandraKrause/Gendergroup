@@ -26,13 +26,13 @@ input_table_gender <- input_table_gender %>%
 str(input_table_gender)
 ########
 
-#Reminder about the make_variables function
-make_variables <- function(est,n=1)
-{ x<-random(rho=est, n=n)
-for(i in colnames(x)) assign(i,
-                             as.numeric(x[1,i]),envir=.GlobalEnv)
-}#Then call:
-  make_variables(as.estimate(input_table_gender))
+# #Reminder about the make_variables function
+# make_variables <- function(est,n=1)
+# { x<-random(rho=est, n=n)
+# for(i in colnames(x)) assign(i,
+#                              as.numeric(x[1,i]),envir=.GlobalEnv)
+# }#Then call:
+#   make_variables(as.estimate(input_table_gender))
 
 ####function####
 
@@ -46,66 +46,66 @@ for(i in colnames(x)) assign(i,
 
 #Way 5 and 6 are still missing
 
-Way <- 3
+Way <- 2
 
 
 decision_function <- function(x, varnames){
   
-#  Default_option_2 <- vv(var_mean = Default_option_2,
-#                         var_CV = var_cv_40, 
-#                         n = 40 )
-  
-#  Default_option_3 <- vv(var_mean = Default_option_3,
-#                         var_CV = var_cv_40, 
-#                         n = 40)
-  
-#  Default_option_3_costs <- vv(var_mean = Default_option_3_costs, 
-#                               var_CV = var_cv_40, 
-#                               n = 40)
-  
-  
-#  Own_business_branch <- vv(var_mean = Own_branch, 
-#                            var_CV = var_cv_40, 
-#                            n = 40)
-  
-#  Off_Farm_job <- vv(var_mean = Off_Farm_job, 
-#                     var_CV = var_cv_40, 
-#                     n = 40)
-  
-  
-#  Costs_for_child_care <- vv(var_mean = Costs_for_child_care, 
-#                             var_CV = var_cv_40, 
-#                             n = 40)
-  
-#  Costs_for_elderly_care <- vv(var_mean = Costs_for_elderly_care, 
-#                               var_CV = var_cv_40, 
-#                               n = 40)
-  
-#  State_insurance <- vv(var_mean = State_insurance, 
-#                        var_CV = var_cv_17, 
-#                        n = 40)
-  
-#  State_insurance_costs <- vv(var_mean = State_insurance_inv, 
-#                             var_CV = var_cv_40, 
-#                              n = 40)
-  
-#  Family_money <- vv(var_mean = Family_money, 
-#                     var_CV = var_cv_40, 
-#                     n = 40)
-  
-#  Farm_job_payed <- vv(var_mean = Farm_job_payed, 
-#                       var_CV = var_cv_40, 
-#                       n = 40)
-  
-  
-#  Agri_insurance <- vv(var_mean = Agri_insurance, 
-#                       var_CV = var_cv_17, 
+  Default_option_2 <- vv(var_mean = Default_option_2,
+                         var_CV = var_cv_40,
+                         n = 40 )
+
+  Default_option_3 <- vv(var_mean = Default_option_3,
+                         var_CV = var_cv_40,
+                         n = 40)
+
+  Default_option_3_costs <- vv(var_mean = Default_option_3_costs,
+                               var_CV = var_cv_40,
+                               n = 40)
+
+
+  Own_business_branch <- vv(var_mean = Own_branch,
+                            var_CV = var_cv_40,
+                            n = 40)
+
+  Off_Farm_job <- vv(var_mean = Off_Farm_job,
+                     var_CV = var_cv_40,
+                     n = 40)
+
+
+  Costs_for_child_care <- vv(var_mean = Costs_for_child_care,
+                             var_CV = var_cv_40,
+                             n = 40)
+
+  Costs_for_elderly_care <- vv(var_mean = Costs_for_elderly_care,
+                               var_CV = var_cv_40,
+                               n = 40)
+
+  State_insurance <- vv(var_mean = State_insurance,
+                        var_CV = var_cv_17,
+                        n = 40)
+
+  State_insurance_costs <- vv(var_mean = State_insurance_inv,
+                             var_CV = var_cv_40,
+                              n = 40)
+
+  Family_money <- vv(var_mean = Family_money,
+                     var_CV = var_cv_40,
+                     n = 40)
+
+  Farm_job_payed <- vv(var_mean = Farm_job_payed,
+                       var_CV = var_cv_40,
                        n = 40)
-  
-#  Agri_insurance_costs <-  vv(var_mean = Agri_insurance_inv, 
-#                              var_CV = var_cv_40, 
-#                              n = 40)
-  
+
+
+  Agri_insurance <- vv(var_mean = Agri_insurance,
+                       var_CV = var_cv_17,
+                       n = 40)
+
+  Agri_insurance_costs <-  vv(var_mean = Agri_insurance_inv,
+                              var_CV = var_cv_40,
+                              n = 40)
+
   
   ETF <- vv(var_mean = ETF, 
             var_CV = var_cv_17, 
@@ -239,7 +239,6 @@ decision_function <- function(x, varnames){
   
 }
 
-
 mcSimulation_results_way1 <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
   model_function = decision_function,
@@ -268,12 +267,13 @@ mcSimulation_results_way4 <- decisionSupport::mcSimulation(
   functionSyntax = "plainNames"
 )
 
-decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way1, 
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way2, 
                                     vars = c("NPV_no_branch", "NPV_branch"),
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
 
-decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way4, 
-                                    vars = c("NPV_no_branch", "NPV_branch"),
-                                    method = 'smooth_simple_overlay', 
-                                    base_size = 7)
+
+# decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way4, 
+#                                     vars = c("NPV_no_branch", "NPV_branch"),
+#                                     method = 'smooth_simple_overlay', 
+#                                     base_size = 7)
