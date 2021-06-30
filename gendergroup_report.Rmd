@@ -46,55 +46,30 @@ First technical Draft only!!!!!
 
 ## Gender equality in German farming
 
-The ancient role model of the male and patriarch farmer is under deconstruction (Laoire, 2002). When looking at agricultural study courses, practical training classes and social media, several scholars perceive a "feminization" of agriculture in Germany [@inhetveen2017feminization] - This perception is reflected in agricultural statistics, stating that woman make up more than 36 % of the agricultural workers, 23% of agricultural apprentices and 48% of agricultural students. More and more innovative and successful woman farmers overcome traditional role models and claim their territory in this formerly male-dominated field. 
+The ancient role model of the male and patriarch farmer is under deconstruction [@laoire_young_2002]. When looking at agricultural study courses, practical training classes and social media, several scholars perceive a "feminization" of agriculture in Germany [@inhetveen2017feminization] - This perception is reflected in agricultural statistics, stating that woman make up more than 36 % of the agricultural workers, 23% of agricultural apprentices and 48% of agricultural students [@BZL2021]. More and more innovative and successful woman farmers overcome traditional role models and claim their territory in this formerly male-dominated field [@padel2020arbeiten]. 
 
-Unfortunately, this "feminization" is not reflected in the share of leadership positions and land ownership of woman.  Today, only 11 % of farm managers are female and only 1/3 of land is owned by females [@destatis2020; @tietz2021untersuchung].Presently, most woman in agriculture assume the role of the wife, contributing family or seasonal worker [@destatis2020]. As the tradition of male farm succession is still adhered to, women have little chance of gaining inherited access to farms and land. Often, women only get access to a farm by taking over a farm outside the family or marrying into it.  When woman are in-married in a farm, their labor is often exploited without adequate financial remuneration. The statistically important group of in married woman in farming is expected to care for children and elderly, do domestic work (cooking, cleaning, washing, grocery shopping), manage office work and milking. 
+Unfortunately, this "feminization" is not reflected in the share of leadership positions and land ownership of woman. Today, only 11 % of farm managers are female and only 1/3 of land is owned by females [@destatis2020; @tietz2021untersuchung]. Presently, most woman in agriculture assume the role of the wife, contributing family or seasonal worker [@destatis2020]. As the tradition of male farm succession is still adhered to, women have little chance of gaining inherited access to farms and land [@Padel2020]. Often, women only get access to a farm by taking over a farm outside the family or marrying into it.  When woman are in-married in a farm, their labor is often exploited without adequate financial remuneration. The statistically important group of in married woman in farming is expected to care for children and elderly, do domestic work (cooking, cleaning, washing, grocery shopping), manage office work and milking. 
 
  
 ## Pension of farmers’ wives in Germany
-Farmers pension is challenged by structural change of traditional family farms. The pension of farmers in Germany is usually a combination of agricultural insurance, leasing income from property or monthly allowance from successors. The possible agricultural pension entitlement is rather comparable to a pocket money and is not designed to cover the cost of living of retirees. Farm wives can be insured by the agricultural insurance. Revenues of leasing land during retirement are an important supplement and go exclusively to the husband. In-married women usually do not own the farm(-land) and therefore depend on financial support by their husband and family.  Farm property rights are unequally distributed in favor of men, which is reflected in the farm decision making process - 40 % of farmers’ wives claim that their husband decides alone on farm  [@Umfrage]. In-married woman often work full-time on farm, lack decision making power and depend financially on their husbands property. The imbalance of a high workload on one hand without financial compensation on the other hand does not yield adequate pension entitlements.  Without a proper pension plan, hard-working woman on family farms  bear a high risk of old-age poverty. Acquiring independent pension entitlements is challenging for woman on farm. Their „Patchwork employment biographies“ are disadvantageous in the German pension system and often lead to a low pension entitlement.Patriarchal traditions demand child- and elderly care from woman - this workload often does not allow for noteworthy off-farm employment. 
+Farmers pension is challenged by structural change of traditional family farms [@glauben2009probability]. The pension of farmers in Germany is usually a combination of agricultural insurance, leasing income from property or monthly allowance from successors [@hagedorn1991financing]. The possible agricultural pension entitlement is rather comparable to a pocket money and is not designed to cover the cost of living of retirees [@BMEL2021].
+
+Farm wives can be insured by the agricultural insurance. Revenues of leasing land during retirement are an important supplement to the agricultural pension but go exclusively to the husband. In-married women usually do not own the farm(-land) and therefore depend on financial support by their husband and family. Farm property rights are unequally distributed in favor of men, which is reflected in the farm decision making process - 40 % of farmers’ wives claim that their husband decides alone on farm  [@Umfrage]. In-married woman often work full-time on farm, lack decision making power and depend financially on their husbands property. The imbalance of a high workload on one hand without financial compensation on the other hand does not yield adequate pension entitlements.  Without a proper pension plan, hard-working woman on family farms  bear a high risk of old-age poverty. Acquiring independent pension entitlements is challenging for woman on farm. Their „Patchwork employment biographies“ are disadvantageous in the German pension system and often lead to a low pension entitlement.Patriarchal traditions demand child- and elderly care from woman - this workload often does not allow for noteworthy off-farm employment. As woman's retirement is mostly based on their husband, divorce or death of husband constitute major risks for their pension. 
+
+Interventions that improve the pension of farm wives have the potential to benefit the livelihoods of family farms. In our study, we want to display different options that ensure woman farmers a safe pension entitlement. However, given the high system complexity, the long-term benefits of pension schemes are difficult to anticipate. This study aimed to integrate uncertainty into long-term performance projections for pension scheme interventions in Germany. We applied decision analysis and probabilistic modeling approaches to produce economic ex-ante assessments for for pension schemes. We compare the default option of no specific pension plan to a different pension plan options. Hereby we consider the most important pension schemes relevant for woman in agriculture, which is agricultural insurance, state insurance, private insurance and etfs. With our research we would like to encourage woman farmers to demand monetary appreciation of their work and consider risks to their family pension.  
 
 @do_decision_2020
-
-
-padel2020arbeiten
+@fabian2018stellung
 @muller2010kostenlosen
-Formen der Altersvorsorge
 @hadler2020
 @oedl2020feminist_innen
 
-
-Statistically the most important group woman farmaers are the wifes of farmers. These woman hold often responsibilities for several important tasks on the farm. 
-The traditional organizational structre of family farms has the potentioal to exploit womans labour without pension entitlements. As womans retirement is mostly based on their husband, divorce or death of husband consitute major risks for their pension. 
-In our study, we want to display different options that ensure woman farmers a safe pension entitlement. We compare the default option of no specific pension plan to adifferent pension plan options. Herby we conside the most important pension schemes relevan for woman in agricultre, which is agricultural insrance, state insurance, private insurance and etfs. With our research we would like to encourage woman farmers to demand monetary appreciation of thei work and consider risks to their family pension.  
-
-Interventions that improve the pension of farm wifes have the potential to benefit the livelihoods of farmers and communities worldwide. However, given the high system complexity, the long-term benefits of 
-pension schemes are difficult to anticipate. This study aimed to integrate
-uncertainty into long-term performance projections for pension scheme interventions 
-in Germany. We applied decision analysis and probabilistic modeling approaches 
-to produce economic ex-ante assessments for for pension schemes
-options (state pension, agricultural pension, etfs, private insurance) promoted in Germany. Our results
-indicate that farmers likely prefer reinvesting the available money in farming technology and  due to the relatively early incomes and short time-lag on returns.
-However, the results also show that annual profits from farming can be expected to decrease over time and mostly benefit the farm owner, which is often not the woman. Also structural changes in agriculture and the high give-up rates impose high insecurity on the future of the farm. However, long-term payments directed to their womans retirement. return substantial benefits to the wife and family in the long term, but they also incur high establishment and maintenance costs and will generate net losses in the first few years. Better access to information and self confidence to ak for a fair share of farming income  may help in promoting pension plans for inmaried woman in german farms. Uncertainties related to the communication culture in farming families, farmers’ values, farm profitability, and pension returns appeared to have the greatest influence on whether a retirement plan emerged as the preferable option. Narrowing these key knowledge gaps may offer additional clarity on farmers’ wifes optimal course of action and provide guidance for agencies promoting insurance interventions in Germany. Our model produced
-a set of plausible ranges for net present values and highlighted critical variables, more clarity on which would support
-decision-making under uncertainty. Our innovative research approach proved effective in providing forecasts of uncertain
-outcomes and can be useful for informing similar development interventions in other contexts.
-
 # Methods
 
-## Identification of research priorities and stakeholder workshop
-In our project, we intended to work on gender equality in German farming. After extensive literature research on woman farmers in germany, we identified the statistically important group of in-married woman in  question down to the pension of in-married woman in Germany.
-Corresponding to our Research question, we identified experts and a community of "agrarfrauen" as our expert group. After drafting a first model based on literature resarch and personal experinces, we contacted potentiaal decision makers and experts. most of our experts wereconsultants that often deal with decisin makers. after conducting our participatory workshop and several refinements, we came up with an improved model. 
+## Identification of research priorities and model sketch
+In our project, we intended to work on gender equality in German farming. After extensive literature research on woman farmers in Germany, we identified the statistically important group of in-married woman and narrowed our research question down to the pension of in-married woman in Germany.
 
-BEFORE AND AFTER MODEL
-
-```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Invitation to the Workshop', fig.show='hold'}
-knitr::include_graphics('images/1.png')
-knitr::include_graphics('images/2.png')
-```
-
-
-## Model Sketch
+In our Model, 
 Decision option 1 
 
 aka Default option: Woman has an apprentinship as gardener. She marries a farmer 
@@ -142,6 +117,17 @@ mermaid("graph LR
 
 This plot was created with @R-DiagrammeR.
 
+# Participatory approach: Expert interviewes and stakeholder workshop
+
+Corresponding to our Research question, we identified experts in insurance companies, the agricultural chamber, the woman farmers association as our experts. In an online community of woman in agriculture, we approached potential decision makers.  After drafting a first model based on literature research and personal experiences, we contacted the experts and conducted several one-to one Interviews. The insights from with equal pay consultants and the insurance company were valuable for our system understanding. In a next step, we organized an online workshop with potential decision makers and experts. and a lively group discussion. After a lively discussion discussion with experts and decision makers, we updated our model and used the updated version for further analysis.
+
+BEFORE AND AFTER MODEL
+
+```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Invitation to the Workshop', fig.show='hold'}
+knitr::include_graphics('images/1.png')
+knitr::include_graphics('images/2.png')
+```
+
 
 ## Model Inputs 
 
@@ -175,9 +161,16 @@ This report was compiled using tools from the @R-knitr team.
 
 # Results
 These are our results.
+Our results indicate that farmers likely prefer reinvesting the available money in farming technology and  due to the relatively early incomes and short time-lag on returns. However, the results also show that annual profits from farming mostly benefit the farm owner, which is often not the woman. Also structural changes in agriculture and the high give-up rates impose high insecurity on the future of the farm. However, long-term payments directed to their womans retirement. return substantial benefits to the wife and family in the long term, but they also incur high establishment and maintenance costs and will generate net losses in the first few years. 
+
+
 
 # Discussion
 This is our discussion
+Better access to information and self confidence to ak for a fair share of farming income  may help in promoting pension plans for inmaried woman in german farms. Uncertainties related to the communication culture in farming families, farmers’ values, farm profitability, and pension returns appeared to have the greatest influence on whether a retirement plan emerged as the preferable option. Narrowing these key knowledge gaps may offer additional clarity on farmers’ wifes optimal course of action and provide guidance for agencies promoting insurance interventions in Germany. Our model produced
+a set of plausible ranges for net present values and highlighted critical variables, more clarity on which would support
+decision-making under uncertainty. Our innovative research approach proved effective in providing forecasts of uncertain
+outcomes and can be useful for informing similar development interventions in other contexts.
 
 # Conclusion
 This is our conclusion
