@@ -50,5 +50,8 @@ Farm characteristics:
 Possiblity of own branch of farm:
 
 - farm shop
+
+Questions from alina to alexandra: 
+- what does default option 1, 2, 3 mean?
 check this for visualization
 http://htmlpreview.github.io/?https://github.com/hortibonn/Plotting-High-Dimensional-Data/blob/master/HighDimensionalData.html
