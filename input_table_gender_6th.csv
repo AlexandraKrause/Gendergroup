@@ -1,0 +1,28 @@
+Description;label;variable;distribution;lower;median;upper
+Risk_of_husband_or_family_power;Percent;Husband_risk;tnorm_0_1;0,45;NA;0,5
+Risk_of_divorce;Percent;Divorce_risk;tnorm_0_1;0,2;NA;0,4
+Risk_of_death_of_husband ;Percent;Man_Death_risk;tnorm_0_1;0,0001;NA;0,0002
+Risk_of_bancruptcy;Percent;Bancruptcy_risk;tnorm_0_1;0,01;NA;0,017
+Risk_of_late_transfer_of_farming business ;Percent;Late_transfer_risk_obstacle;tnorm_0_1;0,45;NA;0,5
+Use_child_care_options_kindergarden_nanny;requirement_for_financing;Costs_for_child_care;posnorm;40;NA;300
+Use_elderly_care_options_old_peoples_home_and_24h_care_giver;requirement_for_financing;Costs_for_elderly_care;posnorm;130;NA;3000
+Husbands_or_family_money;financing;Family_money;posnorm;50;NA;300
+Payed_on_farm_job;financing;Farm_job_payed;posnorm;1500;NA;1700
+Own_business_branch ;financing;Own_branch;posnorm;1000;NA;1500
+Off_farm_job ;financing;Off_Farm_job;posnorm;2200;NA;2400
+Agricultural_insurance;options;Agri_insurance;const;591,94;NA;591,94
+Agricultural_insurance_investment;options;Agri_insurance_inv;const;241,88;NA;241,88
+Private_insurance;options;Private_insurance;posnorm;412;NA;598
+Private_insurance_investment;options;Private_insurance_inv;posnorm;113;NA;164
+State_insurance_investment;options;State_insurance_inv;posnorm;140;NA;223
+State_insurance;options;State_insurance;posnorm;550;NA;1100
+ETF_cost;options;ETF_costs;posnorm;113;NA;164
+ETF;options;ETF;posnorm;1030;NA;1494
+Mix_cost;options;Mix_costs;posnorm;113;NA;164
+Mix;options;Mix;posnorm;715;NA;1046
+Husbands_or_family_money1;option;Default_option_2;posnorm;50;NA;300
+Agriculatural_insurance1;options;Default_option_3;posnorm;591,94;NA;591,94
+Agriculatural_insurance1_costs;options;Default_option_3_costs;posnorm;241,88;NA;241,88
+Coefficient of variation, ratio of the standard deviation for 40 years paying pension  (death at 82);coeff. Variation;var_cv_40;const;396;NA;396
+Coefficient of variation, ratio of the standard deviation for 17 years getting pension (death at 82);coeff. Variation;var_cv_17;const;204;NA;204
+Coefficient of variation, ratio of the standard deviation for 17 years getting pension (death at 82);coeff. Variation;var_cv_82;const;984;NA;984
