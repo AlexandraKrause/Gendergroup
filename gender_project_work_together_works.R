@@ -201,7 +201,8 @@ decision_function <- function(x, varnames){
     
     return(list(NPV_no_branch =  NPV_no_branch,
                 NPV_branch =  NPV_branch, 
-                NPV_decision = NPV_decision))
+                NPV_decision = NPV_decision,
+                Cashflow_decision_gender =  profit_with_Job_away_of_farm  - profit_without_Job_away_of_farm))
   }
   
   if(Way == 3){
@@ -362,5 +363,8 @@ compound_figure(mcSimulation_object = mcSimulation_results_way1,
                 EVPIresults = evpi, decision_var_name = "NPV_decision", 
                 cashflow_var_name = "Cashflow_decision_gender", 
                 base_size = 7)
+
+
+
 
 
