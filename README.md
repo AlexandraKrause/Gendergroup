@@ -5,10 +5,10 @@ In our model we compare multiple branches. First there are different options to 
 how to use the code?
 -line 53 shows which way to use. it is neat this way. type in the way you want to see!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-what i changed till my last explanation, that had to be simplified (i cannot explain the whole code here, just what had to go):
+what was changed:
 -state insurance only as a necessity for off-farm job to make coding easier for me
--risk of no child care serveces raus, weil das risk nicht für alles gilt und ich keine ahnung habe wie ich es nur für einige optionen nennen kann. evtl. geht das gar nicht.
--self employment was a false line in the input table. it doubeled with off-farm job. is out now.
+-risk of no child care serveces raus
+-self employment is out now.
 
 To inform you guys baout what i did so far:
 
@@ -23,8 +23,6 @@ In the future:
 - visuals ( mcmc_areas() function from the bayesplot library)
 - plot cashflow to see tyüical pofile of pension insurance : negative flow for several decades, later on positive flow
 - project report markdown, implement model in mermaid
-- implement agroforestry as pension option: buy land and plant trees and take care for them for a wood / fruit /nut pension? Is it your idea, julia? it was not in lour workshop, i guess we could do that as one way but it would be very simplistic. Do you have values?
-
 
 
 ![grafik](https://user-images.githubusercontent.com/82711784/123506463-a21fd180-d664-11eb-93ca-42c400e4a434.png)
