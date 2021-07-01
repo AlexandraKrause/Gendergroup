@@ -25,10 +25,6 @@ In the future:
 - project report markdown, implement model in mermaid
 - implement agroforestry as pension option: buy land and plant trees and take care for them for a wood / fruit /nut pension? Is it your idea, julia? it was not in lour workshop, i guess we could do that as one way but it would be very simplistic. Do you have values?
 
-Questions for Cory:
--how to do way 6 best, since it is an extra option for all branches?
--fließen risks und chance_events überhaupt mit ein? Müssen die beim net present value nochmal mit berechnet werden?
--is this code ok for them or did i miss s.th.?
 
 
 ![grafik](https://user-images.githubusercontent.com/82711784/123506463-a21fd180-d664-11eb-93ca-42c400e4a434.png)
