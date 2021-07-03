@@ -114,13 +114,13 @@ decision_function <- function(x, varnames){
     chance_event(Divorce_risk, 1, 0, n = 1)
   
   Man_Death_risk <-
-    chance_event(Man_Death_risk, 1, 0, n = 1)
+    chance_event(Man_Death_risk, 1, 0, n = 1) 
   
   Bancruptcy_risk <-
-    chance_event(Man_Death_risk, 1, 0, n = 1)
+    chance_event(Man_Death_risk, 1, 0, n = 1) # attention, this is wrong
   
   Child_Elderly_risk_obstacle <-
-    chance_event(Man_Death_risk, 1, 0, n = 1)
+    chance_event(Man_Death_risk, 1, 0, n = 1) # attention, this is wrong
   
   
   # Way 1 = common and own branch
