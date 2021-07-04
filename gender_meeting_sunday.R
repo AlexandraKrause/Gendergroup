@@ -35,7 +35,7 @@ str(input_table_gender)
 
 
 
-Way <- 1
+Way <- 11
 
 
 decision_function <- function(x, varnames){
@@ -535,6 +535,13 @@ if(Way == 14){
 }
 
 }
+
+# I think I found out something really sad: 
+# Our model architecture does not work. 
+# The slight changes in the different plots come only because of the variability.
+# The mcSimulation_results_way1 and decisionSupport::plot_distributions for the different ways make no sense. 
+# They are just diffent simulations, but all on the same function, the way specified in the beginning.
+
 
 mcSimulation_results_way1 <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
