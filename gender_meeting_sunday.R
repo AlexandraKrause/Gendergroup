@@ -35,7 +35,7 @@ str(input_table_gender)
 
 
 
-Way <- 12
+Way <- 1
 
 
 decision_function <- function(x, varnames){
@@ -639,7 +639,6 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_w
                                     vars = c("NPV_no_branch", "NPV_branch"),
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
-mcSimulation_results_way1
 
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way2, 
                                     vars = c("NPV_no_branch", "NPV_branch"),
@@ -795,7 +794,7 @@ pls_result <- plsr.mcSimulation(object = mcSimulation_results_way1,
 #not very nice for a plot. The plot_pls() function uses the text
 #in the label column as replacement for the default text in the 
 #variable column.
-plot_pls(pls_result, input_table = "./input_table_gender_final.csv", threshold = 0)
+plot_pls(pls_result, input_table = input_table_gender, threshold = 0) # I corrected it alread several times, but the input table here needs the name of our input table in our environment.
 
 
 # We calculate Value of Information (VoI) analysis with the Expected Value of Perfect Information (EVPI). 
