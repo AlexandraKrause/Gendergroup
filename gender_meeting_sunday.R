@@ -30,12 +30,11 @@ str(input_table_gender)
 
 # Branch 1 = Default vs. Own branch (way 1, 2, 3)
 # Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
-# Branch 3 = Default vs. Family money (way 8, 9, 10) 
-# Branch 4 = Default vs. On farm job = Payment of wife (Way 11, 12, 13, 14)
+# Branch 3 = Default vs. On farm job = Payment of wife (Way 8, 9, 10, 11)
+# Branch 4 = Default vs. Family money (way 12, 13, 14) 
 
 
-
-Way <- 11
+Way <- 1
 
 
 decision_function <- function(x, varnames){
@@ -218,69 +217,15 @@ decision_function <- function(x, varnames){
   }
   
 # Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
+
+  
 # Way 4: She gets an off-farm job. 
-# Here, she stops to be part of the agricultural insurance, 
-# Instead, she is part of the mandatory state insurance.
-# She invests a part of her income in a mixed investment. 
-# She has to cover the cost of child and elderly care.
-
-  if(Way == 4){
-    
-    profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
-    
-    profit_with_with_Job_away_of_farm<- (Mix - Mix_inv + State_insurance - State_insurance_inv - Costs_for_child_care - Costs_for_elderly_care) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
-    
-    
-    NPV_no_branch <- discount(profit_Default,
-                              discount_rate = 5, calculate_NPV = TRUE)  
-    
-    NPV_branch <- discount(profit_with_Job_away_of_farm,
-                           discount_rate = 5, calculate_NPV = TRUE)
-    
-    NPV_decision <- NPV_branch - NPV_no_branch
-    
-    return(list(NPV_no_branch =  NPV_no_branch,
-                NPV_branch =  NPV_branch, 
-                NPV_decision = NPV_decision,
-                Cashflow_decision_gender =  profit_with_Job_away_of_farm  - profit_Default))
-  }
-
-  
-# Way 5: She gets an off-farm job. 
-# Here, she stops to be part of the agricultural insurance, 
-# Instead, she is part of the mandatory state insurance.
-# She invests a part of her income in ETF. 
-# She has to cover the cost of child and elderly care.
-  
-  if(Way == 5){
-    
-    profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
-    
-    profit_with_Job_away_of_farm <- (ETF - ETF_inv + State_insurance - State_insurance_inv - ((Costs_for_child_care - Costs_for_elderly_care) * (1-Child_Elderly_risk_obstacle))) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
-    
-    
-    NPV_no_branch <- discount(profit_Default,
-                              discount_rate = 5, calculate_NPV = TRUE)  
-    
-    NPV_branch <- discount(profit_with_Job_away_of_farm,
-                           discount_rate = 5, calculate_NPV = TRUE)
-    
-    NPV_decision <- NPV_branch - NPV_no_branch
-    
-    return(list(NPV_no_branch =  NPV_no_branch,
-                NPV_branch =  NPV_branch, 
-                NPV_decision = NPV_decision,
-                Cashflow_decision_gender =  profit_with_with_Job_away_of_farm  - profit_Default))
-  }  
-  
-
-# Way 6: She gets an off-farm job. 
 # Here, she stops to be part of the agricultural insurance, 
 # Instead, she is part of the mandatory state insurance.
 # She invests no income in pension. 
 # She has to cover the cost of child and elderly care. 
   
-  if(Way == 6){
+  if(Way == 4){
     
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
@@ -301,17 +246,17 @@ decision_function <- function(x, varnames){
                 Cashflow_decision_gender =  profit_with_with_Job_away_of_farm  - profit_Default))
   }
   
-# Way 7: She gets an off-farm job. 
+# Way 5: She gets an off-farm job. 
 # Here, she stops to be part of the agricultural insurance, 
 # Instead, she is part of the mandatory state insurance.
 # She invests a part of her income in private insurance. 
 # She has to cover the cost of child and elderly care.
 
-  if(Way == 7){
+  if(Way == 5){
     
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
-    profit_with_Job_away_of_farm <- (Private_insurance - Private_insurance_inv +State_insurance - State_insurance_inv - Costs_for_child_care - Costs_for_elderly_care) * (1- Husband_risk)
+    profit_with_Job_away_of_farm <- (Private_insurance - Private_insurance_inv + State_insurance - State_insurance_inv - Costs_for_child_care - Costs_for_elderly_care) * (1- Husband_risk)
     
     
     NPV_no_branch <- discount(profit_Default,
@@ -327,46 +272,24 @@ decision_function <- function(x, varnames){
                 NPV_decision = NPV_decision,
                 Cashflow_decision_gender =  profit_with_with_Job_away_of_farm  - profit_Default))
   }
-  # Way 2 = common and Job away from farm 
-  #child care risk zusätzlich zu den child care kosten..?
-
-#  if(Way == 2){
-    
-#    profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
-#    
-#    profit_with_Job_away_of_farm <- ((Off_Farm_job + State_insurance - State_insurance_inv - ((Costs_for_child_care + Costs_for_elderly_care) * (1- Child_Elderly_risk_obstacle)))* 1- Husband_risk)
-#    NPV_no_branch <- discount(profit_Default,
-#                              discount_rate = 5, calculate_NPV = TRUE)  
-#    
-#    NPV_branch <- discount(profit_with_Job_away_of_farm,
-#                           discount_rate = 5, calculate_NPV = TRUE)
-#    
-#    NPV_decision <- NPV_branch - NPV_no_branch
-#    
- #   return(list(NPV_no_branch =  NPV_no_branch,
- #               NPV_branch =  NPV_branch, 
- #               NPV_decision = NPV_decision,
- #               Cashflow_decision_gender =  profit_with_Job_away_of_farm  - profit_Default))
- # }
+ 
+  # Way 6: She gets an off-farm job. 
+  # Here, she stops to be part of the agricultural insurance, 
+  # Instead, she is part of the mandatory state insurance.
+  # She invests a part of her income in ETF. 
+  # She has to cover the cost of child and elderly care.
   
-
-# Branch 3 = Default vs. Family money (way 8, 9, 10) 
-# Way 8: She convinces her husband to invest in her pension.
-# Here, she continues to be part of the agricultural insurance, 
-# She uses the money from her husband to invest in ETF. 
-# She does not have to cover the cost of child and elderly care. 
-  
-  
-  if(Way == 8){
+  if(Way == 6){
     
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
-    profit_with_Family_money <- (ETF - ETF_inv + Agri_insurance - Agri_insurance_inv)  * (1-Bancruptcy_risk * Man_Death_risk * Divorce_risk * Husband_risk)
+    profit_with_Job_away_of_farm <- (ETF - ETF_inv + State_insurance - State_insurance_inv - ((Costs_for_child_care - Costs_for_elderly_care) * (1-Child_Elderly_risk_obstacle))) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+    
     
     NPV_no_branch <- discount(profit_Default,
                               discount_rate = 5, calculate_NPV = TRUE)  
     
-    NPV_branch <- discount(profit_with_Family_money,
+    NPV_branch <- discount(profit_with_Job_away_of_farm,
                            discount_rate = 5, calculate_NPV = TRUE)
     
     NPV_decision <- NPV_branch - NPV_no_branch
@@ -374,69 +297,47 @@ decision_function <- function(x, varnames){
     return(list(NPV_no_branch =  NPV_no_branch,
                 NPV_branch =  NPV_branch, 
                 NPV_decision = NPV_decision,
-                Cashflow_decision_gender =  profit_with_Family_money  - profit_Default))
+                Cashflow_decision_gender =  profit_with_with_Job_away_of_farm  - profit_Default))
+  }  
+  
+  
+# Way 7: She gets an off-farm job. 
+# Here, she stops to be part of the agricultural insurance, 
+# Instead, she is part of the mandatory state insurance.
+# She invests a part of her income in a mixed investment. 
+# She has to cover the cost of child and elderly care.
+  
+  if(Way == 7){
+    
+    profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
+    
+    profit_with_with_Job_away_of_farm<- (Mix - Mix_inv + State_insurance - State_insurance_inv - Costs_for_child_care - Costs_for_elderly_care) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+    
+    
+    NPV_no_branch <- discount(profit_Default,
+                              discount_rate = 5, calculate_NPV = TRUE)  
+    
+    NPV_branch <- discount(profit_with_Job_away_of_farm,
+                           discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision <- NPV_branch - NPV_no_branch
+    
+    return(list(NPV_no_branch =  NPV_no_branch,
+                NPV_branch =  NPV_branch, 
+                NPV_decision = NPV_decision,
+                Cashflow_decision_gender =  profit_with_Job_away_of_farm  - profit_Default))
   }
-
   
-# Way 9: She convinces her husband to invest in her pension.
-# Here, she continues to be part of the agricultural insurance, 
-# She uses the money from her husband to invest in a mixed investment. 
-# She does not have to cover the cost of child and elderly care. 
 
-if(Way == 9){
-  
-profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
+# Branch 3 = Default vs. On farm job = Payment of wife (Way 8)
 
-profit_with_Family_money <- (Mix - Mix_inv + Agri_insurance - Agri_insurance_inv)  * (1-Bancruptcy_risk * Man_Death_risk * Divorce_risk * Husband_risk)
-
-NPV_no_branch <- discount(profit_Default,
-                          discount_rate = 5, calculate_NPV = TRUE)  
-
-NPV_branch <- discount(profit_with_Family_money,
-                       discount_rate = 5, calculate_NPV = TRUE)
-
-NPV_decision <- NPV_branch - NPV_no_branch
-
-return(list(NPV_no_branch =  NPV_no_branch,
-            NPV_branch =  NPV_branch, 
-            NPV_decision = NPV_decision,
-            Cashflow_decision_gender =  profit_with_Family_money  - profit_Default))
-}
-
-# Way 10: She convinces her husband to invest in her pension.
-# Here, she continues to be part of the agricultural insurance, 
-# She uses the money from her husband to invest in a private insurance. 
-# She does not have to cover the cost of child and elderly care. 
-
-if(Way == 10){
-  
-  profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
-  
-  profit_with_Family_money <- (Private_insurance - Private_insurance_inv + Agri_insurance - Agri_insurance_inv)  * (1-Bancruptcy_risk * Man_Death_risk * Divorce_risk * Husband_risk)
-  
-  NPV_no_branch <- discount(profit_Default,
-                            discount_rate = 5, calculate_NPV = TRUE)  
-  
-  NPV_branch <- discount(profit_with_Family_money,
-                         discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision <- NPV_branch - NPV_no_branch
-  
-  return(list(NPV_no_branch =  NPV_no_branch,
-              NPV_branch =  NPV_branch, 
-              NPV_decision = NPV_decision,
-              Cashflow_decision_gender =  profit_with_Family_money  - profit_Default))
-}
-
-# Branch 4 = Default vs. On farm job = Payment of wife (Way 11, 12, 13, 14)
-
-# Way 11: She gets an official working contract and gets officially paid on farm by her husband.  
+# Way 8: She gets an official working contract and gets officially paid on farm by her husband.  
 # Here, she stops to be part of the agricultural insurance. 
 # Instead, she is part of the mandatory state insurance.
 # She invests no additional money in her pension.
 # She has to cover the cost of child and elderly care. 
 
-if(Way == 11){
+if(Way == 8){
   
   profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
   
@@ -456,13 +357,13 @@ if(Way == 11){
               Cashflow_decision_gender =  profit_with_On_Farm_Job  - profit_Default))
 }
 
-# Way 12: She gets an official working contract and gets officially paid on farm by her husband.  
+# Way 9: She gets an official working contract and gets officially paid on farm by her husband.  
 # Here, she stops to be part of the agricultural insurance. 
 # Instead, she is part of the mandatory state insurance.
 # She invests a part of her income in private insurance. 
 # She has to cover the cost of child and elderly care. 
 
-if(Way == 12){
+if(Way == 9){
   
   profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
   
@@ -482,13 +383,13 @@ if(Way == 12){
               Cashflow_decision_gender =  profit_with_On_Farm_Job  - profit_Default))
 }
 
-# Way 13: She gets an official working contract and gets officially paid on farm by her husband.  
+# Way 10: She gets an official working contract and gets officially paid on farm by her husband.  
 # Here, she stops to be part of the agricultural insurance, 
 # Instead, she is part of the mandatory state insurance.
 # She invests a part of her income in ETF. 
 # She has to cover the cost of child and elderly care. 
 
-if(Way == 13){
+if(Way == 10){
   
   profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
   
@@ -514,7 +415,7 @@ if(Way == 13){
 # She invests a part of her income in a mixed investment. 
 # She has to cover the cost of child and elderly care. 
   
-if(Way == 14){
+if(Way == 11){
   
   profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
   
@@ -533,6 +434,88 @@ if(Way == 14){
               NPV_decision = NPV_decision,
               Cashflow_decision_gender =  profit_with_On_Farm_Job  - profit_Default))
 }
+  
+  
+  # Branch 4 = Default vs. Family money (way 12, 13, 14) 
+  
+  
+  # Way 12: She convinces her husband to invest in her pension.
+  # Here, she continues to be part of the agricultural insurance, 
+  # She uses the money from her husband to invest in a private insurance. 
+  # She does not have to cover the cost of child and elderly care. 
+  
+  if(Way == 12){
+    
+    profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
+    
+    profit_with_Family_money <- (Private_insurance - Private_insurance_inv + Agri_insurance - Agri_insurance_inv)  * (1-Bancruptcy_risk * Man_Death_risk * Divorce_risk * Husband_risk)
+    
+    NPV_no_branch <- discount(profit_Default,
+                              discount_rate = 5, calculate_NPV = TRUE)  
+    
+    NPV_branch <- discount(profit_with_Family_money,
+                           discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision <- NPV_branch - NPV_no_branch
+    
+    return(list(NPV_no_branch =  NPV_no_branch,
+                NPV_branch =  NPV_branch, 
+                NPV_decision = NPV_decision,
+                Cashflow_decision_gender =  profit_with_Family_money  - profit_Default))
+  }
+  # Way 13: She convinces her husband to invest in her pension.
+  # Here, she continues to be part of the agricultural insurance, 
+  # She uses the money from her husband to invest in ETF. 
+  # She does not have to cover the cost of child and elderly care. 
+  
+  
+  if(Way == 13){
+    
+    profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
+    
+    profit_with_Family_money <- (ETF - ETF_inv + Agri_insurance - Agri_insurance_inv)  * (1-Bancruptcy_risk * Man_Death_risk * Divorce_risk * Husband_risk)
+    
+    NPV_no_branch <- discount(profit_Default,
+                              discount_rate = 5, calculate_NPV = TRUE)  
+    
+    NPV_branch <- discount(profit_with_Family_money,
+                           discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision <- NPV_branch - NPV_no_branch
+    
+    return(list(NPV_no_branch =  NPV_no_branch,
+                NPV_branch =  NPV_branch, 
+                NPV_decision = NPV_decision,
+                Cashflow_decision_gender =  profit_with_Family_money  - profit_Default))
+  }
+  
+  
+  # Way 14: She convinces her husband to invest in her pension.
+  # Here, she continues to be part of the agricultural insurance, 
+  # She uses the money from her husband to invest in a mixed investment. 
+  # She does not have to cover the cost of child and elderly care. 
+  
+  if(Way == 14){
+    
+    profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
+    
+    profit_with_Family_money <- (Mix - Mix_inv + Agri_insurance - Agri_insurance_inv)  * (1-Bancruptcy_risk * Man_Death_risk * Divorce_risk * Husband_risk)
+    
+    NPV_no_branch <- discount(profit_Default,
+                              discount_rate = 5, calculate_NPV = TRUE)  
+    
+    NPV_branch <- discount(profit_with_Family_money,
+                           discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision <- NPV_branch - NPV_no_branch
+    
+    return(list(NPV_no_branch =  NPV_no_branch,
+                NPV_branch =  NPV_branch, 
+                NPV_decision = NPV_decision,
+                Cashflow_decision_gender =  profit_with_Family_money  - profit_Default))
+  }
+  
+
 
 }
 
