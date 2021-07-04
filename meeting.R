@@ -27,9 +27,9 @@ profit_with_Job_away_of_farm <- (State_insurance - State_insurance_inv - Private
 profit_with_Family_money <- (- Private_insurance_inv + Private_insurance + Agri_insurance - Agri_insurance_inv)  * (1-Bancruptcy_risk * Man_Death_risk * Divorce_risk * Husband_risk)
 
 # Way 5 = Payment of wife (on farm job)
-profit_with_On_Farm_Job <- ((State_insurance - State_insurance_inv) * (1- Husband_risk))
+profit_with_On_Farm_Job <- ((State_insurance - State_insurance_inv) * (1- Bancruptcy_risk * Man_Death_risk * Divorce_risk * Husband_risk))
 
 # Way 6 = Payment of wife (on farm job) with investment in private insurance
-profit_with_On_Farm_Job <- ((State_insurance - State_insurance_inv - Private_insurance_inv + Private_insurance ) * 1- Husband_risk)
+profit_with_On_Farm_Job <- ((State_insurance - State_insurance_inv - Private_insurance_inv + Private_insurance ) * (1- Bancruptcy_risk * Man_Death_risk * Divorce_risk * Husband_risk))
 
   
