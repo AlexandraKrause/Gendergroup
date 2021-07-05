@@ -145,7 +145,7 @@ decision_function <- function(x, varnames){
     
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
-    profit_with_Own_business_branch <- (Private_insurance - Private_insurance_inv + Agri_insurance - Agri_insurance_inv - Costs_for_child_care - Costs_for_elderly_care) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+    profit_with_Own_business_branch <- (Private_insurance - Private_insurance_inv + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
     
     
     NPV_no_branch <- discount(profit_Default,
@@ -172,7 +172,7 @@ decision_function <- function(x, varnames){
     
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
-    profit_with_Own_business_branch <- (ETF - ETF_inv + Agri_insurance - Agri_insurance_inv - Costs_for_child_care - Costs_for_elderly_care) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+    profit_with_Own_business_branch <- (ETF - ETF_inv + Agri_insurance - Agri_insurance_inv e - Costs_for_elderly_care) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
     
     
     NPV_no_branch <- discount(profit_Default,
@@ -199,7 +199,7 @@ decision_function <- function(x, varnames){
     
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
-    profit_with_Own_business_branch <- (Mix - Mix_inv + Agri_insurance - Agri_insurance_inv - Costs_for_child_care - Costs_for_elderly_care) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+    profit_with_Own_business_branch <- (Mix - Mix_inv + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
     
     
     NPV_no_branch <- discount(profit_Default,
@@ -229,7 +229,7 @@ decision_function <- function(x, varnames){
     
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
-    profit_with_Job_away_of_farm <- (State_insurance - State_insurance_inv - Costs_for_child_care - Costs_for_elderly_care) * (1- Husband_risk)
+    profit_with_Job_away_of_farm <- (State_insurance - State_insurance_inv) * (1- Husband_risk)
     
     
     NPV_no_branch <- discount(profit_Default,
@@ -256,7 +256,7 @@ decision_function <- function(x, varnames){
     
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
-    profit_with_Job_away_of_farm <- (Private_insurance - Private_insurance_inv + State_insurance - State_insurance_inv - Costs_for_child_care - Costs_for_elderly_care) * (1- Husband_risk)
+    profit_with_Job_away_of_farm <- (Private_insurance - Private_insurance_inv + State_insurance - State_insurance_inv) * (1- Husband_risk)
     
     
     NPV_no_branch <- discount(profit_Default,
@@ -283,7 +283,7 @@ decision_function <- function(x, varnames){
     
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
-    profit_with_Job_away_of_farm <- (ETF - ETF_inv + State_insurance - State_insurance_inv - ((Costs_for_child_care - Costs_for_elderly_care) * (1-Child_Elderly_risk_obstacle))) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+    profit_with_Job_away_of_farm <- (ETF - ETF_inv + State_insurance - State_insurance_inv) * (1-Child_Elderly_risk_obstacle))) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
     
     
     NPV_no_branch <- discount(profit_Default,
@@ -311,7 +311,7 @@ decision_function <- function(x, varnames){
     
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
-    profit_with_with_Job_away_of_farm<- (Mix - Mix_inv + State_insurance - State_insurance_inv - Costs_for_child_care - Costs_for_elderly_care) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+    profit_with_with_Job_away_of_farm<- (Mix - Mix_inv + State_insurance - State_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
     
     
     NPV_no_branch <- discount(profit_Default,
@@ -367,7 +367,7 @@ if(Way == 9){
   
   profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
   
-  profit_with_On_Farm_Job <- (Private_insturance - Private_insurance_inv + State_insurance - State_insurance_inv - Costs_for_elderly_care - Costs_for_child_care) * (1- Husband_risk * Man_Death_risk * Divorce_risk * Bancruptcy_risk)
+  profit_with_On_Farm_Job <- (Private_insturance - Private_insurance_inv + State_insurance - State_insurance_inv) * (1- Husband_risk * Man_Death_risk * Divorce_risk * Bancruptcy_risk)
   
   NPV_no_branch <- discount(profit_Default,
                             discount_rate = 5, calculate_NPV = TRUE)  
@@ -393,7 +393,7 @@ if(Way == 10){
   
   profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
   
-  profit_with_On_Farm_Job <- (ETF - ETF_inv + State_insurance - State_insurance_inv - Costs_for_elderly_care - Costs_for_child_care) * (1- Husband_risk * Man_Death_risk * Divorce_risk * Bancruptcy_risk)
+  profit_with_On_Farm_Job <- (ETF - ETF_inv + State_insurance - State_insurance_inv) * (1- Husband_risk * Man_Death_risk * Divorce_risk * Bancruptcy_risk)
   
   NPV_no_branch <- discount(profit_Default,
                             discount_rate = 5, calculate_NPV = TRUE)  
@@ -419,7 +419,7 @@ if(Way == 11){
   
   profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
   
-  profit_with_On_Farm_Job <- (Mix - Mix_inv + State_insurance - State_insurance_inv - Costs_for_elderly_care - Costs_for_child_care) * (1- Husband_risk * Man_Death_risk * Divorce_risk * Bancruptcy_risk)
+  profit_with_On_Farm_Job <- (Mix - Mix_inv + State_insurance - State_insurance_inv) * (1- Husband_risk * Man_Death_risk * Divorce_risk * Bancruptcy_risk)
   
   NPV_no_branch <- discount(profit_Default,
                             discount_rate = 5, calculate_NPV = TRUE)  
@@ -784,8 +784,8 @@ pls_result <- plsr.mcSimulation(object = mcSimulation_results_way1,
 #not very nice for a plot. The plot_pls() function uses the text
 #in the label column as replacement for the default text in the 
 #variable column.
-plot_pls(pls_result, input_table = input_table_gender, threshold = 0) # I corrected it alread several times, but the input table here needs the name of our input table in our environment.
-
+plot_pls(pls_result, threshold = 0) # I corrected it alread several times, but the input table here needs the name of our input table in our environment.
+# input_table = input_table_gender, 
 
 # We calculate Value of Information (VoI) analysis with the Expected Value of Perfect Information (EVPI). 
 #As we learned in Lecture 8 on forecasts, EVPI measures 
