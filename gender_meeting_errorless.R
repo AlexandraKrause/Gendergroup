@@ -20,6 +20,7 @@ library(dplyr)
 
 ####first step:get data####
 
+#input_table_gender <-read.csv2("./input_table_gender_final_pres.csv", dec = ",")
 input_table_gender <-read.csv2("./input_table_gender_final.csv", dec = ",")
 
 input_table_gender <- input_table_gender %>% 
@@ -53,26 +54,26 @@ decision_function <- function(x, varnames){
                          n = 480)
 
 # Salary own farmshop for 40 years (€/month) pre-tax income
-  Own_branch <- vv(var_mean = Own_branch, 
-                            var_CV = var_cv_40, 
-                            n = 480)
+#  Own_branch <- vv(var_mean = Own_branch, 
+#                             var_CV = var_cv_40, 
+#                            n = 480)
   
 # Salary off farm job for 40 years (€/month) pre-tax income
-  Off_Farm_job <- vv(var_mean = Off_Farm_job, 
-                     var_CV = var_cv_40, 
-                     n = 480)
+#  Off_Farm_job <- vv(var_mean = Off_Farm_job, 
+#                     var_CV = var_cv_40, 
+#                     n = 480)
   
 # Input table has wrong label here: Needed initial investment costs (€/month)
 # This mistake is causing the weird output in the pls analysis
-  Costs_for_child_care <- vv(var_mean = Costs_for_child_care, 
-                             var_CV = var_cv_6, 
-                             n = 72) # 6 Years
+#  Costs_for_child_care <- vv(var_mean = Costs_for_child_care, 
+#                             var_CV = var_cv_6, 
+#                             n = 72) # 6 Years
 
 # Input table has wrong label here: Needed investment costs (€/month)
 # This mistake is causing the weird output in the pls analysis
-  Costs_for_elderly_care <- vv(var_mean = Costs_for_elderly_care, 
-                               var_CV = var_cv_10, 
-                               n = 120) # 10 Years
+#  Costs_for_elderly_care <- vv(var_mean = Costs_for_elderly_care, 
+#                               var_CV = var_cv_10, 
+#                               n = 120) # 10 Years
 
 # Monthly state pension  for 17 years (€/month) 
   State_insurance <- vv(var_mean = State_insurance, 
@@ -90,9 +91,9 @@ decision_function <- function(x, varnames){
                      n = 480)
 
 # Salary off farm job (€/month) pre-tax income
-  Off_Farm_job<- vv(var_mean = Off_Farm_job, 
-                       var_CV = var_cv_40, 
-                       n = 480)
+#  Off_Farm_job<- vv(var_mean = Off_Farm_job, 
+#                       var_CV = var_cv_40, 
+#                       n = 480)
   
 # Monthly agricultural pension for 17 years (€/month)
   Agri_insurance <- vv(var_mean = Agri_insurance, 
@@ -562,7 +563,7 @@ mcSimulation_results_way4 <- decisionSupport::mcSimulation(
 mcSimulation_results_way5 <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
   model_function = decision_function,
-  numberOfModelRuns = 200,
+  numberOfModelRuns = 10000,
   functionSyntax = "plainNames"
 )
 
@@ -721,6 +722,32 @@ plot_distributions(mcSimulation_object = mcSimulation_results_way1, #without _wa
                    method = 'smooth_simple_overlay', 
                    base_size = 7)
 
+plot_distributions(mcSimulation_object = mcSimulation_results_way6, #without _wayx , this code wil not work.
+                   vars = c("NPV_no_branch", "NPV_branch"),
+                   method = 'smooth_simple_overlay', 
+                   base_size = 7)
+
+plot_distributions(mcSimulation_object = mcSimulation_results_way1, #without _wayx , this code wil not work.
+                   vars = c("NPV_no_branch", "NPV_branch"),
+                   method = 'smooth_simple_overlay', 
+                   base_size = 7,
+                   theme(panel.background = element_rect(fill = "#FFFFFF", colour = "#D9D9D9", size = 1),
+      panel.grid = element_line(colour = "#D9D9D9"),
+      plot.title = element_text(vjust = 2, hjust = 0.5),
+      axis.title.y = element_text(vjust = 2),
+      axis.title.x = element_text(vjust = -1),
+      axis.text.x = element_text(size = 10),
+      strip.text = element_text(size = 12)))
+  
+
+plot_distributions(mcSimulation_object = mcSimulation_results_way6, #without _wayx , this code wil not work.
+                   vars = c("NPV_no_branch", "NPV_branch"),
+                   method = 'smooth_simple_overlay', 
+                   base_size = 15)
+      
+
+
+
 # boxplots
 
 #We can use the same function to show the distributions of the
@@ -735,6 +762,12 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_w
                                     vars = c("NPV_no_branch",
                                              "NPV_branch"),
                                     method = 'boxplot')
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way6, #without _wayx , this code wil not work.
+                                    vars = c("NPV_no_branch",
+                                             "NPV_branch"),
+                                    method = 'boxplot')
+
 #distribution
 
 #We can use the same function for the value of the decision 
@@ -744,6 +777,31 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_w
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way1, #without _wayx , this code wil not work.
                                     vars = "NPV_decision",
                                     method = 'boxplot_density')
+
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way1, 
+                                    vars = c("NPV_no_branch",
+                                             "NPV_branch"),
+                                    method = 'boxplot_density')
+
+
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way6, 
+                                    vars = c("NPV_no_branch",
+                                             "NPV_branch"),
+                                    method = 'boxplot_density')
+
+
+##histogram
+
+
+#ggplot(stacked_test,aes(x=values))+ 
+#  geom_histogram(data=subset(stacked_test,ind =='practice'),
+#                 aes(fill = ind), alpha = 0.5, bins = 150) + 
+#  geom_histogram(data=subset(stacked_test,ind == 'practice.2'),
+#                 aes(fill = ind), alpha = 0.5, bins = 150) +
+#  geom_histogram(data=subset(stacked_test,ind == 'practice.3'),
+#                 aes(fill = ind), alpha = 0.5, bins = 150) 
 
 ####Cashflow analysis####
 
@@ -756,7 +814,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_w
 
 Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results_way1, cashflow_var_name = "Cashflow_decision_gender" ) #without the correct variable name this code wil not work.
 
-
+Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results_way6, cashflow_var_name = "Cashflow_decision_gender" )
 ####Projection to Latent Structures (PLS) analysis####
 
 #We apply a post-hoc analysis to the mcSimulation() outputs
@@ -775,6 +833,10 @@ Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results_way1, cashf
 
 
 pls_result <- plsr.mcSimulation(object = mcSimulation_results_way1,
+                                resultName = names(mcSimulation_results_way1$y)[3], ncomp = 1)
+
+
+pls_result <- plsr.mcSimulation(object = mcSimulation_results_way6,
                                 resultName = names(mcSimulation_results_way1$y)[3], ncomp = 1)
 #We run the plot_pls() on the results from plsr.mcSimulation() with a number of standard settings.
 #The length of the bars is equal to VIP with a vertical line at ‘1’
@@ -802,12 +864,23 @@ evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
 plot_evpi(evpi, decision_vars = "NPV_decision")
 
 
+mcSimulation_table <- data.frame(mcSimulation_results_way6$x, mcSimulation_results_way6$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
+plot_evpi(evpi, decision_vars = "NPV_decision")
+
+
 ## in the compound figute, we are forced to use the wrong input table as an input, therefore we get bad results for some plots.
 compound_figure(mcSimulation_object = mcSimulation_results_way1, 
                 input_table = input_table_gender, plsrResults = pls_result, 
                 EVPIresults = evpi, decision_var_name = "NPV_decision", 
                 cashflow_var_name = "Cashflow_decision_gender", 
                 base_size = 7)
+
+compound_figure(mcSimulation_object = mcSimulation_results_way6, 
+                input_table = input_table_gender, plsrResults = pls_result, 
+                EVPIresults = evpi, decision_var_name = "NPV_decision", 
+                cashflow_var_name = "Cashflow_decision_gender", 
+                base_size = 12)
 
 #way 2
 plot_cashflow(mcSimulation_object = mcSimulation_results_way2, cashflow_var_name = "Cashflow_decision_gender")
