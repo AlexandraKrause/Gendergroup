@@ -20,8 +20,8 @@ library(dplyr)
 
 ####first step:get data####
 
-#input_table_gender <-read.csv2("./input_table_gender_final_pres.csv", dec = ",")
-input_table_gender <-read.csv2("./input_table_gender_final.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_final_pres.csv", dec = ",")
+#input_table_gender <-read.csv2("./input_table_gender_final.csv", dec = ",")
 
 input_table_gender <- input_table_gender %>% 
   mutate(Description = as.character(Description),
@@ -42,7 +42,7 @@ str(input_table_gender)
 # Branch 4 = Default vs. Family money (way 12, 13, 14) 
 
 
-Way <- 6
+Way <- 10
 
 
 decision_function <- function(x, varnames){
@@ -86,9 +86,9 @@ decision_function <- function(x, varnames){
                               n = 480)
 
 # Family money for 40 years (€/month)
-  Family_money <- vv(var_mean = Family_money, 
-                     var_CV = var_cv_40, 
-                     n = 480)
+#  Family_money <- vv(var_mean = Family_money, 
+#                     var_CV = var_cv_40, 
+#                     n = 480)
 
 # Salary off farm job (€/month) pre-tax income
 #  Off_Farm_job<- vv(var_mean = Off_Farm_job, 
@@ -291,7 +291,7 @@ decision_function <- function(x, varnames){
     
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
-    profit_with_Job_away_of_farm <- (ETF - ETF_inv + State_insurance - State_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+    profit_with_Job_away_of_farm <- (ETF - ETF_inv + State_insurance - State_insurance_inv) * (1- Husband_risk * Divorce_risk * Bancruptcy_risk)
     
     
     NPV_no_branch <- discount(profit_Default,
@@ -319,7 +319,7 @@ decision_function <- function(x, varnames){
     
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
-    profit_with_Job_away_of_farm<- (Mix - Mix_inv + State_insurance - State_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+    profit_with_Job_away_of_farm<- (Mix - Mix_inv + State_insurance - State_insurance_inv) * (1- Husband_risk * Divorce_risk)
     
     
     NPV_no_branch <- discount(profit_Default,
@@ -563,7 +563,7 @@ mcSimulation_results_way4 <- decisionSupport::mcSimulation(
 mcSimulation_results_way5 <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
   model_function = decision_function,
-  numberOfModelRuns = 10000,
+  numberOfModelRuns = 200,
   functionSyntax = "plainNames"
 )
 
@@ -598,7 +598,7 @@ mcSimulation_results_way9 <- decisionSupport::mcSimulation(
 mcSimulation_results_way10 <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
   model_function = decision_function,
-  numberOfModelRuns = 200,
+  numberOfModelRuns = 10000,
   functionSyntax = "plainNames"
 )
 
@@ -727,7 +727,7 @@ plot_distributions(mcSimulation_object = mcSimulation_results_way6, #without _wa
                    method = 'smooth_simple_overlay', 
                    base_size = 7)
 
-plot_distributions(mcSimulation_object = mcSimulation_results_way1, #without _wayx , this code wil not work.
+plot_distributions(mcSimulation_object = mcSimulation_results_way10, #without _wayx , this code wil not work.
                    vars = c("NPV_no_branch", "NPV_branch"),
                    method = 'smooth_simple_overlay', 
                    base_size = 7,
@@ -740,12 +740,21 @@ plot_distributions(mcSimulation_object = mcSimulation_results_way1, #without _wa
       strip.text = element_text(size = 12)))
   
 
-plot_distributions(mcSimulation_object = mcSimulation_results_way6, #without _wayx , this code wil not work.
+
+plot_distributions(mcSimulation_object = mcSimulation_results_way10, #without _wayx , this code wil not work.
                    vars = c("NPV_no_branch", "NPV_branch"),
                    method = 'smooth_simple_overlay', 
                    base_size = 15)
       
+plot_distributions(mcSimulation_object = mcSimulation_results_way2, #without _wayx , this code wil not work.
+                   vars = c("NPV_no_branch", "NPV_branch"),
+                   method = 'smooth_simple_overlay', 
+                   base_size = 15)
 
+plot_distributions(mcSimulation_object = mcSimulation_results_way6, #without _wayx , this code wil not work.
+                   vars = c("NPV_no_branch", "NPV_branch"),
+                   method = 'smooth_simple_overlay', 
+                   base_size = 15)
 
 
 # boxplots
@@ -768,6 +777,17 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_w
                                              "NPV_branch"),
                                     method = 'boxplot')
 
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way2, #without _wayx , this code wil not work.
+                                    vars = c("NPV_no_branch",
+                                             "NPV_branch"),
+                                    method = 'boxplot')
+
+
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way10, #without _wayx , this code wil not work.
+                                    vars = c("NPV_no_branch",
+                                             "NPV_branch"),
+                                    method = 'boxplot')
 #distribution
 
 #We can use the same function for the value of the decision 
@@ -792,6 +812,15 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_w
                                     method = 'boxplot_density')
 
 
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way2, 
+                                    vars = c("NPV_no_branch",
+                                             "NPV_branch"),
+                                    method = 'boxplot_density')
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way10, 
+                                    vars = c("NPV_no_branch",
+                                             "NPV_branch"),
+                                    method = 'boxplot_density')
 ##histogram
 
 
@@ -815,6 +844,14 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_w
 Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results_way1, cashflow_var_name = "Cashflow_decision_gender" ) #without the correct variable name this code wil not work.
 
 Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results_way6, cashflow_var_name = "Cashflow_decision_gender" )
+
+
+
+Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results_way2, cashflow_var_name = "Cashflow_decision_gender" )
+
+
+Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results_way10, cashflow_var_name = "Cashflow_decision_gender" )
+
 ####Projection to Latent Structures (PLS) analysis####
 
 #We apply a post-hoc analysis to the mcSimulation() outputs
@@ -837,7 +874,17 @@ pls_result <- plsr.mcSimulation(object = mcSimulation_results_way1,
 
 
 pls_result <- plsr.mcSimulation(object = mcSimulation_results_way6,
-                                resultName = names(mcSimulation_results_way1$y)[3], ncomp = 1)
+                                resultName = names(mcSimulation_results_way6$y)[3], ncomp = 1)
+
+
+pls_result <- plsr.mcSimulation(object = mcSimulation_results_way2,
+                                resultName = names(mcSimulation_results_way2$y)[3], ncomp = 1)
+
+pls_result <- plsr.mcSimulation(object = mcSimulation_results_way10,
+                                resultName = names(mcSimulation_results_way10$y)[3], ncomp = 1)
+
+
+
 #We run the plot_pls() on the results from plsr.mcSimulation() with a number of standard settings.
 #The length of the bars is equal to VIP with a vertical line at ‘1’
 #on the x-axis indicating a standard cut-off for VIP used for variable selection. 
@@ -869,6 +916,15 @@ evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
 plot_evpi(evpi, decision_vars = "NPV_decision")
 
 
+mcSimulation_table <- data.frame(mcSimulation_results_way2$x, mcSimulation_results_way2$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
+plot_evpi(evpi, decision_vars = "NPV_decision")
+
+
+mcSimulation_table <- data.frame(mcSimulation_results_way10$x, mcSimulation_results_way10$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
+plot_evpi(evpi, decision_vars = "NPV_decision")
+
 ## in the compound figute, we are forced to use the wrong input table as an input, therefore we get bad results for some plots.
 compound_figure(mcSimulation_object = mcSimulation_results_way1, 
                 input_table = input_table_gender, plsrResults = pls_result, 
@@ -877,6 +933,19 @@ compound_figure(mcSimulation_object = mcSimulation_results_way1,
                 base_size = 7)
 
 compound_figure(mcSimulation_object = mcSimulation_results_way6, 
+                input_table = input_table_gender, plsrResults = pls_result, 
+                EVPIresults = evpi, decision_var_name = "NPV_decision", 
+                cashflow_var_name = "Cashflow_decision_gender", 
+                base_size = 12)
+
+compound_figure(mcSimulation_object = mcSimulation_results_way2, 
+                input_table = input_table_gender, plsrResults = pls_result, 
+                EVPIresults = evpi, decision_var_name = "NPV_decision", 
+                cashflow_var_name = "Cashflow_decision_gender", 
+                base_size = 12)
+
+
+compound_figure(mcSimulation_object = mcSimulation_results_way10, 
                 input_table = input_table_gender, plsrResults = pls_result, 
                 EVPIresults = evpi, decision_var_name = "NPV_decision", 
                 cashflow_var_name = "Cashflow_decision_gender", 

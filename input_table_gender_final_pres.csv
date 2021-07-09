@@ -3,7 +3,6 @@ Percentage risk that in-laws/husband overrule daughter in-law/wife;Risk in-laws 
 Percentage risk that the marriage will be divorced at some point;Risk of divorce (%);Divorce_risk;tnorm_0_1;0,2;NA;0,4
 Percentage risk that farmer husband has a fatal accident at work;Risk of fatal accident of husband (%);Man_Death_risk;tnorm_0_1;0,0001;NA;0,0002
 Percentage risk that farm goes bancrupt;Risk of farm bancruptcy (%);Bancruptcy_risk;tnorm_0_1;0,01;NA;0,017
-Using family/husbands monetary support to pay into retirement plan ;Family money (€/month);Family_money;posnorm;50,0;NA;300,0
 Agricultural insurance payout for 17 years;Monthly pension (€/month);Agri_insurance;const;591,94;NA;591,94
 Agricultural insurance investment for 40 years (5 years as MIFA + 35 years as full member);Monthly payment into retirement (€/month);Agri_insurance_inv;const;241,88;NA;241,88
 Private insurance payout for 17 years;Monthly pension (€/month) ;Private_insurance;posnorm;327,0;NA;580,0
