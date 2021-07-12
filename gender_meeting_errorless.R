@@ -6,6 +6,15 @@ library(ggplot2)
 library(plyr)
 library(dplyr)
 
+inputestimates
+#Reminder about the make_variables function
+make_variables <- function(est,n=1)
+{ x<-random(rho=est, n=n)
+for(i in colnames(x)) assign(i,
+                             as.numeric(x[1,i]),envir=.GlobalEnv)
+}#Then call:
+  make_variables(as.estimate(input_table_gender))
+
 ## Notes
 
 ##branch 6 and (7)? for presentatipn!!
@@ -20,7 +29,7 @@ library(dplyr)
 
 ####first step:get data####
 
-input_table_gender <-read.csv2("./input_table_gender_final_pres.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_final.csv", dec = ",")
 #input_table_gender <-read.csv2("./input_table_gender_final.csv", dec = ",")
 
 input_table_gender <- input_table_gender %>% 
@@ -42,11 +51,12 @@ str(input_table_gender)
 # Branch 4 = Default vs. Family money (way 12, 13, 14) 
 
 
-Way <- 10
+
+Way <- 9
 
 
 decision_function <- function(x, varnames){
-  
+
   
 # Mandatory payment into retirement for 40 years (€/month)
   Default_option <- vv(var_mean = Default_option,
@@ -101,6 +111,7 @@ decision_function <- function(x, varnames){
                        n = 204)
 
 # Monthly agricultural payment into pension for 40 years (€/month)
+ # ff<.(0 1 0 1)
   Agri_insurance_inv <-  vv(var_mean = Agri_insurance_inv, 
                               var_CV = var_cv_40, 
                               n = 480)
@@ -149,26 +160,35 @@ decision_function <- function(x, varnames){
 # but also invests about 10 % of her income in private insurance. 
 # She has to cover the cost of child and elderly care.
 
-  if(Way == 1){
-    
+
+  #default always same for all 14 options
+  
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
-    profit_with_Own_business_branch <- (Private_insurance - Private_insurance_inv + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
-    
-    
     NPV_no_branch <- discount(profit_Default,
-                              discount_rate = 5, calculate_NPV = TRUE)  
+                              discount_rate = 5, calculate_NPV = TRUE) 
+    ####all 14 ways####
+    # profit for way 1 (of 14).
     
-    NPV_branch <- discount(profit_with_Own_business_branch,
+    profit_with_Own_business_branch_1 <- (Private_insurance - Private_insurance_inv + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+ 
+    
+    NPV_profit_with_Own_business_branch_1 <- discount(profit_with_Own_business_branch_1,
                            discount_rate = 5, calculate_NPV = TRUE)
     
-    NPV_decision <- NPV_branch - NPV_no_branch
+    NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
+    ####return list####
     
     return(list(NPV_no_branch =  NPV_no_branch,
-                NPV_branch =  NPV_branch, 
-                NPV_decision = NPV_decision,
-                Cashflow_decision_gender =  profit_with_Own_business_branch  - profit_Default))
-  }
+                
+                #without own business branch
+                NPV_profit_with_Own_business_branch_1 =  NPV_profit_with_Own_business_branch_1, 
+                NPV_decision_profit_with_Own_business_branch_1 = NPV_decision_profit_with_Own_business_branch_1,
+                Cashflow_decision_gender =  profit_with_Own_business_branch_1  - profit_Default
+                
+                #way2
+                ))
+
   
 # Way 2: She sets up her own business branch. 
 # Here, she continues to be part of the agricultural insurance, 
@@ -180,7 +200,7 @@ decision_function <- function(x, varnames){
     
     profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
     
-    profit_with_Own_business_branch <- (ETF - ETF_inv + Agri_insurance - Agri_insurance_inv - Costs_for_elderly_care) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+    profit_with_Own_business_branch <- (ETF - ETF_inv + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
     
     
     NPV_no_branch <- discount(profit_Default,
