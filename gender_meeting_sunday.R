@@ -797,24 +797,11 @@ evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
 plot_evpi(evpi, decision_vars = "NPV_decision")
 
 
-## in the compound figute, we are forced to use the wrong input table as an input, therefore we get bad results for some plots.
+## in the compound figurte, we are forced to use the wrong input table as an input, therefore we get bad results for some plots.
 compound_figure(mcSimulation_object = mcSimulation_results_way1, 
                 input_table = input_table_gender, plsrResults = pls_result, 
                 EVPIresults = evpi, decision_var_name = "NPV_decision", 
                 cashflow_var_name = "Cashflow_decision_gender", 
                 base_size = 7)
 
-#way 2
-plot_cashflow(mcSimulation_object = mcSimulation_results_way2, cashflow_var_name = "Cashflow_decision_gender")
-pls_result <- plsr.mcSimulation(object = mcSimulation_results_way2,
-                                resultName = names(mcSimulation_results_way2$y)[3], ncomp = 1)
-plot_pls(pls_result, threshold = 0, input_table = input_table_gender)
-mcSimulation_table <- data.frame(mcSimulation_results_way2$x, mcSimulation_results_way2$y[1:3])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
-plot_evpi(evpi, decision_vars = "NPV_decision")
-compound_figure(mcSimulation_object = mcSimulation_results_way2, 
-                input_table = input_table_gender, plsrResults = pls_result, 
-                EVPIresults = evpi, decision_var_name = "NPV_decision", 
-                cashflow_var_name = "Cashflow_decision_gender", 
-                base_size = 7)
 
