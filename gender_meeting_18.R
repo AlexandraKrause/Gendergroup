@@ -279,16 +279,16 @@ decision_function <- function(x, varnames){
   
   #### calculate ex-ante risks ####
   Husband_risk <-
-    chance_event(Husband_risk, 1, 0, n = 1)
+    chance_event(Husband_risk_input, 1, 0, n = 1)
   
   Divorce_risk <-
-    chance_event(Divorce_risk, 1, 0, n = 1)
+    chance_event(Divorce_risk_input, 1, 0, n = 1)
   
   Man_Death_risk <-
-    chance_event(Man_Death_risk, 1, 0, n = 1)
+    chance_event(Man_Death_risk_input, 1, 0, n = 1)
   
   Bancruptcy_risk <-
-    chance_event(Bancruptcy_risk, 1, 0, n = 1)
+    chance_event(Bancruptcy_risk_input, 1, 0, n = 1)
   
   
 # Default option: Our decision maker is a farm wife and does nothing special. 

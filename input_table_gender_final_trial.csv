@@ -1,14 +1,8 @@
 Description;label;variable;distribution;lower;median;upper
-Percentage risk that in-laws/husband overrule daughter in-law/wife;Risk in-laws decide (%);Husband_risk;tnorm_0_1;0,45;NA;0,5
-Percentage risk that the marriage will be divorced at some point;Risk of divorce (%);Divorce_risk;tnorm_0_1;0,2;NA;0,4
-Percentage risk that farmer husband has a fatal accident at work;Risk of fatal accident of husband (%);Man_Death_risk;tnorm_0_1;0,0001;NA;0,0002
-Percentage risk that farm goes bancrupt;Risk of farm bancruptcy (%);Bancruptcy_risk;tnorm_0_1;0,01;NA;0,017
-Child care investment cost (for 6 years) as requirement to work;Needed initial investment costs (€/month) ;Costs_for_child_care;posnorm;40;NA;300
-Elderly care investment cost (for 10 years) as requirement to work;Needed investment costs (€/month);Costs_for_elderly_care;posnorm;130;NA;3000
-Using family/husbands monetary support to pay into retirement plan ;Family money (€/month);Family_money;posnorm;50;NA;300
-Officially working on the family farm to pay into retirement plan;Salary  on farm job (€/month) pre-tax income;On_farm_job;posnorm;1500;NA;1700
-Establishing own farmshop on the farm to pay into retirement plan;Salary own farmshop (€/month) pre-tax income;Own_branch;posnorm;1000;NA;1500
-Working off-farm as a gardener to pay into retirement plan;Salary off farm job (€/month) pre-tax income;Off_farm_job;posnorm;2200;NA;2400
+Percentage risk that in-laws/husband overrule daughter in-law/wife;Risk in-laws decide (%);Husband_risk_input;tnorm_0_1;0,45;NA;0,5
+Percentage risk that the marriage will be divorced at some point;Risk of divorce (%);Divorce_risk_input;tnorm_0_1;0,2;NA;0,4
+Percentage risk that farmer husband has a fatal accident at work;Risk of fatal accident of husband (%);Man_Death_risk_input;tnorm_0_1;0,0001;NA;0,0002
+Percentage risk that farm goes bancrupt;Risk of farm bancruptcy (%);Bancruptcy_risk_input;tnorm_0_1;0,01;NA;0,017
 Agricultural insurance payout for 17 years;Monthly pension (€/month);Agri_insurance;posnorm;591;NA;591,94
 Agricultural insurance investment for 40 years (5 years as MIFA + 35 years as full member);Monthly payment into retirement (€/month);Agri_insurance_inv;posnorm;241;NA;241,88
 Private insurance payout for 17 years off farm;Monthly pension (€/month) ;Private_insurance_off_farm;posnorm;530;NA;630
