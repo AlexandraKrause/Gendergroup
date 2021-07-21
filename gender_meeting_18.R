@@ -24,12 +24,12 @@ str(input_table_gender)
 
 # #inputestimates
 # #Reminder about the make_variables function
-# make_variables <- function(est,n=1)
-# { x<-random(rho=est, n=n)
-# for(i in colnames(x)) assign(i,
-#                              as.numeric(x[1,i]),envir=.GlobalEnv)
-# }#Then call:
-#   make_variables(as.estimate(input_table_gender))
+make_variables <- function(est,n=1)
+{ x<-random(rho=est, n=n)
+for(i in colnames(x)) assign(i,
+                              as.numeric(x[1,i]),envir=.GlobalEnv)
+ }#Then call:
+   make_variables(as.estimate(input_table_gender))
 
 
 
@@ -137,9 +137,10 @@ decision_function <- function(x, varnames){
   
   # Mix
   
-  Mix_off_farm <- vv(var_mean = Mix_off_farm, 
+  Mix_off_farm <- c(rep (0,480), vv(var_mean = Mix_off_farm, 
                          var_CV = 1, 
-                         n = 204)
+                         n = 204))
+  
   
   Mix_on_farm <- vv(var_mean =Mix_on_farm, 
                     var_CV = 1, 
@@ -175,10 +176,6 @@ decision_function <- function(x, varnames){
                        n = 480)
   
 # Vector with 480 zeros to put in Front of VV-Vectors with length of 2to create time horizons.
-  # vector=rep(0,480)
-  # vector works out)
-  # Mix_off_farm (Object does not exist! error above!)
-  # Mix_off_farm =c(vector,Mix_off_farm) (will it work)
 
 }
   
@@ -512,7 +509,8 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
                                     base_size = 7)
 
 
-#####################################################################################
+################################################################################
+### Our Model does not run yet, therefore we haven't cleaned up here
 
 #Plot Net Present Value (NPV) distributions
 
