@@ -110,11 +110,11 @@ decision_function <- function(x, varnames){
                      var_CV = 1, 
                      n = 204))
   
-  ETF_own_branch <- c(vv(var_mean =ETF_own_branch, 
+  ETF_own_branch <- c(rep(0,480),vv(var_mean = ETF_own_branch, 
                      var_CV = 1, 
-                     n = 204), rep(0,204))
+                     n = 204))
   
-  ETF_family_money <- c(rep (0,480), vv(var_mean =ETF_family_money, 
+  ETF_family_money <- c(rep (0,480), vv(var_mean = ETF_family_money, 
                      var_CV = 1, 
                      n = 204))
   
@@ -486,7 +486,7 @@ decision_function <- function(x, varnames){
                 #way14
                 NPV_profit_with_family_money_14 =  NPV_profit_with_family_money_14, 
                 NPV_decision_profit_with_family_money_14 = NPV_decision_profit_with_family_money_14,
-                Cashflow_decision_gender_way_14 =  profit_with_family_money_14  - profit_Default,
+                Cashflow_decision_gender_way_14 =  profit_with_family_money_14  - profit_Default
 
     )) 
     
@@ -504,7 +504,21 @@ mcSimulation_results <- decisionSupport::mcSimulation(
 
 
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = c("NPV_no_branch", "NPV_branch"),
+                                    vars = c("NPV_decision_profit_with_Own_business_branch_1",
+                                             "NPV_decision_profit_with_Own_business_branch_2 "
+                                             # "NPV_decision_profit_with_Own_business_branch_3 ",
+                                             # "NPV_decision_profit_with_off_farm_job_4 ",
+                                             # "NPV_decision_profit_with_off_farm_job_5 ",
+                                             # "NPV_decision_profit_with_off_farm_job_6 ",
+                                             # "NPV_decision_profit_with_off_farm_job_7 ",
+                                             # "NPV_decision_profit_with_on_farm_job_8 ",
+                                             # "NPV_decision_profit_with_on_farm_job_9 ",
+                                             # "NPV_decision_profit_with_on_farm_job_10 ",
+                                             # "NPV_decision_profit_with_on_farm_job_11 ",
+                                             # "NPV_decision_profit_with_family_money_12 ",
+                                             # "NPV_decision_profit_with_family_money_13 ",
+                                             # "NPV_decision_profit_with_family_money_14 "
+                                             ),
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
 
