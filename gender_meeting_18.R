@@ -260,7 +260,7 @@ decision_function <- function(x, varnames){
     profit_with_off_farm_job_4 <- (State_insurance_off_farm - State_insurance_inv_off_farm) * (1- Husband_risk)
     
     
-    NPV_profit_off_farm_job_4 <- discount(profit_with_off_farm_job_4,
+    NPV_profit_with_off_farm_job_4 <- discount(profit_with_off_farm_job_4,
                                                       discount_rate = 5, calculate_NPV = TRUE)
     
     NPV_decision_profit_with_off_farm_job_4 <- NPV_profit_with_off_farm_job_4 - NPV_no_branch
@@ -272,7 +272,7 @@ decision_function <- function(x, varnames){
     
   
     
-    profit_with_off_farm_job_5 <- (State_insurance_off_farm - State_insurance_inv_off_farm + Private_off_farm - Private_insurance_inv_off_farm) * (1- Husband_risk)
+    profit_with_off_farm_job_5 <- (State_insurance_off_farm - State_insurance_inv_off_farm + Private_insurance_off_farm - Private_insurance_inv_off_farm) * (1- Husband_risk)
     
     
     NPV_profit_with_off_farm_job_5 <- discount(profit_with_off_farm_job_5,
