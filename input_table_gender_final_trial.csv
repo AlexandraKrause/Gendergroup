@@ -29,7 +29,7 @@ Mixing ETF and private insurance payout for 17 years off farm  (10% of net incom
 Mixing ETF and private insurance payout for 17 years on farm  (10% of net income divided into 5% ETF anf 5% private insurance);Monthly pension (Euro/month);Mix_on_farm;posnorm;702;NA;766
 Mixing ETF and private insurance payout for 17 years own branch  (10% of net income divided into 5% ETF anf 5% private insurance);Monthly pension (Euro/month);Mix_own_branch;posnorm;510;NA;765
 Mixing ETF and private insurance payout for 17 years family money (10% of net income divided into 5% ETF anf 5% private insurance);Monthly pension (Euro/month);Mix_family_money;posnorm;320;NA;1280
-Mixing ETF and private insurance investment for 40 years off farm (10% of net income divided into 5% ETF anf 5% private insurance);Monthly payment into retirement (Euro/month);Mix__inv_off_farm;posnorm;150;NA;170
+Mixing ETF and private insurance investment for 40 years off farm (10% of net income divided into 5% ETF anf 5% private insurance);Monthly payment into retirement (Euro/month);Mix_inv_off_farm;posnorm;150;NA;170
 Mixing ETF and private insurance investment for 40 years on farm (10% of net income divided into 5% ETF anf 5% private insurance);Monthly payment into retirement (Euro/month);Mix_inv_on_farm;posnorm;110;NA;130
 Mixing ETF and private insurance investment for 40 years own branch (10% of net income divided into 5% ETF anf 5% private insurance);Monthly payment into retirement (Euro/month);Mix_inv_own_branch;posnorm;80;NA;120
 Mixing ETF and private insurance investment for 40 years family money (10% of net income divided into 5% ETF anf 5% private insurance);Monthly payment into retirement (Euro/month);Mix_inv_family_money;posnorm;50;NA;200

@@ -24,12 +24,12 @@ str(input_table_gender)
 
 # #inputestimates
 # #Reminder about the make_variables function
-make_variables <- function(est,n=1)
-{ x<-random(rho=est, n=n)
-for(i in colnames(x)) assign(i,
-                              as.numeric(x[1,i]),envir=.GlobalEnv)
- }#Then call:
-   make_variables(as.estimate(input_table_gender))
+# make_variables <- function(est,n=1)
+# { x<-random(rho=est, n=n)
+# for(i in colnames(x)) assign(i,
+#                               as.numeric(x[1,i]),envir=.GlobalEnv)
+#  }#Then call:
+#    make_variables(as.estimate(input_table_gender))
 
 
 
@@ -43,29 +43,29 @@ for(i in colnames(x)) assign(i,
 decision_function <- function(x, varnames){
 
   #Agricultural insurance
-  Agri_insurance <- vv(var_mean = Agri_insurance, 
+  Agri_insurance <- c(rep (0,480),vv(var_mean = Agri_insurance, 
                                      var_CV = var_cv_40, 
-                                     n = 204)
+                                     n = 204))
   
   Agri_insurance_inv <- vv(var_mean =Agri_insurance_inv, 
                        var_CV = 1, 
                        n = 480)
   #Private insurance
-  Private_insurance_off_farm <- vv(var_mean =Private_insurance_off_farm, 
+  Private_insurance_off_farm <- c(rep (0,480), vv(var_mean =Private_insurance_off_farm, 
                        var_CV = 1, 
-                       n = 204)
+                       n = 204))
   
-  Private_insurance_on_farm <- vv(var_mean =Private_insurance_on_farm, 
+  Private_insurance_on_farm <- c(rep (0,480), vv(var_mean =Private_insurance_on_farm, 
                                    var_CV = 1, 
-                                   n = 204)
+                                   n = 204))
   
-  Private_insurance_own_branch <- vv(var_mean =Private_insurance_own_branch, 
+  Private_insurance_own_branch <- c(rep (0,480),vv(var_mean =Private_insurance_own_branch, 
                                    var_CV = 1, 
-                                   n = 204)
+                                   n = 204))
   
-  Private_insurance_family_money <- vv(var_mean =Private_insurance_family_money, 
+  Private_insurance_family_money <- c(rep (0,480), vv(var_mean =Private_insurance_family_money, 
                                    var_CV = 1, 
-                                   n = 204)
+                                   n = 204))
   
   Private_insurance_inv_off_farm <- vv(var_mean =Private_insurance_inv_off_farm, 
                                    var_CV = 1, 
@@ -84,15 +84,15 @@ decision_function <- function(x, varnames){
                                        n = 480)
   #State insurance
   
-  State_insurance_off_farm <- vv(var_mean =State_insurance_off_farm, 
+  State_insurance_off_farm <- c(rep (0,480), vv(var_mean =State_insurance_off_farm, 
                                   var_CV = 1, 
-                                  n = 204)
+                                  n = 204))
   
-  State_insurance_on_farm <- vv(var_mean =State_insurance_on_farm, 
+  State_insurance_on_farm <- c(rep (0,480), vv(var_mean =State_insurance_on_farm, 
                                  var_CV = 1, 
-                                 n = 204)
+                                 n = 204))
   
-  State_insurance_inv_off_farm <- vv(var_mean =State_insurance_inv_off_farm, 
+  State_insurance_inv_off_farm <-vv(var_mean =State_insurance_inv_off_farm, 
                                  var_CV = 1, 
                                  n = 480)
   
@@ -102,21 +102,21 @@ decision_function <- function(x, varnames){
   #ETF
   
   
-  ETF_off_farm <- vv(var_mean =ETF_off_farm, 
+  ETF_off_farm <- c(rep (0,480),vv(var_mean =ETF_off_farm, 
                                    var_CV = 1, 
-                                   n = 204)
+                                   n = 204))
   
-  ETF_on_farm <- vv(var_mean =ETF_on_farm, 
+  ETF_on_farm <- c(rep (0,480), vv(var_mean =ETF_on_farm, 
                      var_CV = 1, 
-                     n = 204)
+                     n = 204))
   
   ETF_own_branch <- vv(var_mean =ETF_own_branch, 
                      var_CV = 1, 
                      n = 204)
   
-  ETF_family_money <- vv(var_mean =ETF_family_money, 
+  ETF_family_money <- c(rep (0,480), vv(var_mean =ETF_family_money, 
                      var_CV = 1, 
-                     n = 204)
+                     n = 204))
   
   
   ETF_inv_off_farm <- vv(var_mean =ETF_inv_off_farm, 
@@ -142,17 +142,17 @@ decision_function <- function(x, varnames){
                          n = 204))
   
   
-  Mix_on_farm <- vv(var_mean =Mix_on_farm, 
+  Mix_on_farm <- c(rep (0,480), vv(var_mean =Mix_on_farm, 
                     var_CV = 1, 
-                    n = 204)
+                    n = 204))
   
-  Mix_own_branch <- vv(var_mean =Mix_own_branch, 
+  Mix_own_branch <- c(rep (0,480), vv(var_mean =Mix_own_branch, 
                        var_CV = 1, 
-                       n = 204)
+                       n = 204))
   
-  Mix_family_money <- vv(var_mean =Mix_family_money, 
+  Mix_family_money <- c(rep (0,480), vv(var_mean =Mix_family_money, 
                          var_CV = 1, 
-                         n = 204)
+                         n = 204))
   
   Mix_inv_off_farm <- vv(var_mean =Mix_inv_off_farm, 
                          var_CV = 1, 
@@ -177,7 +177,7 @@ decision_function <- function(x, varnames){
   
 # Vector with 480 zeros to put in Front of VV-Vectors with length of 2to create time horizons.
 
-}
+#}
   
   #### calculate ex-ante risks ####
   # TO DO: Change variable Name in input table and change the variable here accordingly
@@ -490,7 +490,7 @@ decision_function <- function(x, varnames){
 
     )) 
     
-
+}
   
 
 
