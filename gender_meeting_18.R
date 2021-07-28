@@ -21,7 +21,9 @@ input_table_gender <- input_table_gender %>%
          upper = as.numeric(upper))
 
 str(input_table_gender)
-
+pension_years <- 17
+working_years <- 40
+var_slight <- 1
 # #inputestimates
 # #Reminder about the make_variables function
 # make_variables <- function(est,n=1)
@@ -43,137 +45,137 @@ str(input_table_gender)
 decision_function <- function(x, varnames){
 
   #Agricultural insurance
-  Agri_insurance <- c(rep (0,480),vv(var_mean = Agri_insurance, 
-                                     var_CV = var_cv_40, 
-                                     n = 204))
+  Agri_insurance <- c(rep (0,working_years),vv(var_mean = Agri_insurance, 
+                                     var_CV = var_slight, 
+                                     n = pension_years))
   
   Agri_insurance_inv <- c(vv(var_mean =Agri_insurance_inv, 
-                       var_CV = 1, 
-                       n = 480), rep(0,204))
+                       var_CV = var_slight, 
+                       n = working_years), rep(0,pension_years))
   #Private insurance
-  Private_insurance_off_farm <- c(rep (0,480), vv(var_mean =Private_insurance_off_farm, 
-                       var_CV = 1, 
-                       n = 204))
+  Private_insurance_off_farm <- c(rep (0,working_years), vv(var_mean =Private_insurance_off_farm, 
+                       var_CV = var_slight, 
+                       n = pension_years))
   
-  Private_insurance_on_farm <- c(rep (0,480), vv(var_mean =Private_insurance_on_farm, 
-                                   var_CV = 1, 
-                                   n = 204))
+  Private_insurance_on_farm <- c(rep (0,working_years), vv(var_mean =Private_insurance_on_farm, 
+                                   var_CV = var_slight, 
+                                   n = pension_years))
   
-  Private_insurance_own_branch <- c(rep (0,480),vv(var_mean =Private_insurance_own_branch, 
-                                   var_CV = 1, 
-                                   n = 204))
+  Private_insurance_own_branch <- c(rep (0,working_years),vv(var_mean =Private_insurance_own_branch, 
+                                   var_CV = var_slight, 
+                                   n = pension_years))
   
-  Private_insurance_family_money <- c(rep (0,480), vv(var_mean =Private_insurance_family_money, 
-                                   var_CV = 1, 
-                                   n = 204))
+  Private_insurance_family_money <- c(rep (0,working_years), vv(var_mean =Private_insurance_family_money, 
+                                   var_CV = var_slight, 
+                                   n = pension_years))
   
   Private_insurance_inv_off_farm <- c(vv(var_mean =Private_insurance_inv_off_farm, 
-                                   var_CV = 1, 
-                                   n = 480), rep(0,204))
+                                   var_CV = var_slight, 
+                                   n = working_years), rep(0,pension_years))
   
   Private_insurance_inv_on_farm <- c( vv(var_mean =Private_insurance_inv_on_farm, 
-                                       var_CV = 1, 
-                                       n = 480), rep(0,204))
+                                       var_CV = var_slight, 
+                                       n = working_years), rep(0,pension_years))
   
   Private_insurance_inv_own_branch <- c( vv(var_mean =Private_insurance_inv_own_branch, 
-                                       var_CV = 1, 
-                                       n = 480), rep(0,204))
+                                       var_CV = var_slight, 
+                                       n = working_years), rep(0,pension_years))
   
   Private_insurance_inv_family_money <- c( vv(var_mean =Private_insurance_inv_family_money, 
-                                       var_CV = 1, 
-                                       n = 480), rep(0,204))
+                                       var_CV = var_slight, 
+                                       n = working_years), rep(0,pension_years))
   #State insurance
   
-  State_insurance_off_farm <- c(rep (0,480), vv(var_mean =State_insurance_off_farm, 
-                                  var_CV = 1, 
-                                  n = 204))
+  State_insurance_off_farm <- c(rep (0,working_years), vv(var_mean =State_insurance_off_farm, 
+                                  var_CV = var_slight, 
+                                  n = pension_years))
   
-  State_insurance_on_farm <- c(rep (0,480), vv(var_mean =State_insurance_on_farm, 
-                                 var_CV = 1, 
-                                 n = 204))
+  State_insurance_on_farm <- c(rep (0,working_years), vv(var_mean =State_insurance_on_farm, 
+                                 var_CV = var_slight, 
+                                 n = pension_years))
   
   State_insurance_inv_off_farm <-c(vv(var_mean =State_insurance_inv_off_farm, 
-                                 var_CV = 1, 
-                                 n = 480),  rep(0,204))
+                                 var_CV = var_slight, 
+                                 n = working_years),  rep(0,pension_years))
   
   State_insurance_inv_on_farm <- c(vv(var_mean =State_insurance_inv_on_farm, 
-                                     var_CV = 1, 
-                                     n = 480), rep(0,204))
+                                     var_CV = var_slight, 
+                                     n = working_years), rep(0,pension_years))
   #ETF
   
   
-  ETF_off_farm <- c(rep (0,480),vv(var_mean =ETF_off_farm, 
-                                   var_CV = 1, 
-                                   n = 204))
+  ETF_off_farm <- c(rep (0,working_years),vv(var_mean =ETF_off_farm, 
+                                   var_CV = var_slight, 
+                                   n = pension_years))
   
-  ETF_on_farm <- c(rep (0,480), vv(var_mean =ETF_on_farm, 
-                     var_CV = 1, 
-                     n = 204))
+  ETF_on_farm <- c(rep (0,working_years), vv(var_mean =ETF_on_farm, 
+                     var_CV = var_slight, 
+                     n = pension_years))
   
-  ETF_own_branch <- c(rep(0,480),vv(var_mean = ETF_own_branch, 
-                     var_CV = 1, 
-                     n = 204))
+  ETF_own_branch <- c(rep(0,working_years),vv(var_mean = ETF_own_branch, 
+                     var_CV = var_slight, 
+                     n = pension_years))
   
-  ETF_family_money <- c(rep (0,480), vv(var_mean = ETF_family_money, 
-                     var_CV = 1, 
-                     n = 204))
+  ETF_family_money <- c(rep (0,working_years), vv(var_mean = ETF_family_money, 
+                     var_CV = var_slight, 
+                     n = pension_years))
   
   
   ETF_inv_off_farm <- c(vv(var_mean =ETF_inv_off_farm, 
-                     var_CV = 1, 
-                     n = 480), rep(0,204))
+                     var_CV = var_slight, 
+                     n = working_years), rep(0,pension_years))
   
   ETF_inv_on_farm <- c(vv(var_mean =ETF_inv_on_farm, 
-                    var_CV = 1, 
-                    n = 480), rep(0,204))
+                    var_CV = var_slight, 
+                    n = working_years), rep(0,pension_years))
   
   ETF_inv_own_branch <- c(vv(var_mean =ETF_inv_own_branch, 
-                       var_CV = 1, 
-                       n = 480), rep(0,204))
+                       var_CV = var_slight, 
+                       n = working_years), rep(0,pension_years))
   
   ETF_inv_family_money <- c( vv(var_mean =ETF_inv_family_money, 
-                         var_CV = 1, 
-                         n = 480), rep(0,204))
+                         var_CV = var_slight, 
+                         n = working_years), rep(0,pension_years))
   
   # Mix
   
-  Mix_off_farm <- c(rep (0,480), vv(var_mean = Mix_off_farm, 
-                         var_CV = 1, 
-                         n = 204))
+  Mix_off_farm <- c(rep (0,working_years), vv(var_mean = Mix_off_farm, 
+                         var_CV = var_slight, 
+                         n = pension_years))
   
   
-  Mix_on_farm <- c(rep (0,480), vv(var_mean =Mix_on_farm, 
-                    var_CV = 1, 
-                    n = 204))
+  Mix_on_farm <- c(rep (0,working_years), vv(var_mean =Mix_on_farm, 
+                    var_CV = var_slight, 
+                    n = pension_years))
   
-  Mix_own_branch <- c(rep (0,480), vv(var_mean =Mix_own_branch, 
-                       var_CV = 1, 
-                       n = 204))
+  Mix_own_branch <- c(rep (0,working_years), vv(var_mean =Mix_own_branch, 
+                       var_CV = var_slight, 
+                       n = pension_years))
   
-  Mix_family_money <- c(rep (0,480), vv(var_mean =Mix_family_money, 
-                         var_CV = 1, 
-                         n = 204))
+  Mix_family_money <- c(rep (0,working_years), vv(var_mean =Mix_family_money, 
+                         var_CV = var_slight, 
+                         n = pension_years))
   
   Mix_inv_off_farm <- c(vv(var_mean =Mix_inv_off_farm, 
-                         var_CV = 1, 
-                         n = 480), rep(0,204))
+                         var_CV = var_slight, 
+                         n = working_years), rep(0,pension_years))
   
   Mix_inv_on_farm <- c(vv(var_mean =Mix_inv_on_farm, 
-                        var_CV = 1, 
-                        n = 480), rep(0,204))
+                        var_CV = var_slight, 
+                        n = working_years), rep(0,pension_years))
   
   Mix_inv_own_branch <- c(vv(var_mean =Mix_inv_own_branch, 
-                           var_CV = 1, 
-                           n = 480), rep(0,204))
+                           var_CV = var_slight, 
+                           n = working_years), rep(0,pension_years))
   
   Mix_inv_family_money <- c(vv(var_mean =Mix_inv_family_money, 
-                             var_CV = 1, 
-                             n = 480), rep(0,204))
+                             var_CV = var_slight, 
+                             n = working_years), rep(0,pension_years))
   #default option
   
   Default_option <- c(vv(var_mean = Default_option,
-                       var_CV = 1, 
-                       n = 480), rep(0,204))
+                       var_CV = var_slight, 
+                       n = working_years), rep(0,pension_years))
   
 # Vector with 480 zeros to put in Front of VV-Vectors with length of 2to create time horizons.
 
@@ -501,6 +503,12 @@ mcSimulation_results <- decisionSupport::mcSimulation(
   numberOfModelRuns = 200,
   functionSyntax = "plainNames"
 )
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = c("NPV_profit_with_Own_business_branch_1",
+                                             "NPV_profit_with_Own_business_branch_2"),                                    ),
+                                    method = 'smooth_simple_overlay', 
+                                    base_size = 7)
 
 
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
