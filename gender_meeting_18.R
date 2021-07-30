@@ -9,7 +9,7 @@ library(dplyr)
 
 ####first step:get data####
 
-input_table_gender <-read.csv2("./input_table_gender_final_trial.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_final_trial_years.csv", dec = ",")
 
 input_table_gender <- input_table_gender %>% 
   mutate(Description = as.character(Description),
