@@ -1,8 +1,8 @@
 Description;label;variable;distribution;lower;median;upper
-Percentage risk that in-laws/husband overrule daughter in-law/wife;Risk in-laws decide (%);Husband_risk;tnorm_0_1;0,45;NA;0,5
-Percentage risk that the marriage will be divorced at some point;Risk of divorce (%);Divorce_risk;tnorm_0_1;0,2;NA;0,4
-Percentage risk that farmer husband has a fatal accident at work;Risk of fatal accident of husband (%);Man_Death_risk;tnorm_0_1;0,0001;NA;0,0002
-Percentage risk that farm goes bancrupt;Risk of farm bancruptcy (%);Bancruptcy_risk;tnorm_0_1;0,01;NA;0,017
+Percentage risk that in-laws/husband overrule daughter in-law/wife;Risk in-laws decide (%);Husband_risk_input;tnorm_0_1;0,45;NA;0,5
+Percentage risk that the marriage will be divorced at some point;Risk of divorce (%);Divorce_risk_input;tnorm_0_1;0,2;NA;0,4
+Percentage risk that farmer husband has a fatal accident at work;Risk of fatal accident of husband (%);Man_Death_risk_input;tnorm_0_1;0,0001;NA;0,0002
+Percentage risk that farm goes bancrupt;Risk of farm bancruptcy (%);Bancruptcy_risk_input;tnorm_0_1;0,01;NA;0,017
 Agricultural insurance payout for 17 years;Yearly pension (Euro/month);Agri_insurance;posnorm;7092;NA;7103,28
 Agricultural insurance investment for 40 years (5 years as MIFA + 35 years as full member);Yearly payment into retirement (Euro/month);Agri_insurance_inv;posnorm;2893;NA;2902,56
 Private insurance payout for 17 years off farm;Yearly pension (Euro/month);Private_insurance_off_farm;posnorm;6360;NA;7560
