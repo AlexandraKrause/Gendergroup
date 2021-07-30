@@ -10,6 +10,7 @@ library(dplyr)
 ####first step:get data####
 
 input_table_gender <-read.csv2("./input_table_gender_final_trial_years.csv", dec = ",")
+#input_table_gender <-read.csv2("./input_table_gender_final_trial.csv", dec = ",")
 
 input_table_gender <- input_table_gender %>% 
   mutate(Description = as.character(Description),
@@ -428,7 +429,7 @@ decision_function <- function(x, varnames){
                 #way2
                 NPV_profit_with_Own_business_branch_2 =  NPV_profit_with_Own_business_branch_2, 
                 NPV_decision_profit_with_Own_business_branch_2 = NPV_decision_profit_with_Own_business_branch_2,
-                Cashflow_decision_gender_way_2 =  profit_with_Own_business_branch_2  - profit_Default,
+                Cashflow_decision_gender_way_2 = profit_with_Own_business_branch_2  - profit_Default,
                 
                 #way3
                 NPV_profit_with_Own_business_branch_3 =  NPV_profit_with_Own_business_branch_3, 
@@ -504,29 +505,42 @@ mcSimulation_results <- decisionSupport::mcSimulation(
   functionSyntax = "plainNames"
 )
 
+
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
                                     vars = c("NPV_profit_with_Own_business_branch_1",
-                                             "NPV_profit_with_Own_business_branch_2"),                                    ),
+                                             "NPV_profit_with_Own_business_branch_2"),
+                                    method = 'smooth_simple_overlay', 
+                                    base_size = 7)
+
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = c("NPV_decision_profit_with_off_farm_job_4",
+                                             "NPV_decision_profit_with_off_farm_job_5",
+                                             "NPV_decision_profit_with_off_farm_job_6",
+                                             "NPV_decision_profit_with_off_farm_job_7",
+                                             "NPV_decision_profit_with_on_farm_job_8",
+                                             "NPV_decision_profit_with_on_farm_job_9",
+                                             "NPV_decision_profit_with_on_farm_job_10",
+                                             "NPV_decision_profit_with_on_farm_job_11"
+                                             ),
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
 
 
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
                                     vars = c("NPV_decision_profit_with_Own_business_branch_1",
-                                             "NPV_decision_profit_with_Own_business_branch_2 "
-                                             # "NPV_decision_profit_with_Own_business_branch_3 ",
-                                             # "NPV_decision_profit_with_off_farm_job_4 ",
-                                             # "NPV_decision_profit_with_off_farm_job_5 ",
-                                             # "NPV_decision_profit_with_off_farm_job_6 ",
-                                             # "NPV_decision_profit_with_off_farm_job_7 ",
-                                             # "NPV_decision_profit_with_on_farm_job_8 ",
-                                             # "NPV_decision_profit_with_on_farm_job_9 ",
-                                             # "NPV_decision_profit_with_on_farm_job_10 ",
-                                             # "NPV_decision_profit_with_on_farm_job_11 ",
-                                             # "NPV_decision_profit_with_family_money_12 ",
-                                             # "NPV_decision_profit_with_family_money_13 ",
-                                             # "NPV_decision_profit_with_family_money_14 "
-                                             ),
+                                             "NPV_decision_profit_with_Own_business_branch_2",
+                                             "NPV_decision_profit_with_Own_business_branch_3"
+                                    ),
+                                    method = 'smooth_simple_overlay', 
+                                    base_size = 7)
+
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = c("NPV_decision_profit_with_family_money_12",
+                                             "NPV_decision_profit_with_family_money_13",
+                                             "NPV_decision_profit_with_family_money_14"
+                                    ),
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
 
@@ -549,16 +563,49 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 #Here we show the results of a Monte Carlo simulation (200 model runs) for
 #estimating the comparative profits with and without hail nets.
+#plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
+#                   vars = c("NPV_no_branch", "NPV_branch"),
+#                   method = 'smooth_simple_overlay', 
+#                   base_size = 7)
+
+ plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
+                    vars = c("NPV_no_branch", "NPV_profit_with_Own_business_branch_1"),
+                    method = 'smooth_simple_overlay', 
+                    base_size = 7)
+#without npv no branch:
+
 plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
-                   vars = c("NPV_no_branch", "NPV_branch"),
+                   vars = c("NPV_decision_profit_with_on_farm_job_8",
+                            "NPV_decision_profit_with_on_farm_job_9",
+                            "NPV_decision_profit_with_on_farm_job_10",
+                            "NPV_decision_profit_with_on_farm_job_11",
+                            "NPV_decision_profit_with_family_money_12",
+                            "NPV_decision_profit_with_family_money_13",
+                            "NPV_decision_profit_with_family_money_14"),
                    method = 'smooth_simple_overlay', 
                    base_size = 7)
 
-# plot_distributions(mcSimulation_object = mcSimulation_results_way6, #without _wayx , this code wil not work.
-#                    vars = c("NPV_no_branch", "NPV_branch"),
-#                    method = 'smooth_simple_overlay', 
-#                    base_size = 7)
-# 
+#with npv no branch
+
+plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
+                   vars = c("NPV_no_branch", "NPV_profit_with_Own_business_branch_1",
+                            "NPV_no_branch", "NPV_profit_with_Own_business_branch_2",
+                            "NPV_no_branch", "NPV_profit_with_Own_business_branch_3"),
+                   method = 'smooth_simple_overlay', 
+                   base_size = 7)
+
+plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
+                   vars = c("NPV_no_branch",
+                            "NPV_profit_with_Own_business_branch_1",
+                            "NPV_profit_with_Own_business_branch_2",
+                            "NPV_profit_with_Own_business_branch_3",
+                            "NPV_decision_profit_with_off_farm_job_4",
+                            "NPV_decision_profit_with_off_farm_job_5",
+                            "NPV_decision_profit_with_off_farm_job_6",
+                            "NPV_decision_profit_with_off_farm_job_7"),
+                   method = 'smooth_simple_overlay', 
+                   base_size = 7)
+ 
 # plot_distributions(mcSimulation_object = mcSimulation_results_way10, #without _wayx , this code wil not work.
 #                    vars = c("NPV_no_branch", "NPV_branch"),
 #                    method = 'smooth_simple_overlay', 
@@ -601,7 +648,7 @@ plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , 
 
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
                                     vars = c("NPV_no_branch",
-                                             "NPV_branch"),
+                                             "NPV_profit_with_Own_business_branch_1"),
                                     method = 'boxplot')
 
 # decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way6, #without _wayx , this code wil not work.
@@ -627,7 +674,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
 #This can be quite helpful for us since it shows us the outcome 
 #distribution of the decision itself.
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
-                                    vars = "NPV_decision",
+                                    vars = "NPV_profit_with_Own_business_branch_1",
                                     method = 'boxplot_density')
 
 
@@ -651,6 +698,8 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
 #specified cashflow outputs from the mcSimulation() function 
 #(in our case Cashflow_decision_do) to show cashflow over time.
 
+
+#Fehler: cashflow_var_name contains numbers. Consider renaming your cashflow variables in the model function!
 
 Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_1" ) #without the correct variable name this code will not work.
 
@@ -697,18 +746,9 @@ Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_v
 
 
 pls_result <- plsr.mcSimulation(object = mcSimulation_results,
-                                resultName = names(mcSimulation_results_way1$y)[3], ncomp = 1)
+                                resultName = names(mcSimulation_results$y)[3], ncomp = 1)
 
 
-pls_result <- plsr.mcSimulation(object = mcSimulation_results_way6,
-                                resultName = names(mcSimulation_results_way6$y)[3], ncomp = 1)
-
-
-pls_result <- plsr.mcSimulation(object = mcSimulation_results_way2,
-                                resultName = names(mcSimulation_results_way2$y)[3], ncomp = 1)
-
-pls_result <- plsr.mcSimulation(object = mcSimulation_results_way10,
-                                resultName = names(mcSimulation_results_way10$y)[3], ncomp = 1)
 
 
 
@@ -727,68 +767,39 @@ pls_result <- plsr.mcSimulation(object = mcSimulation_results_way10,
 #variable column.
 plot_pls(pls_result, threshold = 0) # I corrected it alread several times, but the input table here needs the name of our input table in our environment.
 # input_table = input_table_gender, 
+#showing strange results
 
 # We calculate Value of Information (VoI) analysis with the Expected Value of Perfect Information (EVPI). 
 #As we learned in Lecture 8 on forecasts, EVPI measures 
 # the expected opportunity loss that is incurred when the decision-maker 
 # does not have perfect information about a particular variable. 
 # EVPI is determined by examining the influence of that variable on the output value of a decision model.
-mcSimulation_table <- data.frame(mcSimulation_results_way1$x, mcSimulation_results_way1$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
 plot_evpi(evpi, decision_vars = "NPV_decision")
+#not working
 
-
-mcSimulation_table <- data.frame(mcSimulation_results_way6$x, mcSimulation_results_way6$y[1:3])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
-plot_evpi(evpi, decision_vars = "NPV_decision")
-
-
-mcSimulation_table <- data.frame(mcSimulation_results_way2$x, mcSimulation_results_way2$y[1:3])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
-plot_evpi(evpi, decision_vars = "NPV_decision")
-
-
-mcSimulation_table <- data.frame(mcSimulation_results_way10$x, mcSimulation_results_way10$y[1:3])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
-plot_evpi(evpi, decision_vars = "NPV_decision")
 
 ## in the compound figute, we are forced to use the wrong input table as an input, therefore we get bad results for some plots.
-compound_figure(mcSimulation_object = mcSimulation_results_way1, 
+compound_figure(mcSimulation_object = mcSimulation_results, 
                 input_table = input_table_gender, plsrResults = pls_result, 
-                EVPIresults = evpi, decision_var_name = "NPV_decision", 
+                EVPIresults = evpi, decision_var_name = "NPV_profit_with_Own_business_branch_1", 
                 cashflow_var_name = "Cashflow_decision_gender", 
                 base_size = 7)
 
-compound_figure(mcSimulation_object = mcSimulation_results_way6, 
-                input_table = input_table_gender, plsrResults = pls_result, 
-                EVPIresults = evpi, decision_var_name = "NPV_decision", 
-                cashflow_var_name = "Cashflow_decision_gender", 
-                base_size = 12)
-
-compound_figure(mcSimulation_object = mcSimulation_results_way2, 
-                input_table = input_table_gender, plsrResults = pls_result, 
-                EVPIresults = evpi, decision_var_name = "NPV_decision", 
-                cashflow_var_name = "Cashflow_decision_gender", 
-                base_size = 12)
-
-
-compound_figure(mcSimulation_object = mcSimulation_results_way10, 
-                input_table = input_table_gender, plsrResults = pls_result, 
-                EVPIresults = evpi, decision_var_name = "NPV_decision", 
-                cashflow_var_name = "Cashflow_decision_gender", 
-                base_size = 12)
 
 #way 2
-plot_cashflow(mcSimulation_object = mcSimulation_results_way2, cashflow_var_name = "Cashflow_decision_gender")
-pls_result <- plsr.mcSimulation(object = mcSimulation_results_way2,
-                                resultName = names(mcSimulation_results_way2$y)[3], ncomp = 1)
-plot_pls(pls_result, threshold = 0, input_table = input_table_gender)
-mcSimulation_table <- data.frame(mcSimulation_results_way2$x, mcSimulation_results_way2$y[1:3])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
-plot_evpi(evpi, decision_vars = "NPV_decision")
-compound_figure(mcSimulation_object = mcSimulation_results_way2, 
-                input_table = input_table_gender, plsrResults = pls_result, 
-                EVPIresults = evpi, decision_var_name = "NPV_decision", 
-                cashflow_var_name = "Cashflow_decision_gender", 
-                base_size = 7)
+# plot_cashflow(mcSimulation_object = mcSimulation_results_way2, cashflow_var_name = "Cashflow_decision_gender")
+# pls_result <- plsr.mcSimulation(object = mcSimulation_results_way2,
+#                                 resultName = names(mcSimulation_results_way2$y)[3], ncomp = 1)
+# plot_pls(pls_result, threshold = 0, input_table = input_table_gender)
+# mcSimulation_table <- data.frame(mcSimulation_results_way2$x, mcSimulation_results_way2$y[1:3])
+# evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
+# plot_evpi(evpi, decision_vars = "NPV_decision")
+# compound_figure(mcSimulation_object = mcSimulation_results_way2, 
+#                 input_table = input_table_gender, plsrResults = pls_result, 
+#                 EVPIresults = evpi, decision_var_name = "NPV_decision", 
+#                 cashflow_var_name = "Cashflow_decision_gender", 
+#                 base_size = 7)
+
 
