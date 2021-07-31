@@ -424,72 +424,72 @@ decision_function <- function(x, varnames){
                 #way 1
                 NPV_profit_with_Own_business_branch_1 =  NPV_profit_with_Own_business_branch_1, 
                 NPV_decision_profit_with_Own_business_branch_1 = NPV_decision_profit_with_Own_business_branch_1,
-                Cashflow_decision_gender_way_1 =  profit_with_Own_business_branch_1  - profit_Default,
+                Cashflow_decision_gender_way_A =  profit_with_Own_business_branch_1  - profit_Default,
                 
                 #way2
                 NPV_profit_with_Own_business_branch_2 =  NPV_profit_with_Own_business_branch_2, 
                 NPV_decision_profit_with_Own_business_branch_2 = NPV_decision_profit_with_Own_business_branch_2,
-                Cashflow_decision_gender_way_2 = profit_with_Own_business_branch_2  - profit_Default,
+                Cashflow_decision_gender_way_B = profit_with_Own_business_branch_2  - profit_Default,
                 
                 #way3
                 NPV_profit_with_Own_business_branch_3 =  NPV_profit_with_Own_business_branch_3, 
                 NPV_decision_profit_with_Own_business_branch_3 = NPV_decision_profit_with_Own_business_branch_3,
-                Cashflow_decision_gender_way_3 =  profit_with_Own_business_branch_3  - profit_Default,
+                Cashflow_decision_gender_way_C =  profit_with_Own_business_branch_3  - profit_Default,
                 
                 #way4
                 NPV_profit_with_off_farm_job_4 =  NPV_profit_with_off_farm_job_4, 
                 NPV_decision_profit_with_off_farm_job_4 = NPV_decision_profit_with_off_farm_job_4,
-                Cashflow_decision_gender_way_4 =  profit_with_off_farm_job_4  - profit_Default,
+                Cashflow_decision_gender_way_D =  profit_with_off_farm_job_4  - profit_Default,
                 
                 #way5
                 NPV_profit_with_off_farm_job_5 =  NPV_profit_with_off_farm_job_5, 
                 NPV_decision_profit_with_off_farm_job_5 = NPV_decision_profit_with_off_farm_job_5,
-                Cashflow_decision_gender_way_5 =  profit_with_off_farm_job_5  - profit_Default,
+                Cashflow_decision_gender_way_E =  profit_with_off_farm_job_5  - profit_Default,
                 
                 #way6
                 NPV_profit_with_off_farm_job_6 =  NPV_profit_with_off_farm_job_6, 
                 NPV_decision_profit_with_off_farm_job_6 = NPV_decision_profit_with_off_farm_job_6,
-                Cashflow_decision_gender_way_6 =  profit_with_off_farm_job_6  - profit_Default,
+                Cashflow_decision_gender_way_F =  profit_with_off_farm_job_6  - profit_Default,
                 
                 #way7
                 NPV_profit_with_off_farm_job_7 =  NPV_profit_with_off_farm_job_7, 
                 NPV_decision_profit_with_off_farm_job_7 = NPV_decision_profit_with_off_farm_job_7,
-                Cashflow_decision_gender_way_7 =  profit_with_off_farm_job_7  - profit_Default,
+                Cashflow_decision_gender_way_G =  profit_with_off_farm_job_7  - profit_Default,
                 
                 #way8
                 NPV_profit_with_on_farm_job_8 =  NPV_profit_with_on_farm_job_8, 
                 NPV_decision_profit_with_on_farm_job_8 = NPV_decision_profit_with_on_farm_job_8,
-                Cashflow_decision_gender_way_8 =  profit_with_on_farm_job_8  - profit_Default,
+                Cashflow_decision_gender_way_H =  profit_with_on_farm_job_8  - profit_Default,
               
                 #way9
                 NPV_profit_with_on_farm_job_9 =  NPV_profit_with_on_farm_job_9, 
                 NPV_decision_profit_with_on_farm_job_9 = NPV_decision_profit_with_on_farm_job_9,
-                Cashflow_decision_gender_way_9 =  profit_with_on_farm_job_9  - profit_Default,
+                Cashflow_decision_gender_way_I =  profit_with_on_farm_job_9  - profit_Default,
                 
                 #way10
                 NPV_profit_with_on_farm_job_10 =  NPV_profit_with_on_farm_job_10, 
                 NPV_decision_profit_with_on_farm_job_10 = NPV_decision_profit_with_on_farm_job_10,
-                Cashflow_decision_gender_way_10 =  profit_with_on_farm_job_10  - profit_Default,
+                Cashflow_decision_gender_way_J =  profit_with_on_farm_job_10  - profit_Default,
                 
                 #way11
                 NPV_profit_with_on_farm_job_11 =  NPV_profit_with_on_farm_job_11, 
                 NPV_decision_profit_with_on_farm_job_11 = NPV_decision_profit_with_on_farm_job_11,
-                Cashflow_decision_gender_way_11 =  profit_with_on_farm_job_11  - profit_Default,
+                Cashflow_decision_gender_way_K =  profit_with_on_farm_job_11  - profit_Default,
                 
                 #way12
                 NPV_profit_with_family_money_12 =  NPV_profit_with_family_money_12, 
                 NPV_decision_profit_with_family_money_12 = NPV_decision_profit_with_family_money_12,
-                Cashflow_decision_gender_way_12 =  profit_with_family_money_12  - profit_Default,
+                Cashflow_decision_gender_way_L =  profit_with_family_money_12  - profit_Default,
                 
                 #way13
                 NPV_profit_with_family_money_13 =  NPV_profit_with_family_money_13, 
                 NPV_decision_profit_with_family_money_13 = NPV_decision_profit_with_family_money_13,
-                Cashflow_decision_gender_way_13 =  profit_with_family_money_13  - profit_Default,
+                Cashflow_decision_gender_way_M =  profit_with_family_money_13  - profit_Default,
                 
                 #way14
                 NPV_profit_with_family_money_14 =  NPV_profit_with_family_money_14, 
                 NPV_decision_profit_with_family_money_14 = NPV_decision_profit_with_family_money_14,
-                Cashflow_decision_gender_way_14 =  profit_with_family_money_14  - profit_Default
+                Cashflow_decision_gender_way_N =  profit_with_family_money_14  - profit_Default
 
     )) 
     
@@ -568,43 +568,42 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 #                   method = 'smooth_simple_overlay', 
 #                   base_size = 7)
 
- plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
-                    vars = c("NPV_no_branch", "NPV_profit_with_Own_business_branch_1"),
-                    method = 'smooth_simple_overlay', 
-                    base_size = 7)
-#without npv no branch:
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = c("NPV_decision_profit_with_Own_business_branch_1",
+                                             "NPV_decision_profit_with_Own_business_branch_2",
+                                             "NPV_decision_profit_with_Own_business_branch_3"
+                                    ),
+                                    method = 'smooth_simple_overlay', 
+                                    base_size = 7)
 
-plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
-                   vars = c("NPV_decision_profit_with_on_farm_job_8",
-                            "NPV_decision_profit_with_on_farm_job_9",
-                            "NPV_decision_profit_with_on_farm_job_10",
-                            "NPV_decision_profit_with_on_farm_job_11",
-                            "NPV_decision_profit_with_family_money_12",
-                            "NPV_decision_profit_with_family_money_13",
-                            "NPV_decision_profit_with_family_money_14"),
-                   method = 'smooth_simple_overlay', 
-                   base_size = 7)
 
-#with npv no branch
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = c("NPV_decision_profit_with_off_farm_job_4",
+                                             "NPV_decision_profit_with_off_farm_job_5",
+                                             "NPV_decision_profit_with_off_farm_job_6",
+                                             "NPV_decision_profit_with_off_farm_job_7"
+                                    ),
+                                    method = 'smooth_simple_overlay', 
+                                    base_size = 7)
 
-plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
-                   vars = c("NPV_no_branch", "NPV_profit_with_Own_business_branch_1",
-                            "NPV_no_branch", "NPV_profit_with_Own_business_branch_2",
-                            "NPV_no_branch", "NPV_profit_with_Own_business_branch_3"),
-                   method = 'smooth_simple_overlay', 
-                   base_size = 7)
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = c("NPV_decision_profit_with_on_farm_job_8",
+                                             "NPV_decision_profit_with_on_farm_job_9",
+                                             "NPV_decision_profit_with_on_farm_job_10",
+                                             "NPV_decision_profit_with_on_farm_job_11"
+                                    ),
+                                    method = 'smooth_simple_overlay', 
+                                    base_size = 7)
 
-plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
-                   vars = c("NPV_no_branch",
-                            "NPV_profit_with_Own_business_branch_1",
-                            "NPV_profit_with_Own_business_branch_2",
-                            "NPV_profit_with_Own_business_branch_3",
-                            "NPV_decision_profit_with_off_farm_job_4",
-                            "NPV_decision_profit_with_off_farm_job_5",
-                            "NPV_decision_profit_with_off_farm_job_6",
-                            "NPV_decision_profit_with_off_farm_job_7"),
-                   method = 'smooth_simple_overlay', 
-                   base_size = 7)
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = c("NPV_decision_profit_with_family_money_12",
+                                             "NPV_decision_profit_with_family_money_13",
+                                             "NPV_decision_profit_with_family_money_14"
+                                    ),
+                                    method = 'smooth_simple_overlay', 
+                                    base_size = 7)
+
  
 # plot_distributions(mcSimulation_object = mcSimulation_results_way10, #without _wayx , this code wil not work.
 #                    vars = c("NPV_no_branch", "NPV_branch"),
@@ -701,33 +700,46 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
 
 #Fehler: cashflow_var_name contains numbers. Consider renaming your cashflow variables in the model function!
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_1" ) #without the correct variable name this code will not work.
+CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_A" ) #without the correct variable name this code will not work.
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_2" ) 
+CashflowB <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_B" ) 
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_3" ) 
+CashflowC <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_C" ) 
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_4" ) 
+CashflowD <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_D" ) 
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_5" )
+CashflowE <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_E" )
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_6" )
+CashflowF <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_F" )
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_7" )
+CashflowG <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_G" )
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_8" )
+CashflowH <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_H" )
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_9" )
+CashflowI <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_I" )
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_10" )
+CashflowJ <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_J" )
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_11" )
+CashflowK <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_K" )
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_12" )
+CashflowL <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_L" )
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_13" )
+CashflowM <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_M" )
 
-Cashflow <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_14" )
+CashflowN <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_N" )
+CashflowA
+CashflowB
+CashflowC
+CashflowD
+CashflowE
+CashflowF
+CashflowG
+CashflowH
+CashflowI
+CashflowJ
+CashflowK
+CashflowL
+CashflowM
 ####Projection to Latent Structures (PLS) analysis####
 
 #We apply a post-hoc analysis to the mcSimulation() outputs
