@@ -204,7 +204,9 @@ decision_function <- function(x, varnames){
   # Apart from the mandatory agricultural insurance, she invests nothing in her retirement. 
   # Default always same for all 14 options; We use it to compare all other options with
   
-  profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
+  Default_1 = Agri_insurence + Default
+  
+  profit_Default <- (Default_1 - Agri_insurance_inv)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
   
   NPV_no_branch <- discount(profit_Default,
                             discount_rate = 5, calculate_NPV = TRUE) 
@@ -216,8 +218,10 @@ decision_function <- function(x, varnames){
   # Here, she continues to be part of the agricultural insurance, 
   # but also invests about 10 % of her income in private insurance. 
   
+  Agri_Private_Insurance = Private_insurance_own_branch + Agri_insurance
   
-  profit_with_Own_business_branch_1 <- (Private_insurance_own_branch - Private_insurance_inv_own_branch + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+  
+  profit_with_Own_business_branch_1 <- (Agri_Private_Insurance - Private_insurance_inv_own_branch - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
   
   
   NPV_profit_with_Own_business_branch_1 <- discount(profit_with_Own_business_branch_1,
@@ -230,8 +234,9 @@ decision_function <- function(x, varnames){
   # Here, she continues to be part of the agricultural insurance, 
   # but also invests about 10 % of her income in ETF. 
   
+  ETF_Agri_ins = ETF_own_branch + Agri_insurance
   
-  profit_with_Own_business_branch_2 <- (ETF_own_branch - ETF_inv_own_branch + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+  profit_with_Own_business_branch_2 <- (ETF_Agri_ins - ETF_inv_own_branch - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
   
   
   NPV_profit_with_Own_business_branch_2 <- discount(profit_with_Own_business_branch_2,
