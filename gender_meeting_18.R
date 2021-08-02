@@ -6,6 +6,9 @@ library(ggplot2)
 library(plyr)
 library(dplyr)
 
+devtools::install_github("eikeluedeling/decisionSupport")
+library(decisionSupport)
+
 
 ####first step:get data####
 
@@ -423,71 +426,85 @@ decision_function <- function(x, varnames){
                 
                 #way 1
                 NPV_profit_with_Own_business_branch_1 =  NPV_profit_with_Own_business_branch_1, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_Own_business_branch_1 = NPV_decision_profit_with_Own_business_branch_1,
                 Cashflow_decision_gender_way_A =  profit_with_Own_business_branch_1  - profit_Default,
                 
                 #way2
                 NPV_profit_with_Own_business_branch_2 =  NPV_profit_with_Own_business_branch_2, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_Own_business_branch_2 = NPV_decision_profit_with_Own_business_branch_2,
                 Cashflow_decision_gender_way_B = profit_with_Own_business_branch_2  - profit_Default,
                 
                 #way3
                 NPV_profit_with_Own_business_branch_3 =  NPV_profit_with_Own_business_branch_3, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_Own_business_branch_3 = NPV_decision_profit_with_Own_business_branch_3,
                 Cashflow_decision_gender_way_C =  profit_with_Own_business_branch_3  - profit_Default,
                 
                 #way4
                 NPV_profit_with_off_farm_job_4 =  NPV_profit_with_off_farm_job_4, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_off_farm_job_4 = NPV_decision_profit_with_off_farm_job_4,
                 Cashflow_decision_gender_way_D =  profit_with_off_farm_job_4  - profit_Default,
                 
                 #way5
                 NPV_profit_with_off_farm_job_5 =  NPV_profit_with_off_farm_job_5, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_off_farm_job_5 = NPV_decision_profit_with_off_farm_job_5,
                 Cashflow_decision_gender_way_E =  profit_with_off_farm_job_5  - profit_Default,
                 
                 #way6
                 NPV_profit_with_off_farm_job_6 =  NPV_profit_with_off_farm_job_6, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_off_farm_job_6 = NPV_decision_profit_with_off_farm_job_6,
                 Cashflow_decision_gender_way_F =  profit_with_off_farm_job_6  - profit_Default,
                 
                 #way7
                 NPV_profit_with_off_farm_job_7 =  NPV_profit_with_off_farm_job_7, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_off_farm_job_7 = NPV_decision_profit_with_off_farm_job_7,
                 Cashflow_decision_gender_way_G =  profit_with_off_farm_job_7  - profit_Default,
                 
                 #way8
                 NPV_profit_with_on_farm_job_8 =  NPV_profit_with_on_farm_job_8, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_on_farm_job_8 = NPV_decision_profit_with_on_farm_job_8,
                 Cashflow_decision_gender_way_H =  profit_with_on_farm_job_8  - profit_Default,
               
                 #way9
                 NPV_profit_with_on_farm_job_9 =  NPV_profit_with_on_farm_job_9, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_on_farm_job_9 = NPV_decision_profit_with_on_farm_job_9,
                 Cashflow_decision_gender_way_I =  profit_with_on_farm_job_9  - profit_Default,
                 
                 #way10
                 NPV_profit_with_on_farm_job_10 =  NPV_profit_with_on_farm_job_10, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_on_farm_job_10 = NPV_decision_profit_with_on_farm_job_10,
                 Cashflow_decision_gender_way_J =  profit_with_on_farm_job_10  - profit_Default,
                 
                 #way11
                 NPV_profit_with_on_farm_job_11 =  NPV_profit_with_on_farm_job_11, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_on_farm_job_11 = NPV_decision_profit_with_on_farm_job_11,
                 Cashflow_decision_gender_way_K =  profit_with_on_farm_job_11  - profit_Default,
                 
                 #way12
                 NPV_profit_with_family_money_12 =  NPV_profit_with_family_money_12, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_family_money_12 = NPV_decision_profit_with_family_money_12,
                 Cashflow_decision_gender_way_L =  profit_with_family_money_12  - profit_Default,
                 
                 #way13
                 NPV_profit_with_family_money_13 =  NPV_profit_with_family_money_13, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_family_money_13 = NPV_decision_profit_with_family_money_13,
                 Cashflow_decision_gender_way_M =  profit_with_family_money_13  - profit_Default,
                 
                 #way14
                 NPV_profit_with_family_money_14 =  NPV_profit_with_family_money_14, 
+                NPV_no_branch = NPV_no_branch,
                 NPV_decision_profit_with_family_money_14 = NPV_decision_profit_with_family_money_14,
                 Cashflow_decision_gender_way_N =  profit_with_family_money_14  - profit_Default
 
@@ -505,6 +522,7 @@ mcSimulation_results <- decisionSupport::mcSimulation(
   functionSyntax = "plainNames"
 )
 
+mcSimulation_results
 
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
                                     vars = c("NPV_profit_with_Own_business_branch_1",
@@ -787,9 +805,62 @@ plot_pls(pls_result, threshold = 0) # I corrected it alread several times, but t
 # does not have perfect information about a particular variable. 
 # EVPI is determined by examining the influence of that variable on the output value of a decision model.
 mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
-plot_evpi(evpi, decision_vars = "NPV_decision")
-#not working
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own_business_branch_1")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_1")
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own_business_branch_2")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_2")
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own_business_branch_3")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_3")
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_4 ")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_4")
+
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_5 ")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_5")
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_6 ")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_6")
+
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_7 ")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_7")
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_8 ")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_8")
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_9 ")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_9")
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_10 ")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_10")
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_11 ")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_11")
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_12 ")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_12")
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_13 ")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_13")
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_14 ")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_14")
 
 
 ## in the compound figute, we are forced to use the wrong input table as an input, therefore we get bad results for some plots.
