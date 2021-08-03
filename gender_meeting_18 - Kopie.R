@@ -47,143 +47,143 @@ var_slight <- 1
 # Branch 4 = Default vs. Family money (way 12, 13, 14) 
 
 decision_function <- function(x, varnames){
-  
+
   #Agricultural insurance
   Agri_insurance <- c(rep (0,working_years),vv(var_mean = Agri_insurance, 
-                                               var_CV = var_slight, 
-                                               n = pension_years))
+                                     var_CV = var_slight, 
+                                     n = pension_years))
   
   Agri_insurance_inv <- c(vv(var_mean =Agri_insurance_inv, 
-                             var_CV = var_slight, 
-                             n = working_years), rep(0,pension_years))
+                       var_CV = var_slight, 
+                       n = working_years), rep(0,pension_years))
   #Private insurance
   Private_insurance_off_farm <- c(rep (0,working_years), vv(var_mean =Private_insurance_off_farm, 
-                                                            var_CV = var_slight, 
-                                                            n = pension_years))
+                       var_CV = var_slight, 
+                       n = pension_years))
   
   Private_insurance_on_farm <- c(rep (0,working_years), vv(var_mean =Private_insurance_on_farm, 
-                                                           var_CV = var_slight, 
-                                                           n = pension_years))
+                                   var_CV = var_slight, 
+                                   n = pension_years))
   
   Private_insurance_own_branch <- c(rep (0,working_years),vv(var_mean =Private_insurance_own_branch, 
-                                                             var_CV = var_slight, 
-                                                             n = pension_years))
+                                   var_CV = var_slight, 
+                                   n = pension_years))
   
   Private_insurance_family_money <- c(rep (0,working_years), vv(var_mean =Private_insurance_family_money, 
-                                                                var_CV = var_slight, 
-                                                                n = pension_years))
+                                   var_CV = var_slight, 
+                                   n = pension_years))
   
   Private_insurance_inv_off_farm <- c(vv(var_mean =Private_insurance_inv_off_farm, 
-                                         var_CV = var_slight, 
-                                         n = working_years), rep(0,pension_years))
+                                   var_CV = var_slight, 
+                                   n = working_years), rep(0,pension_years))
   
   Private_insurance_inv_on_farm <- c( vv(var_mean =Private_insurance_inv_on_farm, 
-                                         var_CV = var_slight, 
-                                         n = working_years), rep(0,pension_years))
+                                       var_CV = var_slight, 
+                                       n = working_years), rep(0,pension_years))
   
   Private_insurance_inv_own_branch <- c( vv(var_mean =Private_insurance_inv_own_branch, 
-                                            var_CV = var_slight, 
-                                            n = working_years), rep(0,pension_years))
+                                       var_CV = var_slight, 
+                                       n = working_years), rep(0,pension_years))
   
   Private_insurance_inv_family_money <- c( vv(var_mean =Private_insurance_inv_family_money, 
-                                              var_CV = var_slight, 
-                                              n = working_years), rep(0,pension_years))
+                                       var_CV = var_slight, 
+                                       n = working_years), rep(0,pension_years))
   #State insurance
   
   State_insurance_off_farm <- c(rep (0,working_years), vv(var_mean =State_insurance_off_farm, 
-                                                          var_CV = var_slight, 
-                                                          n = pension_years))
+                                  var_CV = var_slight, 
+                                  n = pension_years))
   
   State_insurance_on_farm <- c(rep (0,working_years), vv(var_mean =State_insurance_on_farm, 
-                                                         var_CV = var_slight, 
-                                                         n = pension_years))
+                                 var_CV = var_slight, 
+                                 n = pension_years))
   
   State_insurance_inv_off_farm <-c(vv(var_mean =State_insurance_inv_off_farm, 
-                                      var_CV = var_slight, 
-                                      n = working_years),  rep(0,pension_years))
+                                 var_CV = var_slight, 
+                                 n = working_years),  rep(0,pension_years))
   
   State_insurance_inv_on_farm <- c(vv(var_mean =State_insurance_inv_on_farm, 
-                                      var_CV = var_slight, 
-                                      n = working_years), rep(0,pension_years))
+                                     var_CV = var_slight, 
+                                     n = working_years), rep(0,pension_years))
   #ETF
   
   
   ETF_off_farm <- c(rep (0,working_years),vv(var_mean =ETF_off_farm, 
-                                             var_CV = var_slight, 
-                                             n = pension_years))
+                                   var_CV = var_slight, 
+                                   n = pension_years))
   
   ETF_on_farm <- c(rep (0,working_years), vv(var_mean =ETF_on_farm, 
-                                             var_CV = var_slight, 
-                                             n = pension_years))
+                     var_CV = var_slight, 
+                     n = pension_years))
   
   ETF_own_branch <- c(rep(0,working_years),vv(var_mean = ETF_own_branch, 
-                                              var_CV = var_slight, 
-                                              n = pension_years))
+                     var_CV = var_slight, 
+                     n = pension_years))
   
   ETF_family_money <- c(rep (0,working_years), vv(var_mean = ETF_family_money, 
-                                                  var_CV = var_slight, 
-                                                  n = pension_years))
+                     var_CV = var_slight, 
+                     n = pension_years))
   
   
   ETF_inv_off_farm <- c(vv(var_mean =ETF_inv_off_farm, 
-                           var_CV = var_slight, 
-                           n = working_years), rep(0,pension_years))
+                     var_CV = var_slight, 
+                     n = working_years), rep(0,pension_years))
   
   ETF_inv_on_farm <- c(vv(var_mean =ETF_inv_on_farm, 
-                          var_CV = var_slight, 
-                          n = working_years), rep(0,pension_years))
+                    var_CV = var_slight, 
+                    n = working_years), rep(0,pension_years))
   
   ETF_inv_own_branch <- c(vv(var_mean =ETF_inv_own_branch, 
-                             var_CV = var_slight, 
-                             n = working_years), rep(0,pension_years))
+                       var_CV = var_slight, 
+                       n = working_years), rep(0,pension_years))
   
   ETF_inv_family_money <- c( vv(var_mean =ETF_inv_family_money, 
-                                var_CV = var_slight, 
-                                n = working_years), rep(0,pension_years))
+                         var_CV = var_slight, 
+                         n = working_years), rep(0,pension_years))
   
   # Mix
   
   Mix_off_farm <- c(rep (0,working_years), vv(var_mean = Mix_off_farm, 
-                                              var_CV = var_slight, 
-                                              n = pension_years))
+                         var_CV = var_slight, 
+                         n = pension_years))
   
   
   Mix_on_farm <- c(rep (0,working_years), vv(var_mean =Mix_on_farm, 
-                                             var_CV = var_slight, 
-                                             n = pension_years))
+                    var_CV = var_slight, 
+                    n = pension_years))
   
   Mix_own_branch <- c(rep (0,working_years), vv(var_mean =Mix_own_branch, 
-                                                var_CV = var_slight, 
-                                                n = pension_years))
+                       var_CV = var_slight, 
+                       n = pension_years))
   
   Mix_family_money <- c(rep (0,working_years), vv(var_mean =Mix_family_money, 
-                                                  var_CV = var_slight, 
-                                                  n = pension_years))
+                         var_CV = var_slight, 
+                         n = pension_years))
   
   Mix_inv_off_farm <- c(vv(var_mean =Mix_inv_off_farm, 
-                           var_CV = var_slight, 
-                           n = working_years), rep(0,pension_years))
-  
-  Mix_inv_on_farm <- c(vv(var_mean =Mix_inv_on_farm, 
-                          var_CV = var_slight, 
-                          n = working_years), rep(0,pension_years))
-  
-  Mix_inv_own_branch <- c(vv(var_mean =Mix_inv_own_branch, 
-                             var_CV = var_slight, 
-                             n = working_years), rep(0,pension_years))
-  
-  Mix_inv_family_money <- c(vv(var_mean =Mix_inv_family_money, 
-                               var_CV = var_slight, 
-                               n = working_years), rep(0,pension_years))
-  #default option
-  
-  Default_option <- c(vv(var_mean = Default_option,
                          var_CV = var_slight, 
                          n = working_years), rep(0,pension_years))
   
-  # Vector with 480 zeros to put in Front of VV-Vectors with length of 2to create time horizons.
+  Mix_inv_on_farm <- c(vv(var_mean =Mix_inv_on_farm, 
+                        var_CV = var_slight, 
+                        n = working_years), rep(0,pension_years))
   
-  #}
+  Mix_inv_own_branch <- c(vv(var_mean =Mix_inv_own_branch, 
+                           var_CV = var_slight, 
+                           n = working_years), rep(0,pension_years))
+  
+  Mix_inv_family_money <- c(vv(var_mean =Mix_inv_family_money, 
+                             var_CV = var_slight, 
+                             n = working_years), rep(0,pension_years))
+  #default option
+  
+  Default_option <- c(vv(var_mean = Default_option,
+                       var_CV = var_slight, 
+                       n = working_years), rep(0,pension_years))
+  
+# Vector with 480 zeros to put in Front of VV-Vectors with length of 2to create time horizons.
+
+#}
   
   #### calculate ex-ante risks ####
   # TO DO: Change variable Name in input table and change the variable here accordingly
@@ -204,322 +204,314 @@ decision_function <- function(x, varnames){
   # Apart from the mandatory agricultural insurance, she invests nothing in her retirement. 
   # Default always same for all 14 options; We use it to compare all other options with
   
-  Default_1 = Agri_insurence + Default
-  
-  profit_Default <- (Default_1 - Agri_insurance_inv)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
-  
-  NPV_no_branch <- discount(profit_Default,
-                            discount_rate = 5, calculate_NPV = TRUE) 
-  
-  
-  # Branch 1 = Default vs. Own branch (way 1, 2, 3)
-  
-  # Way 1: She sets up her own business branch. 
-  # Here, she continues to be part of the agricultural insurance, 
-  # but also invests about 10 % of her income in private insurance. 
-  
-  #Agri_Private_Insurance = Private_insurance_own_branch + Agri_insurance
-  
-  
-  #profit_with_Own_business_branch_1 <- (Agri_Private_Insurance - Private_insurance_inv_own_branch - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
-  
-  A <- Private_insurance_own_branch - Private_insurance_inv_own_branch
-  B <- Agri_insurance - Agri_insurance_inv
-  profit_with_Own_business_branch_1 <- A + B *(1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
-  
-  NPV_profit_with_Own_business_branch_1 <- discount(profit_with_Own_business_branch_1,
-                                                    discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
-  
-  
-  # Way 2: She sets up her own business branch. 
-  # Here, she continues to be part of the agricultural insurance, 
-  # but also invests about 10 % of her income in ETF. 
-  
-  ETF_Agri_ins = ETF_own_branch + Agri_insurance
-  
-  profit_with_Own_business_branch_2 <- (ETF_Agri_ins - ETF_inv_own_branch - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
-  
-  
-  NPV_profit_with_Own_business_branch_2 <- discount(profit_with_Own_business_branch_2,
-                                                    discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_Own_business_branch_2 <- NPV_profit_with_Own_business_branch_2 - NPV_no_branch
-  
-  # Way 3: She sets up her own business branch. 
-  # Here, she continues to be part of the agricultural insurance, 
-  # but also invests about 10 % of her income in a Investment-Mix.
-  
-  
-  profit_with_Own_business_branch_3 <- (Mix_own_branch - Mix_inv_own_branch + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
-  
-  
-  NPV_profit_with_Own_business_branch_3 <- discount(profit_with_Own_business_branch_3,
-                                                    discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_Own_business_branch_3 <- NPV_profit_with_Own_business_branch_3 - NPV_no_branch
-  
-  
-  
-  # Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
-  
-  # Way 4: She gets an off-farm job. 
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests no income in pension. 
-  
-  
-  
-  profit_with_off_farm_job_4 <- (State_insurance_off_farm - State_insurance_inv_off_farm) * (1- Husband_risk)
-  
-  
-  NPV_profit_with_off_farm_job_4 <- discount(profit_with_off_farm_job_4,
-                                             discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_off_farm_job_4 <- NPV_profit_with_off_farm_job_4 - NPV_no_branch
-  
-  # Way 5: She gets an off-farm job. 
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in private insurance. 
-  
-  
-  
-  profit_with_off_farm_job_5 <- (State_insurance_off_farm - State_insurance_inv_off_farm + Private_insurance_off_farm - Private_insurance_inv_off_farm) * (1- Husband_risk)
-  
-  
-  NPV_profit_with_off_farm_job_5 <- discount(profit_with_off_farm_job_5,
-                                             discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_off_farm_job_5 <- NPV_profit_with_off_farm_job_5 - NPV_no_branch
-  
-  
-  # Way 6: She gets an off-farm job. 
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in ETF. 
-  
-  
-  
-  profit_with_off_farm_job_6 <- (ETF_off_farm - ETF_inv_off_farm + State_insurance_off_farm - State_insurance_inv_off_farm) * (1- Husband_risk)
-  
-  
-  NPV_profit_with_off_farm_job_6 <- discount(profit_with_off_farm_job_6,
-                                             discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_off_farm_job_6 <- NPV_profit_with_off_farm_job_6 - NPV_no_branch
-  
-  # Way 7: She gets an off-farm job. 
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in a mixed investment. 
-  
-  
-  
-  profit_with_off_farm_job_7 <- (Mix_off_farm - Mix_inv_off_farm + State_insurance_off_farm - State_insurance_inv_off_farm) * (1- Husband_risk)
-  
-  
-  NPV_profit_with_off_farm_job_7 <- discount(profit_with_off_farm_job_7,
-                                             discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_off_farm_job_7 <- NPV_profit_with_off_farm_job_7 - NPV_no_branch
-  
-  
-  # Branch 3 = Default vs. On farm job = Payment of wife (Way 8)
-  
-  # Way 8: She gets an official working contract and gets officially paid on farm by her husband.  
-  # Here, she stops to be part of the agricultural insurance. 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests no additional money in her pension.
-  
-  
-  profit_with_on_farm_job_8 <- (State_insurance_on_farm - State_insurance_inv_on_farm) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk + Man_Death_risk)
-  
-  
-  NPV_profit_with_on_farm_job_8 <- discount(profit_with_on_farm_job_8,
-                                            discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_on_farm_job_8 <- NPV_profit_with_on_farm_job_8 - NPV_no_branch
-  
-  
-  # Way 9: She gets an official working contract and gets officially paid on farm by her husband.  
-  # Here, she stops to be part of the agricultural insurance. 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in private insurance. 
-  
-  
-  profit_with_on_farm_job_9 <- (Private_insurance_on_farm - Private_insurance_inv_on_farm + State_insurance_on_farm - State_insurance_inv_on_farm) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk +  Man_Death_risk)
-  
-  
-  NPV_profit_with_on_farm_job_9 <- discount(profit_with_on_farm_job_9,
-                                            discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_on_farm_job_9 <- NPV_profit_with_on_farm_job_9 - NPV_no_branch
-  
-  
-  # Way 10: She gets an official working contract and gets officially paid on farm by her husband.  
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in ETF. 
-  
-  
-  profit_with_on_farm_job_10 <- (ETF_on_farm - ETF_inv_on_farm + State_insurance_on_farm - State_insurance_inv_on_farm) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk +  Man_Death_risk)
-  
-  
-  NPV_profit_with_on_farm_job_10 <- discount(profit_with_on_farm_job_10,
-                                             discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_on_farm_job_10 <- NPV_profit_with_on_farm_job_10 - NPV_no_branch
-  
-  
-  # Way 11: She gets an official working contract and gets officially paid on farm by her husband.  
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in a mixed investment. 
-  
-  
-  profit_with_on_farm_job_11 <- (Mix_on_farm - Mix_inv_on_farm + State_insurance_on_farm - State_insurance_inv_on_farm) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk +  Man_Death_risk)
-  
-  
-  NPV_profit_with_on_farm_job_11 <- discount(profit_with_on_farm_job_11,
-                                             discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_on_farm_job_11 <- NPV_profit_with_on_farm_job_11 - NPV_no_branch
-  
-  
-  # Branch 4 = Default vs. Family money (way 12, 13, 14) 
-  
-  # Way 12: She convinces her husband to invest in her pension.
-  # Here, she continues to be part of the agricultural insurance, 
-  # She uses the money from her husband to invest in a private insurance. 
-  
-  profit_with_family_money_12 <- (Private_insurance_family_money - Private_insurance_inv_family_money + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk +  Man_Death_risk)
-  
-  
-  NPV_profit_with_family_money_12 <- discount(profit_with_family_money_12,
-                                              discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_family_money_12 <- NPV_profit_with_family_money_12 - NPV_no_branch
-  
-  # Way 13: She convinces her husband to invest in her pension.
-  # Here, she continues to be part of the agricultural insurance, 
-  # She uses the money from her husband to invest in ETF. 
-  
-  profit_with_family_money_13 <- (ETF_family_money - ETF_inv_family_money + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk +  Man_Death_risk)
-  
-  
-  NPV_profit_with_family_money_13 <- discount(profit_with_family_money_13,
-                                              discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_family_money_13 <- NPV_profit_with_family_money_13 - NPV_no_branch
-  
-  # Way 14: She convinces her husband to invest in her pension.
-  # Here, she continues to be part of the agricultural insurance, 
-  # She uses the money from her husband to invest in a mixed investment. 
-  
-  profit_with_family_money_14 <- (Mix_family_money - Mix_inv_family_money + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk +  Man_Death_risk)
-  
-  
-  NPV_profit_with_family_money_14 <- discount(profit_with_family_money_14,
-                                              discount_rate = 5, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_family_money_14 <- NPV_profit_with_family_money_14 - NPV_no_branch
-  
-  
-  
-  ####return list####
-  
-  return(list(NPV_no_branch =  NPV_no_branch,
-              
-              #way 1
-              NPV_profit_with_Own_business_branch_1 =  NPV_profit_with_Own_business_branch_1, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_Own_business_branch_1 = NPV_decision_profit_with_Own_business_branch_1,
-              Cashflow_decision_gender_way_A =  profit_with_Own_business_branch_1  - profit_Default,
-              
-              #way2
-              NPV_profit_with_Own_business_branch_2 =  NPV_profit_with_Own_business_branch_2, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_Own_business_branch_2 = NPV_decision_profit_with_Own_business_branch_2,
-              Cashflow_decision_gender_way_B = profit_with_Own_business_branch_2  - profit_Default,
-              
-              #way3
-              NPV_profit_with_Own_business_branch_3 =  NPV_profit_with_Own_business_branch_3, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_Own_business_branch_3 = NPV_decision_profit_with_Own_business_branch_3,
-              Cashflow_decision_gender_way_C =  profit_with_Own_business_branch_3  - profit_Default,
-              
-              #way4
-              NPV_profit_with_off_farm_job_4 =  NPV_profit_with_off_farm_job_4, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_off_farm_job_4 = NPV_decision_profit_with_off_farm_job_4,
-              Cashflow_decision_gender_way_D =  profit_with_off_farm_job_4  - profit_Default,
-              
-              #way5
-              NPV_profit_with_off_farm_job_5 =  NPV_profit_with_off_farm_job_5, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_off_farm_job_5 = NPV_decision_profit_with_off_farm_job_5,
-              Cashflow_decision_gender_way_E =  profit_with_off_farm_job_5  - profit_Default,
-              
-              #way6
-              NPV_profit_with_off_farm_job_6 =  NPV_profit_with_off_farm_job_6, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_off_farm_job_6 = NPV_decision_profit_with_off_farm_job_6,
-              Cashflow_decision_gender_way_F =  profit_with_off_farm_job_6  - profit_Default,
-              
-              #way7
-              NPV_profit_with_off_farm_job_7 =  NPV_profit_with_off_farm_job_7, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_off_farm_job_7 = NPV_decision_profit_with_off_farm_job_7,
-              Cashflow_decision_gender_way_G =  profit_with_off_farm_job_7  - profit_Default,
-              
-              #way8
-              NPV_profit_with_on_farm_job_8 =  NPV_profit_with_on_farm_job_8, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_on_farm_job_8 = NPV_decision_profit_with_on_farm_job_8,
-              Cashflow_decision_gender_way_H =  profit_with_on_farm_job_8  - profit_Default,
-              
-              #way9
-              NPV_profit_with_on_farm_job_9 =  NPV_profit_with_on_farm_job_9, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_on_farm_job_9 = NPV_decision_profit_with_on_farm_job_9,
-              Cashflow_decision_gender_way_I =  profit_with_on_farm_job_9  - profit_Default,
-              
-              #way10
-              NPV_profit_with_on_farm_job_10 =  NPV_profit_with_on_farm_job_10, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_on_farm_job_10 = NPV_decision_profit_with_on_farm_job_10,
-              Cashflow_decision_gender_way_J =  profit_with_on_farm_job_10  - profit_Default,
-              
-              #way11
-              NPV_profit_with_on_farm_job_11 =  NPV_profit_with_on_farm_job_11, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_on_farm_job_11 = NPV_decision_profit_with_on_farm_job_11,
-              Cashflow_decision_gender_way_K =  profit_with_on_farm_job_11  - profit_Default,
-              
-              #way12
-              NPV_profit_with_family_money_12 =  NPV_profit_with_family_money_12, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_family_money_12 = NPV_decision_profit_with_family_money_12,
-              Cashflow_decision_gender_way_L =  profit_with_family_money_12  - profit_Default,
-              
-              #way13
-              NPV_profit_with_family_money_13 =  NPV_profit_with_family_money_13, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_family_money_13 = NPV_decision_profit_with_family_money_13,
-              Cashflow_decision_gender_way_M =  profit_with_family_money_13  - profit_Default,
-              
-              #way14
-              NPV_profit_with_family_money_14 =  NPV_profit_with_family_money_14, 
-              NPV_no_branch = NPV_no_branch,
-              NPV_decision_profit_with_family_money_14 = NPV_decision_profit_with_family_money_14,
-              Cashflow_decision_gender_way_N =  profit_with_family_money_14  - profit_Default
-              
-  )) 
-  
-}
+    profit_Default <- ((Agri_insurance - Agri_insurance_inv) + Default_option)* (1-Man_Death_risk * Divorce_risk * Bancruptcy_risk)
+    
+    NPV_no_branch <- discount(profit_Default,
+                              discount_rate = 5, calculate_NPV = TRUE) 
+   
 
+# Branch 1 = Default vs. Own branch (way 1, 2, 3)
+  
+    # Way 1: She sets up her own business branch. 
+    # Here, she continues to be part of the agricultural insurance, 
+    # but also invests about 10 % of her income in private insurance. 
+
+    
+    profit_with_Own_business_branch_1 <- (Private_insurance_own_branch - Private_insurance_inv_own_branch + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+ 
+    
+    NPV_profit_with_Own_business_branch_1 <- discount(profit_with_Own_business_branch_1,
+                           discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
+    
+    
+    # Way 2: She sets up her own business branch. 
+    # Here, she continues to be part of the agricultural insurance, 
+    # but also invests about 10 % of her income in ETF. 
+    
+    
+    profit_with_Own_business_branch_2 <- (ETF_own_branch - ETF_inv_own_branch + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+    
+    
+    NPV_profit_with_Own_business_branch_2 <- discount(profit_with_Own_business_branch_2,
+                                                      discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_Own_business_branch_2 <- NPV_profit_with_Own_business_branch_2 - NPV_no_branch
+    
+    # Way 3: She sets up her own business branch. 
+    # Here, she continues to be part of the agricultural insurance, 
+    # but also invests about 10 % of her income in a Investment-Mix.
+    
+
+    profit_with_Own_business_branch_3 <- (Mix_own_branch - Mix_inv_own_branch + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+    
+    
+    NPV_profit_with_Own_business_branch_3 <- discount(profit_with_Own_business_branch_3,
+                                                      discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_Own_business_branch_3 <- NPV_profit_with_Own_business_branch_3 - NPV_no_branch
+    
+
+    
+# Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
+     
+    # Way 4: She gets an off-farm job. 
+    # Here, she stops to be part of the agricultural insurance, 
+    # Instead, she is part of the mandatory state insurance.
+    # She invests no income in pension. 
+    
+    
+    
+    profit_with_off_farm_job_4 <- (State_insurance_off_farm - State_insurance_inv_off_farm) * (1- Husband_risk)
+    
+    
+    NPV_profit_with_off_farm_job_4 <- discount(profit_with_off_farm_job_4,
+                                                      discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_off_farm_job_4 <- NPV_profit_with_off_farm_job_4 - NPV_no_branch
+    
+    # Way 5: She gets an off-farm job. 
+    # Here, she stops to be part of the agricultural insurance, 
+    # Instead, she is part of the mandatory state insurance.
+    # She invests a part of her income in private insurance. 
+    
+  
+    
+    profit_with_off_farm_job_5 <- (State_insurance_off_farm - State_insurance_inv_off_farm + Private_insurance_off_farm - Private_insurance_inv_off_farm) * (1- Husband_risk)
+    
+    
+    NPV_profit_with_off_farm_job_5 <- discount(profit_with_off_farm_job_5,
+                                                      discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_off_farm_job_5 <- NPV_profit_with_off_farm_job_5 - NPV_no_branch
+    
+
+    # Way 6: She gets an off-farm job. 
+    # Here, she stops to be part of the agricultural insurance, 
+    # Instead, she is part of the mandatory state insurance.
+    # She invests a part of her income in ETF. 
+    
+ 
+    
+    profit_with_off_farm_job_6 <- (ETF_off_farm - ETF_inv_off_farm + State_insurance_off_farm - State_insurance_inv_off_farm) * (1- Husband_risk)
+    
+    
+    NPV_profit_with_off_farm_job_6 <- discount(profit_with_off_farm_job_6,
+                                               discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_off_farm_job_6 <- NPV_profit_with_off_farm_job_6 - NPV_no_branch
+    
+    # Way 7: She gets an off-farm job. 
+    # Here, she stops to be part of the agricultural insurance, 
+    # Instead, she is part of the mandatory state insurance.
+    # She invests a part of her income in a mixed investment. 
+
+    
+  
+    profit_with_off_farm_job_7 <- (Mix_off_farm - Mix_inv_off_farm + State_insurance_off_farm - State_insurance_inv_off_farm) * (1- Husband_risk)
+    
+    
+    NPV_profit_with_off_farm_job_7 <- discount(profit_with_off_farm_job_7,
+                                               discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_off_farm_job_7 <- NPV_profit_with_off_farm_job_7 - NPV_no_branch
+    
+
+# Branch 3 = Default vs. On farm job = Payment of wife (Way 8)
+  
+    # Way 8: She gets an official working contract and gets officially paid on farm by her husband.  
+    # Here, she stops to be part of the agricultural insurance. 
+    # Instead, she is part of the mandatory state insurance.
+    # She invests no additional money in her pension.
+ 
+    
+    profit_with_on_farm_job_8 <- (State_insurance_on_farm - State_insurance_inv_on_farm) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk + Man_Death_risk)
+    
+    
+    NPV_profit_with_on_farm_job_8 <- discount(profit_with_on_farm_job_8,
+                                               discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_on_farm_job_8 <- NPV_profit_with_on_farm_job_8 - NPV_no_branch
+    
+ 
+    # Way 9: She gets an official working contract and gets officially paid on farm by her husband.  
+    # Here, she stops to be part of the agricultural insurance. 
+    # Instead, she is part of the mandatory state insurance.
+    # She invests a part of her income in private insurance. 
+
+    
+    profit_with_on_farm_job_9 <- (Private_insurance_on_farm - Private_insurance_inv_on_farm + State_insurance_on_farm - State_insurance_inv_on_farm) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk +  Man_Death_risk)
+    
+    
+    NPV_profit_with_on_farm_job_9 <- discount(profit_with_on_farm_job_9,
+                                              discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_on_farm_job_9 <- NPV_profit_with_on_farm_job_9 - NPV_no_branch
+    
+  
+    # Way 10: She gets an official working contract and gets officially paid on farm by her husband.  
+    # Here, she stops to be part of the agricultural insurance, 
+    # Instead, she is part of the mandatory state insurance.
+    # She invests a part of her income in ETF. 
+
+    
+    profit_with_on_farm_job_10 <- (ETF_on_farm - ETF_inv_on_farm + State_insurance_on_farm - State_insurance_inv_on_farm) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk +  Man_Death_risk)
+    
+    
+    NPV_profit_with_on_farm_job_10 <- discount(profit_with_on_farm_job_10,
+                                              discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_on_farm_job_10 <- NPV_profit_with_on_farm_job_10 - NPV_no_branch
+    
+
+    # Way 11: She gets an official working contract and gets officially paid on farm by her husband.  
+    # Here, she stops to be part of the agricultural insurance, 
+    # Instead, she is part of the mandatory state insurance.
+    # She invests a part of her income in a mixed investment. 
+
+    
+    profit_with_on_farm_job_11 <- (Mix_on_farm - Mix_inv_on_farm + State_insurance_on_farm - State_insurance_inv_on_farm) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk +  Man_Death_risk)
+    
+    
+    NPV_profit_with_on_farm_job_11 <- discount(profit_with_on_farm_job_11,
+                                               discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_on_farm_job_11 <- NPV_profit_with_on_farm_job_11 - NPV_no_branch
+    
+    
+# Branch 4 = Default vs. Family money (way 12, 13, 14) 
+    
+    # Way 12: She convinces her husband to invest in her pension.
+    # Here, she continues to be part of the agricultural insurance, 
+    # She uses the money from her husband to invest in a private insurance. 
+    
+    profit_with_family_money_12 <- (Private_insurance_family_money - Private_insurance_inv_family_money + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk +  Man_Death_risk)
+    
+    
+    NPV_profit_with_family_money_12 <- discount(profit_with_family_money_12,
+                                               discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_family_money_12 <- NPV_profit_with_family_money_12 - NPV_no_branch
+    
+    # Way 13: She convinces her husband to invest in her pension.
+    # Here, she continues to be part of the agricultural insurance, 
+    # She uses the money from her husband to invest in ETF. 
+   
+    profit_with_family_money_13 <- (ETF_family_money - ETF_inv_family_money + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk +  Man_Death_risk)
+    
+    
+    NPV_profit_with_family_money_13 <- discount(profit_with_family_money_13,
+                                                discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_family_money_13 <- NPV_profit_with_family_money_13 - NPV_no_branch
+    
+    # Way 14: She convinces her husband to invest in her pension.
+    # Here, she continues to be part of the agricultural insurance, 
+    # She uses the money from her husband to invest in a mixed investment. 
+    
+    profit_with_family_money_14 <- (Mix_family_money - Mix_inv_family_money + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk + Bancruptcy_risk + Divorce_risk +  Man_Death_risk)
+    
+    
+    NPV_profit_with_family_money_14 <- discount(profit_with_family_money_14,
+                                                discount_rate = 5, calculate_NPV = TRUE)
+    
+    NPV_decision_profit_with_family_money_14 <- NPV_profit_with_family_money_14 - NPV_no_branch
+    
+    
+    
+    ####return list####
+    
+    return(list(NPV_no_branch =  NPV_no_branch,
+                
+                #way 1
+                NPV_profit_with_Own_business_branch_1 =  NPV_profit_with_Own_business_branch_1, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_Own_business_branch_1 = NPV_decision_profit_with_Own_business_branch_1,
+                Cashflow_decision_gender_way_A =  profit_with_Own_business_branch_1  - profit_Default,
+                
+                #way2
+                NPV_profit_with_Own_business_branch_2 =  NPV_profit_with_Own_business_branch_2, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_Own_business_branch_2 = NPV_decision_profit_with_Own_business_branch_2,
+                Cashflow_decision_gender_way_B = profit_with_Own_business_branch_2  - profit_Default,
+                
+                #way3
+                NPV_profit_with_Own_business_branch_3 =  NPV_profit_with_Own_business_branch_3, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_Own_business_branch_3 = NPV_decision_profit_with_Own_business_branch_3,
+                Cashflow_decision_gender_way_C =  profit_with_Own_business_branch_3  - profit_Default,
+                
+                #way4
+                NPV_profit_with_off_farm_job_4 =  NPV_profit_with_off_farm_job_4, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_off_farm_job_4 = NPV_decision_profit_with_off_farm_job_4,
+                Cashflow_decision_gender_way_D =  profit_with_off_farm_job_4  - profit_Default,
+                
+                #way5
+                NPV_profit_with_off_farm_job_5 =  NPV_profit_with_off_farm_job_5, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_off_farm_job_5 = NPV_decision_profit_with_off_farm_job_5,
+                Cashflow_decision_gender_way_E =  profit_with_off_farm_job_5  - profit_Default,
+                
+                #way6
+                NPV_profit_with_off_farm_job_6 =  NPV_profit_with_off_farm_job_6, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_off_farm_job_6 = NPV_decision_profit_with_off_farm_job_6,
+                Cashflow_decision_gender_way_F =  profit_with_off_farm_job_6  - profit_Default,
+                
+                #way7
+                NPV_profit_with_off_farm_job_7 =  NPV_profit_with_off_farm_job_7, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_off_farm_job_7 = NPV_decision_profit_with_off_farm_job_7,
+                Cashflow_decision_gender_way_G =  profit_with_off_farm_job_7  - profit_Default,
+                
+                #way8
+                NPV_profit_with_on_farm_job_8 =  NPV_profit_with_on_farm_job_8, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_on_farm_job_8 = NPV_decision_profit_with_on_farm_job_8,
+                Cashflow_decision_gender_way_H =  profit_with_on_farm_job_8  - profit_Default,
+              
+                #way9
+                NPV_profit_with_on_farm_job_9 =  NPV_profit_with_on_farm_job_9, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_on_farm_job_9 = NPV_decision_profit_with_on_farm_job_9,
+                Cashflow_decision_gender_way_I =  profit_with_on_farm_job_9  - profit_Default,
+                
+                #way10
+                NPV_profit_with_on_farm_job_10 =  NPV_profit_with_on_farm_job_10, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_on_farm_job_10 = NPV_decision_profit_with_on_farm_job_10,
+                Cashflow_decision_gender_way_J =  profit_with_on_farm_job_10  - profit_Default,
+                
+                #way11
+                NPV_profit_with_on_farm_job_11 =  NPV_profit_with_on_farm_job_11, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_on_farm_job_11 = NPV_decision_profit_with_on_farm_job_11,
+                Cashflow_decision_gender_way_K =  profit_with_on_farm_job_11  - profit_Default,
+                
+                #way12
+                NPV_profit_with_family_money_12 =  NPV_profit_with_family_money_12, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_family_money_12 = NPV_decision_profit_with_family_money_12,
+                Cashflow_decision_gender_way_L =  profit_with_family_money_12  - profit_Default,
+                
+                #way13
+                NPV_profit_with_family_money_13 =  NPV_profit_with_family_money_13, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_family_money_13 = NPV_decision_profit_with_family_money_13,
+                Cashflow_decision_gender_way_M =  profit_with_family_money_13  - profit_Default,
+                
+                #way14
+                NPV_profit_with_family_money_14 =  NPV_profit_with_family_money_14, 
+                NPV_no_branch = NPV_no_branch,
+                NPV_decision_profit_with_family_money_14 = NPV_decision_profit_with_family_money_14,
+                Cashflow_decision_gender_way_N =  profit_with_family_money_14  - profit_Default
+
+    )) 
+    
+}
+  
 
 
 
@@ -548,7 +540,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
                                              "NPV_decision_profit_with_on_farm_job_9",
                                              "NPV_decision_profit_with_on_farm_job_10",
                                              "NPV_decision_profit_with_on_farm_job_11"
-                                    ),
+                                             ),
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
 
@@ -630,7 +622,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
 
-
+ 
 # plot_distributions(mcSimulation_object = mcSimulation_results_way10, #without _wayx , this code wil not work.
 #                    vars = c("NPV_no_branch", "NPV_branch"),
 #                    method = 'smooth_simple_overlay', 
@@ -724,7 +716,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
 #(in our case Cashflow_decision_do) to show cashflow over time.
 
 
-#Fehler: cashflow_var_name contains numbers. Consider renaming your cashflow variables in the model function!
+
 
 CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_A" ) #without the correct variable name this code will not work.
 

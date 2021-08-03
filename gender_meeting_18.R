@@ -716,7 +716,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
 #(in our case Cashflow_decision_do) to show cashflow over time.
 
 
-#Fehler: cashflow_var_name contains numbers. Consider renaming your cashflow variables in the model function!
+
 
 CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_A" ) #without the correct variable name this code will not work.
 
