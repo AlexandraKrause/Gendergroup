@@ -217,7 +217,8 @@ decision_function <- function(x, varnames){
     # but also invests about 10 % of her income in private insurance. 
 
     
-    profit_with_Own_business_branch_1 <- (Private_insurance_own_branch - Private_insurance_inv_own_branch + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+   
+     profit_with_Own_business_branch_1 <- (Private_insurance_own_branch - Private_insurance_inv_own_branch + Agri_insurance - Agri_insurance_inv) * (1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
  
     
     NPV_profit_with_Own_business_branch_1 <- discount(profit_with_Own_business_branch_1,
@@ -226,7 +227,21 @@ decision_function <- function(x, varnames){
     NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
     
     
-    # Way 2: She sets up her own business branch. 
+   # A <- Private_insurance_own_branch - Private_insurance_inv_own_branch
+   # B <- Agri_insurance - Agri_insurance_inv
+   # profit_with_Own_business_branch_1 <- A + B *(1- Husband_risk  * Bancruptcy_risk * Divorce_risk)
+   # 
+    #NPV_profit_with_Own_business_branch_1 <- discount(profit_with_Own_business_branch_1,
+    #                                                  discount_rate = 5, calculate_NPV = TRUE)
+    
+    #NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
+   
+    
+    
+    
+    
+    
+     # Way 2: She sets up her own business branch. 
     # Here, she continues to be part of the agricultural insurance, 
     # but also invests about 10 % of her income in ETF. 
     

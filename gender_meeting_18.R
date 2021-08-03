@@ -8,6 +8,7 @@ library(dplyr)
 
 devtools::install_github("eikeluedeling/decisionSupport")
 library(decisionSupport)
+decisionSupport::plot_cashflow
 
 
 ####first step:get data####
