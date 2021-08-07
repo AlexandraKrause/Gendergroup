@@ -55,7 +55,6 @@ schemes are difficult to anticipate. This study aimed to integrate uncertainty i
 
  We compared the default option of no specific pension plan to different pension plan options. Hereby we considered the most important pension schemes relevant for women in agriculture, which is agricultural insurance, state insurance, private insurance and etfs. Furthermore, we investigated how these could be financed (e.g. own farm branch) and included possible risks (e.g.death of husband) for each finance option that would threaten the feasiblity of that pension option decision.
  
- 
 # Decision
 
 When looking at gender equality, the freedom to act of the group that is discriminated against is usually limited and entails a number of risks. That being the case we were particularly interested to investigate the decision making process and options from the woman's point of view. In order to do that we set up a realistic and specific case study.
@@ -87,11 +86,96 @@ There are different options to finance the pension contrivutions and also differ
 ## Stakeholders (again in methods)
 
 # Methods
+After extensive literature research on woman farmers in Germany, we identified the statistically important group of in-married woman and narrowed our research question down to the pension of in-married woman in Germany. --> created first sketch of conceptual framkework (see figure 1) --> workshop--> adjustment of framework (see figure 2). (describe in section)
 
-## (Identification of reasearch priorities ?) Sketch of conceptual model
-## Participatory approach /Workshop
+## Identification of reasearch priorities/ Participatory approach /Workshop
+
+Corresponding to our Research question, we identified experts in insurance companies, the agricultural chamber, the woman farmers association as our experts. In an online community of woman in agriculture, we approached potential decision makers.  After drafting a first model based on literature research and personal experiences, we contacted the experts and conducted several one-to one Interviews. The insights from with equal pay consultants and the insurance company were valuable for our system understanding. In a next step, we organized an online workshop with potential decision makers and experts. and a lively group discussion. After a lively discussion discussion with experts and decision makers, we updated our model and used the updated version for further analysis.
+
+|  Position 	| Type  	|  Interview 	|  Workshop participation 	|   	|
+|---	|---	|---	|---	|---	|
+|  Farmer's wife 	|  decision-maker 	|   no	|  yes 	|   	|
+|  Farmer 	|  stakeholder and co-decision-maker 	|   no	|  no 	|   	|
+|  Farm Children 	|  stakeholder 	|  no 	|  no 	|   	|
+|  Rural woman association 	|  expert 	|  yes 	|  yes 	|   	|
+|  Agricultural Insurance agency 	|  expert 	|  yes 	|   yes	|   	|
+|  State insurance agency 	|  expert 	|   no	|  no 	|   	|
+|  Private insurance consultant 	|  expert 	|  yes 	|   no	|   	|
+|  Agriculral chamber consultant 	|  expert 	|  yes 	|   yes	|   	|
+|  Lawyer for agricultural family law	|  expert 	|  no 	| yes  	|   	|
+|  Young woman farmers	|  stakeholder 	|   no	|  yes 	|   	|
+|  Students with a partner with farm 	|  stakeholder 	|   no	| no  	|   	|
+
+```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Invitation to the Workshop', fig.show='hold'}
+knitr::include_graphics('images/1.png')
+knitr::include_graphics('images/2.png')
+```
+
+## Sketch and adjustment of conceptual model
+
+We worked together with experts to derive a conceptual model that explicitly identified all the important factors
+and relationships in pension schemes for in-married woman in Agriculture. Since the pension yield and input demand depend
+on the age of the decision-maker, all benefits and costs were modeled in relation to the age of the decision maker. Since the monthly
+input costs varied throughout the employment biography, reasonable time intervals were specified. Risks were quantified in the
+model by simulating the likelihood and consequences of events perceived as consequential for pension entitlement of woman.
+
+out time unit is month, therefore, all code applies to month
+
+The model was created with the @R-decisionSupport. We made use of the tools of the @R-tidyverse. 
+This report was compiled using tools from the @R-knitr team.
+
+It is important to note, that our model acknowledges the contemporary legal constraints in Germany. we explicitly follow the available information on German Pension schemes as stated by pension consultants and expansionists.
+
+```{r model, echo=FALSE, fig.cap='Model'}
+
+
+library(DiagrammeR)
+
+mermaid("graph LR
+        
+        D(No specific pension plan AKA Business as usual) --> SQ(Contributing Family member);
+        SQ              --> Fam(Financial support from family);
+        
+        PP(Pension Plan)--> FM(Money from Husband);
+        PP              --> FJ(payed on farm job);
+        PP              --> OB(Own Business branch);
+        PP              --> OJ(Off-Farm job);
+        
+        FM(Money from Husband) -->AI(Agricultural insurance);
+        FJ(payed on farm job)  -->SI(State insurance);
+        OB(Own Business branch)-->AI(Agricultural insurance);
+        OJ(Off-Farm job)       -->SI(State insurance);
+        SQ                     -->AI
+        FM(Money from Husband) -->PI(Private insurance);
+        FJ(payed on farm job)  -->PI(Private insurance);
+        OB(Own Business branch)-->PI(Private insurance);
+        OJ(Off-Farm job)       -->PI(Private insurance);
+        
+        PI      --> P(Pension);
+        SI      --> P;
+        AI      --> p
+        ")
+        
+
+```
+
+This plot was created with @R-DiagrammeR.
+
+
+```{r, echo=FALSE, out.width='100%', fig.align='center', fig.cap='Model before and after', fig.show='hold'}
+knitr::include_graphics('images/beforeafter.png')
+```
+
+
 ## Model Inputs
-## Adjustment of conceptual model
+
+After receiving a calibration training in the DA-Course, we considered ourselves calibrated experts. For our input table, we estimated reasonable ranges based on a mixed approach of literature research and expert opinion. According to the Methodology of @do_decision_2020, we tried to assign reasonable uncertainties given the long time horizon of our model.
+
+```{r tables, echo=FALSE}
+input_table_gender <-read.csv2("./input_table_gender_4th.csv", dec = ",")
+knitr::kable(input_table_gender, caption = 'Input table')
+# [1:5, ]
+```
 
 # Coding the model
 
@@ -107,7 +191,12 @@ There are different options to finance the pension contrivutions and also differ
 
 # References
 
-## Identification of research priorities and model sketch
+
+
+
+
+ Identification of research priorities and model sketch
+ 
 In our project, we intended to work on gender equality in German farming.
 
 After extensive literature research on woman farmers in Germany, we identified the statistically important group of in-married woman and narrowed our research question down to the pension of in-married woman in Germany.
@@ -157,7 +246,7 @@ mermaid("graph LR
 
 This plot was created with @R-DiagrammeR.
 
-## Participatory approach
+Participatory approach
 
 Corresponding to our Research question, we identified experts in insurance companies, the agricultural chamber, the woman farmers association as our experts. In an online community of woman in agriculture, we approached potential decision makers.  After drafting a first model based on literature research and personal experiences, we contacted the experts and conducted several one-to one Interviews. The insights from with equal pay consultants and the insurance company were valuable for our system understanding. In a next step, we organized an online workshop with potential decision makers and experts. and a lively group discussion. After a lively discussion discussion with experts and decision makers, we updated our model and used the updated version for further analysis.
 
@@ -186,7 +275,7 @@ knitr::include_graphics('images/beforeafter.png')
 ```
 
 
-## Model Inputs 
+ Model Inputs 
 
 After receiving a calibration training in the DA-Course, we considered ourselves calibrated experts. For our input table, we estimated reasonable ranges based on a mixed approach of literature research and expert opinion. According to the Methodology of @do_decision_2020, we tried to assign reasonable uncertainties given the long time horizon of our model.
 
@@ -196,7 +285,8 @@ knitr::kable(input_table_gender, caption = 'Input table')
 # [1:5, ]
 ```
 
-## Model inmpementation and specification 
+ Model inmpementation and specification 
+ 
 We worked together with experts to derive a conceptual model that explicitly identified all the important factors
 and relationships in pension schemes for in-married woman in Agriculture. Since the pension yield and input demand depend
 on the age of the decision-maker, all benefits and costs were modeled in relation to the age of the decision maker. Since the monthly
