@@ -53,7 +53,7 @@ The imbalance of a high workload on the one hand and a lack of proper financial 
 In our study, we display different pension options that farm wives have. However, given the high system complexity, the long-term benefits of pension
 schemes are difficult to anticipate. This study aimed to integrate uncertainty into long-term performance projections for pension scheme interventions in Germany by applying decision analysis and probabilistic modeling approaches to produce economic ex-ante assessments for pension schemes. With our research we would like to show that risks and uncertainties do not need to be a reason to stick to a status quo that discriminates against females in farming. We would like to encourage female farmers to be courageous and look into their options and not be satisfied with practice as usual.
 
- We compared the default option of no specific pension plan to different pension plan options. Hereby we considered the most important pension schemes relevant for women in agriculture, which is agricultural insurance, state insurance, private insurance and etfs. Furthermore, we investigated how these could be financed (e.g. own farm branch) and included possible risks (e.g.death of husband) for each finance option that would threaten the feasiblity of that pension option decision.
+We compared the default option of no specific pension plan to different pension plan options. Hereby we considered the most important pension schemes relevant for women in agriculture, which is agricultural insurance, state insurance, private insurance and etfs. Furthermore, we investigated how these could be financed (e.g. own farm branch) and included possible risks (e.g.death of husband) for each finance option that would threaten the feasiblity of that pension option decision.
  
 # Decision
 
@@ -62,41 +62,58 @@ When looking at gender equality, the freedom to act of the group that is discrim
 ## Decision maker
 
 Our decision maker is a 25 year old woman. The farm she married into is still owned by her in-laws resulting in her to be registered as a contributing family member for the next five years, until the farm is being transfered to her husband. During that time, the amount of money paid into her agricultural pension and the payout she will reveice in old age are only half of that of her husband's. At the age of 30, her husband will become farm owner and her and her husband's status will be the same in regards to the agricultural pension. It is important to keep in mind that this in not always the case. As we learned in the workshop (see section Participatory research), a large number of farms chose to cancel the woman's agricultural pension because they prefer to invest the money into the farm directly.  
-There are a number of additinal individual characteristics that affect her options to take precautions. We determined her to be a gardener by trade, she did not bring any noteworthy wealth or property into the marriage and the couple already has one child.
+There are a number of additional individual characteristics that affect her options to take precautions for her financial future. We determined her to be a gardener by trade, she did not bring any noteworthy wealth or property into the marriage and the couple already has one child.
+
+TABLE? OVERVIEW?
  
 ## Options
 
-
-
-
-
-
-
+She has two options to chose from.
 
 Decision option 1 aka Default option: 
-Woman has an apprenticeship as a gardener, marries a farmer and starts working full time on farm. She is officially registered as a farm wife 
-and therefore pays in the agricultural insurance. 
-
+The first option is to stick to the status quo, meaning she follows the traditional structures (i.e. contributing full time to the family business without renumeration) ,and relies on her husband and his farming business to secure her pension. In this case she is officially registered as a farm wife and the mandatory agricultural insurance is paid for her by her husband.
+ 
 Decision option 2
-The Woman pursues a pension plan to ensure financial security once she retires. Here, different sub-option are outlined. 
-There are different options to finance the pension contrivutions and also different pension schemes to choose from. Some options are only possible with specific financing decisions: e.g. state retirement is only possible when woman has a formal working contract with her husband or another employer. 
+As an alternative option, she pursues a pension plan to ensure financial security once she retires. There is a considerable amount of different pension schemes to chose from along with a number of possible ways to finance her pension independently of her husband (e.g. off-farm employment). Additionally, each option comes with its' own risks.
 
+## Stakeholders 
 
+There are four stakeholders in this decision. 
 
-## Stakeholders (again in methods)
+### Farmer
+### Children
+### Young female farmers
+### Students with a partner with a farm
 
 # Methods
-After extensive literature research on woman farmers in Germany, we identified the statistically important group of in-married woman and narrowed our research question down to the pension of in-married woman in Germany. --> created first sketch of conceptual framkework (see figure 1) --> workshop--> adjustment of framework (see figure 2). (describe in section)
+After extensive literature research on female farmers in Germany, we identified the statistically important group of women married into farms and narrowed down the focus on the pension issue for these women in Germany. In order to illustrate possible options and interrelations that help to facilitate a decision making process, we created a first draft of a conceptual model (see Figure 1). Next, we took the participatory approach and reached out to stakeholders and experts to update our model. We then used the updated version (see Figure 3) as a template for our coded model. 
 
-## Identification of reasearch priorities/ Participatory approach /Workshop
+## Draft of conceptual model
+ drafting a first model based on literature (WEBSITES USED TO GET THIS INFORMATION?) and personal experiences
+ 
+ PICTURE FIGURE 1 : MODEL BEFORE WORKSHOP
 
-Corresponding to our Research question, we identified experts in insurance companies, the agricultural chamber, the woman farmers association as our experts. In an online community of woman in agriculture, we approached potential decision makers.  After drafting a first model based on literature research and personal experiences, we contacted the experts and conducted several one-to one Interviews. The insights from with equal pay consultants and the insurance company were valuable for our system understanding. In a next step, we organized an online workshop with potential decision makers and experts. and a lively group discussion. After a lively discussion discussion with experts and decision makers, we updated our model and used the updated version for further analysis.
+## Participatory approach 
 
-|  Position 	| Type  	|  Interview 	|  Workshop participation 	|   	|
+In this step, our goal was to gain a better understanding of the actual and current pension situation of farmers wives' in Germany, to define a realistic case of a decision maker and to update and adjust our initial conceptual model. For this, we first identified advisors in insurance companies such as WHICH ONES?, the agricultural chamber (i.e. Landwirtschaftskammer Nordrhein-Westfalen), and the german woman farmers association (i.e. deutscher Landfrauenverband) as our experts and conducted several interviews via phone and the video communiactions platform zoom.us. Additionally, we used the social networking sites facebook.com and instagram.com to approach potential decision makers. We then organised an online workshop over zoom with the previously identified experts, stakeholders and potential decision makers. Here, 15 participants attended our workshop. After a brief introduction and a general initial discussion, the participants were given three questions (1. What options does a farmers# wi
+
+suppoed to 
+
+we send the participants in group of three to break
+
+
+Figure 2 shows an overview of the participants, their status in our research, and whether they partook in an interview and/or in the workshop.
+
+
+  
+
+After a lively discussion discussion with experts and decision makers, we updated our model and used the updated version for further analysis.
+
+|  Participant 	| Status  	|  Interview 	|  Workshop participation 	|   	|
 |---	|---	|---	|---	|---	|
 |  Farmer's wife 	|  decision-maker 	|   no	|  yes 	|   	|
 |  Farmer 	|  stakeholder and co-decision-maker 	|   no	|  no 	|   	|
-|  Farm Children 	|  stakeholder 	|  no 	|  no 	|   	|
+|  Farm Children 	|  stakeholder 	|  no 	|  yes 	|   	|
 |  Rural woman association 	|  expert 	|  yes 	|  yes 	|   	|
 |  Agricultural Insurance agency 	|  expert 	|  yes 	|   yes	|   	|
 |  State insurance agency 	|  expert 	|   no	|  no 	|   	|
@@ -106,12 +123,16 @@ Corresponding to our Research question, we identified experts in insurance compa
 |  Young woman farmers	|  stakeholder 	|   no	|  yes 	|   	|
 |  Students with a partner with farm 	|  stakeholder 	|   no	| no  	|   	|
 
+FIGURE 2
+
 ```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Invitation to the Workshop', fig.show='hold'}
 knitr::include_graphics('images/1.png')
 knitr::include_graphics('images/2.png')
 ```
 
-## Sketch and adjustment of conceptual model
+## Adjustment of conceptual model
+
+(Some options are only possible with specific financing decisions: e.g. state retirement is only possible when woman has a formal working contract with her husband or another employer. )
 
 We worked together with experts to derive a conceptual model that explicitly identified all the important factors
 and relationships in pension schemes for in-married woman in Agriculture. Since the pension yield and input demand depend
@@ -185,7 +206,14 @@ knitr::kable(input_table_gender, caption = 'Input table')
 
 ## Problems/Obstacles/Uncertainties/what we did not implemement
 
+There are severalrisks, that would even decrease the value of the default option. 
+Risk of no farm transfer: when the farm actually does not belong to the partner, but still to the parents in law, the situation of the woman is very insecure. She will not be registered as a wife. Without marriage, she can not be registered as a contributing family member. 
+
+Case of no marriage: When the woman is not married but "only" a partner, she will mot be eligible to the agricultural pension.
+
 ## Stakeholders positions and policy implications
+- Landfrauen: have a position paper in which they demand a state insurance, 
+which is independent from the money / years payed in. They claim that womans patchwork employment biographies are penalized in the current system and the individual woman can barely overcome this imbalance with her own decisions. 
 
 # Conclusion
 
@@ -314,19 +342,19 @@ Annual profits from farming mostly benefit the farm owner, which is often not th
 @oedl2020feminist_innen
 @BREG2017
 
-## What we did not implement. 
+ What we did not implement. 
 There are severalrisks, that would even decrease the value of the default option. 
 Risk of no farm transfer: when the farm actually does not belong to the partner, but still to the parents in law, the situation of the woman is very insecure. She will not be registered as a wife. Without marriage, she can not be registered as a contributing family member. 
 
 Case of no marriage: When the woman is not married but "only" a partner, she will mot be eligible to the agricultural pension. 
 
-## Stakeholders positions and policy implications
+ Stakeholders positions and policy implications
 - Landfrauen: have a position paper in which they demand a state insurance, 
 which is independent from the money / years payed in. They claim that womans patchwork employment biographies are penalized in the current system and the individual woman can barely overcome this imbalance with her own decisions. 
 
 
-# Conclusion
+ Conclusion
 This is our conclusion
 
-# References
+ References
 
