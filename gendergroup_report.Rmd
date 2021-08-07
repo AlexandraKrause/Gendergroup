@@ -86,7 +86,7 @@ There are four stakeholders in this decision.
 ### Students with a partner with a farm
 
 # Methods
-After extensive literature research on female farmers in Germany, we identified the statistically important group of women married into farms and narrowed down the focus on the pension issue for these women in Germany. In order to illustrate possible options and interrelations that help to facilitate a decision making process, we created a first draft of a conceptual model (see Figure 1). Next, we took the participatory approach and reached out to stakeholders and experts to update our model. We then used the updated version (see Figure 3) as a template for our coded model. 
+After extensive literature research on female farmers in Germany, we identified the statistically important group of women married into farms and narrowed down the focus on the pension issue for these women in Germany. In order to illustrate possible options and interrelations that help to facilitate a decision making process, we created a first draft of a conceptual model (see Figure 1). Next, we took the participatory approach and reached out to stakeholders and experts to update our model. We then used the updated version (see Figure 4) as a template for our coded model. 
 
 ## Draft of conceptual model
  drafting a first model based on literature (WEBSITES USED TO GET THIS INFORMATION?) and personal experiences
@@ -95,19 +95,16 @@ After extensive literature research on female farmers in Germany, we identified 
 
 ## Participatory approach 
 
-In this step, our goal was to gain a better understanding of the actual and current pension situation of farmers wives' in Germany, to define a realistic case of a decision maker and to update and adjust our initial conceptual model. For this, we first identified advisors in insurance companies such as WHICH ONES?, the agricultural chamber (i.e. Landwirtschaftskammer Nordrhein-Westfalen), and the german woman farmers association (i.e. deutscher Landfrauenverband) as our experts and conducted several interviews via phone and the video communiactions platform zoom.us. Additionally, we used the social networking sites facebook.com and instagram.com to approach potential decision makers. We then organised an online workshop over zoom with the previously identified experts, stakeholders and potential decision makers. Here, 15 participants attended our workshop. After a brief introduction and a general initial discussion, the participants were given three questions (1. What options does a farmers# wi
-
-suppoed to 
-
-we send the participants in group of three to break
+In this step, our goal was to gain a better understanding of the actual and current pension situation of farmers wives' in Germany, to define a realistic case of a decision maker and to update and adjust our initial conceptual model. For this, we first identified advisors in insurance companies such as WHICH ONES?, the agricultural chamber (i.e. Landwirtschaftskammer Nordrhein-Westfalen), and the german woman farmers association (i.e. deutscher Landfrauenverband) as our experts and conducted several interviews via phone and the video communiactions platform zoom.us. Additionally, we used the social networking sites facebook.com and instagram.com to approach potential decision makers. We then organised an online workshop over zoom with the previously identified experts, stakeholders and potential decision makers (Figure 2). Figure 3 shows an overview of the participants, their status in our research, and whether they partook in an interview and/or in the workshop.
+In total, 15 participants attended our workshop. After a brief introduction and a general initial discussion, the participants were given three questions, namely "What pension options does a farm wife have?" "What are potential risks and obstacles?" and "How could she finance the pension options?". After answering these questions in groups of three, we collected all thoughts and ideas in plenum. After a lively discussion we were able to update our model.
 
 
-Figure 2 shows an overview of the participants, their status in our research, and whether they partook in an interview and/or in the workshop.
+```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Invitation to the Workshop', fig.show='hold'}
+knitr::include_graphics('images/1.png')
+knitr::include_graphics('images/2.png')
+```
+FIGURE 2
 
-
-  
-
-After a lively discussion discussion with experts and decision makers, we updated our model and used the updated version for further analysis.
 
 |  Participant 	| Status  	|  Interview 	|  Workshop participation 	|   	|
 |---	|---	|---	|---	|---	|
@@ -123,12 +120,7 @@ After a lively discussion discussion with experts and decision makers, we update
 |  Young woman farmers	|  stakeholder 	|   no	|  yes 	|   	|
 |  Students with a partner with farm 	|  stakeholder 	|   no	| no  	|   	|
 
-FIGURE 2
-
-```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Invitation to the Workshop', fig.show='hold'}
-knitr::include_graphics('images/1.png')
-knitr::include_graphics('images/2.png')
-```
+FIGURE 3
 
 ## Adjustment of conceptual model
 
