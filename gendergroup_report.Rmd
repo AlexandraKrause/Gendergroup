@@ -96,7 +96,9 @@ As ways to finance these pension schemes we decided on four different financing 
 Then, in a brainstorming session, we collected different risks for each option. If she sticks to status quo (i.e. default option) she is financially dependend on her family-in-law. Events that could highly threaten her pension in this case are a possible divorce, the death of her husband, or bancruptcy of the farm.
 Obstalces that we thought likely to make it difficult for her to choose a pension plan is the objection of the husband himself and the need to cover child and eldery care, which is mainly seen as her responsibility. 
  
- PICTURE FIGURE 1 : MODEL BEFORE WORKSHOP
+```{r, echo=FALSE, out.width='100%', fig.align='center', fig.cap='Figure 1. Model draft', fig.show='hold'}
+knitr::include_graphics('images/Model_before_workshop.png')
+```
 
 ## Participatory approach 
 
@@ -104,7 +106,7 @@ In this step, our goal was to gain a better understanding of the actual and curr
 In total, 15 participants attended our workshop. After a brief introduction and a general initial discussion, the participants were given three questions, namely "What pension options does a farm wife have?" "What are potential risks and obstacles?" and "How could she finance the pension options?". After answering these questions in groups of three, we collected all thoughts and ideas in plenum. After a lively discussion we were able to update our model.
 
 
-```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Invitation to the Workshop', fig.show='hold'}
+```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Figure 2. Invitation to the Workshop', fig.show='hold'}
 knitr::include_graphics('images/1.png')
 knitr::include_graphics('images/2.png')
 ```
