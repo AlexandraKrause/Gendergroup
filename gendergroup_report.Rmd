@@ -164,6 +164,7 @@ Since the monthly
 input costs varied throughout the employment biography, reasonable time intervals were specified.
 
 out time unit is month, therefore, all code applies to month
+
 # Coding the model
 
 Since the pension yield and input demand depend
@@ -174,6 +175,8 @@ This report was compiled using tools from the @R-knitr team.
 
 
 # Results/Outcome
+
+Long-term payments directed to their woman retirement incur high establishment and maintenance costs and will generate net losses in the first few years but return substantial benefits to the wife and family in the long term. 
 
 # Discussion
 
@@ -206,24 +209,6 @@ which is independent from the money / years payed in. They claim that womans pat
 # References
 
 
-
-
-
- Identification of research priorities and model sketch
- 
-In our project, we intended to work on gender equality in German farming.
-
-After extensive literature research on woman farmers in Germany, we identified the statistically important group of in-married woman and narrowed our research question down to the pension of in-married woman in Germany.
-
-Decision option 1 aka Default option: 
-Woman has an apprenticeship as a gardener, marries a farmer and starts working full time on farm. She is officially registered as a farm wife 
-and therefore pays in the agricultural insurance. 
-
-Decision option 2
-The Woman pursues a pension plan to ensure financial security once she retires. Here, different sub-option are outlined. 
-There are different options to finance the pension contrivutions and also different pension schemes to choose from. Some options are only possible with specific financing decisions: e.g. state retirement is only possible when woman has a formal working contract with her husband or another employer. 
-
-It is important to note, that our model acknowledges the contemporary legal constraints in Germany. we explicitly follow the available information on German Pension schemes as stated by pension consultants and expansionists.
 
 ```{r model, echo=FALSE, fig.cap='Model'}
 
@@ -260,44 +245,8 @@ mermaid("graph LR
 
 This plot was created with @R-DiagrammeR.
 
-Participatory approach
-
-Corresponding to our Research question, we identified experts in insurance companies, the agricultural chamber, the woman farmers association as our experts. In an online community of woman in agriculture, we approached potential decision makers.  After drafting a first model based on literature research and personal experiences, we contacted the experts and conducted several one-to one Interviews. The insights from with equal pay consultants and the insurance company were valuable for our system understanding. In a next step, we organized an online workshop with potential decision makers and experts. and a lively group discussion. After a lively discussion discussion with experts and decision makers, we updated our model and used the updated version for further analysis.
-
-|  Position 	| Type  	|  Interview 	|  Workshop participation 	|   	|
-|---	|---	|---	|---	|---	|
-|  Farmer's wife 	|  decision-maker 	|   no	|  yes 	|   	|
-|  Farmer 	|  stakeholder and co-decision-maker 	|   no	|  no 	|   	|
-|  Farm Children 	|  stakeholder 	|  no 	|  no 	|   	|
-|  Rural woman association 	|  expert 	|  yes 	|  yes 	|   	|
-|  Agricultural Insurance agency 	|  expert 	|  yes 	|   yes	|   	|
-|  State insurance agency 	|  expert 	|   no	|  no 	|   	|
-|  Private insurance consultant 	|  expert 	|  yes 	|   no	|   	|
-|  Agriculral chamber consultant 	|  expert 	|  yes 	|   yes	|   	|
-|  Lawyer for agricultural family law	|  expert 	|  no 	| yes  	|   	|
-|  Young woman farmers	|  stakeholder 	|   no	|  yes 	|   	|
-|  Students with a partner with farm 	|  stakeholder 	|   no	| no  	|   	|
 
 
-```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Invitation to the Workshop', fig.show='hold'}
-knitr::include_graphics('images/1.png')
-knitr::include_graphics('images/2.png')
-```
-
-```{r, echo=FALSE, out.width='100%', fig.align='center', fig.cap='Model before and after', fig.show='hold'}
-knitr::include_graphics('images/beforeafter.png')
-```
-
-
- Model Inputs 
-
-After receiving a calibration training in the DA-Course, we considered ourselves calibrated experts. For our input table, we estimated reasonable ranges based on a mixed approach of literature research and expert opinion. According to the Methodology of @do_decision_2020, we tried to assign reasonable uncertainties given the long time horizon of our model.
-
-```{r tables, echo=FALSE}
-input_table_gender <-read.csv2("./input_table_gender_4th.csv", dec = ",")
-knitr::kable(input_table_gender, caption = 'Input table')
-# [1:5, ]
-```
 
  Model inmpementation and specification 
  
@@ -311,10 +260,6 @@ out time unit is month, therefore, all code applies to month
 
 The model was created with the @R-decisionSupport. We made use of the tools of the @R-tidyverse. 
 This report was compiled using tools from the @R-knitr team.
-
-# Results
-Long-term payments directed to their woman retirement incur high establishment and maintenance costs and will generate net losses in the first few years but return substantial benefits to the wife and family in the long term. 
-
 
 
 # Discussion
@@ -333,14 +278,3 @@ There are severalrisks, that would even decrease the value of the default option
 Risk of no farm transfer: when the farm actually does not belong to the partner, but still to the parents in law, the situation of the woman is very insecure. She will not be registered as a wife. Without marriage, she can not be registered as a contributing family member. 
 
 Case of no marriage: When the woman is not married but "only" a partner, she will mot be eligible to the agricultural pension. 
-
- Stakeholders positions and policy implications
-- Landfrauen: have a position paper in which they demand a state insurance, 
-which is independent from the money / years payed in. They claim that womans patchwork employment biographies are penalized in the current system and the individual woman can barely overcome this imbalance with her own decisions. 
-
-
- Conclusion
-This is our conclusion
-
- References
-
