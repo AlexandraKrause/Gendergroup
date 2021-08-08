@@ -201,7 +201,7 @@ The monthly payment into and payout of the agricultural insurance depends on her
 The risks were quantified in the model by simulating the likelihood and consequences of events perceived as consequential for pension entitlement of woman.
 
 ```{r tables, echo=FALSE}
-input_table_gender <-read.csv2("./input_table_gender_trial.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_final_trial_years.csv", dec = ",")
 knitr::kable(input_table_gender, caption = 'Figure 6. Input table')
 # [1:5, ]
 ```
