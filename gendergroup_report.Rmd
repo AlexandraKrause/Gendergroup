@@ -38,12 +38,13 @@ knitr::write_bib(c(.packages(),
 ```
 TO DO:
 - PROVIDE SOURCE IN LINE 53
-- CREATE TABLE AS OVERVIEW OF FEATURES OF DECISION MAKER?
+- CREATE TABLE AS OVERVIEW OF FEATURES OF DECISION MAKER? (LINE 79)
 - FINISH SECTION STAKEHOLDERS
 - FIX FIGURE CAPTIONS SO ALL LOOK THE SAME (LINE 144)
-- USE MERMAID TO CREATE FIGURE 4 AND 5 (SECTION ADJUSTMENT OF CONCEPTUAL MODEL)
+- USE MERMAID TO CREATE FIGURE 4 AND 5 INSTEAD OF USING PICTURES (SECTION ADJUSTMENT OF CONCEPTUAL MODEL- LINES 151-153 AND 164-166) --> MERMAID DRAFT ALINA STARTING LINE 200
 - PROVIDE SOURCES THAT LEAD TO FIRST DRAFT OF CONCEPTUAL MODEL (LINE 108)
 - WHY DID WE EXCLUDE PROPERTY AS PENSION SCHEME IN UPDATED MODEL? (LINE 154)
+- UPDATE CORRECT INPUT TABLE --> YEARS OR MONTH? (LINE 175 - 179)
 - WRTIE ABSTRACT
 - MAKE SURE FIGURE NUMBERS IN TEXT ARE CORRECT
 
@@ -146,7 +147,12 @@ Figure 3. Overview of participants, their status and type of contribution (FIX F
 
 ## Adjustment of conceptual model
 
- Based on the outcomes of our research we adjusted and specified our decision option 2 (i.e. financing her own retirement plan) in our conceptual model (Figure 4).
+Based on the outcomes of our research we adjusted and specified our decision option 2 (i.e. financing her own retirement plan) in our conceptual model (Figure 4).
+
+```{r, echo=FALSE, out.width='100%', fig.align='center', fig.cap='Figure 4. Adjusted decision option 2 pathways of financing her own retirement', fig.show='hold'}
+knitr::include_graphics('images/Model_after_workshop_pension_plan.png')
+```
+
 As a first step we eliminated the options of farm co-ownership and self- emplyoment we previously considered as a possible financing option. We learned in the workshop that co-ownerships are hardly done in reality as it is not feasible for most farming businesses and self-employment of both parents is hardly manageable when simultaneuosly raising a child.
 In the end, we were left with four financing options. Three of which require intial investment costs in form of covering child and elderly care. Establishing an own branch on the farm itself, particuarly in form of setting up a farm shop, delivery service or holiday housing seemed to be popular among workshop participants. Identified risks for this option were the circumstance of divorce and the bancruptcy of the farm.
 Getting an off farm job or negotiating with the in-laws to be officially employed at the farm was also mentioned frequently.Here, the risks are related to the farm and therefore identical with the ones for 'own branch on farm' (i.e. risk of divorce, bancruptcy).
@@ -156,16 +162,25 @@ If choosing the options of own branch or receiving family money she would pay in
 We would like to highlight that the greatest obstacle to option 2 (i.e. pension plan) we were able identify from the workshop was in fact the husband/in-laws themselves. Every option in the retirement plan itself contains the risk, that they oppose her decision to plan for her retirement. Mainly because they do not see the necessity for it. Farmers generally prefer to invest into their farming business rather than into their wives pension schemes. Additionally, the investment costs and having to find suitable child and eldery care is a further deterrent.This risk is illustrated by a black circle in the model and affect every option within the pension plan decision.
 The default option and associated risks remained the same in the updated version. The only change was that of design to match the design of the new decision options 2 pathway (Figure 5).
 
-FIGURE 4- PENSION PLAN UPDATED
-FIGURE 5- DEFAULT OPTION NEW DESIGN UPDATED
+```{r, echo=FALSE, out.width='100%', fig.align='center', fig.cap='Figure 4. Decision option 1 aka default option after the workshop', fig.show='hold'}
+knitr::include_graphics('images/Model_after_workshop_default.png')
+```
 
 ## Model Inputs
 
-After receiving a calibration training in the DA-Course, we considered ourselves calibrated experts. For our input table, we estimated reasonable ranges based on a mixed approach of literature research and expert opinion. According to the Methodology of @do_decision_2020, we tried to assign reasonable uncertainties given the long time horizon of our model.
+The previous determination of our decision maker (see section decision) allowed us to fill our input table with values (Figure 6).
+After receiving a calibration training in the DA-Course, we considered ourselves calibrated experts and were able to estimate reasonable ranges based on a mixed approach of literature reasearch and expert opinion.
+The time frame of our intervention amounts to 40 years (i.e. retirement at the age of 65). Based on this and according to the Methodology of @do_decision_2020, we tried to assign reasonable uncertainties given this long time horizon.
+Based on her appointed profession as gardener, we estimated her possible (MONTHLY/YEARLY?) income  and (MONTHLY/YEARLY) amount of payment into one or the other insurance option. We repeated this process for own farm branch, on farm job and receiving family money. Hereby, we agreed that she would be able to invest at least 10 % of her income into private insurance schemes (i.e. private insurance, ETFs, or mix of both). 
+Websites such as BLABLABLA were used to narrow down reasonable monetary amounts of each option within the pension plan option.
+
+
+only monetary value-- methods
+dairy farm
 
 ```{r tables, echo=FALSE}
-input_table_gender <-read.csv2("./input_table_gender_4th.csv", dec = ",")
-knitr::kable(input_table_gender, caption = 'Input table')
+input_table_gender <-read.csv2("./input_table_gender_trial.csv", dec = ",")
+knitr::kable(input_table_gender, caption = 'Figure 6. Input table')
 # [1:5, ]
 ```
 
