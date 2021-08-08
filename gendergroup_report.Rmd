@@ -44,9 +44,14 @@ TO DO:
 - USE MERMAID TO CREATE FIGURE 4 AND 5 INSTEAD OF USING PICTURES (SECTION ADJUSTMENT OF CONCEPTUAL MODEL- LINES 151-153 AND 164-166) --> MERMAID DRAFT ALINA STARTING LINE 200
 - PROVIDE SOURCES THAT LEAD TO FIRST DRAFT OF CONCEPTUAL MODEL (LINE 108)
 - WHY DID WE EXCLUDE PROPERTY AS PENSION SCHEME IN UPDATED MODEL? (LINE 154)
-- UPDATE CORRECT INPUT TABLE --> YEARS OR MONTH? (LINE 175 - 179)
+- UPDATE CORRECT INPUT TABLE --> YEARS OR MONTH? (LINE 181 - 185)
+- CORRECT MONTHLY OR YEARLY IN TEXT (LINE 177)
+- SOURCE FOR AVERGAE FEMALE LIFE EXPECTANCY IN GERMANY (LINE 177)
 - WRTIE ABSTRACT
 - MAKE SURE FIGURE NUMBERS IN TEXT ARE CORRECT
+
+only monetary value-- methods
+dairy farm
 
 
 # Abstract? 
@@ -171,26 +176,16 @@ knitr::include_graphics('images/Model_after_workshop_default.png')
 The previous determination of our decision maker (see section decision) allowed us to fill our input table with values (Figure 6).
 After receiving a calibration training in the DA-Course, we considered ourselves calibrated experts and were able to estimate reasonable ranges based on a mixed approach of literature reasearch and expert opinion.
 The time frame of our intervention amounts to 40 years (i.e. retirement at the age of 65). Based on this and according to the Methodology of @do_decision_2020, we tried to assign reasonable uncertainties given this long time horizon.
-Based on her appointed profession as gardener, we estimated her possible (MONTHLY/YEARLY?) income  and (MONTHLY/YEARLY) amount of payment into one or the other insurance option. We repeated this process for own farm branch, on farm job and receiving family money. Hereby, we agreed that she would be able to invest at least 10 % of her income into private insurance schemes (i.e. private insurance, ETFs, or mix of both). 
+Based on her appointed profession as gardener, we estimated her possible (MONTHLY/YEARLY?) income  and (MONTHLY/YEARLY) amount of payment into one or the other insurance option. We repeated this process for own farm branch, on farm job and receiving family money. Hereby, we agreed that she would be able to invest at least 10 % of her income into private insurance schemes (i.e. private insurance, ETFs, or mix of both). After retiring, it is likely that she lives and receives her pension for another 17 years until the age of 82, which is the average female life expectancy in Germany (SOURCE).
 Websites such as BLABLABLA were used to narrow down reasonable monetary amounts of each option within the pension plan option.
-
-
-only monetary value-- methods
-dairy farm
+The monthly payment into and payout of the agricultural insurance depends on her status (i.e. farmers wives or contributing family member). In our case she is a contributing family member for five years, until her husband becomes farm owner. As soon as that happens the contributions into the insurance and her pension increase by 50%. It becomes obvious that a late farm transfer could have a negative impact on her pension. 
+The risks were quantified in the model by simulating the likelihood and consequences of events perceived as consequential for pension entitlement of woman.
 
 ```{r tables, echo=FALSE}
 input_table_gender <-read.csv2("./input_table_gender_trial.csv", dec = ",")
 knitr::kable(input_table_gender, caption = 'Figure 6. Input table')
 # [1:5, ]
 ```
-
-Risks were quantified in the
-model by simulating the likelihood and consequences of events perceived as consequential for pension entitlement of woman.
-
-Since the monthly
-input costs varied throughout the employment biography, reasonable time intervals were specified.
-
-out time unit is month, therefore, all code applies to month
 
 # Coding the model
 
@@ -199,6 +194,8 @@ on the age of the decision-maker, all benefits and costs were modeled in relatio
 
 The model was created with the @R-decisionSupport. We made use of the tools of the @R-tidyverse. 
 This report was compiled using tools from the @R-knitr team.
+
+out time unit is month, therefore, all code applies to month
 
 
 # Results/Outcome
