@@ -89,8 +89,6 @@ The imbalance of a high workload on the one hand and a lack of proper financial 
  
 In our study, we display different pension options that farm wives have. However, given the high system complexity, the long-term benefits of pension
 schemes are difficult to anticipate. This study aimed to integrate uncertainty into long-term performance projections for pension scheme interventions in Germany by applying decision analysis and probabilistic modeling approaches to produce economic ex-ante assessments for pension schemes. With our research we would like to show that risks and uncertainties do not need to be a reason to stick to a status quo that discriminates against females in farming. We would like to encourage female farmers to be courageous and look into their options and not be satisfied with practice as usual.
-
-We compared the default option of no specific pension plan to different pension plan options. Hereby we considered the most important pension schemes relevant for women in agriculture, which is agricultural insurance, state insurance, private insurance and etfs. Furthermore, we investigated how these could be financed (e.g. own farm branch) and included possible risks (e.g.death of husband) for each finance option that would threaten the feasiblity of that pension option decision.
  
 # Decision
 
@@ -98,8 +96,8 @@ When looking at gender equality, the freedom to act of the group that is discrim
 
 ## Decision maker
 
-Our decision maker is a 25 year old woman. The farm she married into is still owned by her in-laws resulting in her to be registered as a contributing family member for the next five years, until the farm is being transfered to her husband. During that time, the amount of money paid into her agricultural pension and the payout she will reveice in old age are only half of that of her husband's. At the age of 30, her husband will become farm owner and her and her husband's status will be the same in regards to the agricultural pension. It is important to keep in mind that this in not always the case. As we learned in the workshop (see section Participatory research), a large number of farms chose to cancel the woman's agricultural pension because they prefer to invest the money into the farm directly.  
-There are a number of additional individual characteristics that affect her options to take precautions for her financial future. We determined her to be a gardener by trade, she did not bring any noteworthy wealth or property into the marriage and the couple already has one child.
+Our decision maker is a 25 year old woman. The farm she married into is still owned by her in-laws resulting in her to be registered as a contributing family member for the next five years, until the farm is being transfered to her husband. During that time, the amount of money paid into her agricultural pension and the payout she will reveice in old age are only half of that of her husband's. At the age of 30, her husband will become farm owner and her and her husband's status will be the same in regards to the agricultural pension. It is important to keep in mind that this is not always the case. As we learned in the workshop (see section Participatory research), a large number of farms chose to cancel the woman's agricultural pension because they prefer to invest the money into the farm directly.  
+There are a number of additional individual characteristics that affect her options to take precautions for her financial future. We determined her to be a gardener by trade, she did not bring any noteworthy wealth or property into the marriage and the couple already has one young child.
 
 TABLE? OVERVIEW OF DESCRIBED FEATURES?
  
@@ -110,7 +108,7 @@ She has two options to chose from.
 Decision option 1 aka default option: 
 The first option is to stick to the status quo, meaning she follows the traditional structures (i.e. contributing full time to the family business without renumeration) ,and relies on her husband and his farming business to secure her pension. In this case she is officially registered as a farm wife and the mandatory agricultural insurance is paid for her by her husband. 
  
-Decision option 2 aka pension plan
+Decision option 2 aka pension plan:
 As an alternative option, she pursues a pension plan to ensure financial security once she retires. There is a considerable amount of different pension schemes to chose from along with a number of possible ways to finance her pension independently of her husband (e.g. off-farm employment). Additionally, each option comes with its' own risks.
 
 ## Stakeholders 
@@ -127,11 +125,11 @@ BRIEF DESCRIPTION WHY THEY ARE AFFECTED BY THIS DECISION
 BRIEF DESCRIPTION WHY THEY ARE AFFECTED BY THIS DECISION
 
 # Methods
-After extensive literature research on female farmers in Germany, we identified the statistically important group of women married into farms and narrowed down the focus on the pension issue for these women in Germany. In order to illustrate possible options and interrelations that help to facilitate a decision making process, we created a first draft of a conceptual model (see Figure 1). Next, we took the participatory approach and reached out to stakeholders and experts to update our model. We then used the updated version (see Figure 4) as a template for our coded model. The model was then created with the @R-decisionSupport package. We also made use of the tools of the @R-tidyverse. In a final step, this report was compiled using tools from the @R-knitr team.
+After extensive literature research on female farmers in Germany, we identified the statistically important group of women married into farms and narrowed down the focus on the pension issue for these women in Germany. In order to illustrate possible options and interrelations that help to facilitate a decision making process, we created a first draft of a conceptual model (see Figure 1). Next, we took the participatory approach and reached out to stakeholders and experts to update our model. We then used the updated version (see Figure 4) as a template for our coded model. The model was then created according to @R-decisionSupport. We also made use of the tools by @R-tidyverse. In a final step, this report was compiled using tools from the @R-knitr team.
 
 ## Draft of conceptual model
 
-Our inital model draft was based on literature (WEBSITES USED TO GET THIS INFORMATION?) and personal experiences (Figure 1). It displays both decision options that lead to her pension i.e. the decision option 1 aka default option and decision option 2 of choosing a pension plan (see section 'Options').
+Our inital model draft was based on literature (WEBSITES USED TO GET THIS INFORMATION?) and personal experiences (Figure 1). It displays both decision options that lead to her pension i.e. the decision option 1 aka default option and decision option 2 of choosing a pension plan.
 We chose the three most commonly mentioned ways in the literature to secure a safe pension, namely owning property, investing in private insurance and paying into state insurance. 
 As ways to finance these pension schemes we decided on four different financing options. Self-emplyoment on the farm (e.g. as a gardener), setting up a co-ownership of the farm with her husband, convincing her in-laws/husband to pay her fully or working in her chosen profession as a gardner off farm. All of these options could be used for investment into property or private insurance. In order to make use of state insurance she would have to be officially employed on the farm, or take on an occupation off farm. 
 In a brainstorming session, we collected different risks for each option. If she sticks to status quo (i.e. default option) she is financially dependend on her family-in-law. Events that could highly threaten her pension in this case are a possible divorce, a fatal accident at work of her husband, or bancruptcy of the farm.
@@ -143,14 +141,15 @@ knitr::include_graphics('images/Model_before_workshop.png')
 
 ## Participatory approach 
 
-In this step, our goal was to gain a better understanding of the actual and current pension situation of farmers wives' in Germany, to define a realistic case of a decision maker and to update and adjust our initial conceptual model. For this, we first identified advisors in private as well as agricultural insurance companies (i.e social insurance for agriculture,forestry and horticulture (SVLFG)), the agricultural chamber (i.e. Landwirtschaftskammer Nordrhein-Westfalen), laywers for agricultural family law and the german woman farmers association (i.e. deutscher Landfrauenverband) as our experts and conducted several interviews via phone and the video communiactions platform zoom.us. Additionally, we used the social networking sites facebook.com and instagram.com to approach potential decision makers (i.e.farm wives). We then organised an online workshop over zoom with the previously identified experts, stakeholders and potential decision makers (Figure 2). Figure 3 shows an overview of the participants, their status in our research, and whether they partook in an interview and/or in the workshop.
-In total, 15 participants attended our workshop. After a brief introduction and a general initial discussion, the participants were given three questions, namely "What pension options does a farm wife have?" "What are potential risks and obstacles?" and "How could she finance the pension options?". After answering these questions in groups of three, we collected all thoughts and ideas in plenum. After a lively discussion we were able to update our model.
-
+In this step, our goal was to gain a better understanding of the actual and current pension situation of farmers wives' in Germany in order to define a realistic case of a decision maker and to update and adjust our initial conceptual model. For this, we first identified advisors in private as well as agricultural insurance companies (i.e social insurance for agriculture,forestry and horticulture SVLFG), the agricultural chamber (i.e. Landwirtschaftskammer Nordrhein-Westfalen), laywers for agricultural family law and the german woman farmers association (i.e. deutscher Landfrauenverband) as our experts. We then conducted several interviews via phone and the video communiactions platform zoom.us. Additionally, we used the social networking sites facebook.com and instagram.com to approach potential decision makers (i.e.farm wives). We then organised an online workshop over zoom with the previously identified experts, stakeholders and potential decision makers (Figure 2).
 
 ```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap='Figure 2. Invitation to the Workshop', fig.show='hold'}
 knitr::include_graphics('images/1.png')
 knitr::include_graphics('images/2.png')
 ```
+
+Figure 3 shows an overview of the participants, their status in our research, and whether they partook in an interview and/or in the workshop.
+In total, 15 participants attended our workshop. After a brief introduction and a general initial discussion, the participants were given three questions, namely "What pension options does a farm wife have?" "What are potential risks and obstacles?" and "How could she finance the pension options?". After answering these questions in groups of three, we collected all thoughts and ideas in plenum. After a lively discussion we were able to update our model.
 
 
 |  Participant 	| Status  	|  Interview 	|  Workshop participation 	|   	|
@@ -183,7 +182,7 @@ Getting an off farm job or negotiating with the in-laws to be officially employe
 Another option we had not thought of before the workshop is to receive money from her husband which she can then invest into a pension plan. Howere, the risks here are equal to the default option as she would also rely on her husband for her pension (i.e. risk of divorce,bancruptcy, death of husband) 
 When it comes to pension schemes, we excluded own property (WHY AGAIN?) and only focused on the investment into different insurances. Here, we explicitly follow the available information on german pension schemes as stated by the pension consultants.
 If choosing the options of own branch or receiving family money she would pay into the agricultural insurance by herself, and on top of that has the options to invest into private insurance or ETFS or a mix of both. The other two options of on and off farm job imply the mandatory state insurance, which she then could also boost with additional private insurance, ETFs or a mix.
-We would like to highlight that the greatest obstacle to option 2 (i.e. pension plan) we were able identify from the workshop was in fact the husband/in-laws themselves. Every option in the retirement plan itself contains the risk, that they oppose her decision to plan for her retirement. Mainly because they do not see the necessity for it. Farmers generally prefer to invest into their farming business rather than into their wives pension schemes. Additionally, the investment costs and having to find suitable child and eldery care is a further deterrent.This risk is illustrated by a black circle in the model and affect every option within the pension plan decision.
+We would like to highlight that the greatest obstacle to option 2 (i.e. pension plan) we were able identify from the workshop was in fact the husband/in-laws themselves. Every option in the retirement plan itself contains the risk, that they oppose her decision to plan for her retirement. Mainly because they do not see the necessity for it as farmers generally prefer to invest into their farming business rather than into their wives pension schemes. Additionally, the investment costs and having to find suitable child and eldery care is a further deterrent.This risk is illustrated by a black circle in the model and affects every option within the pension plan decision.
 The default option and associated risks remained the same in the updated version. The only change was that of design to match the design of the new decision options 2 pathway (Figure 5).
 
 ```{r, echo=FALSE, out.width='100%', fig.align='center', fig.cap='Figure 4. Decision option 1 aka default option after the workshop', fig.show='hold'}
@@ -192,13 +191,13 @@ knitr::include_graphics('images/Model_after_workshop_default.png')
 
 ## Model Inputs
 
-The previous determination of our decision maker (see section decision) allowed us to fill our input table with values (Figure 6).
+The previous determination of our decision maker (see section 3.1 Decision maker) allowed us to fill our input table with values (Figure 6).
 After receiving a calibration training in the DA-Course, we considered ourselves calibrated experts and were able to estimate reasonable ranges based on a mixed approach of literature reasearch and expert opinion.
 The time frame of our intervention amounts to 40 years (i.e. retirement at the age of 65). Based on this and according to the Methodology of @do_decision_2020, we tried to assign reasonable uncertainties given this long time horizon.
-Based on her appointed profession as gardener, we estimated her possible (MONTHLY/YEARLY?) income  and (MONTHLY/YEARLY) amount of payment into one or the other insurance option. We repeated this process for own farm branch, on farm job and receiving family money. Hereby, we agreed that she would be able to invest at least 10 % of her income into private insurance schemes (i.e. private insurance, ETFs, or mix of both). After retiring, it is likely that she lives and receives her pension for another 17 years until the age of 82, which is the average female life expectancy in Germany (SOURCE).
+Based on her appointed profession as gardener, we estimated her possible (MONTHLY/YEARLY?) income  and (MONTHLY/YEARLY) amount of payment into the different insurance options. We repeated this process for own farm branch, on farm job and receiving family money. Hereby, we agreed that she would be able to invest at least 10 % of her income into private insurance schemes (i.e. private insurance, ETFs, or mix of both). After retiring, it is likely that she lives and receives her pension for another 17 years until the age of 82, which is the average female life expectancy in Germany (SOURCE).
 Websites such as BLABLABLA were used to narrow down reasonable monetary amounts of each option within the pension plan option.
-The monthly payment into and payout of the agricultural insurance depends on her status (i.e. farmers wives or contributing family member). In our case she is a contributing family member for five years, until her husband becomes farm owner. As soon as that happens the contributions into the insurance and her pension increase by 50%. It becomes obvious that a late farm transfer could have a negative impact on her pension. 
-The risks were quantified in the model by simulating the likelihood and consequences of events perceived as consequential for pension entitlement of woman.
+The monthly payment into and payout of the agricultural insurance depends on her status (i.e. wife of farm owner or contributing family member). In our case she is a contributing family member for five years, until her husband becomes farm owner. As soon as that happens the contributions into the insurance and her pension increase by 50%. It becomes obvious that a late farm transfer could have a negative impact on her pension. 
+The identified risks were then quantified by simulating their likelihood and degree of significance for her pension.
 
 ```{r tables, echo=FALSE}
 input_table_gender <-read.csv2("./input_table_gender_final_trial_years.csv", dec = ",")
@@ -208,7 +207,7 @@ knitr::kable(input_table_gender, caption = 'Figure 6. Input table')
 
 # Coding the model
 
-The model was created with the @R-decisionSupport. 
+The model was created in accordance with @R-decisionSupport. 
 Since the pension yield and input demand depend on the age of the decision-maker, all benefits and costs were modeled in relation to individual circumstances of the decision maker (e.g. profession,age etc). Since pension payment and payouts are usually paid per month, we first used a monthly time unit in our code. However, doing that created a wide variety of outputs for 684 months (40 years of working and paying into her pension plus 17 years of receiving pension) making it highly complicated to create a straightforward output. Interpreting this was beyond our capabilites, so we decided to use yearly time untis instead as intended by the decisionSupport package.
 
 - ADD CODE CHUNKS AND DESCRIPTION (LARS AS EXAMPLE?)
