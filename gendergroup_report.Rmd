@@ -223,6 +223,16 @@ Long-term payments directed to their woman retirement incur high establishment a
 
 Right mixture of options is important --> for each individual case--> depends on age, weatlh, befroe wedding etc. 
 
+Annual profits from farming mostly benefit the farm owner, which is often not the woman. Farmers likely prefer reinvesting the available money in farming technology due to the relatively early incomes and short time-lag on returns. However, structural changes in agriculture and the high give-up rates impose high insecurity on the future of the farm and may raise the awareness for proper pension plans.
+ Uncertainties related to the communication culture in farming families, farmers’ values, farm profitability, and pension returns appeared to have the greatest influence on whether a retirement plan emerged as the preferable option. Better access to information and self confidence to ask for a fair share of farming income are prerequisites to implement pension plans for in-married woman in German farms. Narrowing these key knowledge gaps may offer additional clarity on farmers’ wives optimal course of action and provide guidance for agencies promoting insurance interventions in Germany. Our model produced a set of plausible ranges for net present values and highlighted critical variables, more clarity on which would support decision-making under uncertainty. Our research approach proved effective in providing forecasts of uncertain outcomes and can be useful for informing family farms pursuing a pension plan.
+ 
+@do_decision_2020
+@fabian2018stellung
+@muller2010kostenlosen
+@hadler2020
+@oedl2020feminist_innen
+@BREG2017
+
 ## Problems/Obstacles/Uncertainties/what we did not implemement
 
 There are severalrisks, that would even decrease the value of the default option. 
@@ -245,8 +255,6 @@ not widely applicable --> need specific case study
 which is independent from the money / years payed in. They claim that womans patchwork employment biographies are penalized in the current system and the individual woman can barely overcome this imbalance with her own decisions. 
 
 # Conclusion
-
-
 # References
 
 
@@ -286,36 +294,3 @@ mermaid("graph LR
 
 This plot was created with @R-DiagrammeR.
 
-
-
-
- Model inmpementation and specification 
- 
-We worked together with experts to derive a conceptual model that explicitly identified all the important factors
-and relationships in pension schemes for in-married woman in Agriculture. Since the pension yield and input demand depend
-on the age of the decision-maker, all benefits and costs were modeled in relation to the age of the decision maker. Since the monthly
-input costs varied throughout the employment biography, reasonable time intervals were specified. Risks were quantified in the
-model by simulating the likelihood and consequences of events perceived as consequential for pension entitlement of woman.
-
-out time unit is month, therefore, all code applies to month
-
-The model was created with the @R-decisionSupport. We made use of the tools of the @R-tidyverse. 
-This report was compiled using tools from the @R-knitr team.
-
-
-# Discussion
-Annual profits from farming mostly benefit the farm owner, which is often not the woman. Farmers likely prefer reinvesting the available money in farming technology due to the relatively early incomes and short time-lag on returns. However, structural changes in agriculture and the high give-up rates impose high insecurity on the future of the farm and may raise the awareness for proper pension plans.
- Uncertainties related to the communication culture in farming families, farmers’ values, farm profitability, and pension returns appeared to have the greatest influence on whether a retirement plan emerged as the preferable option. Better access to information and self confidence to ask for a fair share of farming income are prerequisites to implement pension plans for in-married woman in German farms. Narrowing these key knowledge gaps may offer additional clarity on farmers’ wives optimal course of action and provide guidance for agencies promoting insurance interventions in Germany. Our model produced a set of plausible ranges for net present values and highlighted critical variables, more clarity on which would support decision-making under uncertainty. Our research approach proved effective in providing forecasts of uncertain outcomes and can be useful for informing family farms pursuing a pension plan.
- 
-@do_decision_2020
-@fabian2018stellung
-@muller2010kostenlosen
-@hadler2020
-@oedl2020feminist_innen
-@BREG2017
-
- What we did not implement. 
-There are severalrisks, that would even decrease the value of the default option. 
-Risk of no farm transfer: when the farm actually does not belong to the partner, but still to the parents in law, the situation of the woman is very insecure. She will not be registered as a wife. Without marriage, she can not be registered as a contributing family member. 
-
-Case of no marriage: When the woman is not married but "only" a partner, she will mot be eligible to the agricultural pension. 
