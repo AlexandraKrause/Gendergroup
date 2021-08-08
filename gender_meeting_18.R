@@ -6,7 +6,7 @@ library(ggplot2)
 library(plyr)
 library(dplyr)
 
-devtools::install_github("eikeluedeling/decisionSupport")
+#devtools::install_github("eikeluedeling/decisionSupport")
 library(decisionSupport)
 decisionSupport::plot_cashflow
 
