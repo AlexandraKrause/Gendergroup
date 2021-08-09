@@ -205,8 +205,19 @@ knitr::kable(input_table_gender, caption ='Input table')
 The model was created in accordance with @R-decisionSupport. 
 Since the pension yield and input demand depend on the age of the decision-maker, all benefits and costs were modeled in relation to individual circumstances of the decision maker (e.g. profession,age etc). Since pension payment and payouts are usually paid per month, we first used a monthly time unit in our code. However, doing that created a wide variety of outputs for 684 months (40 years of working and paying into her pension plus 17 years of receiving pension) making it highly complicated to create a straightforward output. Interpreting this was beyond our capabilites, so we decided to use yearly time untis instead as intended by the decisionSupport package.
 
+## Multiple ways
+
+## EVPI
+
+## Cashflow
+
+## Risks
+
+
+
 - ADD CODE CHUNKS AND DESCRIPTION (LARS AS EXAMPLE?)
 - FULL CODE IN SEPERATE FILE ON GITHUB--> WHERE CORY CAN EASILY FIND IT (AS SUGGESTED BY CORY)
+
 
 # Results/Outcome
 
