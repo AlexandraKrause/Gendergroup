@@ -47,10 +47,9 @@ ALINA
 ALEXANDRA
 - SECTION CODING
 
-SECTION INTRO TO MODEL INPUTS
-- PROVIDE SOURCE IN LINE 83 & LINE 197 (AVERGAE FEMALE LIFE EXPECTANCY IN GERMANY)
-- PROVIDE SOURCES THAT LEAD TO FIRST DRAFT OF CONCEPTUAL MODEL --> LANDFRAUENSTUDIE
-- WHY DID WE EXCLUDE PROPERTY AS PENSION SCHEME IN UPDATED MODEL? (LINE 183)
+SOMEONE
+- PROVIDE SOURCE IN LINE 70 (SECTION INTRO) & LINE 182 (AVERGAE FEMALE LIFE EXPECTANCY IN GERMANY IN SECTION MODEL INPUT - https://de.statista.com/statistik/daten/studie/273406/umfrage/entwicklung-der-lebenserwartung-bei-geburt--in-deutschland-nach-geschlecht/) 
+- PROVIDE SOURCES THAT LEAD TO FIRST DRAFT OF CONCEPTUAL MODEL --> LANDFRAUENSTUDIE (LINE 122)
 
 NOT YET DONE
 - DISCUSSION
@@ -166,7 +165,7 @@ As a first step we eliminated the options of farm co-ownership and self- emplyom
 In the end, we were left with four financing options. Three of which require intial investment costs in form of covering child and elderly care. Establishing an own branch on the farm itself, particuarly in form of setting up a farm shop, delivery service or holiday housing seemed to be popular among workshop participants. Identified risks for this option were the circumstance of divorce and the bancruptcy of the farm.
 Getting an off farm job or negotiating with the in-laws to be officially employed at the farm was also mentioned frequently.Here, the risks are related to the farm and therefore identical with the ones for 'own branch on farm' (i.e. risk of divorce, bancruptcy).
 Another option we had not thought of before the workshop is to receive money from her husband which she can then invest into a pension plan. Howere, the risks here are equal to the default option as she would also rely on her husband for her pension (i.e. risk of divorce,bancruptcy, death of husband) 
-When it comes to pension schemes, we excluded own property (WHY AGAIN?) and only focused on the investment into different insurances. Here, we explicitly follow the available information on german pension schemes as stated by the pension consultants.
+When it comes to pension schemes, we excluded own property and only focused on the investment into different insurances. Here, we explicitly follow the available information on german pension schemes as stated by the pension consultants.
 If choosing the options of own branch or receiving family money she would pay into the agricultural insurance by herself, and on top of that has the options to invest into private insurance or ETFS or a mix of both. The other two options of on and off farm job imply the mandatory state insurance, which she then could also boost with additional private insurance, ETFs or a mix.
 We would like to highlight that the greatest obstacle to option 2 (i.e. pension plan) we were able identify from the workshop was in fact the husband/in-laws themselves. Every option in the retirement plan itself contains the risk, that they oppose her decision to plan for her retirement. Mainly because they do not see the necessity for it as farmers generally prefer to invest into their farming business rather than into their wives pension schemes. Additionally, the investment costs and having to find suitable child and eldery care is a further deterrent.This risk is illustrated by a black circle in the model and affects every option within the pension plan decision.
 The default option and associated risks remained the same in the updated version. The only change was that of design to match the design of the new decision options 2 pathway (Figure 4.4).
@@ -181,7 +180,7 @@ The previous determination of our decision maker (see section 3.1 Decision maker
 After receiving a calibration training in the DA-Course, we considered ourselves calibrated experts and were able to estimate reasonable ranges based on a mixed approach of literature reasearch and expert opinion.
 The time frame of our intervention amounts to 40 years (i.e. retirement at the age of 65). Based on this and according to the Methodology of @do_decision_2020, we tried to assign reasonable uncertainties given this long time horizon.
 Based on her appointed profession as gardener, we estimated her possible yearly income and amount of payment into the different insurance options. We repeated this process for own farm branch, on farm job and receiving family money. Hereby, we agreed that she would be able to invest at least 10 % of her income into private insurance schemes (i.e. private insurance, ETFs, or mix of both). After retiring, it is likely that she lives and receives her pension for another 17 years until the age of 82, which is the average female life expectancy in Germany (SOURCE).
-Websites such as BLABLABLA were used to narrow down reasonable monetary amounts of each option within the pension plan option.
+Pension estimation calculators such as the brutto-netto-rechner, Allianz-Rechner-Privatrente, SVLFG-Rentenschätzung and etf-sparplanrechner were used to narrow down reasonable monetary amounts of each option within the pension plan option.
 The monthly payment into and payout of the agricultural insurance depends on her status (i.e. wife of farm owner or contributing family member). In our case she is a contributing family member for five years, until her husband becomes farm owner. As soon as that happens the contributions into the insurance and her pension increase by 50%. It becomes obvious that a late farm transfer could have a negative impact on her pension. 
 The identified risks were then quantified by simulating their likelihood and degree of significance for her pension.
 
