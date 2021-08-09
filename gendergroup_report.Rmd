@@ -38,26 +38,24 @@ knitr::write_bib(c(.packages(),
 ```
 TO DO:
 
-SECTION INTRO TO MODEL INPUTS
-- PROVIDE SOURCE IN LINE 83 & LINE 197 (AVERGAE FEMALE LIFE EXPECTANCY IN GERMANY)
-- PROVIDE SOURCES THAT LEAD TO FIRST DRAFT OF CONCEPTUAL MODEL (LINE 133)
-- CREATE TABLE AS OVERVIEW OF FEATURES OF DECISION MAKER? (LINE 103)
-- FINISH SECTION STAKEHOLDERS
-- FIX FIGURE CAPTIONS SO ALL LOOK THE SAME (BOTH TABLES NAMED 4.1.) + MAKE SURE FIGURE NUMBERS IN TEXT ARE CORRECT
-- USE MERMAID TO CREATE FIGURE 4.3 AND 4.4 INSTEAD OF USING PICTURES (SECTION ADJUSTMENT OF CONCEPTUAL MODEL) --> MERMAID DRAFT ALINA AT THE VERY END OF REPORT
-- WHY DID WE EXCLUDE PROPERTY AS PENSION SCHEME IN UPDATED MODEL? (LINE 183)
-
-SECTION CODING
-- ADD CODE CHUNKS AND DESCRIPTION (LARS AS EXAMPLE?)
-- FULL CODE IN SEPERATE FILE ON GITHUB--> WHERE CORY CAN EASILY FIND IT (AS SUGGESTED BY CORY)
-
-SECTION DISCUSSION
-- FINISH
+ALINA
 
 SECTION PROBLEMS/OBSTACLES ETC
-- WRITE TEXT (ONLY BULLET POINTS WITH IDEAS UP TO NOW)
+- WRITE TEXT (ONLY BULLET POINTS WITH IDEAS UP TO NOW) (ALINA)
+- FINISH SECTION STAKEHOLDERS (ALINA)
+- FIX FIGURE CAPTIONS SO ALL LOOK THE SAME (BOTH TABLES NAMED 4.1.) + MAKE SURE FIGURE NUMBERS IN TEXT ARE CORRECT (ALINA)
+
+ALEXANDRA
+- SECTION CODING
+
+SECTION INTRO TO MODEL INPUTS
+- PROVIDE SOURCE IN LINE 83 & LINE 197 (AVERGAE FEMALE LIFE EXPECTANCY IN GERMANY)
+- PROVIDE SOURCES THAT LEAD TO FIRST DRAFT OF CONCEPTUAL MODEL (LINE 133) --> LANDFRAUENSTUDIE
+- CREATE TABLE AS OVERVIEW OF FEATURES OF DECISION MAKER? (LINE 103)
+- WHY DID WE EXCLUDE PROPERTY AS PENSION SCHEME IN UPDATED MODEL? (LINE 183)
 
 NOT YET DONE
+- DISCUSSION
 - RESULTS
 - CONCLUSION
 - ABSTRACT
@@ -68,7 +66,7 @@ only monetary value-- methods
 dairy farm
 
 
-# Abstract? 
+# Abstract
 ?In our project, we intend to work on gender equality in german farming?.
 
 # Introduction
@@ -195,7 +193,7 @@ The monthly payment into and payout of the agricultural insurance depends on her
 The identified risks were then quantified by simulating their likelihood and degree of significance for her pension.
 
 ```{r tables, echo=FALSE}
-input_table_gender <-read.csv2("./input_table_gender_final_trial_years.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRISK.csv", dec = ",")
 knitr::kable(input_table_gender, caption ='Input table')
 # [1:5, ]
 ```
@@ -212,7 +210,6 @@ Since the pension yield and input demand depend on the age of the decision-maker
 ## Cashflow
 
 ## Risks
-
 
 
 - ADD CODE CHUNKS AND DESCRIPTION (LARS AS EXAMPLE?)
@@ -239,20 +236,19 @@ Uncertainties related to the communication culture in farming families, farmersâ
 
 ## Problems/Obstacles/Uncertainties/what we did not implemement
 
-There are severalrisks, that would even decrease the value of the default option. 
+- There are severalrisks, that would even decrease the value of the default option. 
 Risk of no farm transfer: when the farm actually does not belong to the partner, but still to the parents in law, the situation of the woman is very insecure. She will not be registered as a wife. Without marriage, she can not be registered as a contributing family member. 
 
-Case of no marriage: When the woman is not married but "only" a partner, she will mot be eligible to the agricultural pension.
+- Case of no marriage: When the woman is not married but "only" a partner, she will mot be eligible to the agricultural pension.
 
-Not possible to include all risks --> talked about a variety of other risks not included e.g. losing job (not likely), late farm transfer (influences all other options--> too big for this module)
+- Not possible to include all risks --> talked about a variety of other risks not included e.g. losing job (not likely), late farm transfer (influences all other options--> too big for this module
 
-framework: not possible to include emotional strains/state (very individual), just financial monetary.
+- Not possible to include emotional strains/state (very individual), just financial monetary.
 
-child care & elderly care was difficult to implemement into the coding
+- child care & elderly care was difficult to implemement into the coding--> left it out even though quite important in reality
 
-chose monthly --> decision package better yearly
 
-not widely applicable --> need specific case study
+- not widely applicable --> need specific case study
 
 ## Stakeholders positions and policy implications
 - Landfrauen: have a position paper in which they demand a state insurance, 
