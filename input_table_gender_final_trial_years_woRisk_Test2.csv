@@ -15,7 +15,7 @@ State insurance payout for 17 years own branch;Yearly pension (Euro/month);State
 State insurance investment for 40 years off farm;Yearly payment into retirement (Euro/month);State_insurance_inv_off_farm;posnorm;2400;NA;2760
 State insurance investment for 40 years on farm;Yearly payment into retirement (Euro/month);State_insurance_inv_on_farm;posnorm;1680;NA;1920
 State insurance investment for 40 years own branch;Yearly payment into retirement (Euro/month);State_insurance_inv_own_branch;posnorm;1080;NA;1680
-ETF payout for 17 years off farm;Yearly payment into retirement (Euro/month);ETF_off_farm;posnorm;10000;NA;18840
+ETF payout for 17 years off farm;Yearly payment into retirement (Euro/month);ETF_off_farm;posnorm;100;NA;18840
 ETF payout for 17 years on farm;Yearly pension (Euro/month);ETF_on_farm;posnorm;12000;NA;14160
 ETF payout for 17 years own branch;Yearly pension (Euro/month);ETF_own_branch;posnorm;8640;NA;12000
 ETF payout for 17 years family money;Yearly pension (Euro/month);ETF_family_money;posnorm;5400;NA;21840
