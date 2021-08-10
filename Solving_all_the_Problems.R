@@ -5,7 +5,7 @@ library(tidyverse)
 
 ####first step:get data####
 
-input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Test2.csv", dec = ",")
 
 input_table_gender <- input_table_gender %>% 
   mutate(Description = as.character(Description),
@@ -428,85 +428,71 @@ decision_function <- function(x, varnames){
               
               #way 1
               NPV_profit_with_Own_business_branch_1 =  NPV_profit_with_Own_business_branch_1, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_Own_business_branch_1 = NPV_decision_profit_with_Own_business_branch_1,
               Cashflow_decision_gender_way_A =  profit_with_Own_business_branch_1,
               
               #way2
               NPV_profit_with_Own_business_branch_2 =  NPV_profit_with_Own_business_branch_2, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_Own_business_branch_2 = NPV_decision_profit_with_Own_business_branch_2,
               Cashflow_decision_gender_way_B = profit_with_Own_business_branch_2,
               
               #way3
               NPV_profit_with_Own_business_branch_3 =  NPV_profit_with_Own_business_branch_3, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_Own_business_branch_3 = NPV_decision_profit_with_Own_business_branch_3,
               Cashflow_decision_gender_way_C =  profit_with_Own_business_branch_3 ,
               
               #way4
               NPV_profit_with_off_farm_job_4 =  NPV_profit_with_off_farm_job_4, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_off_farm_job_4 = NPV_decision_profit_with_off_farm_job_4,
               Cashflow_decision_gender_way_D =  profit_with_off_farm_job_4,
               
               #way5
               NPV_profit_with_off_farm_job_5 =  NPV_profit_with_off_farm_job_5, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_off_farm_job_5 = NPV_decision_profit_with_off_farm_job_5,
               Cashflow_decision_gender_way_E =  profit_with_off_farm_job_5,
               
               #way6
               NPV_profit_with_off_farm_job_6 =  NPV_profit_with_off_farm_job_6, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_off_farm_job_6 = NPV_decision_profit_with_off_farm_job_6,
               Cashflow_decision_gender_way_F =  profit_with_off_farm_job_6,
               
               #way7
               NPV_profit_with_off_farm_job_7 =  NPV_profit_with_off_farm_job_7, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_off_farm_job_7 = NPV_decision_profit_with_off_farm_job_7,
               Cashflow_decision_gender_way_G =  profit_with_off_farm_job_7,
               
               #way8
               NPV_profit_with_on_farm_job_8 =  NPV_profit_with_on_farm_job_8, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_on_farm_job_8 = NPV_decision_profit_with_on_farm_job_8,
               Cashflow_decision_gender_way_H =  profit_with_on_farm_job_8,
               
               #way9
               NPV_profit_with_on_farm_job_9 =  NPV_profit_with_on_farm_job_9, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_on_farm_job_9 = NPV_decision_profit_with_on_farm_job_9,
               Cashflow_decision_gender_way_I =  profit_with_on_farm_job_9,
               
               #way10
               NPV_profit_with_on_farm_job_10 =  NPV_profit_with_on_farm_job_10, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_on_farm_job_10 = NPV_decision_profit_with_on_farm_job_10,
               Cashflow_decision_gender_way_J =  profit_with_on_farm_job_10,
               
               #way11
               NPV_profit_with_on_farm_job_11 =  NPV_profit_with_on_farm_job_11, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_on_farm_job_11 = NPV_decision_profit_with_on_farm_job_11,
               Cashflow_decision_gender_way_K =  profit_with_on_farm_job_11,
               
               #way12
               NPV_profit_with_family_money_12 =  NPV_profit_with_family_money_12, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_family_money_12 = NPV_decision_profit_with_family_money_12,
               Cashflow_decision_gender_way_L =  profit_with_family_money_12,
               
               #way13
               NPV_profit_with_family_money_13 =  NPV_profit_with_family_money_13, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_family_money_13 = NPV_decision_profit_with_family_money_13,
               Cashflow_decision_gender_way_M =  profit_with_family_money_13,
               
               #way14
               NPV_profit_with_family_money_14 =  NPV_profit_with_family_money_14, 
-              NPV_no_branch = NPV_no_branch,
               NPV_decision_profit_with_family_money_14 = NPV_decision_profit_with_family_money_14,
               Cashflow_decision_gender_way_N =  profit_with_family_money_14
               
@@ -554,6 +540,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
                                     ),
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
+
 
 
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
@@ -783,13 +770,35 @@ CashflowM
 #outcome variable NPV_decision_do, which is the third element of
 #the list y in our mcSimulation_results outputs
 #(this must be a character element).
-
+names(mcSimulation_results$x)
+names(mcSimulation_results$y)
 
 pls_result <- plsr.mcSimulation(object = mcSimulation_results,
-                                resultName = names(mcSimulation_results$y)[3], ncomp = 1)
+                                variables.x = names(mcSimulation_results$x)[c(1,2,11,14,17,21,33,39,38)],
+                                resultName = names(mcSimulation_results$y)[c(304)], ncomp = 1)
 
 
+#pls_result <- plsr.mcSimulation(object = mcSimulation_results,
+#                                resultName = names(mcSimulation_results$y)[c(3)], ncomp = 1)
+names(mcSimulation_results$x)#search for the numbers for x in here
+mcSimulation_results
+colnames(mcSimulation_results$y)[304]
+colnames(mcSimulation_results$x)[33]
+#######################################################################
 
+pls_result <- plsr.mcSimulation(object = mcSimulation_results,
+                                variables.x = names(mcSimulation_results$x)[c(1,2,11,14,17,21,33,39,38)],
+                                resultName = names(mcSimulation_results$y)[c(298)], ncomp = 1)
+
+
+#pls_result <- plsr.mcSimulation(object = mcSimulation_results,
+#                                resultName = names(mcSimulation_results$y)[c(3)], ncomp = 1)
+names(mcSimulation_results$x)#search for the numbers for x in here
+names(mcSimulation_results$y)#search for the numbers for y in here
+
+mcSimulation_results
+colnames(mcSimulation_results$y)[298]
+colnames(mcSimulation_results$x)[33]
 
 
 #We run the plot_pls() on the results from plsr.mcSimulation() with a number of standard settings.

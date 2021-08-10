@@ -1,0 +1,10 @@
+Description;label;variable;distribution;lower;median;upper
+Mandatory agricultural insurance (when not having a job) investment for 40 years (paid by in-laws/husband);Yearly payment into retirement (Euro/month);Default_option;const;2902,56;NA;2902,56
+Years of receiving pension;Yearly pension (Euro/month);pension_years;const;17;NA;17
+Years of paying into pension;Yearly payment into retirement (Euro/month);working_years;const;40;NA;40
+ETF payout for 17 years off farm;Yearly payment into retirement (Euro/month);ETF_off_farm;posnorm;15600;NA;18840
+ETF investment for 40 years off farm;Yearly payment into retirement (Euro/month);ETF_inv_off_farm;posnorm;1800;NA;2040
+State insurance payout for 17 years off farm;Yearly pension (Euro/month);State_insurance_off_farm;posnorm;9840;NA;10920
+State insurance investment for 40 years off farm;Yearly payment into retirement (Euro/month);State_insurance_inv_off_farm;posnorm;2400;NA;2760
+Agricultural insurance payout for 17 years;Yearly pension (Euro/month);Agri_insurance;posnorm;7092;NA;7103,28
+Agricultural insurance investment for 40 years (5 years as MIFA + 35 years as full member);Yearly payment into retirement (Euro/month);Agri_insurance_inv;posnorm;2893;NA;2902,56
