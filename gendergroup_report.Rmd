@@ -80,14 +80,7 @@ schemes are difficult to anticipate. This study aimed to integrate uncertainty i
 
 When looking at gender equality, the freedom to act of the group that is discriminated against is usually limited and entails a number of risks. That being the case we were particularly interested to investigate the decision making process and options from the woman's point of view. In order to do that we set up a realistic and specific case study.
 
-## Decision maker
-
-Our decision maker is a 25 year old woman. The farm she married into is still owned by her in-laws resulting in her to be registered as a contributing family member for the next five years, until the farm is being transfered to her husband. During that time, the amount of money paid into her agricultural pension and the payout she will reveice in old age are only half of that of her husband's. At the age of 30, her husband will become farm owner and her and her husband's status will be the same in regards to the agricultural pension. It is important to keep in mind that this is not always the case. As we learned in the workshop (see section Participatory research), a large number of farms chose to cancel the woman's agricultural pension because they prefer to invest the money into the farm directly.Also, the transfer of a family farm to the successor is oftentimes not a smooth process and might be realized later then expected.   
-There are a number of additional individual characteristics that affect her options to take precautions for her financial future. We determined her to be a gardener by trade, she did not bring any noteworthy wealth or property into the marriage and the couple already has one young child.
- 
-## Options
-
-She has two options to chose from.
+our decision maker has two options to chose from.
 
 Decision option 1 a.k.a. default option: 
 The first option is to stick to the status quo, meaning she follows the traditional structures (i.e. contributing full time to the family business without renumeration) ,and relies on her husband and his farming business to secure her pension. In this case she is officially registered as a farm wife and the mandatory agricultural insurance is paid for her by her husband. 
@@ -95,6 +88,9 @@ The first option is to stick to the status quo, meaning she follows the traditio
 Decision option 2 a.k.a. pension plan:
 As an alternative option, she pursues a pension plan to ensure financial security once she retires. There is a considerable amount of different pension schemes to chose from along with a number of possible ways to finance her pension independently of her husband (e.g. off-farm employment). Additionally, each option comes with its' own risks.
 
+We Characterized our decision maker as folows: 
+Our decision maker is a 25 year old woman. The farm she married into is still owned by her in-laws resulting in her to be registered as a contributing family member for the next five years, until the farm is being transfered to her husband. During that time, the amount of money paid into her agricultural pension and the payout she will reveice in old age are only half of that of her husband's. At the age of 30, her husband will become farm owner and her and her husband's status will be the same in regards to the agricultural pension. 
+There are a number of additional individual characteristics that affect her options to take precautions for her financial future. We determined her to be a gardener by trade, she did not bring any noteworthy wealth or property into the marriage and the couple already has one young child.
 
 # Methods
 After extensive literature research on female farmers in Germany, we identified the statistically important group of women married into farms and narrowed down the focus on the pension issue for these women in Germany. In order to illustrate possible options and interrelations that help to facilitate a decision making process, we created a first draft of a conceptual model (see Figure 4.1). In the course of this project, we solely focused our attention on the monetary values, excluding any emotional conditions and personal preferences, due to the limited scope and timeframe of this module.
@@ -112,10 +108,10 @@ Obstacles that we thought likely to make it difficult for her to choose a pensio
 knitr::include_graphics('images/Model_before_workshop.png')
 ```
 
+
 ## Stakeholders and Participatory approach 
 
 Our goal was to gain a better understanding of the actual and current pension situation of farmers wives' in Germany in order to define a realistic case of a decision maker and to update and adjust our initial conceptual model. For this, we first identified advisors in private as well as agricultural insurance companies (i.e social insurance for agriculture,forestry and horticulture SVLFG), the agricultural chamber (i.e. Landwirtschaftskammer Nordrhein-Westfalen), laywers for agricultural family law and the german woman farmers association (i.e. deutscher Landfrauenverband) as our experts. We then conducted several interviews via phone and the video communiactions platform zoom.us. Additionally, we used the social networking sites facebook.com and instagram.com to approach potential decision makers (i.e.farm wives). We then organised an online workshop over zoom with the previously identified experts, stakeholders and potential decision makers (Figure 4.2).
-
 
 We identified four major stakeholders in this decision.
 * The farmer is the husband of our decision maker. He may depend on her support when running his farming business. If he grew up on a family farm, he has most probably experienced his mother supporting in his fathers farm without formal employment contract.
@@ -180,33 +176,39 @@ The monthly payment into and payout of the agricultural insurance depends on her
 The identified risks were then quantified by simulating their likelihood and degree of significance for her pension.
 
 ```{r tables, echo=FALSE}
-input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRISK.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRISK_Test2.csv", dec = ",")
 knitr::kable(input_table_gender, caption ='Input table')
 # [1:5, ]
+
+var_slight <- 1
+
+
+
 ```
 
-# Coding the model
+## Coding the model
 
 The model was created in accordance with @R-decisionSupport. 
 Since the pension yield and input demand depend on the age of the decision-maker, all benefits and costs were modeled in relation to individual circumstances of the decision maker (e.g. profession,age etc). The heart of our model are the yearly payments into agricultural or state pension for 40 years (€/year) and the yearly pension payout for 17 years (€/year). 
 
 Since pension payment and payouts are usually paid per month, we first used a monthly time unit in our code. However, doing that created a wide variety of outputs for 684 months (40 years of working and paying into her pension plus 17 years of receiving pension) making it highly complicated to create a straightforward output in the @R-decisionSupport. Thereforre we decided to use yearly time untis instead as intended by the @R-decisionSupport.
 
-## Multiple ways
-
-
 Our Model entails 14 „ways“, divided according to different income sources in 4 branches. In each Branch, she pays a mandatory insurance (either state or agricultural insurance). In addition there are differnt options to top this mandatory insurance with personal investments like ETF, private insurance and mix of etf and private insurance.
 
--	Branch 1 = Default vs. Own farm branch (Way 1, 2, 3)
--	Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
--	Branch 3 = Default vs. Payed on farm job (Way 8, 9, 10, 11)
--	Branch 4 = Default vs. Family money (Way 12, 13, 14) 
+*	Branch 1 = Default vs. Own farm branch (Way 1, 2, 3)
+*	Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
+*	Branch 3 = Default vs. Payed on farm job (Way 8, 9, 10, 11)
+*	Branch 4 = Default vs. Family money (Way 12, 13, 14) 
 
 Each of the 14 Ways is compared to a default option. Here, our decision maker invests nothing in her retirement. The mandatory agricultural insurance, is not payed by her, but from her husband / family. 
 
 Our Case study expands over 57 Years and is split into a period of 40 Years of payment and a period of 17 Years of Payout. From all insurances, investments and pensions we produce time series with variation. 
-
 ```{r }
+
+                             
+```
+
+```{r, eval=FALSE}
   #Agricultural insurance
   Agri_insurance <- c(rep (0,working_years),vv(var_mean = Agri_insurance, 
                                                var_CV = var_slight, 
@@ -223,7 +225,7 @@ On Top, she invests about 10 % of her income in a private insurance.
 In Part A, her befits from the private insurance and agricultural insurance are summed up, wheras in PartB the Costs of the both insurancec are summed up. By subtracting the cost from the benefit, we obtain the NPV. The NPV is then discounted with a discount rate of 1. 
   
   
-```{r } 
+```{r, eval=FALSE } 
   PartA <- Private_insurance_own_branch + Agri_insurance
   PartB <- Agri_insurance_inv + Private_insurance_inv_own_branch
   profit_with_Own_business_branch_1 <- (PartA - PartB)
@@ -235,7 +237,7 @@ In Part A, her befits from the private insurance and agricultural insurance are 
 
 In the default option, the agricultural insurance is payed by the family. Therefore, the decision maker incur the benefit of receiving pension without own investment. 
 
-```{r }
+```{r, eval=FALSE }
   PartA <- Agri_insurance + Default_option
   PartB <- Agri_insurance_inv 
   # The variables Default_option and Agri_insurance_inv are equal and cancel each other out. 
@@ -248,13 +250,13 @@ In the default option, the agricultural insurance is payed by the family. Theref
 To calculate the NPV of the decision, we subtract the default option from Way 1.
 We perform this calculation on all the 14 Ways. 
 
-```{r }   
+```{r, eval=FALSE }   
   NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
 ```
   
 In our return list, we include the NPV of the default option, the NPVs of the different interventions, the NPV of the decisions and the cashflow. 
 
-```{r } 
+```{r, eval=FALSE } 
 return(list(  NPV_no_branch =  NPV_no_branch,
               
               #way 1
@@ -276,7 +278,7 @@ Depending on the possiblities on farm and in the region, our decision maker can 
 
 Many of our Ways decision have a negative NPV. The reason is, that we compare our each of our Ways to the default option, in which the woman receives very little retirement, but as her family covers the cost for the mandatory insurance, she has no cost at all. 
 
-## here we need the plots of the 4 different branches !
+HERE WE NEED THE PLOTS FROM THE DIFFERENT BRANCHES
 
 ## PLS
 When checking the PLS for our differnt ways, it becomes apparent, thet the respective pension scheme has the highest impact. For example for Way one, The decision maker has a mandatory agricultral insurance and a private insurance. In The PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our Model is quite Simple, this corresponds to our expectations. 
@@ -317,6 +319,7 @@ Uncertainties related to the communication culture in farming families, farmers�
 @BREG2017
 
 ## Problems/Obstacles/Uncertainties/what we did not implemement
+It is important to keep in mind that this is not always the case. As we learned in the workshop (see section Participatory research), a large number of farms chose to cancel the woman's agricultural pension because they prefer to invest the money into the farm directly.Also, the transfer of a family farm to the successor is oftentimes not a smooth process and might be realized later then expected. 
 
 - There are severalrisks, that would even decrease the value of the default option. 
 Risk of no farm transfer: when the farm actually does not belong to the partner, but still to the parents in law, the situation of the woman is very insecure. She will not be registered as a wife. Without marriage, she can not be registered as a contributing family member. 
