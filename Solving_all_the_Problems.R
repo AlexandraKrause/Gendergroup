@@ -3,7 +3,7 @@ library(decisionSupport)
 library (DiagrammeR)
 library(tidyverse)
 
-####first step:get data####
+####Get data####
 
 input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Test2.csv", dec = ",")
 
@@ -20,12 +20,13 @@ var_slight <- 1
 
 
 
-####function####
+####Decision function####
 
 # Branch 1 = Default vs. Own branch (way 1, 2, 3)
 # Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
 # Branch 3 = Default vs. On farm job = Payment of wife (Way 8, 9, 10, 11)
 # Branch 4 = Default vs. Family money (way 12, 13, 14) 
+
 
 decision_function <- function(x, varnames){
   
@@ -162,21 +163,17 @@ decision_function <- function(x, varnames){
                          var_CV = var_slight, 
                          n = working_years), rep(0,pension_years))
   
-  # Vector with 480 zeros to put in Front of VV-Vectors with length of 2to create time horizons.
-  
-  #}
+ # }
 
   
   # Default option: Our decision maker is a farm wife and does nothing special. 
-  # Apart from the mandatory agricultural insurance, she invests nothing in her retirement. 
+  # Apart from the mandatory agricultural insurance, she invests nothing in her retirement.
+  # The agricultural Insurance is not payed by her, but from her family.
   # Default always same for all 14 options; We use it to compare all other options with
   
-  # Divorce_risk <- chance_event(0.3, 1, 0, n = 1)
-  # Cash1 <- Agri_insurance + (Default_option * (1 - Divorce_risk))
-  
-  Cash1 <- Agri_insurance + Default_option
-  Investment2 <- Agri_insurance_inv
-  profit_Default <- (Cash1 - Investment2)
+  PartA <- Agri_insurance + Default_option
+  PartB <- Agri_insurance_inv
+  profit_Default <- (PartA - PartB)
   
   NPV_no_branch <- discount(profit_Default,
                             discount_rate = 1, calculate_NPV = TRUE) 
@@ -422,7 +419,7 @@ decision_function <- function(x, varnames){
   
   
   
-  ####return list####
+  ####Return list####
   
   return(list(NPV_no_branch =  NPV_no_branch,
               
@@ -500,7 +497,7 @@ decision_function <- function(x, varnames){
   
 }
 
-
+####Simulation####
 mcSimulation_results <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
   model_function = decision_function,
@@ -508,73 +505,17 @@ mcSimulation_results <- decisionSupport::mcSimulation(
   functionSyntax = "plainNames"
 )
 
-# mcSimulation_results
-
-
-
-decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = c("NPV_profit_with_Own_business_branch_1",
-                                             "NPV_profit_with_Own_business_branch_2"),
-                                    method = 'smooth_simple_overlay', 
-                                    base_size = 7)
-
-
-decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = c("NPV_decision_profit_with_off_farm_job_4",
-                                             "NPV_decision_profit_with_off_farm_job_5",
-                                             "NPV_decision_profit_with_off_farm_job_6",
-                                             "NPV_decision_profit_with_off_farm_job_7",
-                                             "NPV_decision_profit_with_on_farm_job_8",
-                                             "NPV_decision_profit_with_on_farm_job_9",
-                                             "NPV_decision_profit_with_on_farm_job_10",
-                                             "NPV_decision_profit_with_on_farm_job_11"
-                                    ),
-                                    method = 'smooth_simple_overlay', 
-                                    base_size = 7)
-
-
-decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = c("NPV_decision_profit_with_Own_business_branch_1",
-                                             "NPV_decision_profit_with_Own_business_branch_2",
-                                             "NPV_decision_profit_with_Own_business_branch_3"
-                                    ),
-                                    method = 'smooth_simple_overlay', 
-                                    base_size = 7)
-
-
-
-decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = c("NPV_decision_profit_with_family_money_12",
-                                             "NPV_decision_profit_with_family_money_13",
-                                             "NPV_decision_profit_with_family_money_14"
-                                    ),
-                                    method = 'smooth_simple_overlay', 
-                                    base_size = 7)
-
-
-################################################################################
-### Our Model does not run yet, therefore we haven't cleaned up here
+####Plot distributions####
 
 #Plot Net Present Value (NPV) distributions
-
 #We can use the plot_distributions() function to produce 
 #one of the several plotting options for distribution outputs.
-#This shows us an overlay of the full results of the 
-#Monte Carlo model of the decision options, 
+#There we show an overlay of the full results of the 
+#Monte Carlo simulation (200 model runs) of the decision options, 
 #i.e. the expected NPV if we choose to do the
-#intervention Interv_NPV or not do the intervention NO_Interv_NPV.
+#intervention. 
 
-#Here we show the results of a Monte Carlo simulation 
-#(200 model runs) for 
-#estimating the comparative profits with and without hail nets.
-
-#Here we show the results of a Monte Carlo simulation (200 model runs) for
-#estimating the comparative profits with and without hail nets.
-#plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
-#                   vars = c("NPV_no_branch", "NPV_branch"),
-#                   method = 'smooth_simple_overlay', 
-#                   base_size = 7)
-
+#Plot own branch 
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
                                     vars = c("NPV_decision_profit_with_Own_business_branch_1",
                                              "NPV_decision_profit_with_Own_business_branch_2",
@@ -582,17 +523,18 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
                                     ),
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
-
-
+#Plot off farm Job
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
                                     vars = c("NPV_decision_profit_with_off_farm_job_4",
                                              "NPV_decision_profit_with_off_farm_job_5",
                                              "NPV_decision_profit_with_off_farm_job_6",
                                              "NPV_decision_profit_with_off_farm_job_7"
+                                            
                                     ),
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
 
+#Plot on farm job
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
                                     vars = c("NPV_decision_profit_with_on_farm_job_8",
                                              "NPV_decision_profit_with_on_farm_job_9",
@@ -603,6 +545,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
                                     base_size = 7)
 
 
+#Plot Family Money
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
                                     vars = c("NPV_decision_profit_with_family_money_12",
                                              "NPV_decision_profit_with_family_money_13",
@@ -612,90 +555,49 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
                                     base_size = 7)
 
 
-# plot_distributions(mcSimulation_object = mcSimulation_results_way10, #without _wayx , this code wil not work.
-#                    vars = c("NPV_no_branch", "NPV_branch"),
-#                    method = 'smooth_simple_overlay', 
-#                    base_size = 7,
-#                    theme(panel.background = element_rect(fill = "#FFFFFF", colour = "#D9D9D9", size = 1),
-#       panel.grid = element_line(colour = "#D9D9D9"),
-#       plot.title = element_text(vjust = 2, hjust = 0.5),
-#       axis.title.y = element_text(vjust = 2),
-#       axis.title.x = element_text(vjust = -1),
-#       axis.text.x = element_text(size = 10),
-#       strip.text = element_text(size = 12)))
-#   
-# 
-# 
-# plot_distributions(mcSimulation_object = mcSimulation_results_way10, #without _wayx , this code wil not work.
-#                    vars = c("NPV_no_branch", "NPV_branch"),
-#                    method = 'smooth_simple_overlay', 
-#                    base_size = 15)
-#       
-# plot_distributions(mcSimulation_object = mcSimulation_results_way2, #without _wayx , this code wil not work.
-#                    vars = c("NPV_no_branch", "NPV_branch"),
-#                    method = 'smooth_simple_overlay', 
-#                    base_size = 15)
-# 
-# plot_distributions(mcSimulation_object = mcSimulation_results_way6, #without _wayx , this code wil not work.
-#                    vars = c("NPV_no_branch", "NPV_branch"),
-#                    method = 'smooth_simple_overlay', 
-#                    base_size = 15)
+####Boxplots####
+# We can use the same function to show the distributions of the
+# decisions as boxplots. Boxplots show the median (central line), 
+# the 25th and 75th percentiles (sides of boxes) and any outliers 
+# (light circles outside of boxes).
+#'boxplot' own branch 
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = c("NPV_decision_profit_with_Own_business_branch_1",
+                                             "NPV_decision_profit_with_Own_business_branch_2",
+                                             "NPV_decision_profit_with_Own_business_branch_3"
+                                    ),
+                                    method = 'boxplot', 
+                                    base_size = 7)
+#'boxplot' off farm Job
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = c("NPV_decision_profit_with_off_farm_job_4",
+                                             "NPV_decision_profit_with_off_farm_job_5",
+                                             "NPV_decision_profit_with_off_farm_job_6",
+                                             "NPV_decision_profit_with_off_farm_job_7"
+                                             
+                                    ),
+                                    method = 'boxplot', 
+                                    base_size = 7)
+
+#'boxplot' on farm job
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = c("NPV_decision_profit_with_on_farm_job_8",
+                                             "NPV_decision_profit_with_on_farm_job_9",
+                                             "NPV_decision_profit_with_on_farm_job_10",
+                                             "NPV_decision_profit_with_on_farm_job_11"
+                                    ),
+                                    method = 'boxplot', 
+                                    base_size = 7)
 
 
-# boxplots
-
-#We can use the same function to show the distributions of the
-#‘do’ Interv_NPV and ‘do not do’ NO_Interv_NPV decision scenarios
-#as boxplots. This can be useful when comparing multiple outputs
-#by illustrating the spread of the data resulting from the 
-#decision model. Boxplots show the median (central line), 
-#the 25th and 75th percentiles (sides of boxes) and any outliers 
-#(light circles outside of boxes).
-
-decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
-                                    vars = c("NPV_no_branch",
-                                             "NPV_profit_with_Own_business_branch_1"),
-                                    method = 'boxplot')
-
-# decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way6, #without _wayx , this code wil not work.
-#                                     vars = c("NPV_no_branch",
-#                                              "NPV_branch"),
-#                                     method = 'boxplot')
-# 
-# decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way2, #without _wayx , this code wil not work.
-#                                     vars = c("NPV_no_branch",
-#                                              "NPV_branch"),
-#                                     method = 'boxplot')
-# 
-# 
-# 
-# decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results_way10, #without _wayx , this code wil not work.
-#                                     vars = c("NPV_no_branch",
-#                                              "NPV_branch"),
-#                                     method = 'boxplot')
-#distribution
-
-#We can use the same function for the value of the decision 
-#(difference in NPV between do and do not do). 
-#This can be quite helpful for us since it shows us the outcome 
-#distribution of the decision itself.
-decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, #without _wayx , this code wil not work.
-                                    vars = "NPV_profit_with_Own_business_branch_1",
-                                    method = 'boxplot_density')
-
-
-
-##histogram
-
-
-#ggplot(stacked_test,aes(x=values))+ 
-#  geom_histogram(data=subset(stacked_test,ind =='practice'),
-#                 aes(fill = ind), alpha = 0.5, bins = 150) + 
-#  geom_histogram(data=subset(stacked_test,ind == 'practice.2'),
-#                 aes(fill = ind), alpha = 0.5, bins = 150) +
-#  geom_histogram(data=subset(stacked_test,ind == 'practice.3'),
-#                 aes(fill = ind), alpha = 0.5, bins = 150) 
-
+#'boxplot' Family Money
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = c("NPV_decision_profit_with_family_money_12",
+                                             "NPV_decision_profit_with_family_money_13",
+                                             "NPV_decision_profit_with_family_money_14"
+                                    ),
+                                    method = 'boxplot', 
+                                    base_size = 7)
 ####Cashflow analysis####
 
 #Here we plot the distribution of annual cashflow over the 
@@ -707,58 +609,130 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
 
 
 
-CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_A" ) #without the correct variable name this code will not work.
+# CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_A" ) #without the correct variable name this code will not work.
+# 
+# CashflowB <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_B" ) 
+# 
+# CashflowC <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_C" ) 
+# 
+# CashflowD <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_D" ) 
+# 
+# CashflowE <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_E" )
+# 
+# CashflowF <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_F" )
+# 
+# CashflowG <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_G" )
+# 
+# CashflowH <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_H" )
+# 
+# CashflowI <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_I" )
+# 
+# CashflowJ <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_J" )
+# 
+# CashflowK <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_K" )
+# 
+# CashflowL <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_L" )
+# 
+# CashflowM <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_M" )
+# 
+# CashflowN <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_N" )
 
 CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-              cashflow_var_name = "Cashflow_decision_gender_way_A",
-              x_axis_name = "Year",
-              y_axis_name = "Cashflow in USD",
-              color_25_75 = "green4",
-              color_5_95 = "green1",
-              color_median = "red")
+                           cashflow_var_name = "Cashflow_decision_gender_way_A",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
+CashflowB <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_B",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
+CashflowC <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_C",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
+CashflowD <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_D",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
+CashflowE <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_E",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
+CashflowF <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_F",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
+CashflowG <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_G",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
+CashflowH <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_H",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
+CashflowI <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_I",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
+CashflowJ <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_J",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
+CashflowK <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_K",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
+CashflowL <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_L",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
+CashflowM <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_M",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
 
-CashflowB <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_B" ) 
 
-CashflowC <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_C" ) 
-
-CashflowD <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_D" ) 
-
-CashflowE <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_E" )
-
-CashflowF <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_F" )
-
-CashflowG <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_G" )
-
-CashflowH <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_H" )
-
-CashflowI <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_I" )
-
-CashflowJ <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_J" )
-
-CashflowK <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_K" )
-
-CashflowL <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_L" )
-
-CashflowM <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_M" )
-
-CashflowN <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_N" )
-CashflowA
-CashflowB
-CashflowC
-CashflowD
-CashflowE
-CashflowF
-CashflowG
-CashflowH
-CashflowI
-CashflowJ
-CashflowK
-CashflowL
-CashflowM
-####Projection to Latent Structures (PLS) analysis####
+####PLS####
 
 #We apply a post-hoc analysis to the mcSimulation() outputs
-
 #with plsr.mcSimulation() to determine the Variable 
 #Importance in the Projection (VIP) score and coefficients of 
 #a Projection to Latent Structures (PLS) regression model. 
@@ -766,60 +740,111 @@ CashflowM
 #all the input variables from the decision analysis function 
 #in the parameter object and then runs a PLS regression with an 
 #outcome variable defined in the parameter resultName. 
-#We use the code names(mcSimulation_results$y)[3] to select the
-#outcome variable NPV_decision_do, which is the third element of
-#the list y in our mcSimulation_results outputs
-#(this must be a character element).
+#We use the code names(mcSimulation_results$y)[n] to select the
+#correct results for our 14 ways. 
+# Here we provide also a legend of the objects 
+# in  mcSimulation_results$y
+
 names(mcSimulation_results$x)
 names(mcSimulation_results$y)
 
-pls_result <- plsr.mcSimulation(object = mcSimulation_results,
-                                variables.x = names(mcSimulation_results$x)[c(1,2,11,14,17,21,33,39,38)],
-                                resultName = names(mcSimulation_results$y)[c(304)], ncomp = 1)
+
+#	3	 "NPV_decision_profit_with_Own_business_branch_1"
+#	62	"NPV_decision_profit_with_Own_business_branch_2"
+#	121	"NPV_decision_profit_with_Own_business_branch_3"
+#	180	"NPV_decision_profit_with_off_farm_job_4"
+#	239	"NPV_decision_profit_with_off_farm_job_5"
+#	298	"NPV_decision_profit_with_off_farm_job_6"
+#	357	"NPV_decision_profit_with_off_farm_job_7"
+#	416	"NPV_decision_profit_with_on_farm_job_8"
+#	475	"NPV_decision_profit_with_on_farm_job_9"
+#	534	 "NPV_decision_profit_with_on_farm_job_10"
+#	593	"NPV_decision_profit_with_on_farm_job_11"
+#	652	"NPV_decision_profit_with_family_money_12"
+#	711	"NPV_decision_profit_with_family_money_13"
+#	770	"NPV_decision_profit_with_family_money_14"
+
+#	Pls of	 "NPV_decision_profit_with_Own_business_branch_1"
+pls_result_1 <- plsr.mcSimulation(object = mcSimulation_results,
+                                resultName = names(mcSimulation_results$y)[3], ncomp = 1)
+
+#	Pls of	"NPV_decision_profit_with_Own_business_branch_2"
+pls_result_2 <- plsr.mcSimulation(object = mcSimulation_results,
+                                  resultName = names(mcSimulation_results$y)[62], ncomp = 1)
+
+#	Pls of	"NPV_decision_profit_with_Own_business_branch_3"
+pls_result_3 <- plsr.mcSimulation(object = mcSimulation_results,
+                                  resultName = names(mcSimulation_results$y)[121], ncomp = 1)
+
+#	Pls of	"NPV_decision_profit_with_off_farm_job_4"
+pls_result_4 <- plsr.mcSimulation(object = mcSimulation_results,
+                                  resultName = names(mcSimulation_results$y)[180], ncomp = 1)
+
+#	Pls of	"NPV_decision_profit_with_off_farm_job_5"
+pls_result_5 <- plsr.mcSimulation(object = mcSimulation_results,
+                                  resultName = names(mcSimulation_results$y)[239], ncomp = 1)
+
+#	Pls of	"NPV_decision_profit_with_off_farm_job_6"
+pls_result_6 <- plsr.mcSimulation(object = mcSimulation_results,
+                                  resultName = names(mcSimulation_results$y)[298], ncomp = 1)
+
+#	Pls of	"NPV_decision_profit_with_off_farm_job_7"
+pls_result_7 <- plsr.mcSimulation(object = mcSimulation_results,
+                                  resultName = names(mcSimulation_results$y)[357], ncomp = 1)
+
+#	Pls of	"NPV_decision_profit_with_on_farm_job_8"
+pls_result_8 <- plsr.mcSimulation(object = mcSimulation_results,
+                                  resultName = names(mcSimulation_results$y)[416], ncomp = 1)
+
+#	Pls of	"NPV_decision_profit_with_on_farm_job_9"
+pls_result_9 <- plsr.mcSimulation(object = mcSimulation_results,
+                                  resultName = names(mcSimulation_results$y)[475], ncomp = 1)
+
+#	Pls of	 "NPV_decision_profit_with_on_farm_job_10"
+pls_result_10 <- plsr.mcSimulation(object = mcSimulation_results,
+                                  resultName = names(mcSimulation_results$y)[534], ncomp = 1)
+
+#	Pls of	"NPV_decision_profit_with_on_farm_job_11"
+pls_result_11 <- plsr.mcSimulation(object = mcSimulation_results,
+                                  resultName = names(mcSimulation_results$y)[539], ncomp = 1)
+
+#	Pls of	"NPV_decision_profit_with_family_money_12"
+pls_result_12 <- plsr.mcSimulation(object = mcSimulation_results,
+                                  resultName = names(mcSimulation_results$y)[652], ncomp = 1)
+
+#	Pls of	"NPV_decision_profit_with_family_money_13"
+pls_result_13 <- plsr.mcSimulation(object = mcSimulation_results,
+                                  resultName = names(mcSimulation_results$y)[711], ncomp = 1)
+
+#	Pls of	"NPV_decision_profit_with_family_money_14"
+pls_result_14 <- plsr.mcSimulation(object = mcSimulation_results,
+                                  resultName = names(mcSimulation_results$y)[770], ncomp = 1)
 
 
-#pls_result <- plsr.mcSimulation(object = mcSimulation_results,
-#                                resultName = names(mcSimulation_results$y)[c(3)], ncomp = 1)
-names(mcSimulation_results$x)#search for the numbers for x in here
-mcSimulation_results
-colnames(mcSimulation_results$y)[304]
-colnames(mcSimulation_results$x)[33]
-#######################################################################
+#We run the plot_pls() on the results from plsr.mcSimulation() 
+#The colors of the bars represent the positive or negative coefficient 
+#of the given input variable with the output variable.
 
-pls_result <- plsr.mcSimulation(object = mcSimulation_results,
-                                variables.x = names(mcSimulation_results$x)[c(1,2,11,14,17,21,33,39,38)],
-                                resultName = names(mcSimulation_results$y)[c(298)], ncomp = 1)
-
-
-#pls_result <- plsr.mcSimulation(object = mcSimulation_results,
-#                                resultName = names(mcSimulation_results$y)[c(3)], ncomp = 1)
-names(mcSimulation_results$x)#search for the numbers for x in here
-names(mcSimulation_results$y)#search for the numbers for y in here
-
-mcSimulation_results
-colnames(mcSimulation_results$y)[298]
-colnames(mcSimulation_results$x)[33]
+plot_pls(pls_result_1, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_2, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_3, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_4, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_5, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_6, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_7, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_8, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_9, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_10, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_11, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_12, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_13, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_14, threshold = 1, input_table = input_table_gender)
 
 
-#We run the plot_pls() on the results from plsr.mcSimulation() with a number of standard settings.
-#The length of the bars is equal to VIP with a vertical line at ‘1’
-#on the x-axis indicating a standard cut-off for VIP used for variable selection. 
-#The overall plot only shows those variables with a VIP > 0.8, which is the 
-#common threshold for variable selection. The colors of the bars represent the 
-#positive or negative coefficient of the given input variable with the output variable.
-#Here we import the input table again to replace the labels
-# for the variables on the y-axis. The input table can 
-#include a label and variable column. The standard 
-#(from the variable column) are usually computer readable and 
-#not very nice for a plot. The plot_pls() function uses the text
-#in the label column as replacement for the default text in the 
-#variable column.
-plot_pls(pls_result, threshold = 0) # I corrected it alread several times, but the input table here needs the name of our input table in our environment.
-# input_table = input_table_gender, 
-#showing strange results
-
-# We calculate Value of Information (VoI) analysis with the Expected Value of Perfect Information (EVPI). 
-#As we learned in Lecture 8 on forecasts, EVPI measures 
+####EVPI####
+# We calculate Value of Information (VoI) analysis 
+# with the Expected Value of Perfect Information (EVPI). 
+# As we learned in Lecture 8 on forecasts, EVPI measures 
 # the expected opportunity loss that is incurred when the decision-maker 
 # does not have perfect information about a particular variable. 
 # EVPI is determined by examining the influence of that variable on the output value of a decision model.
@@ -884,7 +909,7 @@ plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_14")
 
 ## in the compound figute, we are forced to use the wrong input table as an input, therefore we get bad results for some plots.
 compound_figure(mcSimulation_object = mcSimulation_results, 
-                input_table = input_table_gender, plsrResults = pls_result, 
+                input_table = input_table_gender, plsrResults = pls_result_1, 
                 EVPIresults = evpi, decision_var_name = "NPV_profit_with_Own_business_branch_1", 
                 cashflow_var_name = "Cashflow_decision_gender", 
                 base_size = 7)
