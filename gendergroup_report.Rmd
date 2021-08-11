@@ -194,34 +194,107 @@ Since pension payment and payouts are usually paid per month, we first used a mo
 
 ## Multiple ways
 
-Our Model entails 14 options we call „ways“, divided in 4 branches. Usually, there are 4 options per way: a so to say „ basic“ option just being paid for different kinds of work and then topping it with ETF, private insurance and mix of etf and private insurance
+
+Our Model entails 14 „ways“, divided according to different income sources in 4 branches. In each Branch, she pays a mandatory insurance (either state or agricultural insurance). In addition there are differnt options to top this mandatory insurance with personal investments like ETF, private insurance and mix of etf and private insurance.
 
 -	Branch 1 = Default vs. Own farm branch (Way 1, 2, 3)
 -	Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
 -	Branch 3 = Default vs. Payed on farm job (Way 8, 9, 10, 11)
 -	Branch 4 = Default vs. Family money (Way 12, 13, 14) 
 
+Each of the 14 Ways is compared to a default option. Here, our decision maker invests nothing in her retirement. The mandatory agricultural insurance, is not payed by her, but from her husband / family. 
 
-we compare each way to the Status quo, where the costs for agricultural insurance are paid by husband. 
+Our Case study expands over 57 Years and is split into a period of 40 Years of payment and a period of 17 Years of Payout. From all insurances, investments and pensions we produce time series with variation. 
+
+```{r }
+  #Agricultural insurance
+  Agri_insurance <- c(rep (0,working_years),vv(var_mean = Agri_insurance, 
+                                               var_CV = var_slight, 
+                                               n = pension_years))
+  
+  Agri_insurance_inv <- c(vv(var_mean =Agri_insurance_inv, 
+                             var_CV = var_slight, 
+                             n = working_years), rep(0,pension_years))
+```
 
 
-## EVPI
+In way 1, our decision maker sets up her own business branch. Analogue to the default option, she continues to be part of the agricultural insurance. However, she pays on her own. 
+On Top, she invests about 10 % of her income in a private insurance. 
+In Part A, her befits from the private insurance and agricultural insurance are summed up, wheras in PartB the Costs of the both insurancec are summed up. By subtracting the cost from the benefit, we obtain the NPV. The NPV is then discounted with a discount rate of 1. 
+  
+  
+```{r } 
+  PartA <- Private_insurance_own_branch + Agri_insurance
+  PartB <- Agri_insurance_inv + Private_insurance_inv_own_branch
+  profit_with_Own_business_branch_1 <- (PartA - PartB)
+  
+  NPV_profit_with_Own_business_branch_1 <- discount(profit_with_Own_business_branch_1,
+                                                    discount_rate = 1, calculate_NPV = TRUE)
+```
+
+
+In the default option, the agricultural insurance is payed by the family. Therefore, the decision maker incur the benefit of receiving pension without own investment. 
+
+```{r }
+  PartA <- Agri_insurance + Default_option
+  PartB <- Agri_insurance_inv 
+  # The variables Default_option and Agri_insurance_inv are equal and cancel each other out. 
+  profit_Default <- (PartA - PartB)
+  
+  NPV_no_branch <- discount(profit_Default,
+                            discount_rate = 1, calculate_NPV = TRUE) 
+```  
+  
+To calculate the NPV of the decision, we subtract the default option from Way 1.
+We perform this calculation on all the 14 Ways. 
+
+```{r }   
+  NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
+```
+  
+In our return list, we include the NPV of the default option, the NPVs of the different interventions, the NPV of the decisions and the cashflow. 
+
+```{r } 
+return(list(  NPV_no_branch =  NPV_no_branch,
+              
+              #way 1
+              NPV_profit_with_Own_business_branch_1 =  NPV_profit_with_Own_business_branch_1, 
+              NPV_decision_profit_with_Own_business_branch_1 =  NPV_decision_profit_with_Own_business_branch_1,
+              Cashflow_decision_gender_way_A =  profit_with_Own_business_branch_1,
+               #way 2
+              [...]
+               #way 14
+              [...]
+   )
+```  
+   
+ 
+
+
+# Results and Discussion
+Depending on the possiblities on farm and in the region, our decision maker can chose among differnt sources of income. The decision -maker may either start her own Branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract for her work or ask her husband to pay for her retirement. 
+
+Many of our Ways decision have a negative NPV. The reason is, that we compare our each of our Ways to the default option, in which the woman receives very little retirement, but as her family covers the cost for the mandatory insurance, she has no cost at all. 
+
+## here we need the plots of the 4 different branches !
+
+## PLS
+When checking the PLS for our differnt ways, it becomes apparent, thet the respective pension scheme has the highest impact. For example for Way one, The decision maker has a mandatory agricultral insurance and a private insurance. In The PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our Model is quite Simple, this corresponds to our expectations. 
 
 ## Cashflow
+
+The cashflow displays the biography of the decision maker. During the 40 years of work, the decison maker invests in her retirement. The payout is spread over the 17 Years of the pension. The cashflow shows ho the structure of pension investments - decision makers have to deal with long years of investment and negative cashflow and the return comes only in old age. 
 
 (figure caprion) Cashflow: Here we plot the distribution of annual cashflow over the 
 entire simulated period for the intervention (n_years) for way xx. 
 For this we use the plot_cashflow() function which uses the 
 specified cashflow outputs from the mcSimulation() function.
 
-The cashflow displays the biography of the decision maker. During the 40 years of work, the decison maker invests in her retirement. The payout is spread over the 17 Years of the pension. The cashflow shows ho the structure of pension investments - decision makers have to deal with long years of investment and negative cashflow and the return comes only in old age. 
-
-Analogue to @do_decision_2020, best option for a decision maker may largely depend on their discount rate. In our Model, we have used the dicount rate f 1. It would be desirable to provide a range of different dicount rates, to incoperete the different dicout rates of different decision makers. 
-
-To 
+##Discount rate
+Long-term payments directed to woman retirement incur high establishment and maintenance costs and will generate net losses in the first few years but return substantial benefits to the wife and family in the long term. Analogue to @do_decision_2020, best option for a decision maker may largely depend on their discount rate. In our Model, we have used the dicount rate f 1. It would be desirable to provide a range of different discount rates, to incoperete the different dicout rates of different decision makers. 
 
 ## Risks
-In our initial Version of the Model, we incooperaded the risks. 
+In our Model building process, we identified several risks which have the potentail to impair the model outcome. We estimated the likelihood of these risks to occur and incooperated them in our initial Version of the Model. Also, we identified the their potential impact on the NPV. However, The implementation of the Risks lead to misleading results, as our code applied the risks over end over, and was not sensitive to the time in the employment biography of the woman.  
 
 |Risk |Description	|lower(%)	|upper (%)	|
 |----	|-----------	|--	|--	|
@@ -230,15 +303,6 @@ In our initial Version of the Model, we incooperaded the risks.
 |Risk of fatal accident of husband |Percentage risk that farmer husband has a fatal accident at work  |0.01 |0.02|    |
 |Risk of farm bancruptcy |Percentage risk that farm goes bancrupt  |1 |1.7| |
 
-- ADD CODE CHUNKS AND DESCRIPTION (LARS AS EXAMPLE?)
-- FULL CODE IN SEPERATE FILE ON GITHUB--> WHERE CORY CAN EASILY FIND IT (AS SUGGESTED BY CORY)
-
-
-# Results/Outcome
-
-(ong-term payments directed to their woman retirement incur high establishment and maintenance costs and will generate net losses in the first few years but return substantial benefits to the wife and family in the long term.) --> STILL CORRECT?
-
-# Discussion
 
 Right mixture of options is important --> for each individual case--> depends on age, wealth before wedding, profession, in-laws (whether they see the need for a retirement plan) etc. 
 
@@ -263,12 +327,13 @@ Risk of no farm transfer: when the farm actually does not belong to the partner,
 
 - Not possible to include emotional strains/state (very individual), just financial monetary.
 
-- child care & elderly care was difficult to implemement into the coding--> left it out even though quite important in reality
 
+child care & elderly care was difficult to implemement into the coding--> left it out even though quite important in reality
 
-- not widely applicable --> need specific case study
+In this case study, we have provided a model which is not widely applicable to different family constellations. 
 
 # Conclusion
+
 # References
 
 
