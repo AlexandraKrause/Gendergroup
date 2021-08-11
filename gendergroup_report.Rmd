@@ -295,7 +295,8 @@ specified cashflow outputs from the mcSimulation() function.
 ##Discount rate
 Long-term payments directed to woman retirement incur high establishment and maintenance costs and will generate net losses in the first few years but return substantial benefits to the wife and family in the long term. Analogue to @do_decision_2020, best option for a decision maker may largely depend on their discount rate. In our Model, we have used the dicount rate f 1. It would be desirable to provide a range of different discount rates, to incoperete the different dicout rates of different decision makers. 
 
-## Risks
+
+##Risks
 In our Model building process, we identified several risks which have the potentail to impair the model outcome. We estimated the likelihood of these risks to occur and incooperated them in our initial Version of the Model. Also, we identified the their potential impact on the NPV. However, The implementation of the Risks lead to misleading results, as our code applied the risks over end over, and was not sensitive to the time in the employment biography of the woman.  
 
 |Risk |Description	|lower(%)	|upper (%)	|
@@ -305,11 +306,20 @@ In our Model building process, we identified several risks which have the potent
 |Risk of fatal accident of husband |Percentage risk that farmer husband has a fatal accident at work  |0.01 |0.02|    |
 |Risk of farm bancruptcy |Percentage risk that farm goes bancrupt  |1 |1.7| |
 
+## Problems/Obstacles/Uncertainties/what we did not implemement
+There are severalrisks, that would even decrease the value of the default option. 
 
-Right mixture of options is important --> for each individual case--> depends on age, wealth before wedding, profession, in-laws (whether they see the need for a retirement plan) etc. 
+Risk of no /late farm transfer: In our Model the Farm is transfered to the husband in time.  It is important to keep in mind that this is not always the case. As we learned in the workshop (see section Participatory research), a large number of farms chose to cancel the woman's agricultural pension because they prefer to invest the money into the farm directly.Also, the transfer of a family farm to the successor is oftentimes not a smooth process and might be realized later then expected. when the farm actually does not belong to the partner, but still to the parents in law, the situation of the woman is very insecure. She will not be registered as a wife. Without marriage, she can not be registered as a contributing family member. 
 
-Annual profits from farming mostly benefit the farm owner, which is rarely is the women. Farmers likely prefer reinvesting the available money in farming technology due to the relatively early incomes and short time-lag on returns. However, structural changes in agriculture and the high give-up rates impose high insecurity on the future of the farm and may raise the awareness for proper pension plans.
-Uncertainties related to the communication culture in farming families, farmers’ values, farm profitability, and pension returns appeared to have the greatest influence on whether a retirement plan emerged as the preferable option. Better access to information and self confidence to ask for a fair share of farming income are prerequisites to implement pension plans for in-married woman in german farms. Narrowing these key knowledge gaps may offer additional clarity on farmers’ wives optimal course of action and provide guidance for agencies promoting insurance interventions in Germany. Our model produced a set of plausible ranges for net present values and highlighted critical variables, more clarity on which would support decision-making under uncertainty. Our research approach proved effective in providing forecasts of uncertain outcomes and can be useful for informing family farms pursuing a pension plan.-->IS THAT TRUE? I THOUGHT OUR MODEL WAS RATHER CONFUSING
+Case of no marriage: When the woman is not married but "only" a partner, she will mot be eligible to the agricultural pension. If she does not pursue an outside job, she is not eligible for any pension. 
+
+Within the scope of this model, it was not possible to include the emotinal hurdles to pursue the rationally mot advisabme way. in our workshop woman emphazized, that asking for money is such a big step thyat many woman are to shy to even ask. Whith our model, we may identify the most attractive option in monetary terms, but probanly the monetary terms are not the most important one for woman. 
+
+child care & elderly care was difficult to implemement into the our model. Initially, we included child and elderly care as a cost. however, this cost in combination with the cost for pension investment mader the desion NPV incredibly negative. For the sake of a simple model we left it out, however, it would be desirable to include it in future.  
+
+
+
+Uncertainties related to the communication culture in farming families, farmers’ values, farm profitability, and pension returns appear to have the great influence on whether a retirement plan emerges as the preferable option. Better access to information and self confidence to ask for a fair share of farming income are prerequisites to implement pension plans for in-married woman in german farms. Narrowing these key knowledge gaps may offer additional clarity on farmers’ wives optimal course of action and provide guidance for agencies promoting insurance interventions in Germany. Our model produced a set of plausible ranges for net present values and highlighted critical variables, more clarity on which would support decision-making under uncertainty. Our research approach proved effective in providing forecasts of uncertain outcomes and can be useful for informing family farms pursuing a pension plan.-->IS THAT TRUE? I THOUGHT OUR MODEL WAS RATHER CONFUSING
  
 @do_decision_2020
 @fabian2018stellung
@@ -318,24 +328,14 @@ Uncertainties related to the communication culture in farming families, farmers�
 @oedl2020feminist_innen
 @BREG2017
 
-## Problems/Obstacles/Uncertainties/what we did not implemement
-It is important to keep in mind that this is not always the case. As we learned in the workshop (see section Participatory research), a large number of farms chose to cancel the woman's agricultural pension because they prefer to invest the money into the farm directly.Also, the transfer of a family farm to the successor is oftentimes not a smooth process and might be realized later then expected. 
+##Recommendation 
+Right mixture of options is important --> for each individual case--> depends on age, wealth before wedding, profession, in-laws (whether they see the need for a retirement plan) etc. 
 
-- There are severalrisks, that would even decrease the value of the default option. 
-Risk of no farm transfer: when the farm actually does not belong to the partner, but still to the parents in law, the situation of the woman is very insecure. She will not be registered as a wife. Without marriage, she can not be registered as a contributing family member. 
-
-- Case of no marriage: When the woman is not married but "only" a partner, she will mot be eligible to the agricultural pension.
-
-- Not possible to include all risks --> talked about a variety of other risks not included e.g. losing job (not likely), late farm transfer (influences all other options--> too big for this module
-
-- Not possible to include emotional strains/state (very individual), just financial monetary.
-
-
-child care & elderly care was difficult to implemement into the coding--> left it out even though quite important in reality
-
-In this case study, we have provided a model which is not widely applicable to different family constellations. 
+Annual profits from farming mostly benefit the farm owner, which is rarely is the women. Farmers likely prefer reinvesting the available money in farming technology due to the relatively early incomes and short time-lag on returns. However, structural changes in agriculture and the high give-up rates impose high insecurity on the future of the farm and may raise the awareness for proper pension plans.
 
 # Conclusion
+
+
 
 # References
 
