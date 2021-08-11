@@ -306,6 +306,14 @@ In our Model building process, we identified several risks which have the potent
 |Risk of fatal accident of husband |Percentage risk that farmer husband has a fatal accident at work  |0.01 |0.02|    |
 |Risk of farm bancruptcy |Percentage risk that farm goes bancrupt  |1 |1.7| |
 
+
+Risks: Problem with binominal distribution (0,1) and “infinity”(better word) over our time period
+E) Risks that cannot occur each year, but have to end like death of husband. The husband does not have a death risk if he already is dead. The ongoing 0/1 distribution would have to end
+F) Risks that do not mean the receiving of no money at all like in other cases (insect pests that destroy whole harvest). Risks would lower payment depending on when(!) they occure: if a farm wive pays into her insurances for many years, she should still get money out of the insurance if she stops paying in. Bancruptcy f.e. would not mean to get no pension at all. But depending on how long she pays money into the insurance, she would get more or less money. Only a function “knowing” exactly how the insurance gives out money after how many years paying in would work fine. If her husband would die even after 20 years paying for insurances, she would receive no money at all with the binominal distribution. The death of the husband is a risk that affects her working conditions and the money she could pay into the insurance from the year of the death onwards, but does not mean a total loss of pension.
+G) husband_risk means the power of the husband to prevent his wife from getting payed/ doing a job. This only occurs once. If she has a job, she does not discuss with her husband each year if she can still do it. This risk also is hard to value as a number
+-> instead of using the risks of the decision function, new risk functions would have to be written! Complicated, because no knowledge about the exact way the insurances pay what amounts of money under which conditions.
+
+
 ## Problems/Obstacles/Uncertainties/what we did not implemement
 There are severalrisks, that would even decrease the value of the default option. 
 
