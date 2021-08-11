@@ -825,23 +825,25 @@ pls_result_14 <- plsr.mcSimulation(object = mcSimulation_results,
 #The colors of the bars represent the positive or negative coefficient 
 #of the given input variable with the output variable.
 
-plot_pls(pls_result_1, threshold = 1, input_table = input_table_gender)
-plot_pls(pls_result_2, threshold = 1, input_table = input_table_gender)
-plot_pls(pls_result_3, threshold = 1, input_table = input_table_gender)
-plot_pls(pls_result_4, threshold = 1, input_table = input_table_gender)
-plot_pls(pls_result_5, threshold = 1, input_table = input_table_gender)
-plot_pls(pls_result_6, threshold = 1, input_table = input_table_gender)
-plot_pls(pls_result_7, threshold = 1, input_table = input_table_gender)
-plot_pls(pls_result_8, threshold = 1, input_table = input_table_gender)
-plot_pls(pls_result_9, threshold = 1, input_table = input_table_gender)
-plot_pls(pls_result_10, threshold = 1, input_table = input_table_gender)
-plot_pls(pls_result_11, threshold = 1, input_table = input_table_gender)
-plot_pls(pls_result_12, threshold = 1, input_table = input_table_gender)
-plot_pls(pls_result_13, threshold = 1, input_table = input_table_gender)
-plot_pls(pls_result_14, threshold = 1, input_table = input_table_gender)
+plot_pls(pls_result_1, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_2, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_3, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_4, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_5, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_6, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_7, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_8, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_9, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_10, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_11, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_12, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_13, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_14, threshold = 0.8, input_table = input_table_gender)
 
 
 ####EVPI####
+#Note From Alina: I do not understand how to make this evpi run
+
 # We calculate Value of Information (VoI) analysis 
 # with the Expected Value of Perfect Information (EVPI). 
 # As we learned in Lecture 8 on forecasts, EVPI measures 
@@ -906,7 +908,7 @@ mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_14 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_14")
 
-
+## Note from Alina: I suggest we dont use the coumpound figure. 
 ## in the compound figute, we are forced to use the wrong input table as an input, therefore we get bad results for some plots.
 compound_figure(mcSimulation_object = mcSimulation_results, 
                 input_table = input_table_gender, plsrResults = pls_result_1, 
