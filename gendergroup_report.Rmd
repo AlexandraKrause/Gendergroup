@@ -2,7 +2,7 @@
 title: "Decision analysis of pension options for women married into farms reveals gender disparities in pension entitlements in Germany"
 
 author: Alexandra Krause^[https://github.com/AlexandraKrause], Rex Parro^[https://github.com/parrorex23], 
-  Juia Schild^[https://github.com/J-Schild], Alina Gombert^[https://github.com/Kompostieren] 
+  Julia Schild^[https://github.com/J-Schild], Alina Gombert^[https://github.com/Kompostieren] 
 
 output: 
         bookdown::html_document2:
@@ -41,7 +41,7 @@ TO DO:
 ALINA
 
 - SECTION PROBLEMS/OBSTACLES --> ONLY BULLET POINTS WITH IDEAS UP TO NOW (ALINA)
-- FIX FIGURE CAPTIONS SO ALL LOOK THE SAME (BOTH TABLES NAMED 4.1.) + MAKE SURE FIGURE NUMBERS IN TEXT ARE CORRECT (ALINA)
+- FIX Table CAPTIONS SO ALL LOOK THE SAME + MAKE SURE FIGURE NUMBERS IN TEXT ARE CORRECT (ALINA)
 
 
 SOMEONE
@@ -113,36 +113,39 @@ Our goal was to gain a better understanding of the actual and current pension si
 We identified four major stakeholders in this decision. The farmer is the husband of our decision maker. He may depend on the support of his wife when running his farm. He may expect his wife to support him, as he most probably grew up in a farm, where his mother contributed without formal employment contract. Our second stakeholder category are children, that grow up on a farm and may encounter the expectation to take the farm over at some point. In case of a farm take over, The successor child will take responsibility for the financial security of its parents during their pension. To minimize his/ her financial obligations, the successor should be in favor of a good pension plan. Our third stakeholder category are the in-laws of the decision maker. When the husband owns the farm and his wife supported him full time, the wife self -sufficient in her pension but rather dependent on her husband. The In-laws may be skeptical about investing in the pension of the decision make, because they believe in the eternity of marriage. Another stakeholder are people that would like to start a farming business without inheriting one. Here, the 
 
 
-```{r, echo=FALSE, out.width='50%', fig.align='center', fig.cap="Invitation to the Workshop", fig.show='hold'}
+```{r invitation, echo=FALSE, out.width='50%', fig.align='center', fig.cap="Invitation to the Workshop", fig.show='hold'}
 knitr::include_graphics('images/1.png')
 knitr::include_graphics('images/2.png')
+
+# cite this figure with \@ref(fig:invitation)
 ```
+
+
 
 Table 4.1 shows an overview of the participants, their status in our research, and whether they partook in an interview and/or in the workshop.
 In total, 15 participants attended our workshop. After a brief introduction and a general initial discussion, the participants were given three questions, namely "What pension options does a farm wife have?" "What are potential risks and obstacles?" and "How could she finance the pension options?". After answering these questions in groups of three, we collected all thoughts and ideas in plenum. After a lively discussion we were able to update our model.
 
-Table 4.1: Overview of participants, their status and type of contribution (FIX FIGURE CAPTION TO LOOK LIKE OTHERS)
+```{r stakeholdertable, caption= "stakeholdertable", echo=FALSE}
+stakeholdertable <-read.csv2("./stakeholdertable.csv", dec = ",")
+knitr::kable(stakeholdertable, caption ='Overview of participants, their status and type of contribution')
 
-|  Participant 	| Status  	|  Interview 	|  Workshop participation 	|   	|
-|---	|---	|---	|---	|---	|
-|  Farmer's wife 	|  decision-maker 	|   no	|  yes 	|   	|
-|  Farmer 	|  stakeholder and co-decision-maker 	|   no	|  no 	|   	|
-|  Farm Children 	|  stakeholder 	|  no 	|  yes 	|   	|
-|  Rural woman association 	|  expert 	|  yes 	|  yes 	|   	|
-|  Agricultural Insurance agency 	|  expert 	|  yes 	|   yes	|   	|
-|  State insurance agency 	|  expert 	|   no	|  no 	|   	|
-|  Private insurance consultant 	|  expert 	|  yes 	|   no	|   	|
-|  Agriculral chamber consultant 	|  expert 	|  yes 	|   yes	|   	|
-|  Lawyer for agricultural family law	|  expert 	|  no 	| yes  	|   	|
-|  Young woman farmers	|  stakeholder 	|   no	|  yes 	|   	|
+# cite this table with \@ref(tab:stakeholdertable)
+
+```
+
+Table \@ref(tab:stakeholdertable) shows an overview of the participants, their status in our research, and whether they partook in an interview and/or in the workshop.
+In total, 15 participants attended our workshop. After a brief introduction and a general initial discussion, the participants were given three questions, namely "What pension options does a farm wife have?" "What are potential risks and obstacles?" and "How could she finance the pension options?". After answering these questions in groups of three, we collected all thoughts and ideas in plenum. After a lively discussion we were able to update our model.
 
 
 ## Adjustment of conceptual model
 
 Based on the outcomes of our research we adjusted and specified our decision option 2 (i.e. financing her own retirement plan) in our conceptual model (Figure 4.3).
 
-```{r, echo=FALSE, out.width='100%', fig.align='center', fig.cap="Adjusted decision option 2 pathways of financing her own retirement", fig.show='hold'}
+```{r draftmodel, echo=FALSE, out.width='100%', fig.align='center', fig.cap="Adjusted decision option 2 pathways of financing her own retirement", fig.show='hold'}
 knitr::include_graphics('images/Model_after_workshop_pension_plan.png')
+
+
+# cite this figure with \@ref(fig:draftmodel)
 ```
 
 
@@ -158,8 +161,10 @@ If choosing the options of own branch or receiving family money she would pay in
 We would like to highlight that the greatest obstacle to option 2 (i.e. pension plan) we were able identify from the workshop was in fact the husband/in-laws themselves. Every option in the retirement plan itself contains the risk, that they oppose her decision to plan for her retirement. Mainly because they do not see the necessity for it as farmers generally prefer to invest into their farming business rather than into their wives pension schemes. Additionally, the investment costs and having to find suitable child and eldery care is a further deterrent.This risk is illustrated by a black circle in the model and affects every option within the pension plan decision.
 The default option and associated risks remained the same in the updated version. The only change was that of design to match the design of the new decision options 2 pathway (Figure 4.4).
 
-```{r, echo=FALSE, out.width='100%', fig.align='center', fig.cap= "Decision option 1 aka default option after the workshop", fig.show='hold'}
+```{r defaultchunk, echo=FALSE, out.width='100%', fig.align='center', fig.cap= "Decision option 1 aka default option after the workshop", fig.show='hold'}
 knitr::include_graphics('images/Model_after_workshop_default.png')
+
+# cite this figure with \@ref(fig:defaultchunk)
 ```
 
 ## Model Inputs
@@ -171,11 +176,12 @@ Based on her appointed profession as gardener, we estimated her possible yearly 
 Pension estimation calculators such as the brutto-netto-rechner, Allianz-Rechner-Privatrente, SVLFG-Rentenschätzung and etf-sparplanrechner were used to narrow down reasonable monetary amounts of each option within the pension plan option.
 The monthly payment into and payout of the agricultural insurance depends on her status (i.e. wife of farm owner or contributing family member). In our case she is a contributing family member for five years, until her husband becomes farm owner. As soon as that happens the contributions into the insurance and her pension increase by 50%. It becomes obvious that a late farm transfer could have a negative impact on her pension.
  
-```{r tables, caption= "Input Table", echo=FALSE}
+```{r inputtable, caption= "Input Table", echo=FALSE}
 input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRISK_Alina.csv", dec = ",")
 knitr::kable(input_table_gender, caption ='Input table')
 # [1:5, ]
 
+# cite this table with \@ref(tab:inputtable)
 
 ```
 
@@ -194,10 +200,7 @@ Our model entails 14 „ways“, divided according to different income sources i
 *	Branch 4 = Default vs. Family money (Way 12, 13, 14) 
 
 Our case study expands over 57 years and is split into a period of 40 years of payment and a period of 17 years of payout. For all insurances, investments and pensions we produced time series with variation. 
-```{r }
 
-                             
-```
 
 ```{r, eval=FALSE}
   #Agricultural insurance
@@ -265,11 +268,9 @@ return(list(  NPV_no_branch =  NPV_no_branch,
 
 # Results and Discussion
 
-Depending on the possiblities on farm and in the region, our decision maker can chose among differnt sources of income. The decision maker may either start her own branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract or ask her husband to pay for her retirement. 
+Depending on the possibilities on farm and in the region, our decision maker can chose among different sources of income. The decision maker may either start her own branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract or ask her husband to pay for her retirement. 
 
 Many of our decision options have a negative NPV. The reason is that we compared each of our ways to the default option, in which the woman receives very little retirement, but as her family covers the cost for the mandatory insurance, she has no cost at all. 
-
-HERE WE NEED THE PLOTS FROM THE DIFFERENT BRANCHES
 
 
 ```{r , echo=FALSE}
@@ -779,7 +780,7 @@ mcSimulation_results <- decisionSupport::mcSimulation(
 
 
 
-```{r , fig.cap= "NPV decision of own business branch", echo=FALSE}
+```{r NPVbranch1, fig.cap= "NPV decision of own business branch", echo=FALSE}
 #Plot own branch 
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
                                     vars =  c("NPV_decision_profit_with_Own_business_branch_1",
@@ -788,11 +789,13 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
                                     ),
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
+
+# cite this figure with \@ref(fig:NPVbranch1)
 ```
 
 
 
-```{r , fig.cap = "NPV decision of off farm job", echo=FALSE}
+```{r NPVbranch2, fig.cap = "NPV decision of off farm job", echo=FALSE}
 #Plot off farm Job
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
                                     vars = c("NPV_decision_profit_with_off_farm_job_4",
@@ -804,11 +807,13 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
 
+# cite this figure with \@ref(fig:NPVbranch2)
+
 ```
 
 
 
-```{r , fig.cap = "NPV decision of on farm job", echo=FALSE}
+```{r NPVbranch3, fig.cap = "NPV decision of on farm job", echo=FALSE}
 #Plot on farm job
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
                                     vars = c("NPV_decision_profit_with_on_farm_job_8",
@@ -819,6 +824,8 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
 
+# cite this figure with \@ref(fig:NPVbranch3)
+
 ```
 
 
@@ -827,7 +834,7 @@ hello hello
 hello
 hello
 
-```{r , fig.cap = "NPV decision of family money", echo=FALSE}
+```{r NPVbranch4, fig.cap = "NPV decision of family money", echo=FALSE}
 #Plot Family Money
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
                                     vars = c("NPV_decision_profit_with_family_money_12",
@@ -837,26 +844,17 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
 
+# cite this figure with \@ref(fig:NPVbranch4)
 
 ```
 
 
-
-
-## PLS
-When checking the PLS for our differnt ways, it becomes apparent that the respective pension scheme has the highest impact. For example for way 1 our decision maker combines the mandatory agricultural insurance with private insurance. In the PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our model is quite simple, this corresponds with our expectations. 
-
 ## Cashflow
 
-The cashflow displays the biography of the decision maker. During the 40 years of work, the decision maker invests in her retirement. The payout is spread over the 17 years of pension. The cashflow shows how the structure of pension investments - decision makers have to deal with long years of investment and negative cashflow and the return comes only in old age. 
-
-(figure caprion) Cashflow: Here we plot the distribution of annual cashflow over the 
-entire simulated period for the intervention (n_years) for way xx. 
-For this we use the plot_cashflow() function which uses the 
-specified cashflow outputs from the mcSimulation() function.
 
 
-```{r , fig.cap = "Cashflow of way 1", echo=FALSE}
+
+```{r cashflow1, fig.cap = "Cashflow of way 1", echo=FALSE}
 CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results,
                            cashflow_var_name = "Cashflow_decision_gender_way_A",
                            x_axis_name = "Year",
@@ -866,16 +864,31 @@ CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results,
                            color_median = "red")
 CashflowA
 
+# cite this figure with \@ref(fig:cashflow1)
+
 ```
 
-## Model evaluation
-This is the pls 
 
-```{r , fig.cap = "PLS way 1", echo=FALSE}
+The cashflow displays the biography of the decision maker. During the 40 years of work, the decision maker invests in her retirement. The payout is spread over the 17 years of pension. The cashflow shows how the structure of pension investments - decision makers have to deal with long years of investment and negative cashflow and the return comes only in old age. 
+
+(figure caprion) Cashflow: Here we plot the distribution of annual cashflow over the 
+entire simulated period for the intervention (n_years) for way xx. 
+For this we use the plot_cashflow() function which uses the 
+specified cashflow outputs from the mcSimulation() function.
+## PLS
+
+
+```{r pls1, fig.cap = "PLS way 1", echo=FALSE}
 pls_result_1 <- plsr.mcSimulation(object = mcSimulation_results,
                                 resultName = names(mcSimulation_results$y)[3], ncomp = 1)
 plot_pls(pls_result_1, threshold = 0.8)
+
+# cite this figure with \@ref(fig:pls1)
 ```
+
+When checking the PLS for our differnt ways, it becomes apparent that the respective pension scheme has the highest impact . For example for way 1 our decision maker combines the mandatory agricultural insurance with private insurance. In the PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our model is quite simple, this corresponds with our expectations. (See Fig. \@ref(fig:pls1))
+
+
 
 
 ## Discount rate
@@ -885,13 +898,15 @@ Long-term payments directed to woman retirement incur high establishment and mai
 ## Risks
 In our model building process, we identified several risks which have the potentail to impair the model outcome. We estimated the likelihood of these risks to occur and incooperated them in our initial version of the model. Also, we identified their potential impact on the NPV. However, implementing the risks lead to misleading results, as our code applied the risks over and over, and was not sensitive to the time in the employment biography of the woman.  
 
-|Risk |Description	|lower(%)	|upper (%)	|
-|----	|-----------	|--	|--	|
-|Risk in-laws decide |Percentage risk that in-laws/husband overrule daughter in-law/wife  |45 |50|    |
-|Risk of divorce |Percentage risk that the marriage will be divorced at some point  |20 |40|    |
-|Risk of fatal accident of husband |Percentage risk that farmer husband has a fatal accident at work  |0.01 |0.02|    |
-|Risk of farm bancruptcy |Percentage risk that farm goes bancrupt  |1 |1.7| |
 
+```{r risktable, caption= "riskitable", echo=FALSE}
+risktable <-read.csv2("./risktable.csv", dec = ",")
+knitr::kable(risktable, caption ='Risks')
+
+# cite this table with \@ref(tab:risktable)
+```
+
+this is my favorite table (Table\@ref(tab:risktable))
 
 Risks: Problem with binominal distribution (0,1) and possible unlimitedness repetitions over our time period
 E) Risks that cannot occur each year, but have to end like death of husband. The husband does not have a death risk if he already is dead. The ongoing 0/1 distribution would have to end
