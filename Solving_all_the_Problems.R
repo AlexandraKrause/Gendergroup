@@ -844,63 +844,71 @@ plot_pls(pls_result_14, threshold = 0.8)
 # the expected opportunity loss that is incurred when the decision-maker 
 # does not have perfect information about a particular variable. 
 # EVPI is determined by examining the influence of that variable on the output value of a decision model.
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[3])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own_business_branch_1")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_1")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+names(mcSimulation_results$y[1:3])
+colnames(mcSimulation_results$y)[63]
+
+colnames(mcSimulation_results$y[1:3])
+
+
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1,59:61])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own_business_branch_2")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_2")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[212])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own_business_branch_3")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_3")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[180])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_4 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_4")
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[239])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_5 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_5")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[298])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_6 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_6")
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[357])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_7 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_7")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[416])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_8 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_8")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[475])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_9 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_9")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[534])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_10 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_10")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[539])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_11 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_11")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[652])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_12 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_12")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[711])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_13 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_13")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[770])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_14 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_14")
+
 
 ## Note from Alina: I suggest we dont use the coumpound figure. 
 ## in the compound figute, we are forced to use the wrong input table as an input, therefore we get bad results for some plots.
