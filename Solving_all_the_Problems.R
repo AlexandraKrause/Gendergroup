@@ -5,13 +5,10 @@ library(tidyverse)
 
 ####TO DO List ####
 
-#devtools::install_github("eikeluedeling/decisionSupport")
-#library(decisionSupport)
-#decisionSupport::plot_cashflow()
 
 ####Get data####
 
-input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Alina.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Alina_test.csv", dec = ",")
 
 input_table_gender <- input_table_gender %>% 
   mutate(Description = as.character(Description),
@@ -21,6 +18,15 @@ input_table_gender <- input_table_gender %>%
          lower = as.numeric(lower),
          median = as.numeric(median),
          upper = as.numeric(upper))
+
+#inputestimates
+#Reminder about the make_variables function
+make_variables <- function(est,n=1)
+{ x<-random(rho=est, n=n)
+for(i in colnames(x)) assign(i,
+                              as.numeric(x[1,i]),envir=.GlobalEnv)
+}#Then call:
+  make_variables(as.estimate(input_table_gender))
 
 
 ####Decision function####
@@ -498,7 +504,7 @@ decision_function <- function(x, varnames){
 mcSimulation_results <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
   model_function = decision_function,
-  numberOfModelRuns = 1000,
+  numberOfModelRuns = 100,
   functionSyntax = "plainNames"
 )
 
@@ -602,6 +608,37 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 #For this we use the plot_cashflow() function which uses the 
 #specified cashflow outputs from the mcSimulation() function 
 #(in our case Cashflow_decision_do) to show cashflow over time.
+
+
+
+
+# CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_A" ) #without the correct variable name this code will not work.
+# 
+# CashflowB <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_B" ) 
+# 
+# CashflowC <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_C" ) 
+# 
+# CashflowD <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_D" ) 
+# 
+# CashflowE <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_E" )
+# 
+# CashflowF <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_F" )
+# 
+# CashflowG <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_G" )
+# 
+# CashflowH <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_H" )
+# 
+# CashflowI <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_I" )
+# 
+# CashflowJ <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_J" )
+# 
+# CashflowK <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_K" )
+# 
+# CashflowL <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_L" )
+# 
+# CashflowM <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_M" )
+# 
+# CashflowN <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_N" )
 
 CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results,
                            cashflow_var_name = "Cashflow_decision_gender_way_A",
@@ -710,19 +747,7 @@ CashflowK
 CashflowL
 CashflowM
 
-CashflowA 
-CashflowB 
-CashflowC 
-CashflowD
-CashflowE 
-CashflowF
-CashflowG 
-CashflowH
-CashflowI 
-CashflowJ 
-CashflowK 
-CashflowL 
-CashflowM 
+
 
 
 
@@ -925,5 +950,28 @@ mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_14 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_14")
 
+
+## Note from Alina: I suggest we dont use the coumpound figure. 
+## in the compound figute, we are forced to use the wrong input table as an input, therefore we get bad results for some plots.
+# compound_figure(mcSimulation_object = mcSimulation_results, 
+#                 input_table = input_table_gender, plsrResults = pls_result_1, 
+#                 EVPIresults = evpi, decision_var_name = "NPV_profit_with_Own_business_branch_1", 
+#                 cashflow_var_name = "Cashflow_decision_gender", 
+#                 base_size = 7)
+
+
+#way 2
+# plot_cashflow(mcSimulation_object = mcSimulation_results_way2, cashflow_var_name = "Cashflow_decision_gender")
+# pls_result <- plsr.mcSimulation(object = mcSimulation_results_way2,
+#                                 resultName = names(mcSimulation_results_way2$y)[3], ncomp = 1)
+# plot_pls(pls_result, threshold = 0, input_table = input_table_gender)
+# mcSimulation_table <- data.frame(mcSimulation_results_way2$x, mcSimulation_results_way2$y[1:3])
+# evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
+# plot_evpi(evpi, decision_vars = "NPV_decision")
+# compound_figure(mcSimulation_object = mcSimulation_results_way2, 
+#                 input_table = input_table_gender, plsrResults = pls_result, 
+#                 EVPIresults = evpi, decision_var_name = "NPV_decision", 
+#                 cashflow_var_name = "Cashflow_decision_gender", 
+#                 base_size = 7)
 
 
