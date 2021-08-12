@@ -32,9 +32,7 @@ Mixing ETF and private insurance investment for 40 years on farm (10% of net inc
 Mixing ETF and private insurance investment for 40 years own branch (10% of net income divided into 5% ETF anf 5% private insurance);Yearly payment into retirement (Euro/month);Mix_inv_own_branch;posnorm;960;NA;1440
 Mixing ETF and private insurance investment for 40 years family money (10% of net income divided into 5% ETF anf 5% private insurance);Yearly payment into retirement (Euro/month);Mix_inv_family_money;posnorm;600;NA;2400
 Mandatory agricultural insurance (when not having a job) investment for 40 years (paid by in-laws/husband);Yearly payment into retirement (Euro/month);Default_option;const;2902,56;NA;2902,56
-Coefficient of variation, ratio of the standard deviation for 40 years paying pension  (death at 82);coeff. Variation (months);var_cv_40;const;480;NA;480
-Coefficient of variation, ratio of the standard deviation for 17 years getting pension (death at 82);coeff. Variation (months);var_cv_17;const;204;NA;204
-Coefficient of variation, ratio of the standard deviation for 6 years paying child care (primary school at 6);coeff. Variation (months);var_cv_6;const;72;NA;72
-Coefficient of variation, ratio of the standard deviation for 10 years paying elderly care (in-laws);coeff. Variation (months);var_cv_10;const;120;NA;120
+Coefficient of variation, ratio of the standard deviation for our variables  ;coeff. Variation;var_slight;const;1;NA;1
+Discout rate;Discout rate;discount_rate;const;1;NA;1
 Years of receiving pension;Yearly pension (Euro/month);pension_years;const;17;NA;17
 Years of paying into pension;Yearly payment into retirement (Euro/month);working_years;const;40;NA;40

@@ -4,13 +4,11 @@ library (DiagrammeR)
 library(tidyverse)
 
 ####TO DO List ####
-#add var_slight <- 1 and  discount_rate <- 1 to the input table
-
 
 
 ####Get data####
 
-input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Test2.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk.csv", dec = ",")
 
 input_table_gender <- input_table_gender %>% 
   mutate(Description = as.character(Description),
@@ -20,9 +18,6 @@ input_table_gender <- input_table_gender %>%
          lower = as.numeric(lower),
          median = as.numeric(median),
          upper = as.numeric(upper))
-
-var_slight <- 1
-
 
 
 ####Decision function####
@@ -181,7 +176,7 @@ decision_function <- function(x, varnames){
   profit_Default <- (PartA - PartB)
   
   NPV_no_branch <- discount(profit_Default,
-                            discount_rate = 1, calculate_NPV = TRUE) 
+                            discount_rate = discount_rate, calculate_NPV = TRUE) 
   
   
   # Branch 1 = Default vs. Own branch (way 1, 2, 3)
@@ -197,7 +192,7 @@ decision_function <- function(x, varnames){
   profit_with_Own_business_branch_1 <- (PartA - PartB)
   
   NPV_profit_with_Own_business_branch_1 <- discount(profit_with_Own_business_branch_1,
-                                                    discount_rate = 1, calculate_NPV = TRUE)
+                                                    discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
   
@@ -215,7 +210,7 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_Own_business_branch_2 <- discount(profit_with_Own_business_branch_2,
-                                                    discount_rate = 1, calculate_NPV = TRUE)
+                                                    discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_Own_business_branch_2 <- NPV_profit_with_Own_business_branch_2 - NPV_no_branch
   
@@ -232,7 +227,7 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_Own_business_branch_3 <- discount(profit_with_Own_business_branch_3,
-                                                    discount_rate = 1, calculate_NPV = TRUE)
+                                                    discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_Own_business_branch_3 <- NPV_profit_with_Own_business_branch_3 - NPV_no_branch
   
@@ -251,7 +246,7 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_off_farm_job_4 <- discount(profit_with_off_farm_job_4,
-                                             discount_rate = 1, calculate_NPV = TRUE)
+                                             discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_off_farm_job_4 <- NPV_profit_with_off_farm_job_4 - NPV_no_branch
   
@@ -268,7 +263,7 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_off_farm_job_5 <- discount(profit_with_off_farm_job_5,
-                                             discount_rate = 1, calculate_NPV = TRUE)
+                                             discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_off_farm_job_5 <- NPV_profit_with_off_farm_job_5 - NPV_no_branch
   
@@ -285,7 +280,7 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_off_farm_job_6 <- discount(profit_with_off_farm_job_6,
-                                             discount_rate = 1, calculate_NPV = TRUE)
+                                             discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_off_farm_job_6 <- NPV_profit_with_off_farm_job_6 - NPV_no_branch
   
@@ -302,7 +297,7 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_off_farm_job_7 <- discount(profit_with_off_farm_job_7,
-                                             discount_rate = 1, calculate_NPV = TRUE)
+                                             discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_off_farm_job_7 <- NPV_profit_with_off_farm_job_7 - NPV_no_branch
   
@@ -319,7 +314,7 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_on_farm_job_8 <- discount(profit_with_on_farm_job_8,
-                                            discount_rate = 1, calculate_NPV = TRUE)
+                                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_on_farm_job_8 <- NPV_profit_with_on_farm_job_8 - NPV_no_branch
   
@@ -336,7 +331,7 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_on_farm_job_9 <- discount(profit_with_on_farm_job_9,
-                                            discount_rate = 1, calculate_NPV = TRUE)
+                                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_on_farm_job_9 <- NPV_profit_with_on_farm_job_9 - NPV_no_branch
   
@@ -353,7 +348,7 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_on_farm_job_10 <- discount(profit_with_on_farm_job_10,
-                                             discount_rate = 1, calculate_NPV = TRUE)
+                                             discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_on_farm_job_10 <- NPV_profit_with_on_farm_job_10 - NPV_no_branch
   
@@ -370,7 +365,7 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_on_farm_job_11 <- discount(profit_with_on_farm_job_11,
-                                             discount_rate = 1, calculate_NPV = TRUE)
+                                             discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_on_farm_job_11 <- NPV_profit_with_on_farm_job_11 - NPV_no_branch
   
@@ -388,7 +383,7 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_family_money_12 <- discount(profit_with_family_money_12,
-                                              discount_rate = 1, calculate_NPV = TRUE)
+                                              discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_family_money_12 <- NPV_profit_with_family_money_12 - NPV_no_branch
   
@@ -403,7 +398,7 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_family_money_13 <- discount(profit_with_family_money_13,
-                                              discount_rate = 1, calculate_NPV = TRUE)
+                                              discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_family_money_13 <- NPV_profit_with_family_money_13 - NPV_no_branch
   
@@ -418,7 +413,7 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_family_money_14 <- discount(profit_with_family_money_14,
-                                              discount_rate = 1, calculate_NPV = TRUE)
+                                              discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_family_money_14 <- NPV_profit_with_family_money_14 - NPV_no_branch
   
@@ -506,7 +501,7 @@ decision_function <- function(x, varnames){
 mcSimulation_results <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
   model_function = decision_function,
-  numberOfModelRuns = 10000,
+  numberOfModelRuns = 100,
   functionSyntax = "plainNames"
 )
 
@@ -915,11 +910,11 @@ plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_14")
 
 ## Note from Alina: I suggest we dont use the coumpound figure. 
 ## in the compound figute, we are forced to use the wrong input table as an input, therefore we get bad results for some plots.
-compound_figure(mcSimulation_object = mcSimulation_results, 
-                input_table = input_table_gender, plsrResults = pls_result_1, 
-                EVPIresults = evpi, decision_var_name = "NPV_profit_with_Own_business_branch_1", 
-                cashflow_var_name = "Cashflow_decision_gender", 
-                base_size = 7)
+# compound_figure(mcSimulation_object = mcSimulation_results, 
+#                 input_table = input_table_gender, plsrResults = pls_result_1, 
+#                 EVPIresults = evpi, decision_var_name = "NPV_profit_with_Own_business_branch_1", 
+#                 cashflow_var_name = "Cashflow_decision_gender", 
+#                 base_size = 7)
 
 
 #way 2
