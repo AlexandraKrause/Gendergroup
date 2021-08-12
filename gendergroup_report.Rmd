@@ -286,11 +286,11 @@ entire simulated period for the intervention (n_years) for way xx.
 For this we use the plot_cashflow() function which uses the 
 specified cashflow outputs from the mcSimulation() function.
 
-##Discount rate
+## Discount rate
 Long-term payments directed to woman retirement incur high establishment and maintenance costs and will generate net losses in the first few years but return substantial benefits to the wife and family in the long term. Analogue to @do_decision_2020, best option for a decision maker may largely depend on their discount rate. In our Model, we have used the dicount rate f 1. It would be desirable to provide a range of different discount rates, to incoperete the different dicout rates of different decision makers. 
 
 
-##Risks
+## Risks
 In our model building process, we identified several risks which have the potentail to impair the model outcome. We estimated the likelihood of these risks to occur and incooperated them in our initial version of the model. Also, we identified their potential impact on the NPV. However, implementing the risks lead to misleading results, as our code applied the risks over and over, and was not sensitive to the time in the employment biography of the woman.  
 
 |Risk |Description	|lower(%)	|upper (%)	|
@@ -330,7 +330,7 @@ Uncertainties related to the communication culture in farming families, farmersâ
 @oedl2020feminist_innen
 @BREG2017
 
-##Recommendation 
+## Recommendation 
 Right mixture of options is important --> for each individual case--> depends on age, wealth before wedding, profession, in-laws (whether they see the need for a retirement plan) etc. 
 
 Annual profits from farming mostly benefit the farm owner, which is rarely is the women. Farmers likely prefer reinvesting the available money in farming technology due to the relatively early incomes and short time-lag on returns. However, structural changes in agriculture and the high give-up rates impose high insecurity on the future of the farm and may raise the awareness for proper pension plans.
