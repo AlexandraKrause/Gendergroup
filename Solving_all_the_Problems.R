@@ -723,6 +723,20 @@ CashflowM <- plot_cashflow(mcSimulation_object = mcSimulation_results,
                            color_5_95 = "green1",
                            color_median = "red")
 
+CashflowA 
+CashflowB 
+CashflowC 
+CashflowD
+CashflowE 
+CashflowF
+CashflowG 
+CashflowH
+CashflowI 
+CashflowJ 
+CashflowK 
+CashflowL 
+CashflowM 
+
 
 ####PLS####
 
