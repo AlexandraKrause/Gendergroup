@@ -8,7 +8,7 @@ library(tidyverse)
 
 ####Get data####
 
-input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Alina.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Alina_test.csv", dec = ",")
 
 input_table_gender <- input_table_gender %>% 
   mutate(Description = as.character(Description),
@@ -723,6 +723,19 @@ CashflowM <- plot_cashflow(mcSimulation_object = mcSimulation_results,
                            color_5_95 = "green1",
                            color_median = "red")
 
+CashflowA
+CashflowB
+CashflowC
+CashflowD
+CashflowE
+CashflowF
+CashflowG
+CashflowH
+CashflowI
+CashflowJ
+CashflowK
+CashflowL
+CashflowM
 
 ####PLS####
 
@@ -844,20 +857,22 @@ plot_pls(pls_result_14, threshold = 0.8)
 # the expected opportunity loss that is incurred when the decision-maker 
 # does not have perfect information about a particular variable. 
 # EVPI is determined by examining the influence of that variable on the output value of a decision model.
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[3])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own_business_branch_1")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_1")
 
 names(mcSimulation_results$y[1:3])
-colnames(mcSimulation_results$y)[63]
+colnames(mcSimulation_results$y)[60]
 
 colnames(mcSimulation_results$y[1:3])
 
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1,59:61])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,61,62)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own_business_branch_2")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_2")
+
+
 
 mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[212])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own_business_branch_3")
