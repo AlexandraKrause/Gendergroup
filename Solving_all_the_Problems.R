@@ -879,7 +879,7 @@ evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_1")
 
 names(mcSimulation_results$y[1:3])
-colnames(mcSimulation_results$y)[60]
+colnames(mcSimulation_results$y)[238]
 
 colnames(mcSimulation_results$y[1:3])
 
@@ -891,53 +891,62 @@ plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_2"
 
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[212])
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,120,121)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own_business_branch_3")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_3")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[180])
+#does not work
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,179,180)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_4 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_4")
 
-
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[239])
+#does not work
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,238,239)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_5 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_5")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[298])
+#does not work
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,297,298)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_6 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_6")
 
-
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[357])
+#does not work
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,356,357)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_7 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_7")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[416])
+#does not work
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,415,416)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_8 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_8")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[475])
+#does not work
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,474,475)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_9 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_9")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[534])
+#does not work
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,533,534)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_10 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_10")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[539])
+#does not work
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,538,539)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_11 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_11")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[652])
+#does not work
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,651,652)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_12 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_12")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[711])
+#does not work
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,710,711)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_13 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_13")
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[770])
+#does not work
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,769,770)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_14 ")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_14")
 
