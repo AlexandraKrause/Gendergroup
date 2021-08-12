@@ -495,7 +495,7 @@ decision_function <- function(x, varnames){
 mcSimulation_results <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
   model_function = decision_function,
-  numberOfModelRuns = 100,
+  numberOfModelRuns = 10000,
   functionSyntax = "plainNames"
 )
 
