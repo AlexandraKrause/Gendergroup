@@ -8,7 +8,7 @@ library(tidyverse)
 
 ####Get data####
 
-input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Alina_test.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Alina.csv", dec = ",")
 
 input_table_gender <- input_table_gender %>% 
   mutate(Description = as.character(Description),
