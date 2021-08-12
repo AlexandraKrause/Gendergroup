@@ -172,9 +172,8 @@ After receiving a calibration training in the DA-Course, we considered ourselves
 The time frame of our intervention amounts to 40 years (i.e. retirement at the age of 65). Based on this and according to the Methodology of @do_decision_2020, we tried to assign reasonable uncertainties given this long time horizon.
 Based on her appointed profession as gardener, we estimated her possible yearly income and amount of payment into the different insurance options. We repeated this process for own farm branch, on farm job and receiving family money. Hereby, we agreed that she would be able to invest at least 10 % of her income into private insurance schemes (i.e. private insurance, ETFs, or mix of both). After retiring, it is likely that she lives and receives her pension for another 17 years until the age of 82, which is the average female life expectancy in Germany (SOURCE).
 Pension estimation calculators such as the brutto-netto-rechner, Allianz-Rechner-Privatrente, SVLFG-Rentenschätzung and etf-sparplanrechner were used to narrow down reasonable monetary amounts of each option within the pension plan option.
-The monthly payment into and payout of the agricultural insurance depends on her status (i.e. wife of farm owner or contributing family member). In our case she is a contributing family member for five years, until her husband becomes farm owner. As soon as that happens the contributions into the insurance and her pension increase by 50%. It becomes obvious that a late farm transfer could have a negative impact on her pension. 
-The identified risks where then quantified by simulating their likelihood and degree of significance for her pension.
-
+The monthly payment into and payout of the agricultural insurance depends on her status (i.e. wife of farm owner or contributing family member). In our case she is a contributing family member for five years, until her husband becomes farm owner. As soon as that happens the contributions into the insurance and her pension increase by 50%. It becomes obvious that a late farm transfer could have a negative impact on her pension.
+ 
 ```{r tables, echo=FALSE}
 input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRISK.csv", dec = ",")
 knitr::kable(input_table_gender, caption ='Input table')
@@ -189,11 +188,11 @@ var_slight <- 1
 ## Coding the model
 
 The model was created in accordance with @R-decisionSupport. 
-Since the pension yield and input demand depend on the age of the decision-maker, all benefits and costs were modeled in relation to individual circumstances of the decision maker (e.g. profession,age etc). The heart of our model are the yearly payments into agricultural or state pension for 40 years (€/year) and the yearly pension payout for 17 years (€/year). 
+Since the pension yield and input demand depend on the age of the decision maker, all benefits and costs were modeled in relation to individual circumstances of the decision maker (e.g. profession,age etc). The heart of our model are the yearly payments into agricultural or state pension for 40 years (€/year) and the yearly pension payout for 17 years (€/year). 
 
 Since pension payment and payouts are usually paid per month, we first used a monthly time unit in our code. However, doing that created a wide variety of outputs for 684 months (40 years of working and paying into her pension plus 17 years of receiving pension) making it highly complicated to create a straightforward output in the @R-decisionSupport. Therefore we decided to use yearly time untis instead as intended by @R-decisionSupport.
 
-Our Model entails 14 „ways“, divided according to different income sources in 4 branches. In each branch, she pays a mandatory insurance (either state or agricultural insurance). In addition there are differnt options to top this mandatory insurance with personal investments like ETF, private insurance or a mix of both. Each of the 14 ways is compared to the default option (i.e. decision option 1). Here, our decision maker choses not to invest financially into her retirement and only relies on her husband/family-in-law since the mandatory agricultural insurance is paid by them.
+Our model entails 14 „ways“, divided according to different income sources in 4 branches. In each branch, she pays a mandatory insurance (either state or agricultural insurance). In addition there are differnt options to top this mandatory insurance with personal investments like ETF, private insurance or a mix of both. Each of the 14 ways is compared to the default option (i.e. decision option 1). Here, our decision maker choses not to invest financially into her retirement and only relies on her husband/family-in-law since the mandatory agricultural insurance is paid by them.
 
 *	Branch 1 = Default vs. Own farm branch (Way 1, 2, 3)
 *	Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
@@ -269,23 +268,21 @@ return(list(  NPV_no_branch =  NPV_no_branch,
               [...]
    )
 ```  
-   
- 
-
 
 # Results and Discussion
-Depending on the possiblities on farm and in the region, our decision maker can chose among differnt sources of income. The decision -maker may either start her own Branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract for her work or ask her husband to pay for her retirement. 
 
-Many of our Ways decision have a negative NPV. The reason is, that we compare our each of our Ways to the default option, in which the woman receives very little retirement, but as her family covers the cost for the mandatory insurance, she has no cost at all. 
+Depending on the possiblities on farm and in the region, our decision maker can chose among differnt sources of income. The decision maker may either start her own branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract or ask her husband to pay for her retirement. 
+
+Many of our decision options have a negative NPV. The reason is that we compared each of our ways to the default option, in which the woman receives very little retirement, but as her family covers the cost for the mandatory insurance, she has no cost at all. 
 
 HERE WE NEED THE PLOTS FROM THE DIFFERENT BRANCHES
 
 ## PLS
-When checking the PLS for our differnt ways, it becomes apparent, thet the respective pension scheme has the highest impact. For example for Way one, The decision maker has a mandatory agricultral insurance and a private insurance. In The PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our Model is quite Simple, this corresponds to our expectations. 
+When checking the PLS for our differnt ways, it becomes apparent that the respective pension scheme has the highest impact. For example for way 1 our decision maker combines the mandatory agricultural insurance with private insurance. In the PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our model is quite simple, this corresponds with our expectations. 
 
 ## Cashflow
 
-The cashflow displays the biography of the decision maker. During the 40 years of work, the decison maker invests in her retirement. The payout is spread over the 17 Years of the pension. The cashflow shows ho the structure of pension investments - decision makers have to deal with long years of investment and negative cashflow and the return comes only in old age. 
+The cashflow displays the biography of the decision maker. During the 40 years of work, the decision maker invests in her retirement. The payout is spread over the 17 years of pension. The cashflow shows how the structure of pension investments - decision makers have to deal with long years of investment and negative cashflow and the return comes only in old age. 
 
 (figure caprion) Cashflow: Here we plot the distribution of annual cashflow over the 
 entire simulated period for the intervention (n_years) for way xx. 
@@ -297,7 +294,7 @@ Long-term payments directed to woman retirement incur high establishment and mai
 
 
 ##Risks
-In our Model building process, we identified several risks which have the potentail to impair the model outcome. We estimated the likelihood of these risks to occur and incooperated them in our initial Version of the Model. Also, we identified the their potential impact on the NPV. However, The implementation of the Risks lead to misleading results, as our code applied the risks over end over, and was not sensitive to the time in the employment biography of the woman.  
+In our model building process, we identified several risks which have the potentail to impair the model outcome. We estimated the likelihood of these risks to occur and incooperated them in our initial version of the model. Also, we identified their potential impact on the NPV. However, implementing the risks lead to misleading results, as our code applied the risks over and over, and was not sensitive to the time in the employment biography of the woman.  
 
 |Risk |Description	|lower(%)	|upper (%)	|
 |----	|-----------	|--	|--	|
@@ -307,7 +304,7 @@ In our Model building process, we identified several risks which have the potent
 |Risk of farm bancruptcy |Percentage risk that farm goes bancrupt  |1 |1.7| |
 
 
-Risks: Problem with binominal distribution (0,1) and “infinity”(better word) over our time period
+Risks: Problem with binominal distribution (0,1) and possible unlimitedness repetitions over our time period
 E) Risks that cannot occur each year, but have to end like death of husband. The husband does not have a death risk if he already is dead. The ongoing 0/1 distribution would have to end
 F) Risks that do not mean the receiving of no money at all like in other cases (insect pests that destroy whole harvest). Risks would lower payment depending on when(!) they occure: if a farm wive pays into her insurances for many years, she should still get money out of the insurance if she stops paying in. Bancruptcy f.e. would not mean to get no pension at all. But depending on how long she pays money into the insurance, she would get more or less money. Only a function “knowing” exactly how the insurance gives out money after how many years paying in would work fine. If her husband would die even after 20 years paying for insurances, she would receive no money at all with the binominal distribution. The death of the husband is a risk that affects her working conditions and the money she could pay into the insurance from the year of the death onwards, but does not mean a total loss of pension.
 G) husband_risk means the power of the husband to prevent his wife from getting payed/ doing a job. This only occurs once. If she has a job, she does not discuss with her husband each year if she can still do it. This risk also is hard to value as a number
