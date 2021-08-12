@@ -498,7 +498,7 @@ decision_function <- function(x, varnames){
 mcSimulation_results <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
   model_function = decision_function,
-  numberOfModelRuns = 100,
+  numberOfModelRuns = 10000,
   functionSyntax = "plainNames"
 )
 
@@ -726,7 +726,7 @@ CashflowM <- plot_cashflow(mcSimulation_object = mcSimulation_results,
                            color_5_95 = "green1",
                            color_median = "red")
 
-<<<<<<< HEAD
+
 CashflowA
 CashflowB
 CashflowC
@@ -740,7 +740,7 @@ CashflowJ
 CashflowK
 CashflowL
 CashflowM
-=======
+
 CashflowA 
 CashflowB 
 CashflowC 
@@ -755,7 +755,7 @@ CashflowK
 CashflowL 
 CashflowM 
 
->>>>>>> 3b85d5a0ea9ee4f255ce9f7e2d385f207f0b6086
+
 
 ####PLS####
 
@@ -852,7 +852,10 @@ pls_result_14 <- plsr.mcSimulation(object = mcSimulation_results,
 #The colors of the bars represent the positive or negative coefficient 
 #of the given input variable with the output variable.
 
+jpeg("./grafik/rplot.jpg", width = 350, height = 350)
 plot_pls(pls_result_1, threshold = 0.8, input_table = input_table_gender)
+dev.off()
+
 plot_pls(pls_result_2, threshold = 0.8, input_table = input_table_gender)
 plot_pls(pls_result_3, threshold = 0.8, input_table = input_table_gender)
 plot_pls(pls_result_4, threshold = 0.8, input_table = input_table_gender)
