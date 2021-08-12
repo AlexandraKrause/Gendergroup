@@ -123,11 +123,6 @@ In total, 15 participants attended our workshop. After a brief introduction and 
 
 Table 4.1: Overview of participants, their status and type of contribution (FIX FIGURE CAPTION TO LOOK LIKE OTHERS)
 
-```{r tables, caption= "Input Table", echo=FALSE}
-
-
-```
-
 |  Participant 	| Status  	|  Interview 	|  Workshop participation 	|   	|
 |---	|---	|---	|---	|---	|
 |  Farmer's wife 	|  decision-maker 	|   no	|  yes 	|   	|
@@ -859,6 +854,29 @@ The cashflow displays the biography of the decision maker. During the 40 years o
 entire simulated period for the intervention (n_years) for way xx. 
 For this we use the plot_cashflow() function which uses the 
 specified cashflow outputs from the mcSimulation() function.
+
+
+```{r , fig.cap = "Cashflow of way 1", echo=FALSE}
+CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_A",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
+CashflowA
+
+```
+
+## Model evaluation
+This is the pls 
+
+```{r , fig.cap = "PLS way 1", echo=FALSE}
+pls_result_1 <- plsr.mcSimulation(object = mcSimulation_results,
+                                resultName = names(mcSimulation_results$y)[3], ncomp = 1)
+plot_pls(pls_result_1, threshold = 0.8)
+```
+
 
 ## Discount rate
 Long-term payments directed to woman retirement incur high establishment and maintenance costs and will generate net losses in the first few years but return substantial benefits to the wife and family in the long term. Analogue to @do_decision_2020, best option for a decision maker may largely depend on their discount rate. In our Model, we have used the dicount rate f 1. It would be desirable to provide a range of different discount rates, to incoperete the different dicout rates of different decision makers. 

@@ -723,6 +723,7 @@ CashflowM <- plot_cashflow(mcSimulation_object = mcSimulation_results,
                            color_5_95 = "green1",
                            color_median = "red")
 
+<<<<<<< HEAD
 CashflowA
 CashflowB
 CashflowC
@@ -736,6 +737,22 @@ CashflowJ
 CashflowK
 CashflowL
 CashflowM
+=======
+CashflowA 
+CashflowB 
+CashflowC 
+CashflowD
+CashflowE 
+CashflowF
+CashflowG 
+CashflowH
+CashflowI 
+CashflowJ 
+CashflowK 
+CashflowL 
+CashflowM 
+
+>>>>>>> 3b85d5a0ea9ee4f255ce9f7e2d385f207f0b6086
 
 ####PLS####
 
@@ -832,20 +849,20 @@ pls_result_14 <- plsr.mcSimulation(object = mcSimulation_results,
 #The colors of the bars represent the positive or negative coefficient 
 #of the given input variable with the output variable.
 
-plot_pls(pls_result_1, threshold = 0.8)
-plot_pls(pls_result_2, threshold = 0.8)
-plot_pls(pls_result_3, threshold = 0.8)
-plot_pls(pls_result_4, threshold = 0.8)
-plot_pls(pls_result_5, threshold = 0.8)
-plot_pls(pls_result_6, threshold = 0.8)
-plot_pls(pls_result_7, threshold = 0.8)
-plot_pls(pls_result_8, threshold = 0.8)
-plot_pls(pls_result_9, threshold = 0.8)
-plot_pls(pls_result_10, threshold = 0.8)
-plot_pls(pls_result_11, threshold = 0.8)
-plot_pls(pls_result_12, threshold = 0.8)
-plot_pls(pls_result_13, threshold = 0.8)
-plot_pls(pls_result_14, threshold = 0.8)
+plot_pls(pls_result_1, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_2, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_3, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_4, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_5, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_6, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_7, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_8, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_9, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_10, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_11, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_12, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_13, threshold = 0.8, input_table = input_table_gender)
+plot_pls(pls_result_14, threshold = 0.8, input_table = input_table_gender)
 
 
 ####EVPI####
