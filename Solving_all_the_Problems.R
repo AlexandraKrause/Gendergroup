@@ -5,6 +5,9 @@ library(tidyverse)
 
 ####TO DO List ####
 
+devtools::install_github("eikeluedeling/decisionSupport")
+library(decisionSupport)
+decisionSupport::plot_cashflow()
 
 ####Get data####
 

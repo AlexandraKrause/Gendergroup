@@ -41,11 +41,10 @@ TO DO:
 ALINA
 
 - SECTION PROBLEMS/OBSTACLES --> ONLY BULLET POINTS WITH IDEAS UP TO NOW (ALINA)
-- FIX Table CAPTIONS SO ALL LOOK THE SAME + MAKE SURE FIGURE NUMBERS IN TEXT ARE CORRECT (ALINA)
 
 
 SOMEONE
-- PROVIDE SOURCE IN LINE 70 (SECTION INTRO) & LINE 182 (AVERGAE FEMALE LIFE EXPECTANCY IN GERMANY IN SECTION MODEL INPUT - https://de.statista.com/statistik/daten/studie/273406/umfrage/entwicklung-der-lebenserwartung-bei-geburt--in-deutschland-nach-geschlecht/) 
+- PROVIDE SOURCE IN LINE 70 (SECTION INTRO) 
 
 NOT YET DONE
 - DISCUSSION
@@ -172,7 +171,7 @@ knitr::include_graphics('images/Model_after_workshop_default.png')
 The previous determination of our decision maker (see section 3.1 Decision maker) allowed us to fill our input table with values (Table 4.1).
 After receiving a calibration training in the DA-Course, we considered ourselves calibrated experts and were able to estimate reasonable ranges based on a mixed approach of literature reasearch and expert opinion.
 The time frame of our intervention amounts to 40 years (i.e. retirement at the age of 65). Based on this and according to the Methodology of @do_decision_2020, we tried to assign reasonable uncertainties given this long time horizon.
-Based on her appointed profession as gardener, we estimated her possible yearly income and amount of payment into the different insurance options. We repeated this process for own farm branch, on farm job and receiving family money. Hereby, we agreed that she would be able to invest at least 10 % of her income into private insurance schemes (i.e. private insurance, ETFs, or mix of both). After retiring, it is likely that she lives and receives her pension for another 17 years until the age of 82, which is the average female life expectancy in Germany (SOURCE).
+Based on her appointed profession as gardener, we estimated her possible yearly income and amount of payment into the different insurance options. We repeated this process for own farm branch, on farm job and receiving family money. Hereby, we agreed that she would be able to invest at least 10 % of her income into private insurance schemes (i.e. private insurance, ETFs, or mix of both). After retiring, it is likely that she lives and receives her pension for another 17 years until the age of 82, which is the average female life expectancy in Germany [@statistalife].
 Pension estimation calculators such as the brutto-netto-rechner, Allianz-Rechner-Privatrente, SVLFG-Rentenschätzung and etf-sparplanrechner were used to narrow down reasonable monetary amounts of each option within the pension plan option.
 The monthly payment into and payout of the agricultural insurance depends on her status (i.e. wife of farm owner or contributing family member). In our case she is a contributing family member for five years, until her husband becomes farm owner. As soon as that happens the contributions into the insurance and her pension increase by 50%. It becomes obvious that a late farm transfer could have a negative impact on her pension.
  
@@ -266,11 +265,6 @@ return(list(  NPV_no_branch =  NPV_no_branch,
    )
 ```  
 
-# Results and Discussion
-
-Depending on the possibilities on farm and in the region, our decision maker can chose among different sources of income. The decision maker may either start her own branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract or ask her husband to pay for her retirement. 
-
-Many of our decision options have a negative NPV. The reason is that we compared each of our ways to the default option, in which the woman receives very little retirement, but as her family covers the cost for the mandatory insurance, she has no cost at all. 
 
 
 ```{r , echo=FALSE}
@@ -779,6 +773,13 @@ mcSimulation_results <- decisionSupport::mcSimulation(
 ```
 
 
+# Results and Discussion
+
+Depending on the possibilities on farm and in the region, our decision maker can chose among different sources of income. The decision maker may either start her own branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract or ask her husband to pay for her retirement. 
+
+Many of our decision options have a negative NPV. The reason is that we compared each of our ways to the default option, in which the woman receives very little retirement, but as her family covers the cost for the mandatory insurance, she has no cost at all. 
+
+
 
 ```{r NPVbranch1, fig.cap= "NPV decision of own business branch", echo=FALSE}
 #Plot own branch 
@@ -792,6 +793,10 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 # cite this figure with \@ref(fig:NPVbranch1)
 ```
+
+In the first branch our decision-maker sets up her own business branch on her husbands farm. Here, she continues to be part of the agricultural insurance,
+but also invests about 10 % of her income in private insurance, etf or a mixed investment. 
+In Figure \@ref(fig:NPVbranch1) the NPVs from the decision clearly show, that these options are not attractive to our decision maker. Even tough the pension payout is considerably higher, the default option with the small pension comes for free. 
 
 
 
@@ -811,6 +816,11 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 ```
 
+In the second branch , our decision maker gets a gets an off-farm job. Here, she stops to be part of the agricultural insurance.Instead, she is part of the mandatory state insurance.
+Within this branch, the decision maker can either invests no income in pension 
+or invest  about 10% of her income in private insurance, ETF or mixed investment.
+In Figure \@ref(fig:NPVbranch2) the NPVs from the decision show, that only the investments in ETF and Mixed investment are  more attractive than the default. 
+Even tough the pension payout with any pension plan is considerably higher then the default, the default option with the small pension comes for free. 
 
 
 ```{r NPVbranch3, fig.cap = "NPV decision of on farm job", echo=FALSE}
@@ -829,10 +839,13 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 ```
 
 
-hekjsbrgjlbjlrbg
-hello hello
-hello
-hello
+In the third branch, our decision maker gets an official working contract 
+and gets officially paid on farm by her husband. Here, she stops to be part of the agricultural insurance.
+Instead, she is part of the mandatory state insurance. With the income from this on farm job, the decision maker can either invests no income in pension 
+or invest  about 10 % of her income in private insurance, ETF or mixed investment. 
+In Figure \@ref(fig:NPVbranch3) the NPVs from the decision show, that most options are not attractive to our decision maker. Even tough the pension payout is considerably higher, the default option with the small pension comes for free. 
+
+
 
 ```{r NPVbranch4, fig.cap = "NPV decision of family money", echo=FALSE}
 #Plot Family Money
@@ -848,6 +861,10 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 ```
 
+In the fourth branch, the decision maker convinces her husband to invest in her pension. Here, she continues to be part of the agricultural insurance,
+She uses the money from her husband to invest in a private insurance or ETF or mixed investment.
+In Figure \@ref(fig:NPVbranch4) the NPVs from the decision show, that most options are barely more attractive than the default to our decision maker. Even tough the pension payout is considerably higher, the default option with the small pension comes for free. 
+ 
 
 ## Cashflow
 
@@ -886,7 +903,7 @@ plot_pls(pls_result_1, threshold = 0.8)
 # cite this figure with \@ref(fig:pls1)
 ```
 
-When checking the PLS for our differnt ways, it becomes apparent that the respective pension scheme has the highest impact . For example for way 1 our decision maker combines the mandatory agricultural insurance with private insurance. In the PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our model is quite simple, this corresponds with our expectations. (See Fig. \@ref(fig:pls1))
+When checking the PLS for our differnt ways, it becomes apparent that the respective pension scheme has the highest impact . For example for way 1 our decision maker combines the mandatory agricultural insurance with private insurance. In the PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our model is quite simple, this corresponds with our expectations. (See Fig. \@ref(fig:pls1)). When looking at the Pls of other 
 
 
 
@@ -896,7 +913,7 @@ Long-term payments directed to woman retirement incur high establishment and mai
 
 
 ## Risks
-In our model building process, we identified several risks which have the potentail to impair the model outcome. We estimated the likelihood of these risks to occur and incooperated them in our initial version of the model. Also, we identified their potential impact on the NPV. However, implementing the risks lead to misleading results, as our code applied the risks over and over, and was not sensitive to the time in the employment biography of the woman.  
+In our model building process, we identified several risks which have the potential to impair the model outcome. We estimated the likelihood of these risks to occur and incooperated them in our initial version of the model. Also, we identified their potential impact on the NPV. However, implementing the risks lead to misleading results, as our code applied the risks over and over, and was not sensitive to the time in the employment biography of the woman.  
 
 
 ```{r risktable, caption= "riskitable", echo=FALSE}
