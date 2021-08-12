@@ -173,10 +173,9 @@ The time frame of our intervention amounts to 40 years (i.e. retirement at the a
 Based on her appointed profession as gardener, we estimated her possible yearly income and amount of payment into the different insurance options. We repeated this process for own farm branch, on farm job and receiving family money. Hereby, we agreed that she would be able to invest at least 10 % of her income into private insurance schemes (i.e. private insurance, ETFs, or mix of both). After retiring, it is likely that she lives and receives her pension for another 17 years until the age of 82, which is the average female life expectancy in Germany (SOURCE).
 Pension estimation calculators such as the brutto-netto-rechner, Allianz-Rechner-Privatrente, SVLFG-Rentenschätzung and etf-sparplanrechner were used to narrow down reasonable monetary amounts of each option within the pension plan option.
 The monthly payment into and payout of the agricultural insurance depends on her status (i.e. wife of farm owner or contributing family member). In our case she is a contributing family member for five years, until her husband becomes farm owner. As soon as that happens the contributions into the insurance and her pension increase by 50%. It becomes obvious that a late farm transfer could have a negative impact on her pension. 
-The identified risks were then quantified by simulating their likelihood and degree of significance for her pension.
 
 ```{r tables, echo=FALSE}
-input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRISK_Test2.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRISK.csv", dec = ",")
 knitr::kable(input_table_gender, caption ='Input table')
 # [1:5, ]
 
@@ -191,18 +190,16 @@ var_slight <- 1
 The model was created in accordance with @R-decisionSupport. 
 Since the pension yield and input demand depend on the age of the decision-maker, all benefits and costs were modeled in relation to individual circumstances of the decision maker (e.g. profession,age etc). The heart of our model are the yearly payments into agricultural or state pension for 40 years (€/year) and the yearly pension payout for 17 years (€/year). 
 
-Since pension payment and payouts are usually paid per month, we first used a monthly time unit in our code. However, doing that created a wide variety of outputs for 684 months (40 years of working and paying into her pension plus 17 years of receiving pension) making it highly complicated to create a straightforward output in the @R-decisionSupport. Thereforre we decided to use yearly time untis instead as intended by the @R-decisionSupport.
+Since pension payment and payouts are usually paid per month, we first used a monthly time unit in our code. However, doing that created a wide variety of outputs for 684 months (40 years of working and paying into her pension plus 17 years of receiving pension) making it highly complicated to create a straightforward output in the @R-decisionSupport. Therefore we decided to use yearly time untis instead as intended by @R-decisionSupport.
 
-Our Model entails 14 „ways“, divided according to different income sources in 4 branches. In each Branch, she pays a mandatory insurance (either state or agricultural insurance). In addition there are differnt options to top this mandatory insurance with personal investments like ETF, private insurance and mix of etf and private insurance.
+Our Model entails 14 „ways“, divided according to different income sources in 4 branches. In each branch, she pays a mandatory insurance (either state or agricultural insurance). In addition there are differnt options to top this mandatory insurance with personal investments like ETF, private insurance or a mix of both. Each of the 14 ways is compared to the default option (i.e. decision option 1). Here, our decision maker choses not to invest financially into her retirement and only relies on her husband/family-in-law since the mandatory agricultural insurance is paid by them.
 
 *	Branch 1 = Default vs. Own farm branch (Way 1, 2, 3)
 *	Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
 *	Branch 3 = Default vs. Payed on farm job (Way 8, 9, 10, 11)
 *	Branch 4 = Default vs. Family money (Way 12, 13, 14) 
 
-Each of the 14 Ways is compared to a default option. Here, our decision maker invests nothing in her retirement. The mandatory agricultural insurance, is not payed by her, but from her husband / family. 
-
-Our Case study expands over 57 Years and is split into a period of 40 Years of payment and a period of 17 Years of Payout. From all insurances, investments and pensions we produce time series with variation. 
+Our case study expands over 57 years and is split into a period of 40 years of payment and a period of 17 years of payout. For all insurances, investments and pensions we produced time series with variation. 
 ```{r }
 
                              
@@ -220,9 +217,11 @@ Our Case study expands over 57 Years and is split into a period of 40 Years of p
 ```
 
 
-In way 1, our decision maker sets up her own business branch. Analogue to the default option, she continues to be part of the agricultural insurance. However, she pays on her own. 
-On Top, she invests about 10 % of her income in a private insurance. 
-In Part A, her befits from the private insurance and agricultural insurance are summed up, wheras in PartB the Costs of the both insurancec are summed up. By subtracting the cost from the benefit, we obtain the NPV. The NPV is then discounted with a discount rate of 1. 
+In way 1, our decision maker sets up her own business branch. Analogue to the default option, she continues to be part of the agricultural insurance. Here however, she pays into it herself. 
+On top, she invests about 10 % of her income into private insurance. 
+In part A, her benefits from the private insurance and agricultural insurance were summed up, whereas part B sums up the cost for both insurances.
+
+By subtracting the cost from the benefit, we obtained the NPV. The NPV was then discounted with a discount rate of 1. 
   
   
 ```{r, eval=FALSE } 
@@ -235,7 +234,7 @@ In Part A, her befits from the private insurance and agricultural insurance are 
 ```
 
 
-In the default option, the agricultural insurance is payed by the family. Therefore, the decision maker incur the benefit of receiving pension without own investment. 
+In the default option, the agricultural insurance is paid for by the family. Therefore, the decision maker benefits from receiving pension without any own investment. 
 
 ```{r, eval=FALSE }
   PartA <- Agri_insurance + Default_option
@@ -247,14 +246,14 @@ In the default option, the agricultural insurance is payed by the family. Theref
                             discount_rate = 1, calculate_NPV = TRUE) 
 ```  
   
-To calculate the NPV of the decision, we subtract the default option from Way 1.
-We perform this calculation on all the 14 Ways. 
+To calculate the NPV of the decision, we subtracted the default option from way 1.
+We perform this calculation on all 14 ways. 
 
 ```{r, eval=FALSE }   
   NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
 ```
   
-In our return list, we include the NPV of the default option, the NPVs of the different interventions, the NPV of the decisions and the cashflow. 
+In our return list, we included the NPV of the default option, the NPVs of the different interventions, the NPV of the decisions and the cashflow. 
 
 ```{r, eval=FALSE } 
 return(list(  NPV_no_branch =  NPV_no_branch,
