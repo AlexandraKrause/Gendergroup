@@ -157,13 +157,7 @@ decision_function <- function(x, varnames){
   Mix_inv_family_money <- c(vv(var_mean =Mix_inv_family_money, 
                                var_CV = var_slight, 
                                n = working_years), rep(0,pension_years))
-  #default option
-  
-  Default_option <- c(vv(var_mean = Default_option,
-                         var_CV = var_slight, 
-                         n = working_years), rep(0,pension_years))
-  
- # }
+
 
   
   # Default option: Our decision maker is a farm wife and does nothing special. 
@@ -171,7 +165,7 @@ decision_function <- function(x, varnames){
   # The agricultural Insurance is not payed by her, but from her family.
   # Default always same for all 14 options; We use it to compare all other options with
   
-  PartA <- Agri_insurance + Default_option
+  PartA <- Agri_insurance + Agri_insurance_inv # this is payed by the husband /in-laws
   PartB <- Agri_insurance_inv
   profit_Default <- (PartA - PartB)
   
