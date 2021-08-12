@@ -3,6 +3,11 @@ library(decisionSupport)
 library (DiagrammeR)
 library(tidyverse)
 
+####TO DO List ####
+#add var_slight <- 1 and  discount_rate <- 1 to the input table
+
+
+
 ####Get data####
 
 input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Test2.csv", dec = ",")
