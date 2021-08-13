@@ -9,7 +9,7 @@ library(tidyverse)
 #library("Rtools 4.0")
 ####Get data####
 
-input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Alina_test.csv", dec = ",")
+input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Alina.csv", dec = ",")
 
 input_table_gender <- input_table_gender %>% 
   mutate(Description = as.character(Description),
@@ -912,6 +912,8 @@ evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_6")
 
 
+#here is an evpi:
+
 mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,356,357)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_7")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_7")
@@ -936,17 +938,21 @@ mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_11")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_11")
 
-#does not work
+
 mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,651,652)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_12")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_12")
 
-#does not work
+
+#here is an evpi:
+
+
 mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,710,711)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_13")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_13")
 
-#does not work
+#here is an evpi:
+
 mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,769,770)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_14")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_14")
