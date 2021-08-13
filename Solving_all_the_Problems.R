@@ -938,18 +938,18 @@ plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_11")
 
 #does not work
 mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,651,652)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_12")
-plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_12")
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_12")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_12")
 
 #does not work
 mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,710,711)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_13")
-plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_13")
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_13")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_13")
 
 #does not work
 mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,769,770)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_with_family_money_14")
-plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_with_family_money_14")
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_14")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_14")
 
 
 ## Note from Alina: I suggest we dont use the coumpound figure. 
