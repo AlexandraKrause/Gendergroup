@@ -779,6 +779,11 @@ Depending on the possibilities on farm and in the region, our decision maker can
 
 Many of our decision options have a negative NPV. The reason is that we compared each of our ways to the default option, in which the woman receives very little retirement, but as her family covers the cost for the mandatory insurance, she has no cost at all. 
 
+notes of alex: 
+NPVs were calculated in euro/month (see plots)
+put this omewhere in the text above (where is best):The model was run using a Monte-Carlo simulation with 10,000 repetitions
+i looked at lars script and remembered what they told us after the last presenttion. we still need this median npv plots. i will pick one branch and do one tomorrow
+
 
 
 ```{r NPVbranch1, fig.cap= "NPV decision of own business branch", echo=FALSE}
@@ -901,12 +906,47 @@ pls_result_1 <- plsr.mcSimulation(object = mcSimulation_results,
 plot_pls(pls_result_1, threshold = 0.8)
 
 # cite this figure with \@ref(fig:pls1)
+
+
 ```
+Using a Partial least square regression, a VIP score, Variable importance of a projection was produced.It shows which variables have the strongest impact on the outcome but also the correlation with the outcome. More decision analysis in research? Should we do more moitoring? The VIP shows the importance of the variables with a correlation of the output. The highest influences on the output are shown in the plot. Positive and negative values are visualised in comparison to the baseline option, showing if their influence is more positive or negative than the baseline
+Bar graphs (right) indicate variable importance
+(expressed by VIP scores) for variables to which the model was most
+sensitive (green bars indicate positive relationships with the outcome
+variables, red bars indicate negative relationships
 
-When checking the PLS for our differnt ways, it becomes apparent that the respective pension scheme has the highest impact . For example for way 1 our decision maker combines the mandatory agricultural insurance with private insurance. In the PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our model is quite simple, this corresponds with our expectations. (See Fig. \@ref(fig:pls1)). When looking at the Pls of other 
+When checking the PLS for our differnet ways, it becomes apparent that the respective pension scheme has the highest impact. For example for way 1 our decision maker combines the mandatory agricultural insurance with private insurance. In the PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our model is quite simple, this corresponds with our expectations. (See Fig. \@ref(fig:pls1)). When looking at the Pls of other 
+alex note: name variables with a Variable Importance in Projection (VIP) value greater than one and describe them exemplary
+
+##EVPI
+
+To guide further research, the EVPI analysis, an analysis of expected value of perfect information was calculated. The EVPI represents the amounts of money, a decision maker should be willing to pay to reduce the uncertainty concerning the respective variable. The variables with the highest uncertainty are shown. The EVPI shows where it would be suggested to invest more money to get better information about one variable. For broader ranges of lower and upper values, or rather more insecurity in the calculation of one variable the EVPI is positive. Further research could observe these variables to better the models.The x-axis is in euro.
+Most options had no variables with a positive EVPI. The expected value of information (EVPI) was calculated for the decision (Figure 7). 
+
+Option 13 and 14, where the money our decision maker could get from her family was compared to the default option had a positive EVPI. The money from her family would be used for ETF in way 14 and a mix of ETF and private insurance with option 13. For option 14, the variable mixed investment shows a positive EVPI of ..euro. This means, XY Euro should be invested in more research measuring the value of this variable regarding the output.
+A very low EVPI was not shown in the figues.
+
+Also option 7 showed a positive EVPI, where a job away from the farm leads to a private insurance where our decision maker also decides to pay into a mixed investment of ETF and private insurance.
+For number 7 this mix shows a positive EVPI over .... euro, which measn that further research on this variable should be done. Other ways with EVPI: 11,12,..?still running, might have missed s.th.
+A monitoring plan seemes to be recommendable according to the simulation results.
+
+
+```{r EVPI1, fig.cap = "EVPI way 13, 14", echo=FALSE}
+
+
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,710,711)])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_13")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_13")
 
 
 
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,769,770)])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_14")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_14")
+
+
+# cite this figure with \@ref(fig:EVPI1)
+```
 
 ## Discount rate
 Long-term payments directed to woman retirement incur high establishment and maintenance costs and will generate net losses in the first few years but return substantial benefits to the wife and family in the long term. Analogue to @do_decision_2020, best option for a decision maker may largely depend on their discount rate. In our Model, we have used the dicount rate f 1. It would be desirable to provide a range of different discount rates, to incoperete the different dicout rates of different decision makers. 
@@ -931,6 +971,22 @@ F) Risks that do not mean the receiving of no money at all like in other cases (
 G) husband_risk means the power of the husband to prevent his wife from getting payed/ doing a job. This only occurs once. If she has a job, she does not discuss with her husband each year if she can still do it. This risk also is hard to value as a number
 -> instead of using the risks of the decision function, new risk functions would have to be written! Complicated, because no knowledge about the exact way the insurances pay what amounts of money under which conditions.
 
+notes(have to be written better): 
+To answer the question, how risks could be better implemented in cases like this where binominal distributions are unfortunately, the use of a weibull-distribution would be fortunate (source: https://mediatum.ub.tum.de/doc/1479942/1479942.pdf)....how do i get sources in?
+https://mediatum.ub.tum.de/doc/1472787/1472787.pdf). better sources: brandel et al. 2020, paul et al 2019 (i have them on my desctop)...i will write more text regarding this, but it is hard to explain...i will work on it in word first)
+
+the diversity of investments or portfolio diversification referring to the modern portfolio theory could be implemented as well using a weilbull function for calculationg the risk of an investment failure like mentioned above and an utility function to calculate how risk affin the decision maker is (can we quote whiley books???)https://www.researchgate.net/publication/272157556_Modern_Portfolio_Theory_Capital_Market_Theory_and_Asset_Pricing_Models), so that a mixed investment would have an advantage over a single insurance for example (see the text i wrote for "discussion"-> not sure where to put it). With an utility function, the emotional choice of a farm wife to invest into something even though she might face discussions with her husband could be included into the simulation as well. It would cover her risk adversion regarding inner familiary problems. Since the utility functions "slope of an indifference curve reflects the fact
+that investors require a higher expected return in order to accept higher risk",the process of deciding for or against an option with the knowledge of conflics could be estimated
+(https://www.researchgate.net/publication/272157556_Modern_Portfolio_Theory_Capital_Market_Theory_and_Asset_Pricing_Models).
+
+
+##Discussion (alex: should we really put both together?)
+this should be mentioned, but i am not sure where: 
+
+The question if a farm wive should search for other pension option than only getting money out of the agricultural insurance, our model can only answer within its boundaries.Neither the necessity of having enough money during pension to buy food, medicine and other necessities nor risks of receiving money from a husband that might die or might file for divorce are implemented with all other obstacles that would come with the divorce. These are the main reasons, why only the options with the highest monetary value can compete with the option of a payed insurance, namely ETF and the mixture of ETF and private insurance.
+
+(write more about vv function and variability)
+suggestion: write s.th about ETF and why this investment is so good: insurances cost more than they pay off if i am not mistaken.  some sources about ETF (exchange traded funds): cheap because no fond managers, possible to pay small amounts in as well as big amounts: even with little money possible to pay in. but contra is that our estimation comes from blackrock who also sell them. other contra: we did not calculate stock crashes,...did we use data of one special etf? then maybe some text about what is in this one etf. We also did not calculate the possibility of the insurances to have economic problems (but i guess the possibility for etf is higher..source?). most important: a mix of different investments is a better option regarding failures of one option. This was therefoer not included in the code. Therefore, the Mix option is valued less than ETF. ETF itself is a option that includes many different options and therefore more diverse than asingle share, but an insurance together with an ETF is even more diverse. This diversity was not calculated in our code.(some source like this (can we quote whiley books???)https://www.researchgate.net/publication/272157556_Modern_Portfolio_Theory_Capital_Market_Theory_and_Asset_Pricing_Models) Minimising risk with diversification is a very important economic theme, taht our model is not referring to.
 
 ## Problems/Obstacles/Uncertainties/what we did not implemement
 There are severalrisks, that would even decrease the value of the default option. 
@@ -945,7 +1001,7 @@ child care & elderly care was difficult to implemement into the our model. Initi
 
 
 
-Uncertainties related to the communication culture in farming families, farmers’ values, farm profitability, and pension returns appear to have the great influence on whether a retirement plan emerges as the preferable option. Better access to information and self confidence to ask for a fair share of farming income are prerequisites to implement pension plans for in-married woman in german farms. Narrowing these key knowledge gaps may offer additional clarity on farmers’ wives optimal course of action and provide guidance for agencies promoting insurance interventions in Germany. Our model produced a set of plausible ranges for net present values and highlighted critical variables, more clarity on which would support decision-making under uncertainty. Our research approach proved effective in providing forecasts of uncertain outcomes and can be useful for informing family farms pursuing a pension plan.-->IS THAT TRUE? I THOUGHT OUR MODEL WAS RATHER CONFUSING
+Uncertainties related to the communication culture in farming families, farmers’ values, farm profitability, and pension returns appear to have the great influence on whether a retirement plan emerges as the preferable option. Better access to information and self confidence to ask for a fair share of farming income are prerequisites to implement pension plans for in-married woman in german farms. Narrowing these key knowledge gaps may offer additional clarity on farmers’ wives optimal course of action and provide guidance for agencies promoting insurance interventions in Germany. Our model produced a set of plausible ranges for net present values and highlighted critical variables, more clarity on which would support decision-making under uncertainty. Our research approach proved effective in providing forecasts of uncertain outcomes and can be useful for informing family farms pursuing a pension plan.-->IS THAT TRUE? I THOUGHT OUR MODEL WAS RATHER CONFUSING (alex: i have to read it again tomorrow and will answer then)
  
 @do_decision_2020
 @fabian2018stellung
@@ -953,11 +1009,18 @@ Uncertainties related to the communication culture in farming families, farmers�
 @hadler2020
 @oedl2020feminist_innen
 @BREG2017
+Alex:
+
+Decisions like insurance investments are very complicated to be done with the decision support package.Binominal risks, that develop to consist over the long time period and lead to total failure of the decision if occuring were not appropriate for this model, where risks had to change and should only change the monetary values instead of leading to zero payouts.The intention of the cost function had to be changed from covering yearly revenues and costs to covering payments over many years, which were separated from the receivings over many years. Many different options had to be included into a very large function, which lead to problems detecting errors.An appropritae discount rate was hard to implement due to the very fortunate baseline option, that was very high without risks adapted to it. Not only did the monetary inflation during corona rise to record hights, it is also complicated to estimate the willingness of a female farm wife to invest. This is especially hard since the willingness might differ from a male farm owner.
+inflation source: https://www.handelsblatt.com/finanzen/geldpolitik/verbraucherpreise-deutsche-inflation-steht-bei-3-8-prozent-hoechster-wert-seit-1993/27502042.html?ticket=ST-6758410-YumxSPAkea3JeQYaZyqo-ap5 (better ones?)
+(more text about cashflow....?i will think of sth)(wrrite more about vv function and variability)
 
 ## Recommendation 
 Right mixture of options is important --> for each individual case--> depends on age, wealth before wedding, profession, in-laws (whether they see the need for a retirement plan) etc. 
 
 Annual profits from farming mostly benefit the farm owner, which is rarely is the women. Farmers likely prefer reinvesting the available money in farming technology due to the relatively early incomes and short time-lag on returns. However, structural changes in agriculture and the high give-up rates impose high insecurity on the future of the farm and may raise the awareness for proper pension plans.
+
+EVPI: give out money for those variables that need to be observed (it still runs, so i cannot write s.th. now)
 
 # Conclusion
 
