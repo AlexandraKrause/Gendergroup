@@ -1003,6 +1003,7 @@ child care & elderly care was difficult to implemement into the our model. Initi
 
 Uncertainties related to the communication culture in farming families, farmers’ values, farm profitability, and pension returns appear to have the great influence on whether a retirement plan emerges as the preferable option. Better access to information and self confidence to ask for a fair share of farming income are prerequisites to implement pension plans for in-married woman in german farms. Narrowing these key knowledge gaps may offer additional clarity on farmers’ wives optimal course of action and provide guidance for agencies promoting insurance interventions in Germany. Our model produced a set of plausible ranges for net present values and highlighted critical variables, more clarity on which would support decision-making under uncertainty. Our research approach proved effective in providing forecasts of uncertain outcomes and can be useful for informing family farms pursuing a pension plan.-->IS THAT TRUE? I THOUGHT OUR MODEL WAS RATHER CONFUSING (alex: i have to read it again tomorrow and will answer then)
  
+
 @do_decision_2020
 @fabian2018stellung
 @muller2010kostenlosen
@@ -1014,7 +1015,7 @@ Alex:
 Decisions like insurance investments are very complicated to be done with the decision support package.Binominal risks, that develop to consist over the long time period and lead to total failure of the decision if occuring were not appropriate for this model, where risks had to change and should only change the monetary values instead of leading to zero payouts.The intention of the cost function had to be changed from covering yearly revenues and costs to covering payments over many years, which were separated from the receivings over many years. Many different options had to be included into a very large function, which lead to problems detecting errors.An appropritae discount rate was hard to implement due to the very fortunate baseline option, that was very high without risks adapted to it. Not only did the monetary inflation during corona rise to record hights, it is also complicated to estimate the willingness of a female farm wife to invest. This is especially hard since the willingness might differ from a male farm owner.
 inflation source: https://www.handelsblatt.com/finanzen/geldpolitik/verbraucherpreise-deutsche-inflation-steht-bei-3-8-prozent-hoechster-wert-seit-1993/27502042.html?ticket=ST-6758410-YumxSPAkea3JeQYaZyqo-ap5 (better ones?)
 (more text about cashflow....?i will think of sth)(wrrite more about vv function and variability)
-
+-> and 2 ways missing: only 14 instaed of 18 because with old table  2 ways were too close to default option..describe which ways and why and why new table could make a difference (could it make a difference? need to look into it again...)
 ## Recommendation 
 Right mixture of options is important --> for each individual case--> depends on age, wealth before wedding, profession, in-laws (whether they see the need for a retirement plan) etc. 
 
@@ -1023,7 +1024,7 @@ Annual profits from farming mostly benefit the farm owner, which is rarely is th
 EVPI: give out money for those variables that need to be observed (it still runs, so i cannot write s.th. now)
 
 # Conclusion
-
+EVPI and Mix super, but model has boundarys. probably with implementation of risks,..mix better could be better than evpi (portfolio diversification) and more options better than default. s.th. about why it is risky to choose default and one of those different options would be good for a farm wive. More information for farm wives, social pressure and boundarys to make a decision. good for next generation, children do not have to care for her,....
 
 
 # References
