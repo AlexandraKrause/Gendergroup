@@ -505,7 +505,7 @@ decision_function <- function(x, varnames){
 mcSimulation_results <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
   model_function = decision_function,
-  numberOfModelRuns = 100,
+  numberOfModelRuns = 10000,
   functionSyntax = "plainNames"
 )
 
@@ -880,7 +880,7 @@ evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_1")
 
 names(mcSimulation_results$y[1:3])
-names(mcSimulation_results$y)[593]
+names(mcSimulation_results$y)[711]
 
 colnames(mcSimulation_results$y[1:3])
 
