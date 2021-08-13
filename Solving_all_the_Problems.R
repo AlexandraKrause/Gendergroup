@@ -957,7 +957,7 @@ mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_14")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_14")
 
-
+mcSimulation_results$y[c(1,769,770)]
 ## Note from Alina: I suggest we dont use the coumpound figure. 
 ## in the compound figute, we are forced to use the wrong input table as an input, therefore we get bad results for some plots.
 # compound_figure(mcSimulation_object = mcSimulation_results, 
