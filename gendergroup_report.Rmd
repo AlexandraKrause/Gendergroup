@@ -53,6 +53,8 @@ NOT YET DONE
 - ABSTRACT
 
 
+alex: sorry, i think i sometimes wrote in the wrong tense. it was all in a hurry today.i can aslo correct it tomorrow.
+
 
 # Abstract
 ?In our project, we intend to work on gender equality in german farming?.
@@ -909,27 +911,30 @@ plot_pls(pls_result_1, threshold = 0.8)
 
 
 ```
-Using a Partial least square regression, a VIP score, Variable importance of a projection was produced.It shows which variables have the strongest impact on the outcome but also the correlation with the outcome. More decision analysis in research? Should we do more moitoring? The VIP shows the importance of the variables with a correlation of the output. The highest influences on the output are shown in the plot. Positive and negative values are visualised in comparison to the baseline option, showing if their influence is more positive or negative than the baseline
-Bar graphs (right) indicate variable importance
-(expressed by VIP scores) for variables to which the model was most
-sensitive (green bars indicate positive relationships with the outcome
-variables, red bars indicate negative relationships
+Using a Partial least square regression, the Variable importance of a projection (VIP score) was produced as bar graphs.The model was more sensitive towards some variables, which are shown here. It shows which variables have the strongest impact on the outcome, but also the correlation with the outcome. The VIP shows the importance of the variables with a correlation of the output. The highest influences on the output are shown in the plot. Positive and negative values are visualised in comparison to the baseline option, showing if their influence is more positive or negative than the baseline, also showing a positive or negative relationship with the outcome.
+
 
 When checking the PLS for our differnet ways, it becomes apparent that the respective pension scheme has the highest impact. For example for way 1 our decision maker combines the mandatory agricultural insurance with private insurance. In the PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our model is quite simple, this corresponds with our expectations. (See Fig. \@ref(fig:pls1)). When looking at the Pls of other 
 alex note: name variables with a Variable Importance in Projection (VIP) value greater than one and describe them exemplary
 
 ##EVPI
+sorry, julia. this text is not ordered well
 
-To guide further research, the EVPI analysis, an analysis of expected value of perfect information was calculated. The EVPI represents the amounts of money, a decision maker should be willing to pay to reduce the uncertainty concerning the respective variable. The variables with the highest uncertainty are shown. The EVPI shows where it would be suggested to invest more money to get better information about one variable. For broader ranges of lower and upper values, or rather more insecurity in the calculation of one variable the EVPI is positive. Further research could observe these variables to better the models.The x-axis is in euro.
-Most options had no variables with a positive EVPI. The expected value of information (EVPI) was calculated for the decision (Figure 7). 
+To guide further research, the EVPI analysis, an analysis of expected value of perfect information was calculated. The EVPI represents the amounts of money, a decision maker should be willing to pay to reduce the uncertainty concerning the respective variable. The variables with the highest uncertainty are shown. The EVPI shows where it would be suggested to invest more money to get better information about one variable. For broader ranges of lower and upper values, or rather more insecurity in the calculation of one variable the EVPI is positive. Further research could observe these variables to better the models.
+Most options had no variables with a positive EVPI. The expected value of information (EVPI) was calculated for the decision (Figure 7). The x-axis is given in euro.
+
+these are just notes and have to be ordered (maybe not use all evpis, too): 
 
 Option 13 and 14, where the money our decision maker could get from her family was compared to the default option had a positive EVPI. The money from her family would be used for ETF in way 14 and a mix of ETF and private insurance with option 13. For option 14, the variable mixed investment shows a positive EVPI of ..euro. This means, XY Euro should be invested in more research measuring the value of this variable regarding the output.
 A very low EVPI was not shown in the figues.
 
+here i have to write more tomorrow:
 Also option 7 showed a positive EVPI, where a job away from the farm leads to a private insurance where our decision maker also decides to pay into a mixed investment of ETF and private insurance.
-For number 7 this mix shows a positive EVPI over .... euro, which measn that further research on this variable should be done. Other ways with EVPI: 11,12,..?still running, might have missed s.th.-> 11 and 2,too!!!!
+For number 7 this mix shows a positive EVPI over .... euro, which measn that further research on this variable should be done. Other ways with EVPI:11 and 2,too!!!!
 A monitoring plan seemes to be recommendable according to the simulation results.
 
+explnation how evpi works (needs to be shortened):
+EVPI nad Mix were the best investments, but sometimes still partly more negative than baseline option (like no 2). others were quite better than the baseline like no 7 and 13. no 6 is very good,too, but not shown since the boundary of the values in the input table is not so high. no 13 has the highest variance of lower and upper values in the input table, therefore the estimated money to invest in further research is so much. number 11 has a small x-axis because the values in the input table do not differ much. no 14 has as well as no 13 a wide boundary regarding the input, but the NPV is mostly negative. include more than the two? less?:
 
 ```{r EVPI1, fig.cap = "EVPI way 13, 14", echo=FALSE}
 
@@ -949,7 +954,7 @@ plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_14")
 ```
 
 ## Discount rate
-Long-term payments directed to woman retirement incur high establishment and maintenance costs and will generate net losses in the first few years but return substantial benefits to the wife and family in the long term. Analogue to @do_decision_2020, best option for a decision maker may largely depend on their discount rate. In our Model, we have used the dicount rate f 1. It would be desirable to provide a range of different discount rates, to incoperete the different dicout rates of different decision makers. 
+Long-term payments directed to woman retirement incur high establishment and maintenance costs and will generate net losses in the first few years but return substantial benefits to the wife and family in the long term. Analogue to @do_decision_2020, best option for a decision maker may largely depend on their discount rate. In our Model, we have used the dicount rate f 1. It would be desirable to provide a range of different discount rates, to incoperete the different dicout rates of different decision makers. (alex: see below under "discussion")
 
 
 ## Risks
@@ -1021,10 +1026,9 @@ Right mixture of options is important --> for each individual case--> depends on
 
 Annual profits from farming mostly benefit the farm owner, which is rarely is the women. Farmers likely prefer reinvesting the available money in farming technology due to the relatively early incomes and short time-lag on returns. However, structural changes in agriculture and the high give-up rates impose high insecurity on the future of the farm and may raise the awareness for proper pension plans.
 
-EVPI: give out money for those variables that need to be observed (it still runs, so i cannot write s.th. now)
-
+EVPI: give out money for those variables that need to be observed. Especially the variable ETF payed by family money (option 13) should be further observed, having a very wide range between upper and lower values as estimated values. Asking a decision maker for input estimates or getting various suggestions during another workshop in the future would clear the range of this value. The value of mixed investment payed by family money should also be further researched. The value of the mixed investment payed by the off-farm job could be further invested as well.
 # Conclusion
-EVPI and Mix super, but model has boundarys. probably with implementation of risks,..mix better could be better than evpi (portfolio diversification) and more options better than default. s.th. about why it is risky to choose default and one of those different options would be good for a farm wive. More information for farm wives, social pressure and boundarys to make a decision. good for next generation, children do not have to care for her,....
+EVPI and Mix super, but model has boundaries. probably with implementation of risks,..mix better could be better than evpi (portfolio diversification) and more options better than default. s.th. about why it is risky to choose default and one of those different options would be good for a farm wive. More information for farm wives, social pressure and boundarys to make a decision. good for next generation, children do not have to care for her,....
 
 
 # References
