@@ -927,7 +927,7 @@ Option 13 and 14, where the money our decision maker could get from her family w
 A very low EVPI was not shown in the figues.
 
 Also option 7 showed a positive EVPI, where a job away from the farm leads to a private insurance where our decision maker also decides to pay into a mixed investment of ETF and private insurance.
-For number 7 this mix shows a positive EVPI over .... euro, which measn that further research on this variable should be done. Other ways with EVPI: 11,12,..?still running, might have missed s.th.
+For number 7 this mix shows a positive EVPI over .... euro, which measn that further research on this variable should be done. Other ways with EVPI: 11,12,..?still running, might have missed s.th.-> 11 and 2,too!!!!
 A monitoring plan seemes to be recommendable according to the simulation results.
 
 
