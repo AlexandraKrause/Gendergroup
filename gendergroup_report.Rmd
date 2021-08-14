@@ -564,9 +564,36 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 ```
 
 In the fourth branch, the decision maker convinces her husband to invest in her pension. Here, she continues to be part of the agricultural insurance,
+
 She uses the money from her husband to invest in a private insurance or ETF or mixed investment.
 In figure \@ref(fig:NPVbranch4) the NPVs from the decision show, that most options are barely more attractive than the default to our decision maker. Even tough the pension payout is considerably higher, the default option with the small pension comes for free. 
+
+
+```{r NPV-outcome_seperated, fig.cap = "NPVs compared", echo=FALSE}
+#NPVs compared
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                     vars = "NPV_no_branch",
+                                     method = 'boxplot_density')
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = "NPV_profit_with_off_farm_job_6",
+                                    method = 'boxplot_density')
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = "NPV_profit_with_family_money_13",
+                                    method = 'boxplot_density')
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = "NPV_profit_with_family_money_14",
+                                    method = 'boxplot_density')
+
+# cite this figure with \@ref(fig:NPVcompared)
+```
+
+(have to number the plots like a),b),...does someone know how? i failed)
  
+The NPVs that differ the most from the baseline option were those of investing into ETF with a job away from the farm as well as investing into ETF and the investment mix with using family money. The last two options have a very broad range of loosing a lot of money or gaining much because of very broad ranges of investment and gain within the input estimates. This is because ......why are they so much higher than private insurance and state insurance payed with family money? is the money re-invested again and again? Then the model would not cover this re-investments properly and a function could be used instaed for a decision analysis in the future.
+
 
 ## Cashflow
 
@@ -584,14 +611,10 @@ CashflowA
 # cite this figure with \@ref(fig:cashflow1)
 
 ```
-
-
+Visulised is the Cashflow  for the first option, a private insurance payed by having an own business branch using the plot_cashflow() function with the mcSimulation() outputs. 
 The cashflow displays the biography of the decision maker. During the 40 years of work, the decision maker invests in her retirement. The payout is spread over the 17 years of pension. The cashflow shows how the structure of pension investments - decision makers have to deal with long years of investment and negative cashflow and the return comes only in old age. 
 
-(figure caprion) Cashflow: Here we plot the distribution of annual cashflow over the 
-entire simulated period for the intervention (n_years) for way xx. 
-For this we use the plot_cashflow() function which uses the 
-specified cashflow outputs from the mcSimulation() function.
+ 
 ## PLS
 
 
