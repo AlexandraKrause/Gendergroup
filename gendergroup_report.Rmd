@@ -201,7 +201,7 @@ Our model entails 14 „ways“, divided according to different income sources i
 *	Branch 3 = Default vs. Payed on farm job (Way 8, 9, 10, 11)
 *	Branch 4 = Default vs. Family money (Way 12, 13, 14) 
 
-Our case study expands over 57 years and is split into a period of 40 years of payment and a period of 17 years of payout. For all insurances, investments and pensions we produced time series with variation. 
+Our case study expands over 57 years and is split into a period of 40 years of payment and a period of 17 years of payout for each insurance option. For all insurances, investments and pensions we produced time series with variation, depicted here using the examples of agricultural insurance and private insurance having an off farm job. The abbreviation _inv_ represents the 40 working years in which she invests into her pension.
 
 
 ```{r, eval=FALSE}
@@ -213,8 +213,20 @@ Our case study expands over 57 years and is split into a period of 40 years of p
   Agri_insurance_inv <- c(vv(var_mean =Agri_insurance_inv, 
                              var_CV = var_slight, 
                              n = working_years), rep(0,pension_years))
+
+  #Private insurance
+  Private_insurance_off_farm <- c(rep (0,working_years), vv(var_mean =Private_insurance_off_farm, 
+                                                            var_CV = var_slight, 
+                                                            n = pension_years))
+
+  Private_insurance_inv_off_farm <- c(vv(var_mean =Private_insurance_inv_off_farm, 
+                                         var_CV = var_slight, 
+                                         n = working_years), rep(0,pension_years)
 ```
 
+The whole code can be found at --> add shortcut to repository & completely code so Cory can easily find it 
+
+## Branch 1: Setting up her own business
 
 In way 1, our decision maker sets up her own business branch. Analogue to the default option, she continues to be part of the agricultural insurance. Here however, she pays into it herself. 
 On top, she invests about 10 % of her income into private insurance. 
@@ -232,8 +244,7 @@ By subtracting the cost from the benefit, we obtained the NPV. The NPV was then 
                                                     discount_rate = 1, calculate_NPV = TRUE)
 ```
 
-
-In the default option, the agricultural insurance is paid for by the family. Therefore, the decision maker benefits from receiving pension without any own investment. 
+In the default option the agricultural insurance is paid for by the family. Therefore, the decision maker benefits from receiving pension without having invested any money herself. 
 
 ```{r, eval=FALSE }
   PartA <- Agri_insurance + Default_option
@@ -266,209 +277,9 @@ return(list(  NPV_no_branch =  NPV_no_branch,
                #way 14
               [...]
    )
-```  
-
-
-
-```{r , echo=FALSE}
-
-
-library(readr)
-library(decisionSupport)
-library (DiagrammeR)
-library(tidyverse)
-
-
-####Get data####
-
-input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Alina.csv", dec = ",")
-
-input_table_gender <- input_table_gender %>% 
-  mutate(Description = as.character(Description),
-         label = as.character(label),
-         variable = as.character(variable),
-         distribution = as.character(distribution),
-         lower = as.numeric(lower),
-         median = as.numeric(median),
-         upper = as.numeric(upper))
-
-
-####Decision function####
-
-# Branch 1 = Default vs. Own branch (way 1, 2, 3)
-# Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
-# Branch 3 = Default vs. On farm job = Payment of wife (Way 8, 9, 10, 11)
-# Branch 4 = Default vs. Family money (way 12, 13, 14) 
-
-
-decision_function <- function(x, varnames){
-  
-  #Agricultural insurance
-  Agri_insurance <- c(rep (0,working_years),vv(var_mean = Agri_insurance, 
-                                               var_CV = var_slight, 
-                                               n = pension_years))
-  
-  Agri_insurance_inv <- c(vv(var_mean =Agri_insurance_inv, 
-                             var_CV = var_slight, 
-                             n = working_years), rep(0,pension_years))
-  #Private insurance
-  Private_insurance_off_farm <- c(rep (0,working_years), vv(var_mean =Private_insurance_off_farm, 
-                                                            var_CV = var_slight, 
-                                                            n = pension_years))
-  
-  Private_insurance_on_farm <- c(rep (0,working_years), vv(var_mean =Private_insurance_on_farm, 
-                                                           var_CV = var_slight, 
-                                                           n = pension_years))
-  
-  Private_insurance_own_branch <- c(rep (0,working_years),vv(var_mean =Private_insurance_own_branch, 
-                                                             var_CV = var_slight, 
-                                                             n = pension_years))
-  
-  Private_insurance_family_money <- c(rep (0,working_years), vv(var_mean =Private_insurance_family_money, 
-                                                                var_CV = var_slight, 
-                                                                n = pension_years))
-  
-  Private_insurance_inv_off_farm <- c(vv(var_mean =Private_insurance_inv_off_farm, 
-                                         var_CV = var_slight, 
-                                         n = working_years), rep(0,pension_years))
-  
-  Private_insurance_inv_on_farm <- c( vv(var_mean =Private_insurance_inv_on_farm, 
-                                         var_CV = var_slight, 
-                                         n = working_years), rep(0,pension_years))
-  
-  Private_insurance_inv_own_branch <- c( vv(var_mean =Private_insurance_inv_own_branch, 
-                                            var_CV = var_slight, 
-                                            n = working_years), rep(0,pension_years))
-  
-  Private_insurance_inv_family_money <- c( vv(var_mean =Private_insurance_inv_family_money, 
-                                              var_CV = var_slight, 
-                                              n = working_years), rep(0,pension_years))
-  #State insurance
-  
-  State_insurance_off_farm <- c(rep (0,working_years), vv(var_mean =State_insurance_off_farm, 
-                                                          var_CV = var_slight, 
-                                                          n = pension_years))
-  
-  State_insurance_on_farm <- c(rep (0,working_years), vv(var_mean =State_insurance_on_farm, 
-                                                         var_CV = var_slight, 
-                                                         n = pension_years))
-  
-  State_insurance_inv_off_farm <-c(vv(var_mean =State_insurance_inv_off_farm, 
-                                      var_CV = var_slight, 
-                                      n = working_years),  rep(0,pension_years))
-  
-  State_insurance_inv_on_farm <- c(vv(var_mean =State_insurance_inv_on_farm, 
-                                      var_CV = var_slight, 
-                                      n = working_years), rep(0,pension_years))
-  #ETF
-  
-  
-  ETF_off_farm <- c(rep (0,working_years),vv(var_mean =ETF_off_farm, 
-                                             var_CV = var_slight, 
-                                             n = pension_years))
-  
-  ETF_on_farm <- c(rep (0,working_years), vv(var_mean =ETF_on_farm, 
-                                             var_CV = var_slight, 
-                                             n = pension_years))
-  
-  ETF_own_branch <- c(rep(0,working_years),vv(var_mean = ETF_own_branch, 
-                                              var_CV = var_slight, 
-                                              n = pension_years))
-  
-  ETF_family_money <- c(rep (0,working_years), vv(var_mean = ETF_family_money, 
-                                                  var_CV = var_slight, 
-                                                  n = pension_years))
-  
-  
-  ETF_inv_off_farm <- c(vv(var_mean =ETF_inv_off_farm, 
-                           var_CV = var_slight, 
-                           n = working_years), rep(0,pension_years))
-  
-  ETF_inv_on_farm <- c(vv(var_mean =ETF_inv_on_farm, 
-                          var_CV = var_slight, 
-                          n = working_years), rep(0,pension_years))
-  
-  ETF_inv_own_branch <- c(vv(var_mean =ETF_inv_own_branch, 
-                             var_CV = var_slight, 
-                             n = working_years), rep(0,pension_years))
-  
-  ETF_inv_family_money <- c( vv(var_mean =ETF_inv_family_money, 
-                                var_CV = var_slight, 
-                                n = working_years), rep(0,pension_years))
-  
-  # Mix
-  
-  Mix_off_farm <- c(rep (0,working_years), vv(var_mean = Mix_off_farm, 
-                                              var_CV = var_slight, 
-                                              n = pension_years))
-  
-  
-  Mix_on_farm <- c(rep (0,working_years), vv(var_mean =Mix_on_farm, 
-                                             var_CV = var_slight, 
-                                             n = pension_years))
-  
-  Mix_own_branch <- c(rep (0,working_years), vv(var_mean =Mix_own_branch, 
-                                                var_CV = var_slight, 
-                                                n = pension_years))
-  
-  Mix_family_money <- c(rep (0,working_years), vv(var_mean =Mix_family_money, 
-                                                  var_CV = var_slight, 
-                                                  n = pension_years))
-  
-  Mix_inv_off_farm <- c(vv(var_mean =Mix_inv_off_farm, 
-                           var_CV = var_slight, 
-                           n = working_years), rep(0,pension_years))
-  
-  Mix_inv_on_farm <- c(vv(var_mean =Mix_inv_on_farm, 
-                          var_CV = var_slight, 
-                          n = working_years), rep(0,pension_years))
-  
-  Mix_inv_own_branch <- c(vv(var_mean =Mix_inv_own_branch, 
-                             var_CV = var_slight, 
-                             n = working_years), rep(0,pension_years))
-  
-  Mix_inv_family_money <- c(vv(var_mean =Mix_inv_family_money, 
-                               var_CV = var_slight, 
-                               n = working_years), rep(0,pension_years))
-
-
-  
-  # Default option: Our decision maker is a farm wife and does nothing special. 
-  # Apart from the mandatory agricultural insurance, she invests nothing in her retirement.
-  # The agricultural Insurance is not payed by her, but from her family.
-  # Default always same for all 14 options; We use it to compare all other options with
-  
-  PartA <- Agri_insurance + Agri_insurance_inv # this is payed by the husband /in-laws
-  PartB <- Agri_insurance_inv
-  profit_Default <- (PartA - PartB)
-  
-  NPV_no_branch <- discount(profit_Default,
-                            discount_rate = discount_rate, calculate_NPV = TRUE) 
-  
-  
-  # Branch 1 = Default vs. Own branch (way 1, 2, 3)
-  
-  # Way 1: She sets up her own business branch. 
-  # Here, she continues to be part of the agricultural insurance, 
-  # but also invests about 10 % of her income in private insurance. 
-  
-  
-  
-  PartA <- Private_insurance_own_branch + Agri_insurance
-  PartB <- Agri_insurance_inv + Private_insurance_inv_own_branch
-  profit_with_Own_business_branch_1 <- (PartA - PartB)
-  
-  NPV_profit_with_Own_business_branch_1 <- discount(profit_with_Own_business_branch_1,
-                                                    discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
-  
-  
-  
-  
-  # Way 2: She sets up her own business branch. 
-  # Here, she continues to be part of the agricultural insurance, 
-  # but also invests about 10 % of her income in ETF. 
+```                              
+ 
+In way 2 she sets up her own business branch as well. She continues to be part of the agricultural insurance, and invests 10 % of her income in ETF. 
   
   PartA <- ETF_own_branch + Agri_insurance
   PartB <- Agri_insurance_inv + ETF_inv_own_branch
@@ -481,10 +292,7 @@ decision_function <- function(x, varnames){
   
   NPV_decision_profit_with_Own_business_branch_2 <- NPV_profit_with_Own_business_branch_2 - NPV_no_branch
   
-  # Way 3: She sets up her own business branch. 
-  # Here, she continues to be part of the agricultural insurance, 
-  # but also invests about 10 % of her income in a Investment-Mix.
-  
+In way 3 she also sets up her own business brance, continues to be part of the agricultural insurance, but contrary to the two previous ways, she invests about 10 % of her income in a Investment-Mix (i.e. ETFs and private insurance).
   
   PartA <- Mix_own_branch + Agri_insurance 
   PartB <- Agri_insurance_inv + Mix_inv_own_branch
@@ -497,17 +305,10 @@ decision_function <- function(x, varnames){
                                                     discount_rate = discount_rate, calculate_NPV = TRUE)
   
   NPV_decision_profit_with_Own_business_branch_3 <- NPV_profit_with_Own_business_branch_3 - NPV_no_branch
-  
-  
-  
-  # Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
-  
-  # Way 4: She gets an off-farm job. 
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests no income in pension. 
-  
-  
+ 
+##Branch 2: Getting an off farm 
+ 
+ In way 4 she gets an off-farm job. Here, she stops to be part of the agricultural insurance,and instead is part of the mandatory state insurance. She invests no additional income into her pension. 
   
   profit_with_off_farm_job_4 <- (State_insurance_off_farm - State_insurance_inv_off_farm)
   
@@ -517,12 +318,8 @@ decision_function <- function(x, varnames){
   
   NPV_decision_profit_with_off_farm_job_4 <- NPV_profit_with_off_farm_job_4 - NPV_no_branch
   
-  # Way 5: She gets an off-farm job. 
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in private insurance. 
-  
-  
+ In way 5 her circumstances are the same as in way 4, the only difference here is that she chooses to invest 10% of her income into private insurance. 
+   
   PartA <- Private_insurance_off_farm + State_insurance_off_farm 
   PartB <- Private_insurance_inv_off_farm + State_insurance_inv_off_farm 
   
@@ -535,10 +332,7 @@ decision_function <- function(x, varnames){
   NPV_decision_profit_with_off_farm_job_5 <- NPV_profit_with_off_farm_job_5 - NPV_no_branch
   
   
-  # Way 6: She gets an off-farm job. 
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in ETF. 
+  Way 6 is analogous to way 4 and 5,however, here she invests a part of her income (i.e 10%) into ETFs. 
   
   PartA <- ETF_off_farm + State_insurance_off_farm 
   PartB <- State_insurance_inv_off_farm + ETF_inv_off_farm
@@ -551,10 +345,7 @@ decision_function <- function(x, varnames){
   
   NPV_decision_profit_with_off_farm_job_6 <- NPV_profit_with_off_farm_job_6 - NPV_no_branch
   
-  # Way 7: She gets an off-farm job. 
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in a mixed investment. 
+  In way 7 the only difference is that she invests a part of her income in a mixed investment (i.e. ETFs and private insurance). 
   
   PartA <- Mix_off_farm + State_insurance_off_farm
   PartB <- Mix_inv_off_farm + State_insurance_inv_off_farm
