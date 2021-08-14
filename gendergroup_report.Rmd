@@ -36,25 +36,19 @@ library(dplyr)
 knitr::write_bib(c(.packages(),
                    'knitr', 'decisionSupport', 'readr', 'DiagrammeR', 'tidyverse', 'ggplot2', 'plyr', 'dplyr'), 'bib/packages.bib')
 ```
-TO DO:
-
-ALINA
-
-- SECTION PROBLEMS/OBSTACLES --> ONLY BULLET POINTS WITH IDEAS UP TO NOW (ALINA)
+To do:
 
 
 SOMEONE
 - PROVIDE SOURCE IN LINE 70 (SECTION INTRO) 
 
 NOT YET DONE
-- DISCUSSION
-- RESULTS
-- CONCLUSION
+discussion and results seperated
+correct table numbers
 - ABSTRACT
 
 
-alex: sorry, i think i sometimes wrote in the wrong tense. it was all in a hurry today.i can aslo correct it tomorrow.
-knitting does not work, have to figure out why
+alex: sorry, i think i sometimes wrote in the wrong tense. 
 
 
 # Abstract
@@ -699,12 +693,11 @@ that investors require a higher expected return in order to accept higher risk",
 
 
 ##Discussion (alex: should we really put both together?)
-this should be mentioned, but i am not sure where: 
+To answer the question, how risks could be better implemented in cases like this where binominal distributions are unfortunately, the use of a weibull-distribution would be fortunate. A husbands risk to die for example is not always the same, it differs with age. These differences over time could be implemented through this function. It is rather unusual to assume family conflicts every year because of a job away from the farm and therefore a possibility to quit the job. This also was shown during the workshops. The power of the husband on his wives decision would decrease in this cases after the decision was made and then probably stop existing if not directly after taking an off-farm job. The weilbull-distribution would cover this decreasing risk better as well. Further workshops could cover the need for more information regarding this input estimate. The risk of bankruptcy affecting the pension also decreases with years of paying into the insurance. An early bankruptcy affects the pension much more than a late one until it will stop affecting the decision makers pension when the retirement starts. This of course only focuses on the effects on retirement, not other effects of bancruptcy. With these few examples the need for a function like the Weibull-distribution covering the risks instead of a binominal distribution in this case is shown (source: brandel et al. 2020, paul et al 2019 (how to put them in?).
 
-The question if a farm wive should search for other pension option than only getting money out of the agricultural insurance, our model can only answer within its boundaries.Neither the necessity of having enough money during pension to buy food, medicine and other necessities nor risks of receiving money from a husband that might die or might file for divorce are implemented with all other obstacles that would come with the divorce. These are the main reasons, why only the options with the highest monetary value can compete with the option of a payed insurance, namely ETF and the mixture of ETF and private insurance.
+the diversity of investments or portfolio diversification referring to the modern portfolio theory could be implemented as well using a weilbull function for calculating the risk of an investment failure like mentioned above and an utility function to calculate how risk affine the decision maker is (https://www.researchgate.net/publication/272157556_Modern_Portfolio_Theory_Capital_Market_Theory_and_Asset_Pricing_Models), so that a mixed investment would have an advantage over a single insurance for example (see the text i wrote for "discussion"-> not sure where to put it). With an utility function, the emotional choice of a farm wife to invest, even though she might face discussions with her husband could be included into the simulation as well. It would cover her risk adversion regarding inner familiary problems. Since the utility functions "slope of an indifference curve reflects the fact that investors require a higher expected return in order to accept higher risk",the process of deciding for or against an option with the knowledge of conflics could be estimated
+(https://www.researchgate.net/publication/272157556_Modern_Portfolio_Theory_Capital_Market_Theory_and_Asset_Pricing_Models).
 
-(write more about vv function and variability)
-suggestion: write s.th about ETF and why this investment is so good: insurances cost more than they pay off if i am not mistaken.  some sources about ETF (exchange traded funds): cheap because no fond managers, possible to pay small amounts in as well as big amounts: even with little money possible to pay in. but contra is that our estimation comes from blackrock who also sell them. other contra: we did not calculate stock crashes,...did we use data of one special etf? then maybe some text about what is in this one etf. We also did not calculate the possibility of the insurances to have economic problems (but i guess the possibility for etf is higher..source?). most important: a mix of different investments is a better option regarding failures of one option. This was therefoer not included in the code. Therefore, the Mix option is valued less than ETF. ETF itself is a option that includes many different options and therefore more diverse than asingle share, but an insurance together with an ETF is even more diverse. This diversity was not calculated in our code.(some source like this (can we quote whiley books???)https://www.researchgate.net/publication/272157556_Modern_Portfolio_Theory_Capital_Market_Theory_and_Asset_Pricing_Models) Minimising risk with diversification is a very important economic theme, taht our model is not referring to.
 
 ## Problems/Obstacles/Uncertainties/what we did not implemement
 There are severalrisks, that would even decrease the value of the default option. 
@@ -740,9 +733,14 @@ Right mixture of options is important --> for each individual case--> depends on
 Annual profits from farming mostly benefit the farm owner, which is rarely is the women. Farmers likely prefer reinvesting the available money in farming technology due to the relatively early incomes and short time-lag on returns. However, structural changes in agriculture and the high give-up rates impose high insecurity on the future of the farm and may raise the awareness for proper pension plans.
 
 EVPI: give out money for those variables that need to be observed. Especially the variable ETF payed by family money (option 13) should be further observed, having a very wide range between upper and lower values as estimated values. Asking a decision maker for input estimates or getting various suggestions during another workshop in the future would clear the range of this value. The value of mixed investment payed by family money should also be further researched. The value of the mixed investment payed by the off-farm job could be further invested as well.
+
+
 # Conclusion
 EVPI and Mix super, but model has boundaries. probably with implementation of risks,..mix better could be better than evpi (portfolio diversification) and more options better than default. s.th. about why it is risky to choose default and one of those different options would be good for a farm wive. More information for farm wives, social pressure and boundarys to make a decision. good for next generation, children do not have to care for her,....
 
+We present approaches for securing pension and retirement for the farm wives in Germany. We apply the gathered knowledge from both experts and stakeholders in the design and conceptualization of models for the cost, benefits, risks, and uncertainties related to the decision of choosing the various options for her pension. The models implemented differ on the returns it could provide for the farmwives paying for 40 years before her retirement. The investment to spend depends on the source of income. The benefits then are compared first to the default option in which she can have an insurance pension without spending an amount because her husband or her family covers it for her. Additionally, when other options are compared to each other, the combination of having an off-farm job and investing with ETF provides her a better cash flow during the 17 years after her retirement age.
+However, the model needs more consideration on the risks and uncertainties involved. The decision-maker may be affected by the loss (also by accident on the farm) of her husband (if married). Her responsibility for the child and elderly care would also affect her decision to get the insurance plan. The current rate of divorce in Germany may also affect the turnover of the husband’s estate. This could be added to the rate of bankruptcy. All the risks considered would not affect whether she could have a pension at the end but would surely affect the amount she could get.
+Our study would see it as an outlook that there should be more interventions and opportunities for farm wives to improve their potential benefits from the pension plan she pays either from agricultural, state, or private insurance. Policies that demand a monetary appreciation of their work may add value to her future retirement pension. The results and methods of this study open the door to future studies on the empowerment of farm wives and for further analyses of their contribution to the development of agricultural interventions.
 
 # References
 
