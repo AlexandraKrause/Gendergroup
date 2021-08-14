@@ -397,8 +397,8 @@ In way 9 she invests a part of her income in private insurance.
   
   NPV_decision_profit_with_on_farm_job_11 <- NPV_profit_with_on_farm_job_11 - NPV_no_branch
   
-  
- ## Branch 4:Receiving family money
+
+## Branch 4:Receiving family money
   
   # Way 12: She convinces her husband to invest in her pension.
   # Here, she continues to be part of the agricultural insurance, 
