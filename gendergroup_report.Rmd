@@ -104,9 +104,9 @@ knitr::include_graphics('images/Model_before_workshop.png')
 
 ## Stakeholders and Participatory approach 
 
-We identified four major stakeholders in this decision. The farmer is the husband of our decision maker. He may depend on the support of his wife when running his farm. He may expect his wife to support him, as he most probably grew up in a farm, where his mother contributed without formal employment contract. Our second stakeholder category are children, that grow up on a farm and may encounter the expectation to take the farm over at some point. In case of a farm take over, The successor child will take responsibility for the financial security of its parents during their pension. To minimize his/ her financial obligations, the successor should be in favor of a good pension plan. Our third stakeholder category are the in-laws of the decision maker. When the husband owns the farm and his wife supported him full time, the wife self -sufficient in her pension but rather dependent on her husband. The In-laws may be skeptical about investing in the pension of the decision make, because they believe in the eternity of marriage. Another stakeholder are people that would like to start a farming business without inheriting one. Here, the 
+We identified four major stakeholders in this decision. The farmer is the husband of our decision maker. He may depend on the support of his wife when running his farm. He may expect his wife to support him, as he most probably grew up on a farm, where his mother contributed without formal employment contract. Our second stakeholder category are children, who grow up on a farm and may encounter the expectations to take over the farm at some point. In case of a farm transfer, the successor child will take responsibility for the financial security of its parents during their pension. To minimize his/ her financial obligations, the successor should be in favor of a good pension plan. Our third stakeholder category are the in-laws of the decision maker. When the husband owns the farm and his wife supported him full time, the wife is self -sufficient in her pension but rather dependent on her husband. The in-laws may be sceptical about investing in the pension of the decision maker, because they believe in a lasting marriage. Another stakeholder are people who would like to start a farming business without inheriting one. Here, the 
 
-Our next goal was to gain a better understanding of the actual and current pension situation of farmers wives' in Germany in order to define a realistic case of a decision maker and to update and adjust our initial conceptual model. For this, we first identified consultants in private as well as agricultural insurance companies (i.e social insurance for agriculture,forestry and horticulture SVLFG), the agricultural chamber (i.e. Landwirtschaftskammer Nordrhein-Westfalen), lawyers for agricultural family law and the German woman farmers association (i.e. deutscher Landfrauenverband) as our experts. We then conducted several interviews via phone and the video communications platform zoom.us. Additionally, we used the social networking sites facebook.com and instagram.com to approach potential decision makers (i.e.farm wives). We then organized an online workshop over zoom with the previously identified experts, stakeholders and potential decision makers (Figure 4.2).
+Our next goal was to gain a better understanding of the actual and current pension situation of farmers wives' in Germany in order to define a realistic case of a decision maker and to update and adjust our initial conceptual model. For this, we first identified consultants in private as well as agricultural insurance companies (i.e social insurance for agriculture,forestry and horticulture SVLFG), the agricultural chamber (i.e. Landwirtschaftskammer Nordrhein-Westfalen), lawyers for agricultural family law and the German woman farmers association (i.e. deutscher Landfrauenverband) as our experts. We then conducted several interviews via phone and the video communications platform zoom.us. Additionally, we used the social networking sites facebook.com and instagram.com to approach potential decision makers (i.e.farm wives). We then organized an online workshop over zoom with the previously identified experts, stakeholders and potential decision makers \@ref(fig:invitation).
 
 
 ```{r invitation, echo=FALSE, out.width='50%', fig.align='center', fig.cap="Invitation to the Workshop", fig.show='hold'}
@@ -118,7 +118,7 @@ knitr::include_graphics('images/2.png')
 
 
 
-In total, 15 participants attended our workshop. Table 4.1 shows an overview of the participants, their status in our research, and whether they partook in an interview and/or in the workshop.
+In total, 15 participants attended our workshop. Table \@ref(tab:stakeholdertable) shows an overview of the participants, their status in our research, and whether they partook in an interview and/or in the workshop.
 After a brief introduction and a general initial discussion, the participants were given three questions, namely "What pension options does a farm wife have?" "What are potential risks and obstacles?" and "How could she finance the pension options?". After answering these questions in groups of three, we collected all thoughts and ideas in plenum. After a lively discussion we were able to update our model.
 
 ```{r stakeholdertable, caption= "stakeholdertable", echo=FALSE}
@@ -129,13 +129,10 @@ knitr::kable(stakeholdertable, caption ='Overview of participants, their status 
 
 ```
 
-Table \@ref(tab:stakeholdertable) shows an overview of the participants, their status in our research, and whether they partook in an interview and/or in the workshop.
-In total, 15 participants attended our workshop. After a brief introduction and a general initial discussion, the participants were given three questions, namely "What pension options does a farm wife have?" "What are potential risks and obstacles?" and "How could she finance the pension options?". After answering these questions in groups of three, we collected all thoughts and ideas in plenum. After a lively discussion we were able to update our model.
-
 
 ## Adjustment of conceptual model
 
-Based on the outcomes of our research we adjusted and specified our decision option 2 (i.e. financing her own retirement plan) in our conceptual model (Figure 4.3).
+Based on the outcomes of our research we adjusted and specified our decision option 2 (i.e. financing her own retirement plan) in our conceptual model \@ref(fig:draftmodel).
 
 ```{r draftmodel, echo=FALSE, out.width='100%', fig.align='center', fig.cap="Adjusted decision option 2 pathways of financing her own retirement", fig.show='hold'}
 knitr::include_graphics('images/Model_after_workshop_pension_plan.png')
@@ -151,17 +148,17 @@ Another option we had not thought of before the workshop is to receive money fro
 When it comes to pension schemes, we excluded own property and only focused on the investment into different insurances, called 'ways'. We explicitly followed the available information on german pension schemes as stated by the pension consultants.
 If choosing the options of own branch or receiving family money she would pay into the agricultural insurance by herself, and on top of that has the options to invest into private insurance or ETFS or a mix of both. The other two options of on and off farm job imply the mandatory state insurance, which she then could also boost with additional private insurance, ETFs or a mix.
 We would like to highlight that the greatest obstacle to option 2 (i.e. pension plan) we were able identify from the workshop was in fact the husband/in-laws themselves. Every option in the retirement plan itself contains the risk, that they oppose her decision to plan for her retirement. Mainly because they do not see the necessity for it as farmers generally prefer to invest into their farming business rather than into their wives pension schemes. Additionally, the investment costs and having to find suitable child and eldery care is a further deterrent.This risk is illustrated by a black circle in the model and affects every option within the pension plan decision.
-The default option and associated risks remained the same in the updated version. The only change was that of design to match the design of the new decision options 2 pathway (Figure 4.4).
+The default option and associated risks remained the same in the updated version. The only change was that of design to match the design of the new decision options 2 pathway \@ref(fig:defaultchunk).
 
 ```{r defaultchunk, echo=FALSE, out.width='100%', fig.align='center', fig.cap= "Decision option 1 aka default option after the workshop", fig.show='hold'}
 knitr::include_graphics('images/Model_after_workshop_default.png')
 
-# cite this figure with \@ref(fig:defaultchunk)
+# cite this figure with \@ref(fig:defaultchunk) 
 ```
 
 ## Model Inputs
 
-The previous determination of our decision maker (see section 3.1 Decision maker) allowed us to fill our input table with values (Table 4.1).
+The previous determination of our decision allowed us to fill our input table with values \@ref(tab:inputtable).
 After receiving a calibration training in the DA-Course, we considered ourselves calibrated experts and were able to estimate reasonable ranges based on a mixed approach of literature reasearch and expert opinion.
 The time frame of our intervention amounts to 40 years (i.e. retirement at the age of 65). Based on this and according to the methodology of @do_decision_2020, we tried to assign reasonable uncertainties given this long time horizon.
 Based on her appointed profession as gardener, we estimated her possible yearly income and amount of payment into the different insurance options. We repeated this process for own farm branch, on farm job and receiving family money. Hereby, we agreed that she would be able to invest at least 10 % of her income into private insurance schemes (i.e. private insurance, ETFs, or mix of both). After retiring, it is likely that she lives and receives her pension for another 17 years until the age of 82, which is the average female life expectancy in Germany [@statistalife].
