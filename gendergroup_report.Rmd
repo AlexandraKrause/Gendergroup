@@ -259,7 +259,7 @@ To calculate the NPV of the decision, we subtracted the default option from way 
 ```                         
 We performed this calculation on all 14 ways within the 4 branches.
 
-Note from Julia: I think this example is enough for an explanation. They can access the whole code on GitHub.I would actually delete the next part from line 
+Note from Julia: I think this example is enough for an explanation. They can access the whole code on GitHub.I would actually delete the next part from line 265-448
 
 
 In way 2 she sets up her own business branch as well. She continues to be part of the agricultural insurance, and invests 10 % of her income in ETF. 
