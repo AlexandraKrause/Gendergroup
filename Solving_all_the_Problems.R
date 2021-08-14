@@ -209,8 +209,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_Own_business_branch_1 <- discount(profit_with_Own_business_branch_1,
                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1
-  - NPV_no_branch
+  NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
   
   
   
@@ -228,8 +227,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_Own_business_branch_2 <- discount(profit_with_Own_business_branch_2,
                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_Own_business_branch_2 <- NPV_profit_with_Own_business_branch_2
-  - NPV_no_branch
+  NPV_decision_profit_with_Own_business_branch_2 <- NPV_profit_with_Own_business_branch_2 - NPV_no_branch
   
   # Way 3: She sets up her own business branch. 
   # Here, she continues to be part of the agricultural insurance, 
@@ -246,8 +244,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_Own_business_branch_3 <- discount(profit_with_Own_business_branch_3,
                             discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_Own_business_branch_3 <- NPV_profit_with_Own_business_branch_3
-  - NPV_no_branch
+  NPV_decision_profit_with_Own_business_branch_3 <- NPV_profit_with_Own_business_branch_3 - NPV_no_branch
   
   
   
@@ -266,8 +263,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_off_farm_job_4 <- discount(profit_with_off_farm_job_4,
                             discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_off_farm_job_4 <- NPV_profit_with_off_farm_job_4 
-  - NPV_no_branch
+  NPV_decision_profit_with_off_farm_job_4 <- NPV_profit_with_off_farm_job_4 - NPV_no_branch
   
   # Way 5: She gets an off-farm job. 
   # Here, she stops to be part of the agricultural insurance, 
@@ -284,8 +280,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_off_farm_job_5 <- discount(profit_with_off_farm_job_5,
                             discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_off_farm_job_5 <- NPV_profit_with_off_farm_job_5 
-  - NPV_no_branch
+  NPV_decision_profit_with_off_farm_job_5 <- NPV_profit_with_off_farm_job_5 - NPV_no_branch
   
   
   # Way 6: She gets an off-farm job. 
@@ -302,8 +297,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_off_farm_job_6 <- discount(profit_with_off_farm_job_6,
                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_off_farm_job_6 <- NPV_profit_with_off_farm_job_6
-  - NPV_no_branch
+  NPV_decision_profit_with_off_farm_job_6 <- NPV_profit_with_off_farm_job_6 - NPV_no_branch
   
   # Way 7: She gets an off-farm job. 
   # Here, she stops to be part of the agricultural insurance, 
@@ -320,8 +314,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_off_farm_job_7 <- discount(profit_with_off_farm_job_7,
                             discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_off_farm_job_7 <- NPV_profit_with_off_farm_job_7 
-  - NPV_no_branch
+  NPV_decision_profit_with_off_farm_job_7 <- NPV_profit_with_off_farm_job_7 - NPV_no_branch
   
   
   # Branch 3 = Default vs. On farm job = Payment of wife (Way 8)
@@ -339,8 +332,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_on_farm_job_8 <- discount(profit_with_on_farm_job_8,
                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_on_farm_job_8 <- NPV_profit_with_on_farm_job_8 
-  - NPV_no_branch
+  NPV_decision_profit_with_on_farm_job_8 <- NPV_profit_with_on_farm_job_8 - NPV_no_branch
   
   
   # Way 9: She gets an official working contract and gets officially paid
@@ -358,8 +350,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_on_farm_job_9 <- discount(profit_with_on_farm_job_9,
                             discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_on_farm_job_9 <- NPV_profit_with_on_farm_job_9
-  - NPV_no_branch
+  NPV_decision_profit_with_on_farm_job_9 <- NPV_profit_with_on_farm_job_9 - NPV_no_branch
   
   
   # Way 10: She gets an official working contract and gets officially paid
@@ -377,8 +368,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_on_farm_job_10 <- discount(profit_with_on_farm_job_10,
                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_on_farm_job_10 <- NPV_profit_with_on_farm_job_10
-  - NPV_no_branch
+  NPV_decision_profit_with_on_farm_job_10 <- NPV_profit_with_on_farm_job_10 - NPV_no_branch
   
   
   # Way 11: She gets an official working contract and gets officially paid
@@ -396,8 +386,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_on_farm_job_11 <- discount(profit_with_on_farm_job_11,
                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_on_farm_job_11 <- NPV_profit_with_on_farm_job_11 
-  - NPV_no_branch
+  NPV_decision_profit_with_on_farm_job_11 <- NPV_profit_with_on_farm_job_11 - NPV_no_branch
   
   
   # Branch 4 = Default vs. Family money (way 12, 13, 14) 
@@ -415,8 +404,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_family_money_12 <- discount(profit_with_family_money_12,
                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_family_money_12 <- NPV_profit_with_family_money_12
-  - NPV_no_branch
+  NPV_decision_profit_with_family_money_12 <- NPV_profit_with_family_money_12 - NPV_no_branch
   
   # Way 13: She convinces her husband to invest in her pension.
   # Here, she continues to be part of the agricultural insurance, 
@@ -431,8 +419,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_family_money_13 <- discount(profit_with_family_money_13,
                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_family_money_13 <- NPV_profit_with_family_money_13 
-  - NPV_no_branch
+  NPV_decision_profit_with_family_money_13 <- NPV_profit_with_family_money_13  - NPV_no_branch
   
   # Way 14: She convinces her husband to invest in her pension.
   # Here, she continues to be part of the agricultural insurance, 
@@ -447,8 +434,7 @@ decision_function <- function(x, varnames){
   NPV_profit_with_family_money_14 <- discount(profit_with_family_money_14,
                             discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_family_money_14 <- NPV_profit_with_family_money_14
-  - NPV_no_branch
+  NPV_decision_profit_with_family_money_14 <- NPV_profit_with_family_money_14 - NPV_no_branch
   
   
   
@@ -604,6 +590,11 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
                                     vars = "NPV_profit_with_family_money_14",
                                     method = 'boxplot_density')
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = "NPV_decision_profit_with_Own_business_branch_1",
+                                    method = 'boxplot_density')
+
 ####Boxplots####
 # We can use the same function to show the distributions of the
 # decisions as boxplots. Boxplots show the median (central line), 
