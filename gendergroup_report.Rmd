@@ -150,10 +150,6 @@ knitr::include_graphics('images/Model_after_workshop_pension_plan.png')
 # cite this figure with \@ref(fig:draftmodel)
 ```
 
-
-
-
-
 As a first step we eliminated the options of farm co-ownership and self- emplyoment we previously considered as a possible financing option. We learned in the workshop that co-ownerships are hardly done in reality as it is not feasible for most farming businesses and self-employment of both parents is hardly manageable when simultaneuosly raising a child.
 In the end, we were left with four financing options. Three of which require intial investment costs in form of covering child and elderly care. Establishing an own branch on the farm itself, particuarly in form of setting up a farm shop, delivery service or holiday housing seemed to be popular among workshop participants. Identified risks for this option were the circumstance of divorce and the bancruptcy of the farm.
 Getting an off farm job or negotiating with the in-laws to be officially employed at the farm was also mentioned frequently.Here, the risks are related to the farm and therefore identical with the ones for 'own branch on farm' (i.e. risk of divorce, bancruptcy).
@@ -189,7 +185,7 @@ knitr::kable(input_table_gender, caption ='Input table')
 
 ## Coding the model
 
-The model was created in accordance with @R-decisionSupport. 
+The model was created in accordance with @R-decisionSupport. It was run using a Monte-Carlo simulation with 10.000 repetitions.
 Since the pension yield and input demand depend on the age of the decision maker, all benefits and costs were modeled in relation to individual circumstances of the decision maker (e.g. profession,age etc). The heart of our model are the yearly payments into agricultural or state pension for 40 years (€/year) and the yearly pension payout for 17 years (€/year). 
 
 Since pension payment and payouts are usually paid per month, we first used a monthly time unit in our code. However, doing that created a wide variety of outputs for 684 months (40 years of working and paying into her pension plus 17 years of receiving pension) making it highly complicated to create a straightforward output in the @R-decisionSupport. Therefore we decided to use yearly time untis instead as intended by @R-decisionSupport.
@@ -256,29 +252,14 @@ In the default option the agricultural insurance is paid for by the family. Ther
                             discount_rate = 1, calculate_NPV = TRUE) 
 ```  
   
-To calculate the NPV of the decision, we subtracted the default option from way 1.
-We perform this calculation on all 14 ways. 
+To calculate the NPV of the decision, we subtracted the default option from way 1, as can be seen in the following example.
 
 ```{r, eval=FALSE }   
   NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
-```
-  
-In our return list, we included the NPV of the default option, the NPVs of the different interventions, the NPV of the decisions and the cashflow. 
+```                         
+We performed this calculation on all 14 ways.
 
-```{r, eval=FALSE } 
-return(list(  NPV_no_branch =  NPV_no_branch,
-              
-              #way 1
-              NPV_profit_with_Own_business_branch_1 =  NPV_profit_with_Own_business_branch_1, 
-              NPV_decision_profit_with_Own_business_branch_1 =  NPV_decision_profit_with_Own_business_branch_1,
-              Cashflow_decision_gender_way_A =  profit_with_Own_business_branch_1,
-               #way 2
-              [...]
-               #way 14
-              [...]
-   )
-```                              
- 
+
 In way 2 she sets up her own business branch as well. She continues to be part of the agricultural insurance, and invests 10 % of her income in ETF. 
   
   PartA <- ETF_own_branch + Agri_insurance
@@ -360,13 +341,11 @@ In way 3 she also sets up her own business brance, continues to be part of the a
   NPV_decision_profit_with_off_farm_job_7 <- NPV_profit_with_off_farm_job_7 - NPV_no_branch
   
   
-  # Branch 3 = Default vs. On farm job = Payment of wife (Way 8)
+## Branch 3: Getting paid for her work on her husbands farm
   
-  # Way 8: She gets an official working contract and gets officially paid on farm by her husband.  
-  # Here, she stops to be part of the agricultural insurance. 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests no additional money in her pension.
-  
+In this branch she gets an official working contract and gets officially paid by her husband. Here, she stops to be part of the agricultural insurance.Instead, she is part of the mandatory state insurance.
+
+In way 8 she invests no additional money in her pension.
   
   profit_with_on_farm_job_8 <- (State_insurance_on_farm - State_insurance_inv_on_farm)
   
@@ -377,10 +356,7 @@ In way 3 she also sets up her own business brance, continues to be part of the a
   NPV_decision_profit_with_on_farm_job_8 <- NPV_profit_with_on_farm_job_8 - NPV_no_branch
   
   
-  # Way 9: She gets an official working contract and gets officially paid on farm by her husband.  
-  # Here, she stops to be part of the agricultural insurance. 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in private insurance. 
+In way 9 she invests a part of her income in private insurance. 
   
   PartA <- Private_insurance_on_farm + State_insurance_on_farm 
   PartB <- State_insurance_inv_on_farm + Private_insurance_inv_on_farm
@@ -394,10 +370,7 @@ In way 3 she also sets up her own business brance, continues to be part of the a
   NPV_decision_profit_with_on_farm_job_9 <- NPV_profit_with_on_farm_job_9 - NPV_no_branch
   
   
-  # Way 10: She gets an official working contract and gets officially paid on farm by her husband.  
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in ETF. 
+  In way 10 she invests a part of her income in ETF. 
   
   PartA <- ETF_on_farm + State_insurance_on_farm 
   PartB <- State_insurance_inv_on_farm + ETF_inv_on_farm
@@ -411,10 +384,7 @@ In way 3 she also sets up her own business brance, continues to be part of the a
   NPV_decision_profit_with_on_farm_job_10 <- NPV_profit_with_on_farm_job_10 - NPV_no_branch
   
   
-  # Way 11: She gets an official working contract and gets officially paid on farm by her husband.  
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in a mixed investment. 
+ In way 11 she invests a part of her income in a mixed investment. 
   
   PartA <- Mix_on_farm + State_insurance_on_farm
   PartB <- State_insurance_inv_on_farm + Mix_inv_on_farm
@@ -428,7 +398,7 @@ In way 3 she also sets up her own business brance, continues to be part of the a
   NPV_decision_profit_with_on_farm_job_11 <- NPV_profit_with_on_farm_job_11 - NPV_no_branch
   
   
-  # Branch 4 = Default vs. Family money (way 12, 13, 14) 
+ ## Branch 4:Receiving family money
   
   # Way 12: She convinces her husband to invest in her pension.
   # Here, she continues to be part of the agricultural insurance, 
@@ -473,88 +443,25 @@ In way 3 she also sets up her own business brance, continues to be part of the a
   NPV_profit_with_family_money_14 <- discount(profit_with_family_money_14,
                                               discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_family_money_14 <- NPV_profit_with_family_money_14 - NPV_no_branch
-  
-  
-  
-  ####Return list####
-  
-  return(list(NPV_no_branch =  NPV_no_branch,
+  NPV_decision_profit_with_family_money_14 <- NPV_profit_with_family_money_14 - n our return list, we included the NPV of the default option, the NPVs of the different interventions, the NPV of the decisions and the cashflow. 
+
+
+
+In the return list we included the NPV profit and the NPV decision profit for each option (including the default option) and the cashflow for all 14 ways.
+```{r, eval=FALSE } 
+return(list(  NPV_no_branch =  NPV_no_branch,
               
               #way 1
               NPV_profit_with_Own_business_branch_1 =  NPV_profit_with_Own_business_branch_1, 
-              NPV_decision_profit_with_Own_business_branch_1 = NPV_decision_profit_with_Own_business_branch_1,
+              NPV_decision_profit_with_Own_business_branch_1 =  NPV_decision_profit_with_Own_business_branch_1,
               Cashflow_decision_gender_way_A =  profit_with_Own_business_branch_1,
-              
-              #way2
-              NPV_profit_with_Own_business_branch_2 =  NPV_profit_with_Own_business_branch_2, 
-              NPV_decision_profit_with_Own_business_branch_2 = NPV_decision_profit_with_Own_business_branch_2,
-              Cashflow_decision_gender_way_B = profit_with_Own_business_branch_2,
-              
-              #way3
-              NPV_profit_with_Own_business_branch_3 =  NPV_profit_with_Own_business_branch_3, 
-              NPV_decision_profit_with_Own_business_branch_3 = NPV_decision_profit_with_Own_business_branch_3,
-              Cashflow_decision_gender_way_C =  profit_with_Own_business_branch_3 ,
-              
-              #way4
-              NPV_profit_with_off_farm_job_4 =  NPV_profit_with_off_farm_job_4, 
-              NPV_decision_profit_with_off_farm_job_4 = NPV_decision_profit_with_off_farm_job_4,
-              Cashflow_decision_gender_way_D =  profit_with_off_farm_job_4,
-              
-              #way5
-              NPV_profit_with_off_farm_job_5 =  NPV_profit_with_off_farm_job_5, 
-              NPV_decision_profit_with_off_farm_job_5 = NPV_decision_profit_with_off_farm_job_5,
-              Cashflow_decision_gender_way_E =  profit_with_off_farm_job_5,
-              
-              #way6
-              NPV_profit_with_off_farm_job_6 =  NPV_profit_with_off_farm_job_6, 
-              NPV_decision_profit_with_off_farm_job_6 = NPV_decision_profit_with_off_farm_job_6,
-              Cashflow_decision_gender_way_F =  profit_with_off_farm_job_6,
-              
-              #way7
-              NPV_profit_with_off_farm_job_7 =  NPV_profit_with_off_farm_job_7, 
-              NPV_decision_profit_with_off_farm_job_7 = NPV_decision_profit_with_off_farm_job_7,
-              Cashflow_decision_gender_way_G =  profit_with_off_farm_job_7,
-              
-              #way8
-              NPV_profit_with_on_farm_job_8 =  NPV_profit_with_on_farm_job_8, 
-              NPV_decision_profit_with_on_farm_job_8 = NPV_decision_profit_with_on_farm_job_8,
-              Cashflow_decision_gender_way_H =  profit_with_on_farm_job_8,
-              
-              #way9
-              NPV_profit_with_on_farm_job_9 =  NPV_profit_with_on_farm_job_9, 
-              NPV_decision_profit_with_on_farm_job_9 = NPV_decision_profit_with_on_farm_job_9,
-              Cashflow_decision_gender_way_I =  profit_with_on_farm_job_9,
-              
-              #way10
-              NPV_profit_with_on_farm_job_10 =  NPV_profit_with_on_farm_job_10, 
-              NPV_decision_profit_with_on_farm_job_10 = NPV_decision_profit_with_on_farm_job_10,
-              Cashflow_decision_gender_way_J =  profit_with_on_farm_job_10,
-              
-              #way11
-              NPV_profit_with_on_farm_job_11 =  NPV_profit_with_on_farm_job_11, 
-              NPV_decision_profit_with_on_farm_job_11 = NPV_decision_profit_with_on_farm_job_11,
-              Cashflow_decision_gender_way_K =  profit_with_on_farm_job_11,
-              
-              #way12
-              NPV_profit_with_family_money_12 =  NPV_profit_with_family_money_12, 
-              NPV_decision_profit_with_family_money_12 = NPV_decision_profit_with_family_money_12,
-              Cashflow_decision_gender_way_L =  profit_with_family_money_12,
-              
-              #way13
-              NPV_profit_with_family_money_13 =  NPV_profit_with_family_money_13, 
-              NPV_decision_profit_with_family_money_13 = NPV_decision_profit_with_family_money_13,
-              Cashflow_decision_gender_way_M =  profit_with_family_money_13,
-              
-              #way14
-              NPV_profit_with_family_money_14 =  NPV_profit_with_family_money_14, 
-              NPV_decision_profit_with_family_money_14 = NPV_decision_profit_with_family_money_14,
-              Cashflow_decision_gender_way_N =  profit_with_family_money_14
-              
-  )) 
-  
-}
-
+               #way 2
+              [...]
+               #way 14
+              [...]
+   )
+```  
+ 
 ####Simulation####
 mcSimulation_results <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
@@ -569,13 +476,12 @@ mcSimulation_results <- decisionSupport::mcSimulation(
 
 # Results and Discussion
 
-Depending on the possibilities on farm and in the region, our decision maker can chose among different sources of income. The decision maker may either start her own branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract or ask her husband to pay for her retirement. 
+Depending on the possibilities on the farm and in the region, our decision maker can chose among different sources of income. The decision maker may either start her own branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract or ask her husband to pay for her retirement. 
 
 Many of our decision options have a negative NPV. The reason is that we compared each of our ways to the default option, in which the woman receives very little retirement, but as her family covers the cost for the mandatory insurance, she has no cost at all. 
 
 notes of alex: 
 NPVs were calculated in euro/month (see plots)
-put this omewhere in the text above (where is best):The model was run using a Monte-Carlo simulation with 10,000 repetitions
 i looked at lars script and remembered what they told us after the last presenttion. we still need this median npv plots. i will pick one branch and do one tomorrow
 
 
@@ -595,7 +501,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 In the first branch our decision-maker sets up her own business branch on her husbands farm. Here, she continues to be part of the agricultural insurance,
 but also invests about 10 % of her income in private insurance, etf or a mixed investment. 
-In Figure \@ref(fig:NPVbranch1) the NPVs from the decision clearly show, that these options are not attractive to our decision maker. Even tough the pension payout is considerably higher, the default option with the small pension comes for free. 
+In figure \@ref(fig:NPVbranch1) the NPVs from the decision clearly show, that these options are not attractive to our decision maker. Even tough the pension payout is considerably higher, the default option with the small pension comes for free. 
 
 
 
@@ -618,7 +524,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 In the second branch , our decision maker gets a gets an off-farm job. Here, she stops to be part of the agricultural insurance.Instead, she is part of the mandatory state insurance.
 Within this branch, the decision maker can either invests no income in pension 
 or invest  about 10% of her income in private insurance, ETF or mixed investment.
-In Figure \@ref(fig:NPVbranch2) the NPVs from the decision show, that only the investments in ETF and Mixed investment are  more attractive than the default. 
+In figure \@ref(fig:NPVbranch2) the NPVs from the decision show, that only the investments in ETF and Mixed investment are  more attractive than the default. 
 Even tough the pension payout with any pension plan is considerably higher then the default, the default option with the small pension comes for free. 
 
 
@@ -642,7 +548,7 @@ In the third branch, our decision maker gets an official working contract
 and gets officially paid on farm by her husband. Here, she stops to be part of the agricultural insurance.
 Instead, she is part of the mandatory state insurance. With the income from this on farm job, the decision maker can either invests no income in pension 
 or invest  about 10 % of her income in private insurance, ETF or mixed investment. 
-In Figure \@ref(fig:NPVbranch3) the NPVs from the decision show, that most options are not attractive to our decision maker. Even tough the pension payout is considerably higher, the default option with the small pension comes for free. 
+In figure \@ref(fig:NPVbranch3) the NPVs from the decision show, that most options are not attractive to our decision maker. Even tough the pension payout is considerably higher, the default option with the small pension comes for free. 
 
 
 
@@ -662,7 +568,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 In the fourth branch, the decision maker convinces her husband to invest in her pension. Here, she continues to be part of the agricultural insurance,
 She uses the money from her husband to invest in a private insurance or ETF or mixed investment.
-In Figure \@ref(fig:NPVbranch4) the NPVs from the decision show, that most options are barely more attractive than the default to our decision maker. Even tough the pension payout is considerably higher, the default option with the small pension comes for free. 
+In figure \@ref(fig:NPVbranch4) the NPVs from the decision show, that most options are barely more attractive than the default to our decision maker. Even tough the pension payout is considerably higher, the default option with the small pension comes for free. 
  
 
 ## Cashflow
