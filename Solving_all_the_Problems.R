@@ -4,9 +4,11 @@ library (DiagrammeR)
 library(tidyverse)
 
 ####TO DO List ####
-#devtools::install_github("eikeluedeling/decisionSupport", ref = "fix_plot_evpi")
+#devtools::install_github("eikeluedeling/decisionSupport", 
+#ref = "fix_plot_evpi")
 #install.packages("Rtools 4.0")
 #library("Rtools 4.0")
+
 ####Get data####
 
 input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Alina.csv", dec = ",")
@@ -49,44 +51,50 @@ decision_function <- function(x, varnames){
                              var_CV = var_slight, 
                              n = working_years), rep(0,pension_years))
   #Private insurance
-  Private_insurance_off_farm <- c(rep (0,working_years), vv(var_mean =Private_insurance_off_farm, 
+  Private_insurance_off_farm <- c(rep (0,working_years), 
+                                  vv(var_mean =Private_insurance_off_farm, 
                                                             var_CV = var_slight, 
                                                             n = pension_years))
   
-  Private_insurance_on_farm <- c(rep (0,working_years), vv(var_mean =Private_insurance_on_farm, 
+  Private_insurance_on_farm <- c(rep (0,working_years), 
+                                 vv(var_mean =Private_insurance_on_farm, 
                                                            var_CV = var_slight, 
                                                            n = pension_years))
   
-  Private_insurance_own_branch <- c(rep (0,working_years),vv(var_mean =Private_insurance_own_branch, 
-                                                             var_CV = var_slight, 
+  Private_insurance_own_branch <- c(rep (0,working_years),
+                                    vv(var_mean =Private_insurance_own_branch, 
+                                                            var_CV = var_slight, 
                                                              n = pension_years))
   
-  Private_insurance_family_money <- c(rep (0,working_years), vv(var_mean =Private_insurance_family_money, 
-                                                                var_CV = var_slight, 
-                                                                n = pension_years))
+  Private_insurance_family_money <- c(rep (0,working_years),
+                                    vv(var_mean =Private_insurance_family_money, 
+                                                           var_CV = var_slight, 
+                                                           n = pension_years))
   
   Private_insurance_inv_off_farm <- c(vv(var_mean =Private_insurance_inv_off_farm, 
-                                         var_CV = var_slight, 
-                                         n = working_years), rep(0,pension_years))
+                                       var_CV = var_slight, 
+                                       n = working_years), rep(0,pension_years))
   
   Private_insurance_inv_on_farm <- c( vv(var_mean =Private_insurance_inv_on_farm, 
-                                         var_CV = var_slight, 
-                                         n = working_years), rep(0,pension_years))
+                                       var_CV = var_slight, 
+                                       n = working_years), rep(0,pension_years))
   
   Private_insurance_inv_own_branch <- c( vv(var_mean =Private_insurance_inv_own_branch, 
-                                            var_CV = var_slight, 
-                                            n = working_years), rep(0,pension_years))
+                                      var_CV = var_slight, 
+                                      n = working_years), rep(0,pension_years))
   
   Private_insurance_inv_family_money <- c( vv(var_mean =Private_insurance_inv_family_money, 
-                                              var_CV = var_slight, 
-                                              n = working_years), rep(0,pension_years))
+                                     var_CV = var_slight, 
+                                      n = working_years), rep(0,pension_years))
   #State insurance
   
-  State_insurance_off_farm <- c(rep (0,working_years), vv(var_mean =State_insurance_off_farm, 
+  State_insurance_off_farm <- c(rep (0,working_years), 
+                                vv(var_mean =State_insurance_off_farm, 
                                                           var_CV = var_slight, 
                                                           n = pension_years))
   
-  State_insurance_on_farm <- c(rep (0,working_years), vv(var_mean =State_insurance_on_farm, 
+  State_insurance_on_farm <- c(rep (0,working_years),
+                               vv(var_mean =State_insurance_on_farm, 
                                                          var_CV = var_slight, 
                                                          n = pension_years))
   
@@ -171,11 +179,14 @@ decision_function <- function(x, varnames){
 
   
   # Default option: Our decision maker is a farm wife and does nothing special. 
-  # Apart from the mandatory agricultural insurance, she invests nothing in her retirement.
+  # Apart from the mandatory agricultural insurance, she invests nothing 
+  #in her retirement.
   # The agricultural Insurance is not payed by her, but from her family.
-  # Default always same for all 14 options; We use it to compare all other options with
+  # Default always same for all 14 options; We use it to compare all other
+  # options with
   
-  PartA <- Agri_insurance + Agri_insurance_inv # this is payed by the husband /in-laws
+  PartA <- Agri_insurance + Agri_insurance_inv
+  # this is payed by the husband /in-laws
   PartB <- Agri_insurance_inv
   profit_Default <- (PartA - PartB)
   
@@ -196,9 +207,10 @@ decision_function <- function(x, varnames){
   profit_with_Own_business_branch_1 <- (PartA - PartB)
   
   NPV_profit_with_Own_business_branch_1 <- discount(profit_with_Own_business_branch_1,
-                                                    discount_rate = discount_rate, calculate_NPV = TRUE)
+                           discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
+  NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1
+  - NPV_no_branch
   
   
   
@@ -214,9 +226,10 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_Own_business_branch_2 <- discount(profit_with_Own_business_branch_2,
-                                                    discount_rate = discount_rate, calculate_NPV = TRUE)
+                           discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_Own_business_branch_2 <- NPV_profit_with_Own_business_branch_2 - NPV_no_branch
+  NPV_decision_profit_with_Own_business_branch_2 <- NPV_profit_with_Own_business_branch_2
+  - NPV_no_branch
   
   # Way 3: She sets up her own business branch. 
   # Here, she continues to be part of the agricultural insurance, 
@@ -231,9 +244,10 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_Own_business_branch_3 <- discount(profit_with_Own_business_branch_3,
-                                                    discount_rate = discount_rate, calculate_NPV = TRUE)
+                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_Own_business_branch_3 <- NPV_profit_with_Own_business_branch_3 - NPV_no_branch
+  NPV_decision_profit_with_Own_business_branch_3 <- NPV_profit_with_Own_business_branch_3
+  - NPV_no_branch
   
   
   
@@ -250,9 +264,10 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_off_farm_job_4 <- discount(profit_with_off_farm_job_4,
-                                             discount_rate = discount_rate, calculate_NPV = TRUE)
+                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_off_farm_job_4 <- NPV_profit_with_off_farm_job_4 - NPV_no_branch
+  NPV_decision_profit_with_off_farm_job_4 <- NPV_profit_with_off_farm_job_4 
+  - NPV_no_branch
   
   # Way 5: She gets an off-farm job. 
   # Here, she stops to be part of the agricultural insurance, 
@@ -267,9 +282,10 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_off_farm_job_5 <- discount(profit_with_off_farm_job_5,
-                                             discount_rate = discount_rate, calculate_NPV = TRUE)
+                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_off_farm_job_5 <- NPV_profit_with_off_farm_job_5 - NPV_no_branch
+  NPV_decision_profit_with_off_farm_job_5 <- NPV_profit_with_off_farm_job_5 
+  - NPV_no_branch
   
   
   # Way 6: She gets an off-farm job. 
@@ -284,9 +300,10 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_off_farm_job_6 <- discount(profit_with_off_farm_job_6,
-                                             discount_rate = discount_rate, calculate_NPV = TRUE)
+                           discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_off_farm_job_6 <- NPV_profit_with_off_farm_job_6 - NPV_no_branch
+  NPV_decision_profit_with_off_farm_job_6 <- NPV_profit_with_off_farm_job_6
+  - NPV_no_branch
   
   # Way 7: She gets an off-farm job. 
   # Here, she stops to be part of the agricultural insurance, 
@@ -301,14 +318,16 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_off_farm_job_7 <- discount(profit_with_off_farm_job_7,
-                                             discount_rate = discount_rate, calculate_NPV = TRUE)
+                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_off_farm_job_7 <- NPV_profit_with_off_farm_job_7 - NPV_no_branch
+  NPV_decision_profit_with_off_farm_job_7 <- NPV_profit_with_off_farm_job_7 
+  - NPV_no_branch
   
   
   # Branch 3 = Default vs. On farm job = Payment of wife (Way 8)
   
-  # Way 8: She gets an official working contract and gets officially paid on farm by her husband.  
+  # Way 8: She gets an official working contract and gets officially paid
+  #on farm by her husband.  
   # Here, she stops to be part of the agricultural insurance. 
   # Instead, she is part of the mandatory state insurance.
   # She invests no additional money in her pension.
@@ -318,12 +337,14 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_on_farm_job_8 <- discount(profit_with_on_farm_job_8,
-                                            discount_rate = discount_rate, calculate_NPV = TRUE)
+                           discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_on_farm_job_8 <- NPV_profit_with_on_farm_job_8 - NPV_no_branch
+  NPV_decision_profit_with_on_farm_job_8 <- NPV_profit_with_on_farm_job_8 
+  - NPV_no_branch
   
   
-  # Way 9: She gets an official working contract and gets officially paid on farm by her husband.  
+  # Way 9: She gets an official working contract and gets officially paid
+  #on farm by her husband.  
   # Here, she stops to be part of the agricultural insurance. 
   # Instead, she is part of the mandatory state insurance.
   # She invests a part of her income in private insurance. 
@@ -335,12 +356,14 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_on_farm_job_9 <- discount(profit_with_on_farm_job_9,
-                                            discount_rate = discount_rate, calculate_NPV = TRUE)
+                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_on_farm_job_9 <- NPV_profit_with_on_farm_job_9 - NPV_no_branch
+  NPV_decision_profit_with_on_farm_job_9 <- NPV_profit_with_on_farm_job_9
+  - NPV_no_branch
   
   
-  # Way 10: She gets an official working contract and gets officially paid on farm by her husband.  
+  # Way 10: She gets an official working contract and gets officially paid
+  #on farm by her husband.  
   # Here, she stops to be part of the agricultural insurance, 
   # Instead, she is part of the mandatory state insurance.
   # She invests a part of her income in ETF. 
@@ -352,12 +375,14 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_on_farm_job_10 <- discount(profit_with_on_farm_job_10,
-                                             discount_rate = discount_rate, calculate_NPV = TRUE)
+                           discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_on_farm_job_10 <- NPV_profit_with_on_farm_job_10 - NPV_no_branch
+  NPV_decision_profit_with_on_farm_job_10 <- NPV_profit_with_on_farm_job_10
+  - NPV_no_branch
   
   
-  # Way 11: She gets an official working contract and gets officially paid on farm by her husband.  
+  # Way 11: She gets an official working contract and gets officially paid
+  #on farm by her husband.  
   # Here, she stops to be part of the agricultural insurance, 
   # Instead, she is part of the mandatory state insurance.
   # She invests a part of her income in a mixed investment. 
@@ -369,9 +394,10 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_on_farm_job_11 <- discount(profit_with_on_farm_job_11,
-                                             discount_rate = discount_rate, calculate_NPV = TRUE)
+                           discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_on_farm_job_11 <- NPV_profit_with_on_farm_job_11 - NPV_no_branch
+  NPV_decision_profit_with_on_farm_job_11 <- NPV_profit_with_on_farm_job_11 
+  - NPV_no_branch
   
   
   # Branch 4 = Default vs. Family money (way 12, 13, 14) 
@@ -387,9 +413,10 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_family_money_12 <- discount(profit_with_family_money_12,
-                                              discount_rate = discount_rate, calculate_NPV = TRUE)
+                           discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_family_money_12 <- NPV_profit_with_family_money_12 - NPV_no_branch
+  NPV_decision_profit_with_family_money_12 <- NPV_profit_with_family_money_12
+  - NPV_no_branch
   
   # Way 13: She convinces her husband to invest in her pension.
   # Here, she continues to be part of the agricultural insurance, 
@@ -402,9 +429,10 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_family_money_13 <- discount(profit_with_family_money_13,
-                                              discount_rate = discount_rate, calculate_NPV = TRUE)
+                           discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_family_money_13 <- NPV_profit_with_family_money_13 - NPV_no_branch
+  NPV_decision_profit_with_family_money_13 <- NPV_profit_with_family_money_13 
+  - NPV_no_branch
   
   # Way 14: She convinces her husband to invest in her pension.
   # Here, she continues to be part of the agricultural insurance, 
@@ -417,9 +445,10 @@ decision_function <- function(x, varnames){
   
   
   NPV_profit_with_family_money_14 <- discount(profit_with_family_money_14,
-                                              discount_rate = discount_rate, calculate_NPV = TRUE)
+                            discount_rate = discount_rate, calculate_NPV = TRUE)
   
-  NPV_decision_profit_with_family_money_14 <- NPV_profit_with_family_money_14 - NPV_no_branch
+  NPV_decision_profit_with_family_money_14 <- NPV_profit_with_family_money_14
+  - NPV_no_branch
   
   
   
@@ -428,74 +457,74 @@ decision_function <- function(x, varnames){
   return(list(NPV_no_branch =  NPV_no_branch,
               
               #way 1
-              NPV_profit_with_Own_business_branch_1 =  NPV_profit_with_Own_business_branch_1, 
-              NPV_decision_profit_with_Own_business_branch_1 = NPV_decision_profit_with_Own_business_branch_1,
-              Cashflow_decision_gender_way_A =  profit_with_Own_business_branch_1,
+NPV_profit_with_Own_business_branch_1 =  NPV_profit_with_Own_business_branch_1, 
+NPV_decision_profit_with_Own_business_branch_1 = NPV_decision_profit_with_Own_business_branch_1,
+Cashflow_decision_gender_way_A =  profit_with_Own_business_branch_1,
               
               #way2
-              NPV_profit_with_Own_business_branch_2 =  NPV_profit_with_Own_business_branch_2, 
-              NPV_decision_profit_with_Own_business_branch_2 = NPV_decision_profit_with_Own_business_branch_2,
-              Cashflow_decision_gender_way_B = profit_with_Own_business_branch_2,
+NPV_profit_with_Own_business_branch_2 =  NPV_profit_with_Own_business_branch_2, 
+NPV_decision_profit_with_Own_business_branch_2 = NPV_decision_profit_with_Own_business_branch_2,
+Cashflow_decision_gender_way_B = profit_with_Own_business_branch_2,
               
               #way3
-              NPV_profit_with_Own_business_branch_3 =  NPV_profit_with_Own_business_branch_3, 
-              NPV_decision_profit_with_Own_business_branch_3 = NPV_decision_profit_with_Own_business_branch_3,
-              Cashflow_decision_gender_way_C =  profit_with_Own_business_branch_3 ,
+NPV_profit_with_Own_business_branch_3 =  NPV_profit_with_Own_business_branch_3, 
+NPV_decision_profit_with_Own_business_branch_3 = NPV_decision_profit_with_Own_business_branch_3,
+Cashflow_decision_gender_way_C =  profit_with_Own_business_branch_3 ,
               
               #way4
-              NPV_profit_with_off_farm_job_4 =  NPV_profit_with_off_farm_job_4, 
-              NPV_decision_profit_with_off_farm_job_4 = NPV_decision_profit_with_off_farm_job_4,
-              Cashflow_decision_gender_way_D =  profit_with_off_farm_job_4,
+NPV_profit_with_off_farm_job_4 =  NPV_profit_with_off_farm_job_4, 
+NPV_decision_profit_with_off_farm_job_4 = NPV_decision_profit_with_off_farm_job_4,
+Cashflow_decision_gender_way_D =  profit_with_off_farm_job_4,
               
               #way5
-              NPV_profit_with_off_farm_job_5 =  NPV_profit_with_off_farm_job_5, 
-              NPV_decision_profit_with_off_farm_job_5 = NPV_decision_profit_with_off_farm_job_5,
-              Cashflow_decision_gender_way_E =  profit_with_off_farm_job_5,
+NPV_profit_with_off_farm_job_5 =  NPV_profit_with_off_farm_job_5, 
+NPV_decision_profit_with_off_farm_job_5 = NPV_decision_profit_with_off_farm_job_5,
+Cashflow_decision_gender_way_E =  profit_with_off_farm_job_5,
               
               #way6
-              NPV_profit_with_off_farm_job_6 =  NPV_profit_with_off_farm_job_6, 
-              NPV_decision_profit_with_off_farm_job_6 = NPV_decision_profit_with_off_farm_job_6,
-              Cashflow_decision_gender_way_F =  profit_with_off_farm_job_6,
+NPV_profit_with_off_farm_job_6 =  NPV_profit_with_off_farm_job_6, 
+NPV_decision_profit_with_off_farm_job_6 = NPV_decision_profit_with_off_farm_job_6,
+Cashflow_decision_gender_way_F =  profit_with_off_farm_job_6,
               
               #way7
-              NPV_profit_with_off_farm_job_7 =  NPV_profit_with_off_farm_job_7, 
-              NPV_decision_profit_with_off_farm_job_7 = NPV_decision_profit_with_off_farm_job_7,
-              Cashflow_decision_gender_way_G =  profit_with_off_farm_job_7,
+NPV_profit_with_off_farm_job_7 =  NPV_profit_with_off_farm_job_7, 
+NPV_decision_profit_with_off_farm_job_7 = NPV_decision_profit_with_off_farm_job_7,
+Cashflow_decision_gender_way_G =  profit_with_off_farm_job_7,
               
               #way8
-              NPV_profit_with_on_farm_job_8 =  NPV_profit_with_on_farm_job_8, 
-              NPV_decision_profit_with_on_farm_job_8 = NPV_decision_profit_with_on_farm_job_8,
-              Cashflow_decision_gender_way_H =  profit_with_on_farm_job_8,
+NPV_profit_with_on_farm_job_8 =  NPV_profit_with_on_farm_job_8, 
+NPV_decision_profit_with_on_farm_job_8 = NPV_decision_profit_with_on_farm_job_8,
+Cashflow_decision_gender_way_H =  profit_with_on_farm_job_8,
               
               #way9
-              NPV_profit_with_on_farm_job_9 =  NPV_profit_with_on_farm_job_9, 
-              NPV_decision_profit_with_on_farm_job_9 = NPV_decision_profit_with_on_farm_job_9,
-              Cashflow_decision_gender_way_I =  profit_with_on_farm_job_9,
+NPV_profit_with_on_farm_job_9 =  NPV_profit_with_on_farm_job_9, 
+NPV_decision_profit_with_on_farm_job_9 = NPV_decision_profit_with_on_farm_job_9,
+Cashflow_decision_gender_way_I =  profit_with_on_farm_job_9,
               
               #way10
-              NPV_profit_with_on_farm_job_10 =  NPV_profit_with_on_farm_job_10, 
-              NPV_decision_profit_with_on_farm_job_10 = NPV_decision_profit_with_on_farm_job_10,
-              Cashflow_decision_gender_way_J =  profit_with_on_farm_job_10,
+NPV_profit_with_on_farm_job_10 =  NPV_profit_with_on_farm_job_10, 
+NPV_decision_profit_with_on_farm_job_10 = NPV_decision_profit_with_on_farm_job_10,
+Cashflow_decision_gender_way_J =  profit_with_on_farm_job_10,
               
               #way11
-              NPV_profit_with_on_farm_job_11 =  NPV_profit_with_on_farm_job_11, 
-              NPV_decision_profit_with_on_farm_job_11 = NPV_decision_profit_with_on_farm_job_11,
-              Cashflow_decision_gender_way_K =  profit_with_on_farm_job_11,
+NPV_profit_with_on_farm_job_11 =  NPV_profit_with_on_farm_job_11, 
+NPV_decision_profit_with_on_farm_job_11 = NPV_decision_profit_with_on_farm_job_11,
+Cashflow_decision_gender_way_K =  profit_with_on_farm_job_11,
               
               #way12
-              NPV_profit_with_family_money_12 =  NPV_profit_with_family_money_12, 
-              NPV_decision_profit_with_family_money_12 = NPV_decision_profit_with_family_money_12,
-              Cashflow_decision_gender_way_L =  profit_with_family_money_12,
+NPV_profit_with_family_money_12 =  NPV_profit_with_family_money_12, 
+NPV_decision_profit_with_family_money_12 = NPV_decision_profit_with_family_money_12,
+Cashflow_decision_gender_way_L =  profit_with_family_money_12,
               
               #way13
-              NPV_profit_with_family_money_13 =  NPV_profit_with_family_money_13, 
-              NPV_decision_profit_with_family_money_13 = NPV_decision_profit_with_family_money_13,
-              Cashflow_decision_gender_way_M =  profit_with_family_money_13,
+NPV_profit_with_family_money_13 =  NPV_profit_with_family_money_13, 
+NPV_decision_profit_with_family_money_13 = NPV_decision_profit_with_family_money_13,
+Cashflow_decision_gender_way_M =  profit_with_family_money_13,
               
               #way14
-              NPV_profit_with_family_money_14 =  NPV_profit_with_family_money_14, 
-              NPV_decision_profit_with_family_money_14 = NPV_decision_profit_with_family_money_14,
-              Cashflow_decision_gender_way_N =  profit_with_family_money_14
+NPV_profit_with_family_money_14 =  NPV_profit_with_family_money_14, 
+NPV_decision_profit_with_family_money_14 = NPV_decision_profit_with_family_money_14,
+Cashflow_decision_gender_way_N =  profit_with_family_money_14
               
   )) 
   
@@ -521,18 +550,18 @@ mcSimulation_results <- decisionSupport::mcSimulation(
 
 #Plot own branch 
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = c("NPV_decision_profit_with_Own_business_branch_1",
-                                             "NPV_decision_profit_with_Own_business_branch_2",
-                                             "NPV_decision_profit_with_Own_business_branch_3"
+                     vars = c("NPV_decision_profit_with_Own_business_branch_1",
+                               "NPV_decision_profit_with_Own_business_branch_2",
+                                "NPV_decision_profit_with_Own_business_branch_3"
                                     ),
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
 #Plot off farm Job
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = c("NPV_decision_profit_with_off_farm_job_4",
-                                             "NPV_decision_profit_with_off_farm_job_5",
-                                             "NPV_decision_profit_with_off_farm_job_6",
-                                             "NPV_decision_profit_with_off_farm_job_7"
+                            vars = c("NPV_decision_profit_with_off_farm_job_4",
+                                     "NPV_decision_profit_with_off_farm_job_5",
+                                     "NPV_decision_profit_with_off_farm_job_6",
+                                     "NPV_decision_profit_with_off_farm_job_7"
                                             
                                     ),
                                     method = 'smooth_simple_overlay', 
@@ -540,10 +569,10 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 #Plot on farm job
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = c("NPV_decision_profit_with_on_farm_job_8",
-                                             "NPV_decision_profit_with_on_farm_job_9",
-                                             "NPV_decision_profit_with_on_farm_job_10",
-                                             "NPV_decision_profit_with_on_farm_job_11"
+                              vars = c("NPV_decision_profit_with_on_farm_job_8",
+                                      "NPV_decision_profit_with_on_farm_job_9",
+                                      "NPV_decision_profit_with_on_farm_job_10",
+                                       "NPV_decision_profit_with_on_farm_job_11"
                                     ),
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
@@ -551,14 +580,30 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 #Plot Family Money
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = c("NPV_decision_profit_with_family_money_12",
-                                             "NPV_decision_profit_with_family_money_13",
-                                             "NPV_decision_profit_with_family_money_14"
+                            vars = c("NPV_decision_profit_with_family_money_12",
+                                     "NPV_decision_profit_with_family_money_13",
+                                      "NPV_decision_profit_with_family_money_14"
                                     ),
                                     method = 'smooth_simple_overlay', 
                                     base_size = 7)
 
 
+#Plot distributions one by one
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                     vars = "NPV_no_branch",
+                                     method = 'boxplot_density')
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = "NPV_profit_with_off_farm_job_6",
+                                    method = 'boxplot_density')
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = "NPV_profit_with_family_money_13",
+                                    method = 'boxplot_density')
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = "NPV_profit_with_family_money_14",
+                                    method = 'boxplot_density')
 ####Boxplots####
 # We can use the same function to show the distributions of the
 # decisions as boxplots. Boxplots show the median (central line), 
@@ -566,18 +611,18 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 # (light circles outside of boxes).
 #'boxplot' own branch 
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = c("NPV_decision_profit_with_Own_business_branch_1",
-                                             "NPV_decision_profit_with_Own_business_branch_2",
-                                             "NPV_decision_profit_with_Own_business_branch_3"
+                      vars = c("NPV_decision_profit_with_Own_business_branch_1",
+                               "NPV_decision_profit_with_Own_business_branch_2",
+                               "NPV_decision_profit_with_Own_business_branch_3"
                                     ),
                                     method = 'boxplot', 
                                     base_size = 7)
 #'boxplot' off farm Job
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = c("NPV_decision_profit_with_off_farm_job_4",
-                                             "NPV_decision_profit_with_off_farm_job_5",
-                                             "NPV_decision_profit_with_off_farm_job_6",
-                                             "NPV_decision_profit_with_off_farm_job_7"
+                            vars = c("NPV_decision_profit_with_off_farm_job_4",
+                                     "NPV_decision_profit_with_off_farm_job_5",
+                                     "NPV_decision_profit_with_off_farm_job_6",
+                                     "NPV_decision_profit_with_off_farm_job_7"
                                              
                                     ),
                                     method = 'boxplot', 
@@ -585,10 +630,10 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 #'boxplot' on farm job
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = c("NPV_decision_profit_with_on_farm_job_8",
-                                             "NPV_decision_profit_with_on_farm_job_9",
-                                             "NPV_decision_profit_with_on_farm_job_10",
-                                             "NPV_decision_profit_with_on_farm_job_11"
+                             vars = c("NPV_decision_profit_with_on_farm_job_8",
+                                      "NPV_decision_profit_with_on_farm_job_9",
+                                      "NPV_decision_profit_with_on_farm_job_10",
+                                      "NPV_decision_profit_with_on_farm_job_11"
                                     ),
                                     method = 'boxplot', 
                                     base_size = 7)
@@ -596,9 +641,9 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 #'boxplot' Family Money
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = c("NPV_decision_profit_with_family_money_12",
-                                             "NPV_decision_profit_with_family_money_13",
-                                             "NPV_decision_profit_with_family_money_14"
+                            vars = c("NPV_decision_profit_with_family_money_12",
+                                     "NPV_decision_profit_with_family_money_13",
+                                      "NPV_decision_profit_with_family_money_14"
                                     ),
                                     method = 'boxplot', 
                                     base_size = 7)
@@ -613,33 +658,48 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 
 
-# CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_A" ) #without the correct variable name this code will not work.
-# 
-# CashflowB <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_B" ) 
-# 
-# CashflowC <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_C" ) 
-# 
-# CashflowD <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_D" ) 
-# 
-# CashflowE <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_E" )
-# 
-# CashflowF <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_F" )
-# 
-# CashflowG <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_G" )
-# 
-# CashflowH <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_H" )
-# 
-# CashflowI <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_I" )
-# 
-# CashflowJ <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_J" )
-# 
-# CashflowK <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_K" )
-# 
-# CashflowL <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_L" )
-# 
-# CashflowM <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_M" )
-# 
-# CashflowN <- plot_cashflow(mcSimulation_object = mcSimulation_results, cashflow_var_name = "Cashflow_decision_gender_way_N" )
+CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results, 
+cashflow_var_name = "Cashflow_decision_gender_way_A" ) 
+#without the correct variable name this code will not work.
+ 
+ CashflowB <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                         cashflow_var_name = "Cashflow_decision_gender_way_B" ) 
+ 
+ CashflowC <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                          cashflow_var_name = "Cashflow_decision_gender_way_C" ) 
+ 
+ CashflowD <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                         cashflow_var_name = "Cashflow_decision_gender_way_D" ) 
+ 
+ CashflowE <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                          cashflow_var_name = "Cashflow_decision_gender_way_E" )
+ 
+ CashflowF <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                          cashflow_var_name = "Cashflow_decision_gender_way_F" )
+ 
+ CashflowG <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                         cashflow_var_name = "Cashflow_decision_gender_way_G" )
+ 
+ CashflowH <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                          cashflow_var_name = "Cashflow_decision_gender_way_H" )
+ 
+ CashflowI <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                          cashflow_var_name = "Cashflow_decision_gender_way_I" )
+ 
+ CashflowJ <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                          cashflow_var_name = "Cashflow_decision_gender_way_J" )
+ 
+ CashflowK <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                         cashflow_var_name = "Cashflow_decision_gender_way_K" )
+ 
+ CashflowL <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                         cashflow_var_name = "Cashflow_decision_gender_way_L" )
+ 
+ CashflowM <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                          cashflow_var_name = "Cashflow_decision_gender_way_M" )
+ 
+ CashflowN <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                          cashflow_var_name = "Cashflow_decision_gender_way_N" )
 
 CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results,
                            cashflow_var_name = "Cashflow_decision_gender_way_A",
@@ -788,59 +848,73 @@ names(mcSimulation_results$y)
 
 #	Pls of	 "NPV_decision_profit_with_Own_business_branch_1"
 pls_result_1 <- plsr.mcSimulation(object = mcSimulation_results,
-                                resultName = names(mcSimulation_results$y)[3], ncomp = 1)
+                                resultName = names(mcSimulation_results$y)[3],
+                                ncomp = 1)
 
 #	Pls of	"NPV_decision_profit_with_Own_business_branch_2"
 pls_result_2 <- plsr.mcSimulation(object = mcSimulation_results,
-                                  resultName = names(mcSimulation_results$y)[62], ncomp = 1)
+                              resultName = names(mcSimulation_results$y)[62],
+                              ncomp = 1)
 
 #	Pls of	"NPV_decision_profit_with_Own_business_branch_3"
 pls_result_3 <- plsr.mcSimulation(object = mcSimulation_results,
-                                  resultName = names(mcSimulation_results$y)[121], ncomp = 1)
+                               resultName = names(mcSimulation_results$y)[121],
+                              ncomp = 1)
 
 #	Pls of	"NPV_decision_profit_with_off_farm_job_4"
 pls_result_4 <- plsr.mcSimulation(object = mcSimulation_results,
-                                  resultName = names(mcSimulation_results$y)[180], ncomp = 1)
+                               resultName = names(mcSimulation_results$y)[180],
+                              ncomp = 1)
 
 #	Pls of	"NPV_decision_profit_with_off_farm_job_5"
 pls_result_5 <- plsr.mcSimulation(object = mcSimulation_results,
-                                  resultName = names(mcSimulation_results$y)[239], ncomp = 1)
+                                resultName = names(mcSimulation_results$y)[239],
+                                ncomp = 1)
 
 #	Pls of	"NPV_decision_profit_with_off_farm_job_6"
 pls_result_6 <- plsr.mcSimulation(object = mcSimulation_results,
-                                  resultName = names(mcSimulation_results$y)[298], ncomp = 1)
+                                resultName = names(mcSimulation_results$y)[298],
+                                ncomp = 1)
 
 #	Pls of	"NPV_decision_profit_with_off_farm_job_7"
 pls_result_7 <- plsr.mcSimulation(object = mcSimulation_results,
-                                  resultName = names(mcSimulation_results$y)[357], ncomp = 1)
+                                resultName = names(mcSimulation_results$y)[357],
+                                 ncomp = 1)
 
 #	Pls of	"NPV_decision_profit_with_on_farm_job_8"
 pls_result_8 <- plsr.mcSimulation(object = mcSimulation_results,
-                                  resultName = names(mcSimulation_results$y)[416], ncomp = 1)
+                                resultName = names(mcSimulation_results$y)[416],
+                                ncomp = 1)
 
 #	Pls of	"NPV_decision_profit_with_on_farm_job_9"
 pls_result_9 <- plsr.mcSimulation(object = mcSimulation_results,
-                                  resultName = names(mcSimulation_results$y)[475], ncomp = 1)
+                                resultName = names(mcSimulation_results$y)[475],
+                                ncomp = 1)
 
 #	Pls of	 "NPV_decision_profit_with_on_farm_job_10"
 pls_result_10 <- plsr.mcSimulation(object = mcSimulation_results,
-                                  resultName = names(mcSimulation_results$y)[534], ncomp = 1)
+                               resultName = names(mcSimulation_results$y)[534],
+                               ncomp = 1)
 
 #	Pls of	"NPV_decision_profit_with_on_farm_job_11"
 pls_result_11 <- plsr.mcSimulation(object = mcSimulation_results,
-                                  resultName = names(mcSimulation_results$y)[539], ncomp = 1)
+                              resultName = names(mcSimulation_results$y)[539],
+                               ncomp = 1)
 
 #	Pls of	"NPV_decision_profit_with_family_money_12"
 pls_result_12 <- plsr.mcSimulation(object = mcSimulation_results,
-                                  resultName = names(mcSimulation_results$y)[652], ncomp = 1)
+                               resultName = names(mcSimulation_results$y)[652],
+                               ncomp = 1)
 
 #	Pls of	"NPV_decision_profit_with_family_money_13"
 pls_result_13 <- plsr.mcSimulation(object = mcSimulation_results,
-                                  resultName = names(mcSimulation_results$y)[711], ncomp = 1)
+                               resultName = names(mcSimulation_results$y)[711],
+                               ncomp = 1)
 
 #	Pls of	"NPV_decision_profit_with_family_money_14"
 pls_result_14 <- plsr.mcSimulation(object = mcSimulation_results,
-                                  resultName = names(mcSimulation_results$y)[770], ncomp = 1)
+                                resultName = names(mcSimulation_results$y)[770],
+                                ncomp = 1)
 
 
 #We run the plot_pls() on the results from plsr.mcSimulation() 
@@ -874,10 +948,14 @@ plot_pls(pls_result_14, threshold = 0.8, input_table = input_table_gender)
 # As we learned in Lecture 8 on forecasts, EVPI measures 
 # the expected opportunity loss that is incurred when the decision-maker 
 # does not have perfect information about a particular variable. 
-# EVPI is determined by examining the influence of that variable on the output value of a decision model.
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[1:3])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own_business_branch_1")
-plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_1")
+# EVPI is determined by examining the influence of that 
+#variable on the output value of a decision model.
+mcSimulation_table <- data.frame(mcSimulation_results$x, 
+                                 mcSimulation_results$y[1:3])
+evpi <- multi_EVPI(mc = mcSimulation_table, 
+                 first_out_var = "NPV_profit_with_Own_business_branch_1")
+plot_evpi(evpi,
+          decision_vars = "NPV_decision_profit_with_Own_business_branch_1")
 
 names(mcSimulation_results$y[1:3])
 names(mcSimulation_results$y)[711]
@@ -886,99 +964,111 @@ colnames(mcSimulation_results$y[1:3])
 
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,61,62)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own_business_branch_2")
-plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_2")
+mcSimulation_table <- data.frame(mcSimulation_results$x, 
+                                 mcSimulation_results$y[c(1,61,62)])
+evpi <- multi_EVPI(mc = mcSimulation_table,
+                   first_out_var = "NPV_profit_with_Own_business_branch_2")
+plot_evpi(evpi,
+          decision_vars = "NPV_decision_profit_with_Own_business_branch_2")
 
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,120,121)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_Own_business_branch_3")
-plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_Own_business_branch_3")
+mcSimulation_table <- data.frame(mcSimulation_results$x,
+                                 mcSimulation_results$y[c(1,120,121)])
+evpi <- multi_EVPI(mc = mcSimulation_table,
+                   first_out_var = "NPV_profit_with_Own_business_branch_3")
+plot_evpi(evpi,
+          decision_vars = "NPV_decision_profit_with_Own_business_branch_3")
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,179,180)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_4")
-plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_4")
+mcSimulation_table <- data.frame(mcSimulation_results$x,
+                                 mcSimulation_results$y[c(1,179,180)])
+evpi <- multi_EVPI(mc = mcSimulation_table,
+                   first_out_var = "NPV_profit_with_off_farm_job_4")
+plot_evpi(evpi,
+          decision_vars = "NPV_decision_profit_with_off_farm_job_4")
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,238,239)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_5")
+mcSimulation_table <- data.frame(mcSimulation_results$x,
+                                 mcSimulation_results$y[c(1,238,239)])
+evpi <- multi_EVPI(mc = mcSimulation_table,
+                   first_out_var = "NPV_profit_with_off_farm_job_5")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_5")
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,297,298)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_6")
-plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_6")
+mcSimulation_table <- data.frame(mcSimulation_results$x,
+                                 mcSimulation_results$y[c(1,297,298)])
+evpi <- multi_EVPI(mc = mcSimulation_table,
+                   first_out_var = "NPV_profit_with_off_farm_job_6")
+plot_evpi(evpi, 
+          decision_vars = "NPV_decision_profit_with_off_farm_job_6")
 
 
 #here is an evpi:
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,356,357)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_7")
-plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_7")
+mcSimulation_table <- data.frame(mcSimulation_results$x,
+                                 mcSimulation_results$y[c(1,356,357)])
+evpi <- multi_EVPI(mc = mcSimulation_table,
+                   first_out_var = "NPV_profit_with_off_farm_job_7")
+plot_evpi(evpi,
+          decision_vars = "NPV_decision_profit_with_off_farm_job_7")
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,415,416)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_8")
+mcSimulation_table <- data.frame(mcSimulation_results$x,
+                                 mcSimulation_results$y[c(1,415,416)])
+evpi <- multi_EVPI(mc = mcSimulation_table,
+                   first_out_var = "NPV_profit_with_on_farm_job_8")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_8")
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,474,475)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_9")
+mcSimulation_table <- data.frame(mcSimulation_results$x,
+                                 mcSimulation_results$y[c(1,474,475)])
+evpi <- multi_EVPI(mc = mcSimulation_table,
+                   first_out_var = "NPV_profit_with_on_farm_job_9")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_9")
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,533,534)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_10")
+mcSimulation_table <- data.frame(mcSimulation_results$x, 
+                                 mcSimulation_results$y[c(1,533,534)])
+evpi <- multi_EVPI(mc = mcSimulation_table,
+                   first_out_var = "NPV_profit_with_on_farm_job_10")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_10")
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,592,593)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_on_farm_job_11")
+mcSimulation_table <- data.frame(mcSimulation_results$x,
+                                 mcSimulation_results$y[c(1,592,593)])
+evpi <- multi_EVPI(mc = mcSimulation_table,
+                   first_out_var = "NPV_profit_with_on_farm_job_11")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_on_farm_job_11")
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,651,652)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_12")
+mcSimulation_table <- data.frame(mcSimulation_results$x,
+                                 mcSimulation_results$y[c(1,651,652)])
+evpi <- multi_EVPI(mc = mcSimulation_table,
+                   first_out_var = "NPV_profit_with_family_money_12")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_12")
 
 
 #here is an evpi:
 
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,710,711)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_13")
+mcSimulation_table <- data.frame(mcSimulation_results$x, 
+                                 mcSimulation_results$y[c(1,710,711)])
+evpi <- multi_EVPI(mc = mcSimulation_table,
+                   first_out_var = "NPV_profit_with_family_money_13")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_13")
 
 #here is an evpi:
 
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,769,770)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_14")
+mcSimulation_table <- data.frame(mcSimulation_results$x,
+                                 mcSimulation_results$y[c(1,769,770)])
+evpi <- multi_EVPI(mc = mcSimulation_table,
+                   first_out_var = "NPV_profit_with_family_money_14")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_14")
 
 mcSimulation_results$y[c(1,769,770)]
-## Note from Alina: I suggest we dont use the coumpound figure. 
-## in the compound figute, we are forced to use the wrong input table as an input, therefore we get bad results for some plots.
-# compound_figure(mcSimulation_object = mcSimulation_results, 
-#                 input_table = input_table_gender, plsrResults = pls_result_1, 
-#                 EVPIresults = evpi, decision_var_name = "NPV_profit_with_Own_business_branch_1", 
-#                 cashflow_var_name = "Cashflow_decision_gender", 
-#                 base_size = 7)
 
 
-#way 2
-# plot_cashflow(mcSimulation_object = mcSimulation_results_way2, cashflow_var_name = "Cashflow_decision_gender")
-# pls_result <- plsr.mcSimulation(object = mcSimulation_results_way2,
-#                                 resultName = names(mcSimulation_results_way2$y)[3], ncomp = 1)
-# plot_pls(pls_result, threshold = 0, input_table = input_table_gender)
-# mcSimulation_table <- data.frame(mcSimulation_results_way2$x, mcSimulation_results_way2$y[1:3])
-# evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_decision")
-# plot_evpi(evpi, decision_vars = "NPV_decision")
-# compound_figure(mcSimulation_object = mcSimulation_results_way2, 
-#                 input_table = input_table_gender, plsrResults = pls_result, 
-#                 EVPIresults = evpi, decision_var_name = "NPV_decision", 
-#                 cashflow_var_name = "Cashflow_decision_gender", 
-#                 base_size = 7)
+
 
 
