@@ -662,7 +662,7 @@ Long-term payments directed to woman retirement incur high establishment and mai
 
 
 ## Risks
-In our model building process, we identified several risks which have the potential to impair the model outcome. We estimated the likelihood of these risks to occur and incooperated them in our initial version of the model. Also, we identified their potential impact on the NPV. However, implementing the risks lead to misleading results, as our code applied the risks over and over, and was not sensitive to the time in the employment biography of the woman.  
+In our model building process, we identified several risks which have the potential to impair the model outcome \@ref(tab:risktable). We estimated the likelihood of these risks to occur and incooperated them in our initial version of the model. Also, we identified their potential impact on the NPV. However, implementing the risks lead to misleading results, as our code applied the risks over and over, and was not sensitive to the time in the employment biography of the woman.  
 
 
 ```{r risktable, caption= "riskitable", echo=FALSE}
@@ -676,10 +676,11 @@ The main issues we encountered when applying our identified risks were due to th
 Additionally, some risks would lower payment depending on when they occur, instead of causing a complete loss of pension if they occur. That is to say, if a farm wive pays into her insurances for years, she would still receive pension even if she stops paying in. This could be the case for example, if the farm goes bankrupt. A solution here could be a function that calculates exactly how the insurance determines the pension after a certain amount of years.
 To complicate the matter even further, it was very difficult for us to assign realistic values for some of these risks e.g husband_risk.
 
--> instead of using the risks of the decision function, new risk functions would have to be written! Complicated, because no knowledge about the exact way the insurances pay what amounts of money under which conditions.
+There are a few possibilities to deal with these issues. 
+Instead of using the risks of the decision function in the decision support package, new risk functions would have to be written for cases in which binomial distribution does not apply. However, this exceeds our capabilities and knowledge about specific insurance conditions. 
+Another solution could be the use of the weibull-distribution. Here, a husbands risk to die for instance is not always the same, but differs with age and the differences over time, like in our case, could be implemented through this function.
 
-notes(have to be written better): 
-To answer the question, how risks could be better implemented in cases like this where binominal distributions are unfortunately, the use of a weibull-distribution would be fortunate. A husbands risk to die for example is not always the same, it differs with age. These differences over time could be implemented through this function. (source: https://mediatum.ub.tum.de/doc/1479942/1479942.pdf)....how do i get sources in?
+--> (source: https://mediatum.ub.tum.de/doc/1479942/1479942.pdf)....how do i get sources in?
 https://mediatum.ub.tum.de/doc/1472787/1472787.pdf). better sources: brandel et al. 2020, paul et al 2019 (i have them on my desctop)...i will write more text regarding this, but it is hard to explain...i will work on it in word first tomorrow) 
 
 the diversity of investments or portfolio diversification referring to the modern portfolio theory could be implemented as well using a weilbull function for calculationg the risk of an investment failure like mentioned above and an utility function to calculate how risk affin the decision maker is (can we quote whiley books???)https://www.researchgate.net/publication/272157556_Modern_Portfolio_Theory_Capital_Market_Theory_and_Asset_Pricing_Models), so that a mixed investment would have an advantage over a single insurance for example (see the text i wrote for "discussion"-> not sure where to put it). With an utility function, the emotional choice of a farm wife to invest into something even though she might face discussions with her husband could be included into the simulation as well. It would cover her risk adversion regarding inner familiary problems. Since the utility functions "slope of an indifference curve reflects the fact
