@@ -634,38 +634,37 @@ When checking the PLS for our differnet ways, it becomes apparent that the respe
 alex note: name variables with a Variable Importance in Projection (VIP) value greater than one and describe them exemplary
 
 ##EVPI
-To guide further research we conducted an analysis in order to calculated the expected value of perfect information (EVPI). The EVPI represents the amount of money our decision maker should be willing to pay to reduce the uncertainty concerning the respective variable. The variables with the highest uncertainty are shown. The EVPI shows where it would be suggested to invest more money to get better information about one variable. For broader ranges of lower and upper values, or rather more insecurity in the calculation of one variable the EVPI is positive. Further research could observe these variables to better the models.
-Most options had no variables with a positive EVPI. The expected value of information (EVPI) was calculated for the decision (Figure 7). The x-axis is given in euro.
 
-these are just notes and have to be ordered (maybe not use all evpis, too): 
+To guide further research we conducted the expected value of perfect information analysis (EVPI) in a next step. EVPI represents the amount of money the decision maker should be willing to pay in order to reduce uncertainties of highly uncertain variables within the decision. The broader the ranges of upper and lower ranges for one variable in the calculation the higher the insecurity of the forecast. The result is a positive EVPI. Here, further research and getting more information about these variables can improve the forecasting model and decision recommendation. In short, the underlying idea is that more perfect information ensures making the right decision.
 
-Option 13 and 14, where the money our decision maker could get from her family was compared to the default option had a positive EVPI. The money from her family would be used for ETF in way 14 and a mix of ETF and private insurance with option 13. For option 14, the variable mixed investment shows a positive EVPI of ..euro. This means, XY Euro should be invested in more research measuring the value of this variable regarding the output.
+Our results revealed that only three ways (13,14,7) showed a positive EVPI, i.e high uncertainty. Ways 13 and 14 are part of branch 3, where the default option (i.e no pension plan) is compared to the option of receiving family money. In way 14 she invests this money into ETFs and in way 13 into a mix i.e ETFs and private insurance. Here, the variable mixed investment showed a positive EVPI of ..euro. This means, XY Euro should be invested in more research measuring the value of this variable in regards to the output.
 A very low EVPI was not shown in the figues.
-
-here i have to write more tomorrow:
-Also option 7 showed a positive EVPI, where a job away from the farm leads to a private insurance where our decision maker also decides to pay into a mixed investment of ETF and private insurance.
-For number 7 this mix shows a positive EVPI over .... euro, which measn that further research on this variable should be done. Other ways with EVPI:11 and 2,too!!!!
-A monitoring plan seemes to be recommendable according to the simulation results.
-
-explnation how evpi works (needs to be shortened):
-EVPI nad Mix were the best investments, but sometimes still partly more negative than baseline option (like no 2). others were quite better than the baseline like no 7 and 13. no 6 is very good,too, but not shown since the boundary of the values in the input table is not so high. no 13 has the highest variance of lower and upper values in the input table, therefore the estimated money to invest in further research is so much. number 11 has a small x-axis because the values in the input table do not differ much. no 14 has as well as no 13 a wide boundary regarding the input, but the NPV is mostly negative. include more than the two? less?:
-
-```{r EVPI1, fig.cap = "EVPI way 13, 14", echo=FALSE}
-
 
 mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,710,711)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_13")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_13")
 
 
-
 mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,769,770)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_14")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_14")
 
+```{r EVPI1, fig.cap = "EVPI way 13, 14", echo=FALSE}
 
 # cite this figure with \@ref(fig:EVPI1)
 ```
+
+Way 7 (i.e. having a job away from the farm and adding a mixed private investment to her state insurance) showed a positive EVPI of.... euro. Hence, further research on this variable would be beneficial. 
+
+In general, it can be said that the investment into ETFs and a mix with private insurance were the best investments in most cases with some expections. For instance, way 2 showed more negative values than the default option. As a conclusion it can be said that a monitoring plan seems to be recommendable.
+
+Notes from Julia: I left this out
+
+Other ways with EVPI:11 and 2,too!!!!
+
+
+EVPI nad Mix were the best investments, but sometimes still partly more negative than baseline option (like no 2). others were quite better than the baseline like no 7 and 13. no 6 is very good,too, but not shown since the boundary of the values in the input table is not so high. no 13 has the highest variance of lower and upper values in the input table, therefore the estimated money to invest in further research is so much. number 11 has a small x-axis because the values in the input table do not differ much. no 14 has as well as no 13 a wide boundary regarding the input, but the NPV is mostly negative. include more than the two? less?:
+
 
 ## Discount rate
 Long-term payments directed to woman retirement incur high establishment and maintenance costs and will generate net losses in the first few years but return substantial benefits to the wife and family in the long term. Analogue to @do_decision_2020, best option for a decision maker may largely depend on their discount rate. In our Model, we have used the dicount rate f 1. It would be desirable to provide a range of different discount rates, to incoperete the different dicout rates of different decision makers. (alex: see below under "discussion")
