@@ -591,9 +591,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
                                     vars = "NPV_profit_with_family_money_14",
                                     method = 'boxplot_density')
 
-decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = "NPV_decision_profit_with_Own_business_branch_1",
-                                    method = 'boxplot_density')
+
 
 ####Boxplots####
 # We can use the same function to show the distributions of the
@@ -648,49 +646,6 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 
 
-
-CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results, 
-cashflow_var_name = "Cashflow_decision_gender_way_A" ) 
-#without the correct variable name this code will not work.
- 
- CashflowB <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-                         cashflow_var_name = "Cashflow_decision_gender_way_B" ) 
- 
- CashflowC <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-                          cashflow_var_name = "Cashflow_decision_gender_way_C" ) 
- 
- CashflowD <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-                         cashflow_var_name = "Cashflow_decision_gender_way_D" ) 
- 
- CashflowE <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-                          cashflow_var_name = "Cashflow_decision_gender_way_E" )
- 
- CashflowF <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-                          cashflow_var_name = "Cashflow_decision_gender_way_F" )
- 
- CashflowG <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-                         cashflow_var_name = "Cashflow_decision_gender_way_G" )
- 
- CashflowH <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-                          cashflow_var_name = "Cashflow_decision_gender_way_H" )
- 
- CashflowI <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-                          cashflow_var_name = "Cashflow_decision_gender_way_I" )
- 
- CashflowJ <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-                          cashflow_var_name = "Cashflow_decision_gender_way_J" )
- 
- CashflowK <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-                         cashflow_var_name = "Cashflow_decision_gender_way_K" )
- 
- CashflowL <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-                         cashflow_var_name = "Cashflow_decision_gender_way_L" )
- 
- CashflowM <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-                          cashflow_var_name = "Cashflow_decision_gender_way_M" )
- 
- CashflowN <- plot_cashflow(mcSimulation_object = mcSimulation_results,
-                          cashflow_var_name = "Cashflow_decision_gender_way_N" )
 
 CashflowA <- plot_cashflow(mcSimulation_object = mcSimulation_results,
                            cashflow_var_name = "Cashflow_decision_gender_way_A",
@@ -783,21 +738,28 @@ CashflowM <- plot_cashflow(mcSimulation_object = mcSimulation_results,
                            color_25_75 = "green4",
                            color_5_95 = "green1",
                            color_median = "red")
+CashflowN <- plot_cashflow(mcSimulation_object = mcSimulation_results,
+                           cashflow_var_name = "Cashflow_decision_gender_way_N",
+                           x_axis_name = "Year",
+                           y_axis_name = "Cashflow in Euro",
+                           color_25_75 = "green4",
+                           color_5_95 = "green1",
+                           color_median = "red")
 
-
-CashflowA
-CashflowB
-CashflowC
-CashflowD
-CashflowE
-CashflowF
-CashflowG
-CashflowH
-CashflowI
-CashflowJ
-CashflowK
-CashflowL
-CashflowM
+#CashflowA
+#CashflowB
+#CashflowC
+#CashflowD
+#CashflowE
+#CashflowF
+#CashflowG
+#CashflowH
+#CashflowI
+#CashflowJ
+#CashflowK
+#CashflowL
+#CashflowM
+#CashflowN
 
 
 
