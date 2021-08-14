@@ -476,7 +476,7 @@ mcSimulation_results <- decisionSupport::mcSimulation(
 ```
 
 
-# Results and Discussion
+#Results and Discussion
 
 Depending on the possibilities on the farm and in the region, our decision maker can chose among different sources of income. The decision maker may either start her own branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract or ask her husband to pay for her retirement. 
 
@@ -501,8 +501,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 # cite this figure with \@ref(fig:NPVbranch1)
 ```
 
-In the first branch our decision-maker sets up her own business branch on her husbands farm. Here, she continues to be part of the agricultural insurance,
-but also invests about 10 % of her income in private insurance, etf or a mixed investment. 
+In the first branch our decision-maker sets up her own business branch on her husbands farm. Here, she continues to be part of the agricultural insurance, but also invests about 10 % of her income in private insurance, ETF or a mixed investment. 
 In figure \@ref(fig:NPVbranch1) the NPVs from the decision clearly show, that these options are not attractive to our decision maker. Even tough the pension payout is considerably higher, the default option with the small pension comes for free. 
 
 
@@ -523,11 +522,10 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 ```
 
-In the second branch , our decision maker gets a gets an off-farm job. Here, she stops to be part of the agricultural insurance.Instead, she is part of the mandatory state insurance.
-Within this branch, the decision maker can either invests no income in pension 
-or invest  about 10% of her income in private insurance, ETF or mixed investment.
-In figure \@ref(fig:NPVbranch2) the NPVs from the decision show, that only the investments in ETF and Mixed investment are  more attractive than the default. 
-Even tough the pension payout with any pension plan is considerably higher then the default, the default option with the small pension comes for free. 
+In the second branch , our decision maker gets an off-farm job. Here, she stops to be part of the agricultural insurance.Instead, she is part of the mandatory state insurance.
+Within this branch, the decision maker can either invest no income in pension or invest about 10% of her income in private insurance, ETF or mixed investment.
+In figure \@ref(fig:NPVbranch2) the NPVs from the decision show, that only the investments in ETF and mixed investments are more attractive than the default. 
+Even tough the pension payout with any pension plan is considerably higher than the default, the default option with the small pension comes for free. 
 
 
 ```{r NPVbranch3, fig.cap = "NPV decision of on farm job", echo=FALSE}
@@ -546,10 +544,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 ```
 
 
-In the third branch, our decision maker gets an official working contract 
-and gets officially paid on farm by her husband. Here, she stops to be part of the agricultural insurance.
-Instead, she is part of the mandatory state insurance. With the income from this on farm job, the decision maker can either invests no income in pension 
-or invest  about 10 % of her income in private insurance, ETF or mixed investment. 
+In the third branch, our decision maker gets an official working contract and gets officially paid on farm by her husband. Here, she stops to be part of the agricultural insurance. Instead, she is part of the mandatory state insurance. With the income from this on farm job, the decision maker can either invests no income in pension or invest  about 10 % of her income in private insurance, ETF or mixed investment. 
 In figure \@ref(fig:NPVbranch3) the NPVs from the decision show, that most options are not attractive to our decision maker. Even tough the pension payout is considerably higher, the default option with the small pension comes for free. 
 
 
@@ -574,8 +569,6 @@ In figure \@ref(fig:NPVbranch4) the NPVs from the decision show, that most optio
  
 
 ## Cashflow
-
-
 
 
 ```{r cashflow1, fig.cap = "Cashflow of way 1", echo=FALSE}
@@ -618,9 +611,7 @@ When checking the PLS for our differnet ways, it becomes apparent that the respe
 alex note: name variables with a Variable Importance in Projection (VIP) value greater than one and describe them exemplary
 
 ##EVPI
-sorry, julia. this text is not ordered well
-
-To guide further research, the EVPI analysis, an analysis of expected value of perfect information was calculated. The EVPI represents the amounts of money, a decision maker should be willing to pay to reduce the uncertainty concerning the respective variable. The variables with the highest uncertainty are shown. The EVPI shows where it would be suggested to invest more money to get better information about one variable. For broader ranges of lower and upper values, or rather more insecurity in the calculation of one variable the EVPI is positive. Further research could observe these variables to better the models.
+To guide further research we conducted an analysis in order to calculated the expected value of perfect information (EVPI). The EVPI represents the amount of money our decision maker should be willing to pay to reduce the uncertainty concerning the respective variable. The variables with the highest uncertainty are shown. The EVPI shows where it would be suggested to invest more money to get better information about one variable. For broader ranges of lower and upper values, or rather more insecurity in the calculation of one variable the EVPI is positive. Further research could observe these variables to better the models.
 Most options had no variables with a positive EVPI. The expected value of information (EVPI) was calculated for the decision (Figure 7). The x-axis is given in euro.
 
 these are just notes and have to be ordered (maybe not use all evpis, too): 
