@@ -874,9 +874,7 @@ pls_result_14 <- plsr.mcSimulation(object = mcSimulation_results,
 #The colors of the bars represent the positive or negative coefficient 
 #of the given input variable with the output variable.
 
-jpeg("./grafik/rplot.jpg", width = 350, height = 350)
 plot_pls(pls_result_1, threshold = 0.8, input_table = input_table_gender)
-dev.off()
 
 plot_pls(pls_result_2, threshold = 0.8, input_table = input_table_gender)
 plot_pls(pls_result_3, threshold = 0.8, input_table = input_table_gender)
@@ -894,7 +892,6 @@ plot_pls(pls_result_14, threshold = 0.8, input_table = input_table_gender)
 
 
 ####EVPI####
-#Note From Alina: I do not understand how to make this evpi run
 
 # We calculate Value of Information (VoI) analysis 
 # with the Expected Value of Perfect Information (EVPI). 
