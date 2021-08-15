@@ -162,16 +162,18 @@ knitr::kable(input_table_gender, caption ='Input table')
 ## Coding the model
 
 The model was created in accordance with @R-decisionSupport [and is available in our Github repository](https://github.com/AlexandraKrause/Gendergroup/). 
- The heart of our model are the yearly payments into agricultural or state pension for 40 years (€/year) and the yearly pension payout for 17 years (€/year). 
+ The heart of our model are the yearly payments into different pension schemes for 40 years (€/year) and the yearly pension payout for 17 years (€/year). 
 
-Our model entails 14 „ways“, divided according to different income sources in 4 branches. In each branch, she pays a mandatory insurance (either state or agricultural insurance). In addition there are differnt options to top this mandatory insurance with personal investments like ETF, private insurance or a mix of both. Each of the 14 ways is compared to the default option (i.e. decision option 1). Here, our decision maker choses not to invest financially into her retirement and only relies on her husband/family-in-law since the mandatory agricultural insurance is paid by them.
+Our model entails 14 „ways“, divided according to different income sources in 4 branches. In each branch, she pays a mandatory insurance (either state or agricultural insurance). In addition there are different options to top this mandatory insurance with personal investments like ETF, private insurance or a mix of both. Each of the 14 ways is compared to the default option (i.e. decision option 1). Here, our decision maker chooses not to invest financially into her retirement and only relies on her husband/family-in-law since the mandatory agricultural insurance is paid by them.
 
 *	Branch 1 = Default vs. Own farm branch (Way 1, 2, 3)
 *	Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
 *	Branch 3 = Default vs. Payed on farm job (Way 8, 9, 10, 11)
 *	Branch 4 = Default vs. Family money (Way 12, 13, 14) 
 
-Our case study expands over 57 years and is split into a period of 40 years of payment and a period of 17 years of payout for each insurance option. For all insurances, investments and pensions we produced time series with variation, depicted here using the examples of agricultural insurance and private insurance having an off farm job. The abbreviation _inv_ represents the 40 working years in which she invests into her pension. Since pension payment and payouts are usually paid per month, we first used a monthly time unit in our code. However, doing that created a wide variety of variables for 684 months (40 years of working and paying into her pension plus 17 years of receiving pension) making it highly complicated to create a straightforward output.Therefore we decided to use yearly time units instead as intended by @R-decisionSupport.
+Our case study expands over 57 years and is split into a period of 40 years of payment and a period of 17 years of payout for each insurance option. For all insurances, investments and pensions we produced time series with variation, depicted here using the examples of agricultural insurance and private insurance having an off farm job. The abbreviation **_inv** represents the 40 working years in which she invests into her pension. 
+
+Since pension payment and payouts are usually paid per month, we first used a monthly time unit in our code. However, doing that created a wide variety of variables for 684 months making it highly complicated to create a straightforward output.Therefore we decided to use yearly time units instead as intended by @R-decisionSupport.
 
 
 ```{r, eval=FALSE}
@@ -194,7 +196,6 @@ Our case study expands over 57 years and is split into a period of 40 years of p
                                          n = working_years), rep(0,pension_years)
 ```
 
-The whole code can be found at --> add shortcut to repository & completely code so Cory can easily find it 
 
 ### Example Branch 1, way 1: Setting up her own business
 
@@ -217,9 +218,11 @@ By subtracting the cost from the benefit, we obtained the NPV. The NPV was then 
 In the default option the agricultural insurance is paid for by the family. Therefore, the decision maker benefits from receiving pension without having invested any money herself. 
 
 ```{r, eval=FALSE }
-  PartA <- Agri_insurance + Default_option
+  PartA <- Agri_insurance + Agri_insurance_inv
   PartB <- Agri_insurance_inv 
-  # The variables Default_option and Agri_insurance_inv are equal and cancel each other out. 
+  
+  # The two Agri_insurance_inv cancel each other out but emphasize that the husband (not the   decision maker) pay that mandatory insurance.
+  
   profit_Default <- (PartA - PartB)
   
   NPV_no_branch <- discount(profit_Default,
@@ -233,12 +236,7 @@ To calculate the NPV of the decision, we subtracted the default option from way 
 ```                         
 We performed this calculation on all 14 ways within the 4 branches.
 
-Note from Julia: I think this example is enough for an explanation. They can access the whole code on GitHub.I would actually delete the next part from line 256-439 (here to before return function)
-
-
-
-
-In the return list we included the NPV profit and the NPV decision profit for each option (including the default option) and the cashflow for all 14 ways.
+In the return list we included the NPV of the profit and the NPV of the decision profit for each way (including the default option) and the cashflow for all 14 ways.
 ```{r, eval=FALSE } 
 return(list(  NPV_no_branch =  NPV_no_branch,
               
@@ -246,9 +244,12 @@ return(list(  NPV_no_branch =  NPV_no_branch,
               NPV_profit_with_Own_business_branch_1 =  NPV_profit_with_Own_business_branch_1, 
               NPV_decision_profit_with_Own_business_branch_1 =  NPV_decision_profit_with_Own_business_branch_1,
               Cashflow_decision_gender_way_A =  profit_with_Own_business_branch_1,
-               #way 2
+              
+              #way 2
               [...]
-               #way 14
+              [...]
+              
+              #way 14
               [...]
    )
 ```  
@@ -776,7 +777,7 @@ Cashflow_decision_gender_way_N =  profit_with_family_money_14
 mcSimulation_results <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
   model_function = decision_function,
-  numberOfModelRuns = 1000,
+  numberOfModelRuns = 10000,
   functionSyntax = "plainNames"
 )
 
@@ -787,9 +788,6 @@ mcSimulation_results <- decisionSupport::mcSimulation(
 # Results and Discussion
 
 Depending on the possibilities on the farm and in the region, our decision maker can chose among different sources of income. The decision maker may either start her own branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract or ask her husband to pay for her retirement. 
-
-Many of our decision options have a negative NPV. The reason is that we compared each of our ways to the default option, in which the woman receives very little retirement, but as her family covers the cost for the mandatory insurance, she has no cost at all. 
-
 
 
 
@@ -893,6 +891,7 @@ In figure \@ref(fig:NPVbranch4) all options had a wide range. Way 12 is the opti
 The NPVs from the decision show, that most options are barely more attractive than the default to our decision maker. This time the investment into a mix of private insurance and ETF could achieve the most positive values, but also had the broadest range of outcomes and very negative predicted outcome values as well.
 
 
+Many of our decision options have a negative NPV. The reason is that we compared each of our ways to the default option, in which the woman receives very little retirement, but as her husband covers the cost for the mandatory insurance, she has no cost at all. 
 
 ```{r NPV-outcome_seperated, fig.cap = "NPVs compared", echo=FALSE}
 #NPVs compared
