@@ -859,7 +859,6 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 In the fourth branch, the decision maker convinces her husband to invest in her pension. Here, she continues to be part of the agricultural insurance. In addition, she uses the money from her husband to invest in a private insurance or ETF or mixed investment. In this branch, all options had a wide range (see Fig. \@ref(fig:NPVbranch4)). Way 12 is the option of paying in private insurance next to the mandatory agricultural insurance with family money. It showed the smallest range if the three option with a range of over - 200,000 to over 150,00 Euro, that could be achieved when deciding for this option. An even broader range from -100,00 to over 150,00 Euro was achieved with way 13, where under the same conditions an ETF was chosen instead of a private insurance. The highest difference in possible outcomes can be seen in way 14 with over - 200,000 to 150,00 Euro, where a mixed investment is chosen over an ETF. Compared to these the default option had an NPV of more or less than 74,200 to 75,600 with very small, estimated ranges.
 The NPVs from the decision show, that most options are barely more attractive than the default to our decision maker when it comes to ranges, even though more money could potentially be achieved with a decision for ETF and the mixed investment. This time the investment into a mix of private insurance and ETF had the broadest range of outcomes and very negative predicted outcome values as well, while the investment into an ETF was the most beneficial, even though the range of outcome was very broad as well.
 
-Many of our decision options have a negative NPV. The reason is that we compared each of our ways to the default option, in which the woman receives very little retirement, but as her husband covers the cost for the mandatory insurance, she has no cost at all. 
 
 
 ```{r NPVnobranch, fig.cap = "NPV Default", echo=FALSE}
@@ -910,7 +909,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 ```
 
  
-Here the NPVs of the options without substracting the NPV of no branch are compared to each other. The NPVs that differed the most from the baseline option were those of investing into ETF with a job away from the farm (way 6, Fig. \@ref(fig:NPVway6)) as well as investing into ETF (way 13, Fig. \@ref(fig:NPVway13))  and the mixed investment with using family money (way 13, Fig. \@ref(fig:NPVway13)). ETF_family_money differed from 5400 to 21,840 with an even broader difference of 21,840. 
+Here the NPVs of the options without substracting the NPV of no branch are compared to each other. The NPV of the default option is between 74,400 and 75,300 Euro (Fig. \@ref(fig:NPVnobranch) ) The NPVs that differed the most from this baseline option were those of investing into ETF with a job away from the farm (way 6, Fig. \@ref(fig:NPVway6)) as well as investing into ETF (way 13, Fig. \@ref(fig:NPVway13))  and the mixed investment with using family money (way 14, Fig. \@ref(fig:NPVway14)). The combination of ETF and family_money differed from 5400 to 21,840 with an even broader difference of 21,840. 
 Option 7, a mixed investment can have negative values as well with a range from -20,000 to 40,000 Euro. Broad ranges were observed for way 13, an investment into ETF with -100,00 to over 250,00 Euro and way 14 with -100,000 to over 150,00 Euro, where a mixed investment is chosen.
 
 This shows again that the best investment options were ETF and mixed investment. In the case of way 14 the range of possible outcomes for mixed investment was even higher and more negative than that of ETF. The range of the input estimates for ETF_inv_family_money differed from 15,360 to 3840 with a difference of 11,520, while those for 
@@ -956,35 +955,39 @@ plot_pls(pls_result_1, threshold = 0.8)
 
 
 ```
-Using a partial least square regression, the variable importance of a projection (VIP score) was produced as bar graphs. The model was more sensitive towards some variables, which are shown here. It shows which variables have the strongest impact on the outcome, but also the correlation with the outcome. The VIP shows the importance of the variables with a correlation of the output. The highest influences on the output are shown in the plot. Positive and negative values are visualized in comparison to the baseline option, showing if their influence is more positive or negative than the baseline, also showing a positive or negative relationship with the outcome.
+Using a partial least square regression, the variable importance of a projection (VIP score) was produced as bar graphs. The model was most sensitive towards some variables, which are shown here. It shows which variables have the strongest impact on the outcome, but also the correlation with the outcome. The VIP shows the importance of the variables with a correlation of the output. The highest influences on the output are shown in the plot. Positive and negative values are visualized in comparison to the baseline option, showing if their influence is more positive or negative than the baseline, also showing a positive or negative relationship with the outcome.
 
 
 When checking the PLS for our different ways, it becomes apparent that the respective pension scheme has the highest impact. For example for way 1 our decision-maker combines mandatory agricultural insurance with private insurance. In the PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our model is quite simple, this corresponds with our expectations. (See Fig. \@ref(fig:pls1)). When looking at the Pls of other 
 alex note: name variables with a Variable Importance in Projection (VIP) value greater than one and describe them exemplary
 
 ##EVPI
+
+```{r EVPI13, fig.cap = "EVPI way 13, 14", echo=FALSE}
+
 mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,710,711)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_13")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_13")
+# cite this figure with \@ref(fig:EVPI13)
+```
 
 
+```{r EVPI14, fig.cap = "EVPI way 13, 14", echo=FALSE}
 mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,769,770)])
 evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_family_money_14")
 plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_14")
-
-
-mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,356,357)])
-evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_7")
-plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_family_money_14")
-
-
-```{r EVPI1, fig.cap = "EVPI way 13, 14", echo=FALSE}
-
-
-# cite this figure with \@ref(fig:EVPI1)
+# cite this figure with \@ref(fig:EVPI14)
 ```
 
-To guide further research, we conducted the expected value of perfect information analysis (EVPI) in the next step (\@ref(fig:EVPI1)). EVPI represents the amount of money the decision-maker should be willing to pay to reduce uncertainties of highly uncertain variables within the decision. The broader the ranges of upper and lower ranges for one variable in the calculation, the higher the insecurity of the forecast. The result is a positive EVPI. Here, further research and getting more information about these variables can improve the forecasting model and decision recommendation. In short, the underlying idea is that more perfect information ensures making the right decision.
+```{r EVPI7, fig.cap = "EVPI way 13, 14", echo=FALSE}
+mcSimulation_table <- data.frame(mcSimulation_results$x, mcSimulation_results$y[c(1,356,357)])
+evpi <- multi_EVPI(mc = mcSimulation_table, first_out_var = "NPV_profit_with_off_farm_job_7")
+plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_7")
+
+# cite this figure with \@ref(fig:EVPI7)
+```
+
+To guide further research, we conducted the expected value of perfect information analysis (EVPI) in the next step (\@ref(fig:EVPI13), \@ref(fig:EVPI14), \@ref(fig:EVPI7)). EVPI represents the amount of money the decision-maker should be willing to pay to reduce uncertainties of highly uncertain variables within the decision. The broader the ranges of upper and lower ranges for one variable in the calculation, the higher the insecurity of the forecast. The result is a positive EVPI. Here, further research and getting more information about these variables can improve the forecasting model and decision recommendation. In short, the underlying idea is that more perfect information ensures making the right decision.
 
 Our results revealed that only three ways (13,14,7) showed a positive EVPI which hight was mentionable, i.e high uncertainty. Way 2 and 11 had very low EVPIs due to very low NPVs, since these options are seen as less beneficial within the models’ boundaries. Ways 13 and 14 are part of branch 3, where the default option (i.e no pension plan) is compared to the option of receiving family money. In way 13 the decision maker invests this money into an ETF and in way 14 into a mixed investion, i.e ETFs and private insurance. Here, the variable ETF_family_money shows a positive EVPI of 20,000 euro. This means that 20,000 Euro should be invested in more research measuring the value of this variable in regard to the output. For ETF_inv_family_money more than 5,000 Euro should be payed. Way 13 has the highest variance of lower and upper values in our input table. Therefore, the estimated price to invest in further research is quite high. Way 14, the decision for a mixed investment under the same conditions as given for way also shows high boundarys of input estimates. For the variable Mix_family_money 2,000 Euro are seen as a good prize for further investigation.Way 7 (i.e. having a job away from the farm and adding a mixed private investment to her state insurance) also showed a positive EVPI. For further investigation of the variable Mix_off_farm, around 105 Euro can be seen as a propriate amount of money used. Hence, further research on these variables would be beneficial. 
 
@@ -1015,8 +1018,8 @@ Instead of using the risks of the decision function in the decision support pack
 Another solution could be the use of the weibull-distribution (see below).
 To answer the question, how risks could be better implemented in cases like this where binominal distributions are, unfortunately, the use of a weibull-distribution would be fortunate. A husband's risk to die for example is not always affecting the same, but probably differs with age. Very young, unexperienced people and old people might have higher risks of dying in an accident, but this would have to be further researched. We also only numbered the risk to die in an accident, not a general death risk. The Weibull-function is capable of portraying the risk as a curve instead of a binominal distribution and is so covering this issue better. It is rather unusual to assume family conflicts every year because of a job away from the farm and therefore a possibility to quit the job. This also was shown during the workshops. The power of the husband on his wife's decision would decrease in these cases after the decision was made and then probably stop existing if not directly after taking a job away from the farm. The weilbull-distribution would cover this decreasing risk better as well. Further workshops could cover the need for more information regarding this input estimate. With these few examples the need for a function like the Weibull-distribution covering the risks instead of a binomial distribution, in this case, is shown (source: brandel et al. 2020, paul et al 2019 (how to put them in?).
 
-the diversity of investments or portfolio diversification referring to the modern portfolio theory could be implemented as well using a weilbull function for calculating the risk of an investment failure like mentioned above and an utility function to calculate how risk affine the decision-maker is (https://www.researchgate.net/publication/272157556_Modern_Portfolio_Theory_Capital_Market_Theory_and_Asset_Pricing_Models), so that a mixed investment would have an advantage over single insurance for example (see the text i wrote for "discussion"-> not sure where to put it). With an utility function, the emotional choice of a farm wife to invest, even though she might face discussions with her husband could be included in the simulation as well. It would cover her risk aversion regarding inner family problems. Since the utility functions "slope of an indifference curve reflects the fact that investors require a higher expected return in order to accept higher risk", the process of deciding for or against an option with the knowledge of conflicts could be estimated
-(https://www.researchgate.net/publication/272157556_Modern_Portfolio_Theory_Capital_Market_Theory_and_Asset_Pricing_Models).
+the diversity of investments or portfolio diversification referring to the modern portfolio theory could be implemented as well using a weilbull function for calculating the risk of an investment failure like mentioned above and an utility function to calculate how risk affine the decision-maker is [@fabozzi2001modern], so that a mixed investment would have an advantage over single insurance for example (see the text i wrote for "discussion"-> not sure where to put it). With an utility function, the emotional choice of a farm wife to invest, even though she might face discussions with her husband could be included in the simulation as well. It would cover her risk aversion regarding inner family problems. Since the utility functions "slope of an indifference curve reflects the fact that investors require a higher expected return in order to accept higher risk", the process of deciding for or against an option with the knowledge of conflicts could be estimated
+[@fabozzi2001modern].
 
 
 ## Problems, Obstacles & Uncertainties 
