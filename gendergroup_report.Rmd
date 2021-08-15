@@ -42,7 +42,7 @@ To do:
 
 - change sentences in results (always the same sentence?--> can be combined)
 - pls and stakeholders --> stops mid sentence 
-- all figures cited correctly? --> not proper citation for model draft yet 
+- all figures cited correctly? 
 
 
 NOT YET DONE
