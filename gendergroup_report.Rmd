@@ -777,7 +777,7 @@ Cashflow_decision_gender_way_N =  profit_with_family_money_14
 mcSimulation_results <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
   model_function = decision_function,
-  numberOfModelRuns = 10000,
+  numberOfModelRuns = 1000,
   functionSyntax = "plainNames"
 )
 
@@ -787,9 +787,61 @@ mcSimulation_results <- decisionSupport::mcSimulation(
 
 # Results and Discussion
 
-Depending on the possibilities on the farm and in the region, our decision maker can chose among different sources of income. The decision maker may either start her own branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract or ask her husband to pay for her retirement. 
+```{r NPVnobranch, fig.cap = "NPV Default", echo=FALSE}
+#NPVs compared
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                     vars = "NPV_no_branch",
+                                     method = 'boxplot_density')
 
 
+
+# cite this figure with \@ref(fig:NPVnobranch)
+```
+
+
+```{r NPVway6, fig.cap = "NPV Way 6", echo=FALSE}
+#NPVs compared
+
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = "NPV_profit_with_off_farm_job_6",
+                                    method = 'boxplot_density')
+
+
+# cite this figure with \@ref(fig:NPVway6)
+```
+
+
+```{r NPVway13, fig.cap = "NPV Way 13", echo=FALSE}
+#NPVs compared
+
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = "NPV_profit_with_family_money_13",
+                                    method = 'boxplot_density')
+
+
+# cite this figure with \@ref(fig:NPVway13)
+```
+
+```{r NPVway14, fig.cap = "NPV Way 14", echo=FALSE}
+#NPVs compared
+
+decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
+                                    vars = "NPV_profit_with_family_money_14",
+                                    method = 'boxplot_density')
+
+# cite this figure with \@ref(fig:NPVway14)
+```
+
+ 
+The NPVs that differed the most from the baseline option were those of investing into ETF with a job away from the farm (way 6, Fig. \@ref(fig:NPVway6)) as well as investing into ETF (way 13, Fig. \@ref(fig:NPVway13))  and the investment mix with using family money (way 13, Fig. \@ref(fig:NPVway13)). (This shows again that the best investment options were ETF and mixed investment. In the case of way 13 the mixed investment was even higher than that of ETF, which was not the case for the other branches. The range of the input estimates for ETF_inv_family_money differed from 15,360 to 3840 with a difference of 11,520, while those for ETF_family_money 5400 to 21,840 with an even broader difference of 21,840. 
+Option 7, a mixed investment can have negative values as well with a range from -20,000 to 40,000 Euro. Broad ranges were observed for way 13, an investment into ETF with -100,00 to over 150,00 Euro and way 14 with -100,000 to 250,00 Euro, where a mixed investment is chosen.
+The last two options have a very broad range of loosing a lot of money or gaining much.This is because investing into ETFs comes with its very own risks. First, past performances on the capital market does not guarantee for current or future performances. Second, the value of investments and the income generated from them are not guaranteed and can increase or decrease due to inflation or a change in exchange rates for instance. In this case, funds with high variability can lead to pronounced fluctuations. Third, the tax rates and basis for taxation may change over time.
+It becomes obvious that the risk tolerance of the investor makes a difference in how high the losses or gains in private investment can be. Our model does not cover this.We calculated using 10% of her income, which is highest in the cases of having an off farm job and receiving family money. Therefore the range of possible upper and lower boundaries is quite large in these cases. It would be advisable to consider the risk tolerance of the decision maker and account for these specific risks in a different function to use for a decision analysis in future.
+
+
+Depending on the possibilities on the farm and in the region, our decision maker can chose among different sources of income. The decision maker may either start her own branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract or ask her husband to pay for her retirement. In the following we compare the NPVs of the decisions. The NPVs were calculated in euro and show the total monetary outcome after paying money into the insurance for 40 years and receiving money for 17 years.
 
 ```{r NPVbranch1, fig.cap= "NPV decision of own business branch", echo=FALSE}
 #Plot own branch 
@@ -804,20 +856,12 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 # cite this figure with \@ref(fig:NPVbranch1)
 ```
 
-NPVs were calculated in euro and show the total monetary outcome after paying money into the insurance for 40 years and receiving money for 17 years. (see plots).
-
-
-
 In the first branch our decision-maker sets up her own business branch on her husbands farm. Here, she continues to be part of the agricultural insurance, but also invests about 10 % of her income in private insurance, ETF or a mixed investment. 
 
 In figure \@ref(fig:NPVbranch1) Option 1, namely the investment I an private insurance together with the mandatory agricultural insurance, payed by having an own business branch on the farm has an outcome of - 115,000 and -60,000 Euro compared to the baseline scenario. The best option of these three is number two, where is invested into an ETF together with the agricultural insurance, followed by option 3, only differing by investing in the mixed investment.
 
-
 The NPVs from the decision clearly show, that these options are not attractive to our decision maker. Even tough the pension payout is considerably higher, the default option with the small pension comes for free. The option to invest into ETF was the one with the highest predicted outcome, followed by the decision for a mixed investment.
 Visible are high losses of money due to the fact, that the default option of sticking to the status-quo was so high since the insurance costs were payed by the decision maker’s husband. Since no costs are payed, but still money is payed by the insurance, only very good investments can compete with the baseline option. 
-
-
-
 
 ```{r NPVbranch2, fig.cap = "NPV decision of off farm job", echo=FALSE}
 #Plot off farm Job
@@ -842,9 +886,6 @@ In figure \@ref(fig:NPVbranch2) option four and five have solely negative values
 The NPVs from the decision show, that only the investments in ETF and mixed investments are more attractive than the default. Even tough the pension payout with any pension plan is considerably higher than the default, the default option with the small pension still is a receiving without a payment. 
 ETF is the investment with the highest predicted outcome folled by the mixed investment again.
 
-
-
-
 ```{r NPVbranch3, fig.cap = "NPV decision of on farm job", echo=FALSE}
 #Plot on farm job
 decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
@@ -860,14 +901,10 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 ```
 
-
 In the third branch, our decision maker gets an official working contract and gets officially paid on farm by her husband. Here, she stops to be part of the agricultural insurance. Instead, she is part of the mandatory state insurance. With the income from this on farm job, the decision maker can either invests no income in pension or invest  about 10 % of her income in private insurance, ETF or mixed investment. 
-
 
 payed by a job on the farm. Option 11 is the decision to use the money for a mixed investment instead of ETF under the same conditions. The outcome is mostly negative with values from -30.000 to 10.000 Euro. The other options have no positive values and losses over 60.000 Euro.
 The NPVs from the decision show, that most options are not attractive to our decision maker.The investment in ETF, followed by the mixed investment is the best option again.
-
-
 
 ```{r NPVbranch4, fig.cap = "NPV decision of family money", echo=FALSE}
 #Plot Family Money
@@ -890,36 +927,7 @@ She uses the money from her husband to invest in a private insurance or ETF or m
 In figure \@ref(fig:NPVbranch4) all options had a wide range. Way 12 is the option of paying in private insurance next to the mandatory agricultural insurance with family money. It showed the smallest range if the three option with a range of -100,000 to over 100,00 Euro, that could be achieved when deciding for this option. An even broader range from -100,00 to over 150,00 Euro was achieved with way 13, where under the same conditions an ETF was chosen instead of a private insurance. The highest difference in possible outcomes can be seen in way 14 with -100,000 to 250,00 Euro, where a mixed investment is chosen over an ETF. Compared to these the default option had an NPV 74,200 to 75,600 with very small, estimated ranges.
 The NPVs from the decision show, that most options are barely more attractive than the default to our decision maker. This time the investment into a mix of private insurance and ETF could achieve the most positive values, but also had the broadest range of outcomes and very negative predicted outcome values as well.
 
-
 Many of our decision options have a negative NPV. The reason is that we compared each of our ways to the default option, in which the woman receives very little retirement, but as her husband covers the cost for the mandatory insurance, she has no cost at all. 
-
-```{r NPV-outcome_seperated, fig.cap = "NPVs compared", echo=FALSE}
-#NPVs compared
-decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                     vars = "NPV_no_branch",
-                                     method = 'boxplot_density')
-
-decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = "NPV_profit_with_off_farm_job_6",
-                                    method = 'boxplot_density')
-
-decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = "NPV_profit_with_family_money_13",
-                                    method = 'boxplot_density')
-
-decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results, 
-                                    vars = "NPV_profit_with_family_money_14",
-                                    method = 'boxplot_density')
-
-# cite this figure with \@ref(fig:NPV-outcome_seperated)
-```
-
-(have to number the plots like a),b),...does someone know how? i failed)
- 
-The NPVs that differed the most from the baseline option were those of investing into ETF with a job away from the farm (way 6) as well as investing into ETF (way 13)  and the investment mix with using family money (way 13). (This shows again that the best investment options were ETF and mixed investment. In the case of way 13 the mixed investment was even higher than that of ETF, which was not the case for the other branches. The range of the input estimates for ETF_inv_family_money differed from 15,360 to 3840 with a difference of 11,520, while those for ETF_family_money 5400 to 21,840 with an even broader difference of 21,840. 
-Option 7, a mixed investment can have negative values as well with a range from -20,000 to 40,000 Euro. Broad ranges were observed for way 13, an investment into ETF with -100,00 to over 150,00 Euro and way 14 with -100,000 to 250,00 Euro, where a mixed investment is chosen.
-The last two options have a very broad range of loosing a lot of money or gaining much.This is because investing into ETFs comes with its very own risks. First, past performances on the capital market does not guarantee for current or future performances. Second, the value of investments and the income generated from them are not guaranteed and can increase or decrease due to inflation or a change in exchange rates for instance. In this case, funds with high variability can lead to pronounced fluctuations. Third, the tax rates and basis for taxation may change over time.
-It becomes obvious that the risk tolerance of the investor makes a difference in how high the losses or gains in private investment can be. Our model does not cover this.We calculated using 10% of her income, which is highest in the cases of having an off farm job and receiving family money. Therefore the range of possible upper and lower boundaries is quite large in these cases. It would be advisable to consider the risk tolerance of the decision maker and account for these specific risks in a different function to use for a decision analysis in future.
 
 
 
