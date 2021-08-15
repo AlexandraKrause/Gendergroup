@@ -457,18 +457,8 @@ return(list(  NPV_no_branch =  NPV_no_branch,
               [...]
    )
 ```  
- 
-####Simulation####
-mcSimulation_results <- decisionSupport::mcSimulation(
-  estimate = decisionSupport::as.estimate(input_table_gender),
-  model_function = decision_function,
-  numberOfModelRuns = 100,
-  functionSyntax = "plainNames"
-)
 
-
-```
-
+Notes from Julia-->add simulation? 
 
 #Results and Discussion
 
