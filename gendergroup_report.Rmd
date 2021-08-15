@@ -197,7 +197,7 @@ Since pension payment and payouts are usually paid per month, we first used a mo
 ```
 
 
-### Example Branch 1, way 1: Setting up her own business
+### Code Example Way 1 (Own business branch + investment in private insurance)
 
 In way 1, our decision maker sets up her own business branch. Analogue to the default option, she continues to be part of the agricultural insurance. Here however, she pays into it herself. 
 On top, she invests about 10 % of her income into private insurance. 
@@ -787,7 +787,7 @@ mcSimulation_results <- decisionSupport::mcSimulation(
 
 # Results and Discussion
 
-Depending on the possibilities on the farm and in the region, our decision maker can chose among different sources of income. The decision maker may either start her own branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract or ask her husband to pay for her retirement. In the following we compare the NPVs of the decisions withing the different income sources. The NPVs were calculated in euro and show the total monetary outcome after paying money into the insurance for 40 years and receiving money for 17 years.
+Depending on the possibilities on the farm and in the region, our decision maker can chose among different sources of income. The decision maker may either start her own branch on the family farm, pursue an off-farm job, ask her husband for a formal working contract or ask her husband to pay for her retirement. In the following we compare the NPVs of the investment decisions within the different income sources. All NPVs were calculated in euro and plots show the total monetary outcome after paying money into the insurance for 40 years and receiving money for 17 years.
 
 ```{r NPVbranch1, fig.cap= "NPV decision of own business branch", echo=FALSE}
 #Plot own branch 
@@ -802,8 +802,8 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 # cite this figure with \@ref(fig:NPVbranch1)
 ```
 
-In the first branch our decision-maker sets up her own business branch on her husbands farm. Here, she continues to be part of the agricultural insurance, but also invests about 10 % of her income in private insurance, ETF or a mixed investment. The NPVs from the decision clearly show, that these options are not attractive to our decision maker (see Fig. \@ref(fig:NPVbranch1)) . Even tough the pension payout is considerably higher, the default option with the small pension comes for free. The investment in an private insurance together with the mandatory agricultural insurance, payed by having an own business branch on the farm (way 1) has an outcome of - 115,000 to less than -60,000 Euro and is the least attractive option here. The option to invest into ETF was the one with the highest predicted outcome, followed by the decision for a mixed investment.
-Visible are high losses of money due to the fact, that the default option of sticking to the status-quo was so high since the insurance costs were payed by the decision maker’s husband. Since no costs are payed, but still money is payed by the insurance, only very good investments can compete with the baseline option. 
+In the first branch our decision-maker sets up her own business branch on her husbands farm. Here, she continues to be part of the agricultural insurance, but also invests about 10 % of her income in private insurance, ETF or a mixed investment. The NPVs from these decisions clearly show, that none of these options are attractive to our decision maker (see Fig. \@ref(fig:NPVbranch1)) . The high losses of money of the proposed interventions, are a result of the very comfortable default option, in which the insurance costs are payed by the decision maker’s husband. Since no costs need to be covered by the decision maker, but still money is payed by the insurance, only very good investments can compete with the baseline option. Even tough the pension payout without any pension plan is considerably higher than the default, the default option with the small pension still is a benefit without a cost. Deciding for an investment in an private insurance together with the mandatory agricultural insurance,  has an outcome of - 115,000 to less than -60,000 Euro and is the least attractive option here. The option to invest into ETF was the one with the highest predicted outcome, followed by the decision for a mixed investment.
+ 
 
 ```{r NPVbranch2, fig.cap = "NPV decision of off farm job", echo=FALSE}
 #Plot off farm Job
@@ -822,11 +822,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 ```
 
 In the second branch , our decision maker gets an off-farm job. Here, she stops to be part of the agricultural insurance.Instead, she is part of the mandatory state insurance.
-Within this branch, the decision maker can either invest no income in pension or invest about 10% of her income in private insurance, ETF or mixed investment.
-
-Here, option four (no aditional investment) and five (private insurance) have solely negative values (see Fig. figure \@ref(fig:NPVbranch2)). In option 4 is the investment into the mandatory state insurance payed by an off-farm job which differs from the baseline option between -30,000 to -70,000 Euro. Option 7, the decision for a mixed investment can have negative values as well with a range from -20,000 to 40,000 Euro. But option 6, the investment in ETF is solely positive with values from 20,000 to 110,000 Euro compared to the option of sticking to status quo. 
-The NPVs from the decision show, that only the investments in ETF and mixed investments are more attractive than the default. Even tough the pension payout with any pension plan is considerably higher than the default, the default option with the small pension still is a receiving without a payment. 
-ETF is the investment with the highest predicted outcome followed by the mixed investment again.
+Within this branch, the decision maker can either invest no further income in pension or invest about 10% of her income in private insurance, ETF or mixed investment. Option 4, were the investment into the mandatory state insurance is payed by an off-farm job, differs from the baseline option between -30,000 to -70,000 Euro.  Option 4 (no aditional investment) and 5 (private insurance) have solely negative values (see Fig. figure \@ref(fig:NPVbranch2)). Option 7, the decision for a mixed investment can have negative values as well with a range from -20,000 to 40,000 Euro. But option 6, the investment in ETF is solely positive with values from 20,000 to 110,000 Euro compared to the option of sticking to the default. The NPVs from the decision show, that only the investments in ETF and mixed investments are more attractive than the default. ETF is the investment with the highest predicted outcome followed by the mixed investment again.
 
 ```{r NPVbranch3, fig.cap = "NPV decision of on farm job", echo=FALSE}
 #Plot on farm job
@@ -843,10 +839,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 ```
 
-In the third branch, our decision maker gets an official working contract and gets officially paid on farm by her husband. Here, she stops to be part of the agricultural insurance. Instead, she is part of the mandatory state insurance. With the income from this on farm job, the decision maker can either invests no income in pension or invest  about 10 % of her income in private insurance, ETF or mixed investment. 
-
-Option 10 is the only solely option of this group with positive values smaller than 10.000 and higher than 60,000 Euro. It is the investment in ETF and state insurance payed by a job on the farm. 
-Option 11 is the decision to use the money for a mixed investment instead of ETF under the same conditions. The outcome is mostly negative with values from more than -25.000 to 10.000 Euro. The other options have no positive values and losses over 60.000 Euro.
+In the third branch, our decision maker gets an official working contract and gets officially paid on farm by her husband. Here, she stops to be part of the agricultural insurance. Instead, she is part of the mandatory state insurance. With the income from this on farm job, the decision maker can either invests no income in pension or invest  about 10 % of her income in private insurance, ETF or mixed investment. Option 10 is the only solely option of this group with positive values smaller than 10.000 and higher than 60,000 Euro. It is the investment in ETF and state insurance payed by a job on the farm. Option 11 is the decision to use the money for a mixed investment instead of ETF under the same conditions. The outcome is mostly negative with values from more than -25.000 to 10.000 Euro. The other options have no positive values and losses over 60.000 Euro.
 The NPVs from the decision show, that most options are not attractive to our decision maker.The investment in ETF, followed by the mixed investment is the best option again.
 
 ```{r NPVbranch4, fig.cap = "NPV decision of family money", echo=FALSE}
@@ -863,11 +856,7 @@ decisionSupport::plot_distributions(mcSimulation_object = mcSimulation_results,
 
 ```
 
-In the fourth branch, the decision maker convinces her husband to invest in her pension. Here, she continues to be part of the agricultural insurance,
-
-She uses the money from her husband to invest in a private insurance or ETF or mixed investment.
-
-In figure \@ref(fig:NPVbranch4) all options had a wide range. Way 12 is the option of paying in private insurance next to the mandatory agricultural insurance with family money. It showed the smallest range if the three option with a range of over - 200,000 to over 150,00 Euro, that could be achieved when deciding for this option. An even broader range from -100,00 to over 150,00 Euro was achieved with way 13, where under the same conditions an ETF was chosen instead of a private insurance. The highest difference in possible outcomes can be seen in way 14 with over - 200,000 to 150,00 Euro, where a mixed investment is chosen over an ETF. Compared to these the default option had an NPV of more or less than 74,200 to 75,600 with very small, estimated ranges.
+In the fourth branch, the decision maker convinces her husband to invest in her pension. Here, she continues to be part of the agricultural insurance. In addition, she uses the money from her husband to invest in a private insurance or ETF or mixed investment. In this branch, all options had a wide range (see Fig. \@ref(fig:NPVbranch4)). Way 12 is the option of paying in private insurance next to the mandatory agricultural insurance with family money. It showed the smallest range if the three option with a range of over - 200,000 to over 150,00 Euro, that could be achieved when deciding for this option. An even broader range from -100,00 to over 150,00 Euro was achieved with way 13, where under the same conditions an ETF was chosen instead of a private insurance. The highest difference in possible outcomes can be seen in way 14 with over - 200,000 to 150,00 Euro, where a mixed investment is chosen over an ETF. Compared to these the default option had an NPV of more or less than 74,200 to 75,600 with very small, estimated ranges.
 The NPVs from the decision show, that most options are barely more attractive than the default to our decision maker when it comes to ranges, even though more money could potentially be achieved with a decision for ETF and the mixed investment. This time the investment into a mix of private insurance and ETF had the broadest range of outcomes and very negative predicted outcome values as well, while the investment into an ETF was the most beneficial, even though the range of outcome was very broad as well.
 
 Many of our decision options have a negative NPV. The reason is that we compared each of our ways to the default option, in which the woman receives very little retirement, but as her husband covers the cost for the mandatory insurance, she has no cost at all. 
