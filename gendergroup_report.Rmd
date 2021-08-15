@@ -112,8 +112,8 @@ Our next goal was to gain a better understanding of the actual and current pensi
 
 
 ```{r invitation, echo=FALSE, out.width='50%', fig.align='center', fig.cap="Invitation to the Workshop", fig.show='hold'}
-knitr::include_graphics('images/1.png')
-knitr::include_graphics('images/2.png')
+knitr::include_graphics('images/workshop_invitation_1.png')
+knitr::include_graphics('images/workshop_invitation_2.png')
 
 # cite this figure with \@ref(fig:invitation)
 ```
