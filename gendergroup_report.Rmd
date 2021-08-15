@@ -91,17 +91,19 @@ We characterized our decision-maker as a 25 year old woman. The farm she married
 There are a number of additional individual characteristics that affect her options to take precautions for her financial future. We determined her to be a gardener by trade, she did not bring any noteworthy wealth or property into the marriage and the couple already has one young child.
 
 ## Draft of the conceptual model
-Our initial model draft was based on literature and personal experiences [@Padel2020] (Figure 4.1). It displays both decision options that lead to her pension i.e. the decision option 1 aka default option and decision option 2 of choosing a pension plan.
+
+ 
+```{r oldmodeldraft, echo=FALSE, out.width='100%', fig.align='center', fig.cap="Model draft", fig.show='hold'}
+knitr::include_graphics('images/Model_before_workshop.png')
+
+# cite this figure with \@ref(fig:oldmodeldraft)
+```
+
+Our initial model draft was based on literature and personal experiences [@Padel2020] (Fig. \@ref(fig:oldmodeldraft)). It displays both decision options that lead to her pension i.e. the decision option 1 aka default option and decision option 2 of choosing a pension plan.
 We chose the three most commonly mentioned ways in the literature to secure a safe pension, namely owning property, investing in private insurance, and paying into state insurance. 
 As ways to finance these pension schemes, we decided on four different financing options. Self-employment on the farm (e.g. as a gardener), setting up a co-ownership of the farm with her husband, convincing her in-laws/husband to pay her fully, or working in her chosen profession as a gardener away from the farm. All of these options could be used for investment into property or private insurance. In order to make use of a state insurance she would have to be officially employed on the farm, or take on an occupation away from the farm. 
 In a brainstorming session, we collected different risks for each option. If she sticks to the status quo (i.e. default option) she is financially dependand on her family-in-law. Events that could highly threaten her pension in this case are a possible divorce, a fatal accident at the work of her husband, or the bancrupcy of the farm.
 Obstacles that we thought likely to make it difficult for her to choose a pension plan is the objection of the husband himself and the need to cover child and elderly care, which is mainly seen as her responsibility. 
- 
-```{r, echo=FALSE, out.width='100%', fig.align='center', fig.cap="Model draft", fig.show='hold'}
-knitr::include_graphics('images/Model_before_workshop.png')
-```
-
-
 ## Stakeholders and Participatory approach 
 
 We identified four major stakeholders in this decision. The farmer is the husband of our decision maker. He may depend on the support of his wife when running his farm. He may expect his wife to support him, as he most probably grew up on a farm, where his mother contributed without formal employment contract. Our second stakeholder category are children, who grow up on a farm and may encounter the expectations to take over the farm at some point. In case of a farm transfer, the successor child will take responsibility for the financial security of its parents during their pension. To minimize his/ her financial obligations, the successor should be in favor of a good pension plan. Our third stakeholder category are the in-laws of the decision maker. When the husband owns the farm and his wife supported him full time, the wife is self -sufficient in her pension but rather dependent on her husband. The in-laws may be sceptical about investing in the pension of the decision maker, because they believe in a lasting marriage. Another stakeholder are people who would like to start a farming business without inheriting one. Here, the 
