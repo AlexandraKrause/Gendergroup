@@ -24,12 +24,12 @@ input_table_gender <- input_table_gender %>%
 
 #inputestimates
 #Reminder about the make_variables function
-make_variables <- function(est,n=1)
-{ x<-random(rho=est, n=n)
-for(i in colnames(x)) assign(i,
-                              as.numeric(x[1,i]),envir=.GlobalEnv)
-}#Then call:
-  make_variables(as.estimate(input_table_gender))
+# make_variables <- function(est,n=1)
+# { x<-random(rho=est, n=n)
+# for(i in colnames(x)) assign(i,
+#                               as.numeric(x[1,i]),envir=.GlobalEnv)
+# }#Then call:
+#   make_variables(as.estimate(input_table_gender))
 
 
 ####Decision function####
