@@ -958,11 +958,22 @@ plot_pls(pls_result_1, threshold = 0.8)
 
 
 ```
-Using a partial least square regression, the variable importance of a projection (VIP score) was produced as bar graphs. The model was most sensitive towards some variables, which are shown here. It shows which variables have the strongest impact on the outcome, but also the correlation with the outcome. The VIP shows the importance of the variables with a correlation of the output. The highest influences on the output are shown in the plot. Positive and negative values are visualized in comparison to the baseline option, showing if their influence is more positive or negative than the baseline, also showing a positive or negative relationship with the outcome.
+
+alina, could you also put in these?:plot 2, 8,10,9
 
 
-When checking the PLS for our different ways, it becomes apparent that the respective pension scheme has the highest impact. For example for way 1 our decision-maker combines mandatory agricultural insurance with private insurance. In the PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our model is quite simple, this corresponds with our expectations. (See Fig. \@ref(fig:pls1)). When looking at the Pls of other 
-alex note: name variables with a Variable Importance in Projection (VIP) value greater than one and describe them exemplary
+
+Using a Partial least square regression, the Variable importance of a projection (VIP score) was produced as bar graphs. The model is more sensitive towards some variables, which are shown in the plot. Visible is which variables have the strongest impact on the outcome, but also the correlation with the outcome. The VIP shows the importance of the variables with a correlation of the output. The highest influences on the output are shown in the plot. Positive and negative values are visualised in comparison to the baseline option, showing if their influence is more positive or negative than the baseline and also showing a positive or negative relationship with the outcome.
+
+For way one, namely the investment into agricultural and private insurance, the payouts of the private insurance are positive whereas the investments are negative to nearly the same extend, showing that this option is not very beneficial. Way two, investing into ETF shows a very positive outcome for the received payments and a negative one for the investment. The same occurs for way 3 and 12,13 and 14 where the not mandatory option, the decision maker can choose is the most important variable. The variables of investments into ETF and Mix here are important variables than private insurance. For way 8 and 4 it this variable is the state insurance, a mandatory option, where the investment is higher than the payout.
+For way 10 the ETF payout is very important, next its investment. But state insurance investments also are visible, showing that they have a negative importance on the outcome. Way 9 shows that private insurance has a positive payout, but the costs of state insurance are even more important within the model than the costs for the private insurance. The same occurs for the VIPs of way 6 and 7, where state insurance costs are higher than the costs for the more beneficial investments.
+
+Others: 11 (this one is missing, i am working on it. looks starnge, i am also looking at state insurance again. next push i would write a sentence or so about it in the summarising parts)
+
+
+
+When checking the PLS for our different ways, it becomes apparent that the respective pension scheme usually has the highest impact.  For example for way 1 our decision maker combines the mandatory agricultural insurance with private insurance. In the PLS, the investments in insurance appear negative whereas the payouts have a positive impact on the NPV of the decision. As our model is quite simple, this corresponds with our expectations (See Fig. \@ref(fig:pls1)). 
+
 
 ##EVPI
 
