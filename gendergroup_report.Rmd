@@ -127,14 +127,15 @@ knitr::include_graphics('images/Model_after_workshop_pension_plan.png')
 As a first step we eliminated the options of farm co-ownership and self-employment we previously considered as a possible financing option. We learned in the workshop that co-ownership is hardly done in reality as it is not feasible for most farming businesses and self-employment of both parents is hardly manageable when simultaneously raising a child.
 In the end, we were left with four financing options, we refer to as 'branches'. Three of which require initial investment costs in form of covering child and elderly care. 
 
-The four options include: ### 1,2,3,4 ### Establishing an own branch on the farm itself, particularly in form of setting up a farm shop, delivery service or holiday housing seemed to be popular among workshop participants. Identified risks for this option were the circumstance of divorce and the bankruptcy of the farm. 
-1. Getting an off farm job or negotiating with the in-laws to be officially employed at the farm was also mentioned frequently. Here, the risks are related to the farm and therefore identical with the ones for 'own branch on farm' (i.e. risk of divorce, bankruptcy).
-1. Another option we had not thought of before the workshop is to receive money from her husband which she can then invest into a pension plan. Here, the risks are equal to the default option as she would also rely on her husband for her pension (i.e. risk of divorce, bankruptcy, death of husband). 
+- Option 1 **own branch**: Establishing an own branch on the farm itself, particularly in form of setting up a farm shop, delivery service or holiday housing seemed to be popular among workshop participants. Identified risks for this option were the circumstance of divorce and the bankruptcy of the farm. 
+- Option 2 **off farm** and 3 **on farm**: Getting an off farm job or negotiating with the in-laws to be officially employed at the farm was also mentioned frequently. Here, the risks are related to the farm and therefore identical with the ones for 'own branch on farm' (i.e. risk of divorce, bankruptcy).
+- Option 4 **family money**: Another option we had not thought of before the workshop is to receive money from her husband which she can then invest into a pension plan. Here, the risks are equal to the default option as she would also rely on her husband for her pension (i.e. risk of divorce, bankruptcy, death of husband). 
 
-When it comes to pension schemes, we excluded own property and only focused on the investment into different insurances, called 'ways'. We explicitly followed the available information on German pension schemes as stated by the pension consultants.
-If choosing the options of "own branch" or receiving "family money" she would pay into the agricultural insurance by herself, and on top of that has the options to invest into private insurance or ETFS or a mix of both. The other two options of on and off farm job imply the mandatory state insurance, which she then could also boost with additional private insurance, ETF or a mix.
-We would like to highlight that the greatest obstacle to option 2 (i.e. pension plan), we were able to identify from the workshop was in fact the husband/in-laws themselves. Every option in the retirement plan itself contains the risk, that they oppose the decision to plan for her retirement. Mainly because they do not see the necessity for it as farmers generally prefer to invest into their farming business rather than into their wives pension schemes as we learned in the workshop. Additionally, the investment costs and having to find suitable child and elderly care is a further deterrent.This risk is illustrated by a black circle in the model and affects every option within the pension plan decision.
-The default option and associated risks remained the same in the updated version. The only change was that of designing to match the design of the new decision options 2 pathway (Fig.\@ref(fig:defaultchunk)).
+When it comes to pension schemes, we excluded own property and only focused on the investment into different insurances, which we call 'ways'. We explicitly followed the available information on German pension schemes as stated by the pension consultants.
+
+If choosing the options of "own branch" or receiving "family money" she would pay into the agricultural insurance by herself, and on top of that have the option to invest into private insurance or ETFS or a mix of both. The other two options of on and off farm job imply the mandatory state insurance, which she then could also boost with additional private insurance, ETF or a mix.
+
+We would like to highlight that the greatest obstacle to option 2 (i.e. pension plan), we were able to identify from the workshop was in fact the husband/in-laws themselves. Every option in the retirement plan itself contains the risk, that they oppose the decision to plan for her retirement. Mainly because they do not see the necessity for it as farmers generally prefer to invest into their farming business rather than into their wives pension schemes as we learned in the workshop. Additionally, the investment costs and having to find suitable child and elderly care is a further deterrent. We illustrated this risk is with a black circle in the conceptual model (Fig.\@ref(fig:defaultchunk)). The risk affects every option within the pension plan decision. The default option and associated risks remained the same in the updated version of the conceptual model. The only change was the addition of decision option 2 pathway (Fig.\@ref(fig:defaultchunk)).
 
 ```{r defaultchunk, echo=FALSE, out.width='100%', fig.align='center', fig.cap= "Decision option 1 aka default option after the workshop", fig.show='hold'}
 knitr::include_graphics('images/Model_after_workshop_default.png')
@@ -144,8 +145,7 @@ knitr::include_graphics('images/Model_after_workshop_default.png')
 
 ## Model Inputs
 
-The previous determination of our decision allowed us to fill our input table with values (Table \@ref(tab:inputtable)).
-After receiving a calibration training in the DA-Course, we considered ourselves calibrated experts and were able to estimate reasonable ranges based on a mixed approach of literature research and expert opinion.
+The next step in teh model development process was for us to fill the decision input table with values (Table \@ref(tab:inputtable)). After receiving a calibration training in the DA-Course, we considered ourselves calibrated experts and were able to estimate reasonable ranges based on a mixed approach of literature research and expert opinion.
 
 The time frame of our intervention amounts to 40 years (i.e. retirement at the age of 65). Based on this and according to the methodology of @do_decision_2020, we tried to assign reasonable uncertainties given this long time horizon.
 Based on her appointed profession as a gardener, we estimated her possible yearly income and amount of payment into the different insurance options. We repeated this process for an own farm branch, an on farm job and the receiving of family money. Hereby, we agreed that she would be able to invest at least 10 % of her income into private insurance schemes (i.e. private insurance, ETFs, or mix of both). After retiring, it is likely that she lives and receives her pension for another 17 years until the age of 82, which is the average female life expectancy in Germany [@statistalife].
@@ -272,523 +272,10 @@ mcSimulation_results <- decisionSupport::mcSimulation(
 ```  
 
 
-```{r , echo=FALSE}
-
-library(readr)
-library(decisionSupport)
-library (DiagrammeR)
-library(tidyverse)
-
-
-####Get data####
-
-input_table_gender <-read.csv2("./input_table_gender_final_trial_years_woRisk_Alina.csv", dec = ",")
-
-input_table_gender <- input_table_gender %>% 
-  mutate(Description = as.character(Description),
-         label = as.character(label),
-         variable = as.character(variable),
-         distribution = as.character(distribution),
-         lower = as.numeric(lower),
-         median = as.numeric(median),
-         upper = as.numeric(upper))
-
-
-####Decision function####
-
-# Branch 1 = Default vs. Own branch (way 1, 2, 3)
-# Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
-# Branch 3 = Default vs. On farm job = Payment of wife (Way 8, 9, 10, 11)
-# Branch 4 = Default vs. Family money (way 12, 13, 14) 
-
-
-decision_function <- function(x, varnames){
-  
-  #Agricultural insurance
-  Agri_insurance <- c(rep (0,working_years),vv(var_mean = Agri_insurance, 
-                                               var_CV = var_slight, 
-                                               n = pension_years))
-  
-  Agri_insurance_inv <- c(vv(var_mean =Agri_insurance_inv, 
-                             var_CV = var_slight, 
-                             n = working_years), rep(0,pension_years))
-  #Private insurance
-  Private_insurance_off_farm <- c(rep (0,working_years), 
-                                  vv(var_mean =Private_insurance_off_farm, 
-                                                            var_CV = var_slight, 
-                                                            n = pension_years))
-  
-  Private_insurance_on_farm <- c(rep (0,working_years), 
-                                 vv(var_mean =Private_insurance_on_farm, 
-                                                           var_CV = var_slight, 
-                                                           n = pension_years))
-  
-  Private_insurance_own_branch <- c(rep (0,working_years),
-                                    vv(var_mean =Private_insurance_own_branch, 
-                                                            var_CV = var_slight, 
-                                                             n = pension_years))
-  
-  Private_insurance_family_money <- c(rep (0,working_years),
-                                    vv(var_mean =Private_insurance_family_money, 
-                                                           var_CV = var_slight, 
-                                                           n = pension_years))
-  
-  Private_insurance_inv_off_farm <- c(vv(var_mean =Private_insurance_inv_off_farm, 
-                                       var_CV = var_slight, 
-                                       n = working_years), rep(0,pension_years))
-  
-  Private_insurance_inv_on_farm <- c( vv(var_mean =Private_insurance_inv_on_farm, 
-                                       var_CV = var_slight, 
-                                       n = working_years), rep(0,pension_years))
-  
-  Private_insurance_inv_own_branch <- c( vv(var_mean =Private_insurance_inv_own_branch, 
-                                      var_CV = var_slight, 
-                                      n = working_years), rep(0,pension_years))
-  
-  Private_insurance_inv_family_money <- c( vv(var_mean =Private_insurance_inv_family_money, 
-                                     var_CV = var_slight, 
-                                      n = working_years), rep(0,pension_years))
-  #State insurance
-  
-  State_insurance_off_farm <- c(rep (0,working_years), 
-                                vv(var_mean =State_insurance_off_farm, 
-                                                          var_CV = var_slight, 
-                                                          n = pension_years))
-  
-  State_insurance_on_farm <- c(rep (0,working_years),
-                               vv(var_mean =State_insurance_on_farm, 
-                                                         var_CV = var_slight, 
-                                                         n = pension_years))
-  
-  State_insurance_inv_off_farm <-c(vv(var_mean =State_insurance_inv_off_farm, 
-                                      var_CV = var_slight, 
-                                      n = working_years),  rep(0,pension_years))
-  
-  State_insurance_inv_on_farm <- c(vv(var_mean =State_insurance_inv_on_farm, 
-                                      var_CV = var_slight, 
-                                      n = working_years), rep(0,pension_years))
-  #ETF
-  
-  
-  ETF_off_farm <- c(rep (0,working_years),vv(var_mean =ETF_off_farm, 
-                                             var_CV = var_slight, 
-                                             n = pension_years))
-  
-  ETF_on_farm <- c(rep (0,working_years), vv(var_mean =ETF_on_farm, 
-                                             var_CV = var_slight, 
-                                             n = pension_years))
-  
-  ETF_own_branch <- c(rep(0,working_years),vv(var_mean = ETF_own_branch, 
-                                              var_CV = var_slight, 
-                                              n = pension_years))
-  
-  ETF_family_money <- c(rep (0,working_years), vv(var_mean = ETF_family_money, 
-                                                  var_CV = var_slight, 
-                                                  n = pension_years))
-  
-  
-  ETF_inv_off_farm <- c(vv(var_mean =ETF_inv_off_farm, 
-                           var_CV = var_slight, 
-                           n = working_years), rep(0,pension_years))
-  
-  ETF_inv_on_farm <- c(vv(var_mean =ETF_inv_on_farm, 
-                          var_CV = var_slight, 
-                          n = working_years), rep(0,pension_years))
-  
-  ETF_inv_own_branch <- c(vv(var_mean =ETF_inv_own_branch, 
-                             var_CV = var_slight, 
-                             n = working_years), rep(0,pension_years))
-  
-  ETF_inv_family_money <- c( vv(var_mean =ETF_inv_family_money, 
-                                var_CV = var_slight, 
-                                n = working_years), rep(0,pension_years))
-  
-  # Mix
-  
-  Mix_off_farm <- c(rep (0,working_years), vv(var_mean = Mix_off_farm, 
-                                              var_CV = var_slight, 
-                                              n = pension_years))
-  
-  
-  Mix_on_farm <- c(rep (0,working_years), vv(var_mean =Mix_on_farm, 
-                                             var_CV = var_slight, 
-                                             n = pension_years))
-  
-  Mix_own_branch <- c(rep (0,working_years), vv(var_mean =Mix_own_branch, 
-                                                var_CV = var_slight, 
-                                                n = pension_years))
-  
-  Mix_family_money <- c(rep (0,working_years), vv(var_mean =Mix_family_money, 
-                                                  var_CV = var_slight, 
-                                                  n = pension_years))
-  
-  Mix_inv_off_farm <- c(vv(var_mean =Mix_inv_off_farm, 
-                           var_CV = var_slight, 
-                           n = working_years), rep(0,pension_years))
-  
-  Mix_inv_on_farm <- c(vv(var_mean =Mix_inv_on_farm, 
-                          var_CV = var_slight, 
-                          n = working_years), rep(0,pension_years))
-  
-  Mix_inv_own_branch <- c(vv(var_mean =Mix_inv_own_branch, 
-                             var_CV = var_slight, 
-                             n = working_years), rep(0,pension_years))
-  
-  Mix_inv_family_money <- c(vv(var_mean =Mix_inv_family_money, 
-                               var_CV = var_slight, 
-                               n = working_years), rep(0,pension_years))
-
-
-  
-  # Default option: Our decision maker is a farm wife and does nothing special. 
-  # Apart from the mandatory agricultural insurance, she invests nothing 
-  #in her retirement.
-  # The agricultural Insurance is not payed by her, but from her family.
-  # Default always same for all 14 options; We use it to compare all other
-  # options with
-  
-  PartA <- Agri_insurance + Agri_insurance_inv
-  # this is payed by the husband /in-laws
-  PartB <- Agri_insurance_inv
-  profit_Default <- (PartA - PartB)
-  
-  NPV_no_branch <- discount(profit_Default,
-                            discount_rate = discount_rate, calculate_NPV = TRUE) 
-  
-  
-  # Branch 1 = Default vs. Own branch (way 1, 2, 3)
-  
-  # Way 1: She sets up her own business branch. 
-  # Here, she continues to be part of the agricultural insurance, 
-  # but also invests about 10 % of her income in private insurance. 
-  
-  
-  
-  PartA <- Private_insurance_own_branch + Agri_insurance
-  PartB <- Agri_insurance_inv + Private_insurance_inv_own_branch
-  profit_with_Own_business_branch_1 <- (PartA - PartB)
-  
-  NPV_profit_with_Own_business_branch_1 <- discount(profit_with_Own_business_branch_1,
-                           discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_Own_business_branch_1 <- NPV_profit_with_Own_business_branch_1 - NPV_no_branch
-  
-  
-  
-  
-  # Way 2: She sets up her own business branch. 
-  # Here, she continues to be part of the agricultural insurance, 
-  # but also invests about 10 % of her income in ETF. 
-  
-  PartA <- ETF_own_branch + Agri_insurance
-  PartB <- Agri_insurance_inv + ETF_inv_own_branch
-  
-  profit_with_Own_business_branch_2 <- (PartA - PartB)
-  
-  
-  NPV_profit_with_Own_business_branch_2 <- discount(profit_with_Own_business_branch_2,
-                           discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_Own_business_branch_2 <- NPV_profit_with_Own_business_branch_2 - NPV_no_branch
-  
-  # Way 3: She sets up her own business branch. 
-  # Here, she continues to be part of the agricultural insurance, 
-  # but also invests about 10 % of her income in a Investment-Mix.
-  
-  
-  PartA <- Mix_own_branch + Agri_insurance 
-  PartB <- Agri_insurance_inv + Mix_inv_own_branch
-  
-  
-  profit_with_Own_business_branch_3 <- (PartA - PartB)
-  
-  
-  NPV_profit_with_Own_business_branch_3 <- discount(profit_with_Own_business_branch_3,
-                            discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_Own_business_branch_3 <- NPV_profit_with_Own_business_branch_3 - NPV_no_branch
-  
-  
-  
-  # Branch 2 = Default vs. Off-Farm Job (Way 4, 5, 6, 7)
-  
-  # Way 4: She gets an off-farm job. 
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests no income in pension. 
-  
-  
-  
-  profit_with_off_farm_job_4 <- (State_insurance_off_farm - State_insurance_inv_off_farm)
-  
-  
-  NPV_profit_with_off_farm_job_4 <- discount(profit_with_off_farm_job_4,
-                            discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_off_farm_job_4 <- NPV_profit_with_off_farm_job_4 - NPV_no_branch
-  
-  # Way 5: She gets an off-farm job. 
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in private insurance. 
-  
-  
-  PartA <- Private_insurance_off_farm + State_insurance_off_farm 
-  PartB <- Private_insurance_inv_off_farm + State_insurance_inv_off_farm 
-  
-  profit_with_off_farm_job_5 <- (PartA - PartB)
-  
-  
-  NPV_profit_with_off_farm_job_5 <- discount(profit_with_off_farm_job_5,
-                            discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_off_farm_job_5 <- NPV_profit_with_off_farm_job_5 - NPV_no_branch
-  
-  
-  # Way 6: She gets an off-farm job. 
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in ETF. 
-  
-  PartA <- ETF_off_farm + State_insurance_off_farm 
-  PartB <- State_insurance_inv_off_farm + ETF_inv_off_farm
-  
-  profit_with_off_farm_job_6 <- (PartA - PartB)
-  
-  
-  NPV_profit_with_off_farm_job_6 <- discount(profit_with_off_farm_job_6,
-                           discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_off_farm_job_6 <- NPV_profit_with_off_farm_job_6 - NPV_no_branch
-  
-  # Way 7: She gets an off-farm job. 
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in a mixed investment. 
-  
-  PartA <- Mix_off_farm + State_insurance_off_farm
-  PartB <- Mix_inv_off_farm + State_insurance_inv_off_farm
-  
-  
-  profit_with_off_farm_job_7 <- (PartA - PartB)
-  
-  
-  NPV_profit_with_off_farm_job_7 <- discount(profit_with_off_farm_job_7,
-                            discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_off_farm_job_7 <- NPV_profit_with_off_farm_job_7 - NPV_no_branch
-  
-  
-  # Branch 3 = Default vs. On farm job = Payment of wife (Way 8)
-  
-  # Way 8: She gets an official working contract and gets officially paid
-  #on farm by her husband.  
-  # Here, she stops to be part of the agricultural insurance. 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests no additional money in her pension.
-  
-  
-  profit_with_on_farm_job_8 <- (State_insurance_on_farm - State_insurance_inv_on_farm)
-  
-  
-  NPV_profit_with_on_farm_job_8 <- discount(profit_with_on_farm_job_8,
-                           discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_on_farm_job_8 <- NPV_profit_with_on_farm_job_8 - NPV_no_branch
-  
-  
-  # Way 9: She gets an official working contract and gets officially paid
-  #on farm by her husband.  
-  # Here, she stops to be part of the agricultural insurance. 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in private insurance. 
-  
-  PartA <- Private_insurance_on_farm + State_insurance_on_farm 
-  PartB <- State_insurance_inv_on_farm + Private_insurance_inv_on_farm
-  
-  profit_with_on_farm_job_9 <- (PartA - PartB)
-  
-  
-  NPV_profit_with_on_farm_job_9 <- discount(profit_with_on_farm_job_9,
-                            discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_on_farm_job_9 <- NPV_profit_with_on_farm_job_9 - NPV_no_branch
-  
-  
-  # Way 10: She gets an official working contract and gets officially paid
-  #on farm by her husband.  
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in ETF. 
-  
-  PartA <- ETF_on_farm + State_insurance_on_farm 
-  PartB <- State_insurance_inv_on_farm + ETF_inv_on_farm
-  
-  profit_with_on_farm_job_10 <- (PartA - PartB)
-  
-  
-  NPV_profit_with_on_farm_job_10 <- discount(profit_with_on_farm_job_10,
-                           discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_on_farm_job_10 <- NPV_profit_with_on_farm_job_10 - NPV_no_branch
-  
-  
-  # Way 11: She gets an official working contract and gets officially paid
-  #on farm by her husband.  
-  # Here, she stops to be part of the agricultural insurance, 
-  # Instead, she is part of the mandatory state insurance.
-  # She invests a part of her income in a mixed investment. 
-  
-  PartA <- Mix_on_farm + State_insurance_on_farm
-  PartB <- State_insurance_inv_on_farm + Mix_inv_on_farm
-  
-  profit_with_on_farm_job_11 <- (PartA - PartB)
-  
-  
-  NPV_profit_with_on_farm_job_11 <- discount(profit_with_on_farm_job_11,
-                           discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_on_farm_job_11 <- NPV_profit_with_on_farm_job_11 - NPV_no_branch
-  
-  
-  # Branch 4 = Default vs. Family money (way 12, 13, 14) 
-  
-  # Way 12: She convinces her husband to invest in her pension.
-  # Here, she continues to be part of the agricultural insurance, 
-  # She uses the money from her husband to invest in a private insurance. 
-  
-  PartA <- Private_insurance_family_money + Agri_insurance 
-  PartB <- Agri_insurance_inv + Private_insurance_inv_family_money
-  
-  profit_with_family_money_12 <- (PartA - PartB)
-  
-  
-  NPV_profit_with_family_money_12 <- discount(profit_with_family_money_12,
-                           discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_family_money_12 <- NPV_profit_with_family_money_12 - NPV_no_branch
-  
-  # Way 13: She convinces her husband to invest in her pension.
-  # Here, she continues to be part of the agricultural insurance, 
-  # She uses the money from her husband to invest in ETF. 
-  
-  PartA <- ETF_family_money + Agri_insurance
-  PartB <-  ETF_inv_family_money + Agri_insurance_inv
-  
-  profit_with_family_money_13 <- (PartA - PartB)
-  
-  
-  NPV_profit_with_family_money_13 <- discount(profit_with_family_money_13,
-                           discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_family_money_13 <- NPV_profit_with_family_money_13  - NPV_no_branch
-  
-  # Way 14: She convinces her husband to invest in her pension.
-  # Here, she continues to be part of the agricultural insurance, 
-  # She uses the money from her husband to invest in a mixed investment. 
-  
-  PartA <- Mix_family_money + Agri_insurance
-  PartB <- Agri_insurance_inv + Mix_inv_family_money
-  
-  profit_with_family_money_14 <- (PartA - PartB)
-  
-  
-  NPV_profit_with_family_money_14 <- discount(profit_with_family_money_14,
-                            discount_rate = discount_rate, calculate_NPV = TRUE)
-  
-  NPV_decision_profit_with_family_money_14 <- NPV_profit_with_family_money_14 - NPV_no_branch
-  
-  
-  
-  ####Return list####
-  
-  return(list(NPV_no_branch =  NPV_no_branch,
-              
-              #way 1
-NPV_profit_with_Own_business_branch_1 =  NPV_profit_with_Own_business_branch_1, 
-NPV_decision_profit_with_Own_business_branch_1 = NPV_decision_profit_with_Own_business_branch_1,
-Cashflow_decision_gender_way_A =  profit_with_Own_business_branch_1,
-              
-              #way2
-NPV_profit_with_Own_business_branch_2 =  NPV_profit_with_Own_business_branch_2, 
-NPV_decision_profit_with_Own_business_branch_2 = NPV_decision_profit_with_Own_business_branch_2,
-Cashflow_decision_gender_way_B = profit_with_Own_business_branch_2,
-              
-              #way3
-NPV_profit_with_Own_business_branch_3 =  NPV_profit_with_Own_business_branch_3, 
-NPV_decision_profit_with_Own_business_branch_3 = NPV_decision_profit_with_Own_business_branch_3,
-Cashflow_decision_gender_way_C =  profit_with_Own_business_branch_3 ,
-              
-              #way4
-NPV_profit_with_off_farm_job_4 =  NPV_profit_with_off_farm_job_4, 
-NPV_decision_profit_with_off_farm_job_4 = NPV_decision_profit_with_off_farm_job_4,
-Cashflow_decision_gender_way_D =  profit_with_off_farm_job_4,
-              
-              #way5
-NPV_profit_with_off_farm_job_5 =  NPV_profit_with_off_farm_job_5, 
-NPV_decision_profit_with_off_farm_job_5 = NPV_decision_profit_with_off_farm_job_5,
-Cashflow_decision_gender_way_E =  profit_with_off_farm_job_5,
-              
-              #way6
-NPV_profit_with_off_farm_job_6 =  NPV_profit_with_off_farm_job_6, 
-NPV_decision_profit_with_off_farm_job_6 = NPV_decision_profit_with_off_farm_job_6,
-Cashflow_decision_gender_way_F =  profit_with_off_farm_job_6,
-              
-              #way7
-NPV_profit_with_off_farm_job_7 =  NPV_profit_with_off_farm_job_7, 
-NPV_decision_profit_with_off_farm_job_7 = NPV_decision_profit_with_off_farm_job_7,
-Cashflow_decision_gender_way_G =  profit_with_off_farm_job_7,
-              
-              #way8
-NPV_profit_with_on_farm_job_8 =  NPV_profit_with_on_farm_job_8, 
-NPV_decision_profit_with_on_farm_job_8 = NPV_decision_profit_with_on_farm_job_8,
-Cashflow_decision_gender_way_H =  profit_with_on_farm_job_8,
-              
-              #way9
-NPV_profit_with_on_farm_job_9 =  NPV_profit_with_on_farm_job_9, 
-NPV_decision_profit_with_on_farm_job_9 = NPV_decision_profit_with_on_farm_job_9,
-Cashflow_decision_gender_way_I =  profit_with_on_farm_job_9,
-              
-              #way10
-NPV_profit_with_on_farm_job_10 =  NPV_profit_with_on_farm_job_10, 
-NPV_decision_profit_with_on_farm_job_10 = NPV_decision_profit_with_on_farm_job_10,
-Cashflow_decision_gender_way_J =  profit_with_on_farm_job_10,
-              
-              #way11
-NPV_profit_with_on_farm_job_11 =  NPV_profit_with_on_farm_job_11, 
-NPV_decision_profit_with_on_farm_job_11 = NPV_decision_profit_with_on_farm_job_11,
-Cashflow_decision_gender_way_K =  profit_with_on_farm_job_11,
-              
-              #way12
-NPV_profit_with_family_money_12 =  NPV_profit_with_family_money_12, 
-NPV_decision_profit_with_family_money_12 = NPV_decision_profit_with_family_money_12,
-Cashflow_decision_gender_way_L =  profit_with_family_money_12,
-              
-              #way13
-NPV_profit_with_family_money_13 =  NPV_profit_with_family_money_13, 
-NPV_decision_profit_with_family_money_13 = NPV_decision_profit_with_family_money_13,
-Cashflow_decision_gender_way_M =  profit_with_family_money_13,
-              
-              #way14
-NPV_profit_with_family_money_14 =  NPV_profit_with_family_money_14, 
-NPV_decision_profit_with_family_money_14 = NPV_decision_profit_with_family_money_14,
-Cashflow_decision_gender_way_N =  profit_with_family_money_14
-              
-  )) 
-  
-}
-
-####Simulation####
-mcSimulation_results <- decisionSupport::mcSimulation(
-  estimate = decisionSupport::as.estimate(input_table_gender),
-  model_function = decision_function,
-  numberOfModelRuns = 1000,
-  functionSyntax = "plainNames"
-)
-
-
+```{r, include=TRUE}
+source("Gender_model.R", local = knitr::knit_global())
+# or sys.source("Gender_model.R", envir = knitr::knit_global())
 ```
-
 
 # Results and Discussion
 
@@ -935,12 +422,7 @@ Long-term payments directed to women retirement need high establishment and main
 
 An appropriate discount rate was hard to estimate. It would be desirable to provide a range of different discount rates, to incorporate the different willingness of a female farm wife to invest. Due to our very fortunate baseline option, a higher discount rate would make the proposed interventions rather unattractive. 
 
- 
- 
-
- 
 ## PLS
-
 
 ```{r pls1, fig.cap = "PLS way 1", echo=FALSE}
 pls_result_1 <- plsr.mcSimulation(object = mcSimulation_results,
@@ -948,8 +430,6 @@ pls_result_1 <- plsr.mcSimulation(object = mcSimulation_results,
 plot_pls(pls_result_1, threshold = 0.8)
 
 # cite this figure with \@ref(fig:pls1)
-
-
 ```
 
 
@@ -994,7 +474,7 @@ plot_evpi(evpi, decision_vars = "NPV_decision_profit_with_off_farm_job_7")
 ```
 To guide further research, we conducted the expected value of perfect information analysis (EVPI) in the next step (\@ref(fig:EVPI13),  \@ref(fig:EVPI7)). EVPI represents the amount of money the decision-maker should be willing to pay to reduce uncertainties of highly uncertain variables within the decision. The broader the ranges of upper and lower ranges for one variable are in the calculation, the higher the insecurity of the forecast. The result is a positive EVPI. Here, further research and getting more information about these variables can improve the forecasting model and decision recommendation. In short, the underlying idea is that more perfect information ensures making the right decision.
 
-Our results revealed that only three ways (13, 14, 7) showed a mentionable positive EVPI i.e high uncertainty. Way 2 and 11 had very low EVPIs due to very low NPVs, since these options are seen as less beneficial within the models’ boundaries. Ways 13 and 14 are part of branch 3, where the default option (i.e no pension plan) is compared to the option of receiving family money. In way 13 the decision-maker invests this money into an ETF and in way 14 into a mixed investion, i.e ETFs and private insurance. Here, the variable ETF_family_money shows a positive EVPI of 20,000 euro. This means that 20,000 Euro should be invested in more research measuring the value of this variable regarding the output. For ETF_inv_family_money more than 5,000 Euro should be paid. Way 13 has the highest variance of lower and upper values in our input table. Therefore, the estimated price to invest in further research is quite high. Way 14, the decision for a mixed investment under the same conditions as given for way 13 also shows high boundaries of input estimates. For the variable Mix_family_money 2,000 Euro are seen as a good prize for further investigation. Way 7 (i.e. having a job away from the farm and adding a mixed private investment to her state insurance) also shows a positive EVPI. For further investigation of the variable Mix_off_farm, around 105 Euro can be seen as a propriate amount of money used. Hence, further research on these variables would be beneficial. 
+Our results revealed that only three ways (13, 14, 7) showed a positive EVPI i.e high uncertainty. Way 2 and 11 had very low EVPIs due to very low NPVs, since these options are seen as less beneficial within the models’ boundaries. Ways 13 and 14 are part of branch 3, where the default option (i.e no pension plan) is compared to the option of receiving family money. In way 13 the decision-maker invests this money into an ETF and in way 14 into a mixed investment, i.e ETFs and private insurance. Here, the variable ETF_family_money shows a positive EVPI of 20,000 euro. This means that 20,000 Euro should be invested in more research measuring the value of this variable regarding the output. For ETF_inv_family_money more than 5,000 Euro should be paid. Way 13 has the highest variance of lower and upper values in our input table. Therefore, the estimated price to invest in further research is quite high. Way 14, the decision for a mixed investment under the same conditions as given for way 13 also shows high boundaries of input estimates. For the variable Mix_family_money 2,000 Euro are seen as a good prize for further investigation. Way 7 (i.e. having a job away from the farm and adding a mixed private investment to her state insurance) also shows a positive EVPI. For further investigation of the variable Mix_off_farm, around 105 Euro can be seen as an apropriate amount of money used. Hence, further research on these variables would be beneficial. 
 
 
 ## Risks
@@ -1013,7 +493,7 @@ Additionally, some risks would lower payment depending on when they occur, inste
 To complicate the matter even further, it was very difficult for us to assign realistic values for some of these risks e.g husband_risk. This does not occur over and over. If she has a job, she does not discuss with her husband each year if she should participate in her job.
 There are a few possibilities to deal with these issues. 
 Instead of using the risks of the decision function in the decision support package, new risk functions would have to be written for cases in which binomial distribution does not apply. However, this exceeds our capabilities and knowledge about specific insurance conditions. 
-Another solution could be the use of the weibull-distribution. A husband's risk to pass away for instance differs with age. Very young, unexperienced people and old people might have higher risks of having in a fatal accident. but this would have to be further researched. The Weibull-function is capable of portraying the risk as a curve instead of a binominal distribution and is therefore covering this issue better. It is rather unusual to assume family conflicts every year because of a job away from the farm and therefore a possibility to quit the job. This also was shown during the workshops. The power of the husband on his wife's decision would decrease in these cases after the decision was made and then probably stop existing if not directly after taking a job away from the farm. The weilbull-distribution would cover this decreasing risk better as well [@brandl2020influence] [@paul2019climate]. Further workshops could cover the need for more information regarding this input estimate. 
+Another solution could be the use of the weibull-distribution. A husband's risk to pass away for instance differs with age. Very young, inexperienced people and old people might have higher risks of having in a fatal accident. but this would have to be further researched. The Weibull-function is capable of portraying the risk as a curve instead of a binominal distribution and is therefore covering this issue better. It is rather unusual to assume family conflicts every year because of a job away from the farm and therefore a possibility to quit the job. This also was shown during the workshops. The power of the husband on his wife's decision would decrease in these cases after the decision was made and then probably stop existing if not directly after taking a job away from the farm. The weilbull-distribution would cover this decreasing risk better as well [@brandl2020influence] [@paul2019climate]. Further workshops could cover the need for more information regarding this input estimate. 
 
 The diversity of investments i.e portfolio diversification could be implemented as well using a weilbull function in order to calculate the risk of an investment failure. An utility function calculates how risk affine the decision-maker is [@fabozzi2001modern]. With an utility function, the emotional choice of a farm wife to invest, even though she might face discussions with her husband could be included in the simulation. It would cover her risk aversion regarding inner family problems. Since the utility functions slope of an indifference curve reflects the fact that investors require a higher expected return in order to accept higher risk
 , the process of deciding for or against an option with the knowledge of conflicts could be estimated.
@@ -1030,13 +510,17 @@ Two ways are missing in the actual model, where only 14 instead of 16 ways were 
 Observing the EVPI and showed that the there still was a high uncertainty for input estimates regarding using family money. Especially for the very beneficial options of a mixed investment and ETF, the values should be further observed. The mixed investment payed by a job away from the farm also is a variable, that would deserve to be further investigated. Asking a decision maker for input estimates or getting various suggestions during another workshop in the future would clear the range of these values.
 Uncertainties related to the communication culture in farming families, farmers’ values, farm profitability, and pension returns appear to have the great influence on whether a retirement plan emerges as the preferable option. Better access to information and self-confidence to ask for a fair share of farming income are prerequisites to implement pension plans for in-married woman in german farms. Narrowing these key knowledge gaps may offer additional clarity on farmers’ wives’ optimal course of action and provide guidance for agencies promoting insurance interventions in Germany. Our model produced a set of ranges for net present values and highlighted critical variables, providing more clarity on which would support decision-making under uncertainty. But our research approach proved not to be the most effective in providing forecasts of uncertain outcomes and can only be useful for informing family farms pursuing a pension plan within its boundaries of being an extremely simplified model. 
 
-##Recommendations (could this be better part of conclusion?)
+## Recommendations 
+
 Annual profits from farming mostly benefit the farm owner, which is rarely is the women. Farmers likely prefer reinvesting the available money in farming technology due to the relatively early incomes and short time-lag on returns. However, structural changes in agriculture and the high give-up rates impose high insecurity on the future of the farm and may raise the awareness for proper pension plans.
 
 # Conclusion
-We presented approaches for securing pension and retirement for the farm-wives in Germany. We applied the gathered knowledge from both experts and stakeholders in the design and conceptualization of models for the cost, benefits, risks, and uncertainties related to the decision of choosing the various options for her pension. The models implemented differ on the returns it could provide for the farmwives paying for 40 years before her retirement. The investment to spend depends on the source of income. The benefits then are compared first to the default option in which she can have an insurance pension without spending an amount because her husband or her family covers it for her. Additionally, when other options are compared to each other, the combination of having an off-farm job and investing with ETF or a mix with private insurance provides her a better cash flow during the 17 years after her retirement age.
+
+We presented approaches for securing pension and retirement for the farm-wives in Germany. We applied the gathered knowledge from both experts and stakeholders in the design and conceptualization of models for the cost, benefits, risks, and uncertainties related to the decision of choosing the various options for her pension. The models implemented differ on the returns it could provide for the farm wives paying for 40 years before her retirement. The investment to spend depends on the source of income. The benefits then are compared first to the default option in which she can have an insurance pension without spending an amount because her husband or her family covers it for her. Additionally, when other options are compared to each other, the combination of having an off-farm job and investing with ETF or a mix with private insurance provides her a better cash flow during the 17 years after her retirement age.
+
 However, the model needs more consideration on the risks and uncertainties involved. The decision-maker may be affected by the loss (also by accident on the farm) of her husband (if married). Her responsibility for the child and elderly care would also affect her decision to get the insurance plan. The current rate of divorce in Germany may also affect the turnover of the husband’s estate. This could be added to the rate of bankruptcy. All the risks considered would not affect whether she could have a pension at the end but would surely affect the amount she could get.
 In order to be more beneficial to a farm wife than the default option, a diversified portfolio and a customized pension plan is needed. Here, the boundaries of our model became apparent.
+
 Our study would see it as an outlook that there should be more interventions, opportunities and information for farm-wives to improve their potential benefits from the pension plan she pays either from agricultural, state, or private insurance. Policies that demand a monetary appreciation of their work may add value to her future retirement pension. The results and methods of this study open the door to future studies on the empowerment of farm-wives and for further analyses of their contribution to the development of agricultural interventions.
 
 # References
