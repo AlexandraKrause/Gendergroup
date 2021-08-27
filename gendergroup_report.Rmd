@@ -1,6 +1,7 @@
 ---
 title: "Decision analysis of pension options for women married into farms reveals gender disparities in pension entitlements in Germany"
 
+
 author: Alexandra Krause^[https://github.com/AlexandraKrause], Rex Parro^[https://github.com/parrorex23], 
   Julia Schild^[https://github.com/J-Schild], Alina Gombert^[https://github.com/Kompostieren] 
 
