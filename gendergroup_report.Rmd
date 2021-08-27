@@ -271,10 +271,11 @@ mcSimulation_results <- decisionSupport::mcSimulation(
    )
 ```  
 
+## The full model 
 
 ```{r, include=TRUE}
 source("Gender_model.R", local = knitr::knit_global())
-# or sys.source("Gender_model.R", envir = knitr::knit_global())
+# or sys.source("Gender_model", envir = knitr::knit_global())
 ```
 
 # Results and Discussion
