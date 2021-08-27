@@ -520,7 +520,7 @@ Cashflow_decision_gender_way_N =  profit_with_family_money_14
 mcSimulation_results <- decisionSupport::mcSimulation(
   estimate = decisionSupport::as.estimate(input_table_gender),
   model_function = decision_function,
-  numberOfModelRuns = 10000,
+  numberOfModelRuns = 10e4,
   functionSyntax = "plainNames"
 )
 
